@@ -1,11 +1,10 @@
 {
-    "name": "@bx/table",
+    "name": "@bx/field-switch",
     "version": "1.0.0",
     "private": true,
     "scripts": {},
     "license": "ISC",
     "dependencies": {
-        "@bx/field-text": "*",
         "react": "latest",
         "react-dom": "latest",
         "styled-components": "latest",
@@ -19,6 +18,7 @@
         "@types/react": "latest",
         "@types/styled-components": "latest"
     },
+    "types": "./src/core.tsx",
     "exports": {
         ".": "./src/core.tsx"
     }

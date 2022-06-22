@@ -1,4 +1,5 @@
 import { Table } from "./core";
+import { Switch } from "@bx/switch";
 
 export default {
     title: "Table/Core",
@@ -40,6 +41,6 @@ export const ExampleTable = ({
         seguro: "Seguro",
     },
     types = {
-        seguro: (data: any) => <input type="checkbox" />,
+        seguro: (data: any) => <Switch></Switch>,
     },
 }) => <Table data={data} header={header} types={types}></Table>;
