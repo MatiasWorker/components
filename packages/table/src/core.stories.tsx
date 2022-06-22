@@ -8,11 +8,38 @@ export default {
     },
 };
 
-const Template = (args) => <Table {...args} />;
-
-export const Example = Template.bind({});
-
-Example.args = {
-    primary: true,
-    label: "Button",
-};
+export const ExampleTable = ({
+    data = [
+        {
+            id: 1,
+            nombre: "Roberto",
+            apellido: "Gutiérrez",
+            comuna: "Rancagua",
+            seguro: true,
+        },
+        {
+            id: 2,
+            nombre: "Roberto",
+            apellido: "Gutiérrez",
+            comuna: "Rancagua",
+            seguro: true,
+        },
+        {
+            id: 3,
+            nombre: "Roberto",
+            apellido: "Gutiérrez",
+            comuna: "Rancagua",
+            seguro: true,
+        },
+    ],
+    header = {
+        id: "",
+        nombre: "Nombre",
+        apellido: "Apellido",
+        comuna: "Zona",
+        seguro: "Seguro",
+    },
+    types = {
+        seguro: (data: any) => <input type="checkbox" />,
+    },
+}) => <Table data={data} header={header} types={types}></Table>;
