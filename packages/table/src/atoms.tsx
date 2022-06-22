@@ -19,7 +19,7 @@ export const Tr = styled.tr``;
 
 export const Td = styled.td<{ transparent?: boolean }>`
     height: 48px;
-    padding: 0px 10px;
+    padding: 0px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     ${(props) =>
         !props.transparent &&

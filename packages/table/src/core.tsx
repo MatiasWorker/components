@@ -1,6 +1,6 @@
 import * as Atoms from "./atoms";
 
-export type TypeCallback = (props: any) => any;
+export type TypeCallback = (props: any, value: any) => any;
 
 export interface Data {
     [index: string]: any;
@@ -40,9 +40,9 @@ export function Table({
                             .map(([prop, value], key) => (
                                 <Atoms.Td transparent={prop === "id"}>
                                     {prop in types
-                                        ? types[prop](row)
+                                        ? types[prop](row, value)
                                         : types.default
-                                        ? types.default(row)
+                                        ? types.default(row, value)
                                         : value}
                                 </Atoms.Td>
                             ))}

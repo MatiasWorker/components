@@ -6,6 +6,7 @@
     "license": "ISC",
     "dependencies": {
         "@bx/field-text": "*",
+        "@bx/field-switch": "*",
         "react": "latest",
         "react-dom": "latest",
         "styled-components": "latest",

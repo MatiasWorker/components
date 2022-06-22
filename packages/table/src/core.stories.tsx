@@ -1,5 +1,6 @@
 import { Table } from "./core";
-import { Switch } from "@bx/switch";
+import { FieldSwitch } from "@bx/field-switch";
+import { FieldText } from "@bx/field-text";
 
 export default {
     title: "Table/Core",
@@ -41,6 +42,7 @@ export const ExampleTable = ({
         seguro: "Seguro",
     },
     types = {
-        seguro: (data: any) => <Switch></Switch>,
+        seguro: (data: any) => <FieldSwitch></FieldSwitch>,
+        default: (data: any, value) => <FieldText value={value}></FieldText>,
     },
 }) => <Table data={data} header={header} types={types}></Table>;
