@@ -5,20 +5,14 @@
     "scripts": {},
     "license": "ISC",
     "dependencies": {
-        "@bx/theme": "*",
         "react": "latest",
         "react-dom": "latest",
-        "styled-components": "latest",
-        "@types/react": "latest",
-        "@types/styled-components": "latest"
+        "@types/react": "latest"
     },
     "peerDependencies": {
-        "@bx/theme": "*",
         "react": "latest",
         "react-dom": "latest",
-        "styled-components": "latest",
-        "@types/react": "latest",
-        "@types/styled-components": "latest"
+        "@types/react": "latest"
     },
     "types": "./src/core.tsx",
     "exports": {

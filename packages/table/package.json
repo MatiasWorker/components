@@ -5,24 +5,18 @@
     "scripts": {},
     "license": "ISC",
     "dependencies": {
-        "@bx/theme": "*",
         "react": "latest",
         "react-dom": "latest",
-        "styled-components": "latest",
-        "@types/react": "latest",
-        "@types/styled-components": "latest"
+        "@types/react": "latest"
     },
     "peerDependencies": {
-        "@bx/theme": "*",
         "react": "latest",
         "react-dom": "latest",
-        "styled-components": "latest",
-        "@types/react": "latest",
-        "@types/styled-components": "latest"
+        "@types/react": "latest"
     },
     "devDependencies": {
-        "@bx/field-switch":"*",
-        "@bx/field-text":"*"
+        "@bx/field-switch": "*",
+        "@bx/field-text": "*"
     },
     "exports": {
         ".": "./src/core.tsx"

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import * as Atoms from "./atoms";
+import "./core.css";
 
 interface Props {
     value: string;
@@ -12,14 +12,15 @@ export function FieldText({ value, onChange }: Props) {
     const refInput = useRef<HTMLInputElement | null>();
 
     useEffect(() => {
-        if (edit) {
+        if (edit && refInput.current) {
             refInput.current.focus();
         }
     }, [edit]);
 
     return (
-        <Atoms.Text>
-            <Atoms.Input
+        <div className="field-text">
+            <input
+                className="field-text_input"
                 onDoubleClick={handlerToggleEdit}
                 disabled={!edit}
                 value={value}
@@ -27,10 +28,13 @@ export function FieldText({ value, onChange }: Props) {
                 onInput={(event) =>
                     onChange && onChange(event.currentTarget.value)
                 }
-            ></Atoms.Input>
+            />
             {!edit && (
-                <Atoms.Mask onDoubleClick={handlerToggleEdit}></Atoms.Mask>
+                <div
+                    className="field-text_mask"
+                    onDoubleClick={handlerToggleEdit}
+                ></div>
             )}
-        </Atoms.Text>
+        </div>
     );
 }

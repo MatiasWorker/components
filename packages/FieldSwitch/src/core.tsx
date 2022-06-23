@@ -1,12 +1,14 @@
 import { useState } from "react";
-import * as Atoms from "./atoms";
+import "./core.css";
 
 export function FieldSwitch() {
     const [checked, setChecked] = useState<boolean>();
     return (
-        <Atoms.Switch
-            checked={checked}
+        <div
+            className={`field-switch ${checked ? "field-switch--checked" : ""}`}
             onClick={() => setChecked(!checked)}
-        ></Atoms.Switch>
+        >
+            <div className="field-switch_circle"></div>
+        </div>
     );
 }

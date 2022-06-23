@@ -1,5 +1,4 @@
-import * as Atoms from "./atoms";
-import "core.css";
+import "./core.css";
 
 export type TypeCallback = (props: any, value: any) => any;
 
@@ -25,31 +24,39 @@ export function Table({
     types: Types;
 }) {
     return (
-        <Atoms.Table>
-            <Atoms.THead>
-                <Atoms.Tr>
+        <table className="table">
+            <thead className="table_thead">
+                <tr className="table_tr">
                     {Object.entries(header).map(([prop, value]) => (
-                        <Atoms.Td transparent>{value}</Atoms.Td>
+                        <td className="table_td table_td--transparent">
+                            {value}
+                        </td>
                     ))}
-                </Atoms.Tr>
-            </Atoms.THead>
-            <Atoms.TBody>
+                </tr>
+            </thead>
+            <tbody className="table_tbody">
                 {data.map((row) => (
-                    <Atoms.Tr>
+                    <tr className="table_tr">
                         {Object.entries(row)
                             .filter(([prop]) => prop in header)
                             .map(([prop, value], key) => (
-                                <Atoms.Td transparent={prop === "id"}>
+                                <td
+                                    className={`table_td ${
+                                        prop === "id"
+                                            ? "table_td--transparent"
+                                            : ""
+                                    }`}
+                                >
                                     {prop in types
                                         ? types[prop](row, value)
                                         : types.default
                                         ? types.default(row, value)
                                         : value}
-                                </Atoms.Td>
+                                </td>
                             ))}
-                    </Atoms.Tr>
+                    </tr>
                 ))}
-            </Atoms.TBody>
-        </Atoms.Table>
+            </tbody>
+        </table>
     );
 }

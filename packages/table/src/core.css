@@ -1,19 +1,31 @@
 .table {
+    --table-background: var(--bx-table-background, #f6f6f6);
+    --table-font-size: var(--bx-table-font-size, 12px);
+    --table-font-bold: var(--bx-table-font-bold, 600);
+    --table-row-min-height: var(--bx-table-row-min-height, 48px);
+    --table-row-border-bottom: var(
+        --bx-table-row-border-bottom,
+        1px solid rgba(0, 0, 0, 0.1)
+    );
+    --table-row-background: var(--bx-table-row-background, #fff);
+
     width: 100%;
-    background: var(--bx--table-background, #f6f6f6);
-    font-size: var(--bx--table-font-size, 12px);
+    background: var(--table-background);
+    font-size: var(--table-font-size);
     border-spacing: 0px;
 }
 
 .table_thead {
-    font-weight: var(--bx--table-font-bold, 600);
+    font-weight: var(--table-font-bold);
 }
 
 .table_td {
-    height: var(--bx--table-row-min-height, 48px);
+    height: var(--table-row-min-height);
     padding: 0px;
-    border-bottom: var(
-        --bx--table-row-border-bottom,
-        1px solid rgba(0, 0, 0, 0.1)
-    );
+    border-bottom: var(--table-row-border-bottom);
+    background: var(--table-row-background);
+}
+
+.table_td--transparent {
+    background: transparent;
 }
