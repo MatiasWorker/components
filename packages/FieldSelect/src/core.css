@@ -1,0 +1,38 @@
+.field-select {
+    --select-background: var(--bx-select-background, #eaf8ff);
+    --select-border-radius: var(--bx-lect-border-radius, 5px);
+    --select-space-x: var(--bx-lect-space-x, 8px);
+    --select-font-weight: var(--bx-lect-font-weight, 700);
+    --select-font-size: var(--bx-lect-font-size, 12px);
+    --select-icon-width: var(--bx-lect-icon-width, 15px);
+    --select-icon-color: var(--bx-select-icon-color, #ff7a00);
+
+    position: relative;
+    font-weight: var(--select-font-weight);
+    font-size: var(--select-font-size);
+}
+
+.field-select_select {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    appearance: none;
+    background: var(--select-background);
+    border-radius: var(--select-border-radius);
+    border: none;
+    font-family: unset;
+    font-weight: unset;
+    font-size: unset;
+
+    padding: calc(var(--select-space-x) / 2)
+        calc(var(--select-space-x) * 2 + var(--select-icon-width))
+        calc(var(--select-space-x) / 2) var(--select-space-x);
+}
+
+.field-select_icon {
+    position: absolute;
+    width: var(--select-icon-width);
+    top: 50%;
+    right: var(--select-space-x);
+    transform: translateY(-50%);
+}

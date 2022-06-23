@@ -1,0 +1,21 @@
+{
+    "name": "@bx/pagination",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {},
+    "license": "ISC",
+    "dependencies": {
+        "react": "latest",
+        "react-dom": "latest",
+        "@types/react": "latest"
+    },
+    "peerDependencies": {
+        "react": "latest",
+        "react-dom": "latest",
+        "@types/react": "latest"
+    },
+    "types": "./src/core.tsx",
+    "exports": {
+        ".": "./src/core.tsx"
+    }
+}
