@@ -1,13 +1,12 @@
 import { useState } from "react";
 import "./core.css";
 
-export function FieldSwitch({
-    checked,
-    onChange,
-}: {
-    checked: boolean;
+interface Props {
+    checked?: boolean;
     onChange?: (checked: boolean) => void;
-}) {
+}
+
+export function FieldSwitch({ checked, onChange }: Props) {
     return (
         <div
             className={`field-switch ${checked ? "field-switch--checked" : ""}`}

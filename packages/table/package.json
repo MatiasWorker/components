@@ -18,7 +18,8 @@
         "@bx/field-switch": "*",
         "@bx/field-text": "*"
     },
+    "types": "./src/index.tsx",
     "exports": {
-        ".": "./src/core.tsx"
+        ".": "./src/index.tsx"
     }
 }

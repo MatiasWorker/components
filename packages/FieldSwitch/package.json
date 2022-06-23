@@ -14,8 +14,8 @@
         "react-dom": "latest",
         "@types/react": "latest"
     },
-    "types": "./src/core.tsx",
+    "types": "./src/index.tsx",
     "exports": {
-        ".": "./src/core.tsx"
+        ".": "./src/index.tsx"
     }
 }
