@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./core.css";
+import "./index.css";
 
 interface Props {
     checked?: boolean;

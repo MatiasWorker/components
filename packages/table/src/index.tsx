@@ -1,4 +1,4 @@
-import "./core.css";
+import "./index.css";
 
 export type TypeCallback = (props: any, value: any) => any;
 

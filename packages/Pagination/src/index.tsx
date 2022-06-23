@@ -1,5 +1,5 @@
 import { FieldSelect } from "@bx/field-select";
-import "./core.css";
+import "./index.css";
 
 type PropsButtonType = ">>" | ">" | "<<" | "<";
 type OnChangeMove = (value: PropsButtonType) => void;

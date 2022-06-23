@@ -1,4 +1,4 @@
-import "./core.css";
+import "./index.css";
 
 interface Props {
     value: string;

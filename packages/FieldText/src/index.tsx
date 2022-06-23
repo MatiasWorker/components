@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import "./core.css";
+import "./index.css";
 
 interface Props {
     value: string;
