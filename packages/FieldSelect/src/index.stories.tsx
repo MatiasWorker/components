@@ -1,4 +1,4 @@
-import { FieldSelect } from "./core";
+import { FieldSelect } from "./";
 
 export default {
     title: "Table/FieldSelect",

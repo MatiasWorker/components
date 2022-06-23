@@ -1,4 +1,4 @@
-import { FieldText } from "./core";
+import { FieldText } from "./";
 
 export default {
     title: "Table/FieldText",

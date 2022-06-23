@@ -1,4 +1,4 @@
-import { FieldSwitch } from "./core";
+import { FieldSwitch } from "./";
 
 export default {
     title: "Table/FieldSwitch",

@@ -1,4 +1,4 @@
-import { Pagination } from "./core";
+import { Pagination } from "./";
 
 export default {
     title: "Table/Pagination",

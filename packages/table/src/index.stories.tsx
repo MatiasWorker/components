@@ -1,4 +1,4 @@
-import { Table } from "./core";
+import { Table } from "./";
 
 export default {
     title: "Table/Core",
