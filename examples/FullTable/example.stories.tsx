@@ -1,7 +1,9 @@
-import { Table } from "./core";
+import { FieldSwitch } from "@bx/field-switch";
+import { FieldText } from "@bx/field-text";
+import { Table } from "@bx/table";
 
 export default {
-    title: "Table/Core",
+    title: "Table/Example",
     component: Table,
     argTypes: {
         backgroundColor: { control: "color" },
@@ -41,7 +43,7 @@ export const ExampleTable = ({
     },
     types = {
         id: (data: any, value: string) => <strong>{value}</strong>,
-        seguro: (data: any, value) => <input type="checkbox" checked={value} />,
-        default: (data: any, value) => <span>{value}</span>,
+        seguro: (data: any) => <FieldSwitch></FieldSwitch>,
+        default: (data: any, value) => <FieldText value={value}></FieldText>,
     },
 }) => <Table data={data} header={header} types={types}></Table>;

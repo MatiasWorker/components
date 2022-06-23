@@ -1,12 +1,17 @@
 import { useState } from "react";
 import "./core.css";
 
-export function FieldSwitch() {
-    const [checked, setChecked] = useState<boolean>();
+export function FieldSwitch({
+    checked,
+    onChange,
+}: {
+    checked: boolean;
+    onChange?: (checked: boolean) => void;
+}) {
     return (
         <div
             className={`field-switch ${checked ? "field-switch--checked" : ""}`}
-            onClick={() => setChecked(!checked)}
+            onClick={() => onChange && onChange(!checked)}
         >
             <div className="field-switch_circle"></div>
         </div>

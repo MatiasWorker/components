@@ -1,0 +1,23 @@
+{
+    "name": "@bx/full-table",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {},
+    "license": "ISC",
+    "dependencies": {
+        "react": "latest",
+        "react-dom": "latest",
+        "@types/react": "latest",
+        "@bx/field-switch": "*",
+        "@bx/field-text": "*",
+        "@bx/table": "*"
+    },
+    "peerDependencies": {
+        "react": "latest",
+        "react-dom": "latest",
+        "@types/react": "latest"
+    },
+    "exports": {
+        ".": "./src/core.tsx"
+    }
+}
