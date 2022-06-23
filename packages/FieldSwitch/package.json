@@ -5,6 +5,7 @@
     "scripts": {},
     "license": "ISC",
     "dependencies": {
+        "@bx/theme": "*",
         "react": "latest",
         "react-dom": "latest",
         "styled-components": "latest",
@@ -12,6 +13,7 @@
         "@types/styled-components": "latest"
     },
     "peerDependencies": {
+        "@bx/theme": "*",
         "react": "latest",
         "react-dom": "latest",
         "styled-components": "latest",

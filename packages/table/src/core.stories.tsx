@@ -42,6 +42,7 @@ export const ExampleTable = ({
         seguro: "Seguro",
     },
     types = {
+        id: (data: any, value: string) => <strong>{value}</strong>,
         seguro: (data: any) => <FieldSwitch></FieldSwitch>,
         default: (data: any, value) => <FieldText value={value}></FieldText>,
     },

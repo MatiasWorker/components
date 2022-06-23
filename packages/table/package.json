@@ -5,8 +5,7 @@
     "scripts": {},
     "license": "ISC",
     "dependencies": {
-        "@bx/field-text": "*",
-        "@bx/field-switch": "*",
+        "@bx/theme": "*",
         "react": "latest",
         "react-dom": "latest",
         "styled-components": "latest",
@@ -14,11 +13,16 @@
         "@types/styled-components": "latest"
     },
     "peerDependencies": {
+        "@bx/theme": "*",
         "react": "latest",
         "react-dom": "latest",
         "styled-components": "latest",
         "@types/react": "latest",
         "@types/styled-components": "latest"
+    },
+    "devDependencies": {
+        "@bx/field-switch":"*",
+        "@bx/field-text":"*"
     },
     "exports": {
         ".": "./src/core.tsx"

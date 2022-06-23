@@ -1,4 +1,5 @@
 import * as Atoms from "./atoms";
+import "core.css";
 
 export type TypeCallback = (props: any, value: any) => any;
 

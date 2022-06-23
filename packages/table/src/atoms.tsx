@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 export const Table = styled.table`
     width: 100%;
-    background: #f6f6f6;
+    background: var(--bx--table-background, #f6f6f6);
     font-size: 12px;
     border-spacing: 0px;
 `;

@@ -1,0 +1,19 @@
+.table {
+    width: 100%;
+    background: var(--bx--table-background, #f6f6f6);
+    font-size: var(--bx--table-font-size, 12px);
+    border-spacing: 0px;
+}
+
+.table_thead {
+    font-weight: var(--bx--table-font-bold, 600);
+}
+
+.table_td {
+    height: var(--bx--table-row-min-height, 48px);
+    padding: 0px;
+    border-bottom: var(
+        --bx--table-row-border-bottom,
+        1px solid rgba(0, 0, 0, 0.1)
+    );
+}
