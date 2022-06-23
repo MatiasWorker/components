@@ -4,13 +4,14 @@
         #f0f0f0
     );
     --field-text-min-height: var(--table-row-min-height, 48px);
+    --field-text-padding: var(--table-field-padding, 10px);
 
     position: relative;
 }
 
 .field-text_input {
     width: 100%;
-    padding: 10px;
+    padding: var(--field-text-padding);
     min-height: var(--field-text-min-height);
     box-sizing: border-box;
     border: none;

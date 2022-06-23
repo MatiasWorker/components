@@ -1,6 +1,7 @@
 import { FieldSwitch } from "@bx/field-switch";
 import { FieldText } from "@bx/field-text";
 import { Table } from "@bx/table";
+import { Pagination } from "@bx/pagination";
 
 export default {
     title: "Table/Example",
@@ -46,4 +47,16 @@ export const ExampleTable = ({
         seguro: (data: any) => <FieldSwitch></FieldSwitch>,
         default: (data: any, value) => <FieldText value={value}></FieldText>,
     },
-}) => <Table data={data} header={header} types={types}></Table>;
+}) => (
+    <div>
+        <Table data={data} header={header} types={types}></Table>
+        <Pagination
+            disablePrev
+            pagesPerPage={[10, 20, 30]}
+            pagedLabel="Filas por página"
+            moveLabel="1-10 de 16"
+            onChangePagesPerPage={console.log}
+            onChangeMove={console.log}
+        />
+    </div>
+);
