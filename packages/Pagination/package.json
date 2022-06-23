@@ -5,11 +5,13 @@
     "scripts": {},
     "license": "ISC",
     "dependencies": {
+        "@bx/field-select": "*",
         "react": "latest",
         "react-dom": "latest",
         "@types/react": "latest"
     },
     "peerDependencies": {
+        "@bx/field-select": "*",
         "react": "latest",
         "react-dom": "latest",
         "@types/react": "latest"

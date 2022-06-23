@@ -1,36 +1,44 @@
-.field-switch {
-    --switch-space: var(--bx-switch-space, 2px);
-    --switch-width: var(--bx-switch-width, 40px);
-    --switch-height: var(--bx-switch-height, 19px);
-    --switch-transition: var(--bx-switch-transition, 0.25s ease all);
-    --switch-fill: var(--bx-switch-fill, #d6e0ff);
-    --switch-dot-fill: var(--bx-switch-fill, #fff);
-    --switch-fill-checked: var(--bx-switch-fill-checked, #ff7a00);
+.pagination {
+    --pagination-button-padding: var(--bx-pagination-button-padding, 7px);
+    --pagination-label-padding: var(--bx-pagination-label-padding, 4px);
+    --pagination-gap: var(--bx-pagination-gap, 24px);
+    --pagination-font-size: var(--bx-pagination-font-size, 12px);
+    --pagination-move-color: var(--bx-pagination-move-color, #ff7a00);
 
-    ---size: calc(var(--switch-height) - var(--switch-space) * 2);
-    ---translate-x: 0px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    line-height: 1em;
+    grid-gap: var(--pagination-gap);
+    font-size: var(--pagination-font-size);
+}
 
-    width: var(--switch-width);
-    height: var(--switch-height);
-    background: var(--switch-fill);
-    border-radius: 100px;
+.pagination_paged_label {
+    padding: var(--pagination-label-padding);
+}
+
+.pagination_paged {
     display: flex;
+}
+
+.pagination_btn {
     cursor: pointer;
-    transition: var(--switch-transition);
 }
 
-.field-switch--checked {
-    --switch-fill: var(--switch-fill-checked);
-    ---translate-x: calc(var(--switch-width) - var(--switch-height));
+.pagination_btn,
+.pagination_move_label {
+    background: transparent;
+    border: none;
+    padding: var(--pagination-button-padding);
+    margin: 0px;
 }
 
-.field-switch_circle {
-    width: var(---size);
-    height: var(---size);
-    display: block;
-    background: var(--switch-dot-fill);
-    border-radius: 100px;
-    margin: auto 2px;
-    transform: translateX(var(---translate-x));
-    transition: var(--switch-transition);
+.pagination_move {
+    display: flex;
+    align-items: center;
+}
+
+.pagination_btn--disabled {
+    opacity: 0.34;
 }

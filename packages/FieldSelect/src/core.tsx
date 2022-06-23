@@ -4,7 +4,7 @@ interface Props {
     value: string;
     placeholder?: string;
     onChange?: (value: string) => void;
-    options: { value: string; label: string }[];
+    options: { value: string; label?: string }[];
 }
 
 export function FieldSelect({
