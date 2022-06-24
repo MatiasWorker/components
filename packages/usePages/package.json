@@ -1,5 +1,5 @@
 {
-    "name": "@bx/full-table",
+    "name": "@bx/use-pages",
     "version": "1.0.0",
     "private": true,
     "scripts": {},
@@ -7,19 +7,15 @@
     "dependencies": {
         "react": "latest",
         "react-dom": "latest",
-        "@types/react": "latest",
-        "@bx/field-switch": "*",
-        "@bx/pagination": "*",
-        "@bx/field-text": "*",
-        "@bx/table": "*",
-        "@bx/use-pages": "*"
+        "@types/react": "latest"
     },
     "peerDependencies": {
         "react": "latest",
         "react-dom": "latest",
         "@types/react": "latest"
     },
+    "types": "./src/index.tsx",
     "exports": {
-        ".": "./src/core.tsx"
+        ".": "./src/index.tsx"
     }
 }
