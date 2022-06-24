@@ -23,11 +23,12 @@ export function Table({
     header: Header;
     types: Types;
 }) {
+    const headerEntries = Object.entries(header);
     return (
         <table className="table">
             <thead className="table_thead">
                 <tr className="table_tr">
-                    {Object.entries(header).map(([prop, value]) => (
+                    {headerEntries.map(([prop, value]) => (
                         <td className="table_td table_td--transparent">
                             {value}
                         </td>
@@ -37,8 +38,8 @@ export function Table({
             <tbody className="table_tbody">
                 {data.map((row) => (
                     <tr className="table_tr">
-                        {Object.entries(row)
-                            .filter(([prop]) => prop in header)
+                        {headerEntries
+                            .map(([prop]) => [prop, row[prop]])
                             .map(([prop, value], key) => (
                                 <td
                                     className={`table_td ${

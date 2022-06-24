@@ -11,13 +11,12 @@ interface PropsButton {
 }
 
 interface PropsPagination {
-    disablePrev?: boolean;
-    disableNext?: boolean;
     pagesPerPage: number[];
     pagedLabel: string;
     moveLabel: string;
     onChangePagesPerPage?: (value: string) => void;
     onChangeMove?: OnChangeMove;
+    isMoveDisabled?: (value: PropsButtonType) => boolean;
 }
 
 export function PaginationButton({
@@ -75,13 +74,12 @@ export function PaginationButton({
 }
 
 export function Pagination({
-    disableNext,
-    disablePrev,
     pagesPerPage,
     pagedLabel,
     moveLabel,
     onChangePagesPerPage,
     onChangeMove,
+    isMoveDisabled,
 }: PropsPagination) {
     return (
         <div className="pagination">
@@ -99,23 +97,23 @@ export function Pagination({
             <div className="pagination_move">
                 <PaginationButton
                     onChangeMove={onChangeMove}
-                    disabled={disablePrev}
+                    disabled={isMoveDisabled && isMoveDisabled("<<")}
                     type="<<"
                 ></PaginationButton>
                 <PaginationButton
                     onChangeMove={onChangeMove}
-                    disabled={disablePrev}
+                    disabled={isMoveDisabled && isMoveDisabled("<")}
                     type="<"
                 ></PaginationButton>
                 <strong className="pagination_move_label">{moveLabel}</strong>
                 <PaginationButton
                     onChangeMove={onChangeMove}
-                    disabled={disableNext}
+                    disabled={isMoveDisabled && isMoveDisabled(">")}
                     type=">"
                 ></PaginationButton>
                 <PaginationButton
                     onChangeMove={onChangeMove}
-                    disabled={disableNext}
+                    disabled={isMoveDisabled && isMoveDisabled(">>")}
                     type=">>"
                 ></PaginationButton>
             </div>

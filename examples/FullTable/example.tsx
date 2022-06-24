@@ -1,118 +1,67 @@
-import { useState } from "react";
-
-interface Page {
-    page: number;
-    pages: number;
-}
-
-/**
- * Calculate group limit in pagination
- * @param data - date that defines the length
- * @param pages - group limit
- */
-const getLimit = (data: any[], pages: number) =>
-    Math.round(data.length / pages);
-
-/**
- *
- * @param data - data to group according to Page
- * @param page - functions reactive to pagination
- */
-function usePages<Data extends any[]>(data: Data, page: Page) {
-    const [state, setState] = useState(page);
-
-    const { length } = data;
-    const start = state.page * state.pages;
-    const limit = getLimit(data, page.pages);
-
-    let end = start + state.pages;
-    end = end > length ? length : end;
-
-    const group = data.slice(start, end) as Data;
-
-    /**
-     * to allows jumping between pages, a positive value is equivalent to next and a negative value to previous
-     * @example
-     * >  == 1
-     * <  == -1
-     * >> == 2
-     * << == -2
-     */
-    function to(value = 1) {
-        let nextPage = state.page + value;
-        nextPage = nextPage > 0 ? nextPage : 0;
-
-        if (limit > nextPage) setState({ ...state, page: nextPage });
-    }
-
-    /**
-     * check if it is possible to dispatch a future action of to
-     */
-    function isDisabled(value = 1) {
-        let nextPage = state.page + value;
-        return !(nextPage > -1 ? nextPage < limit : false);
-    }
-
-    return {
-        to,
-        group,
-        isDisabled,
-        position: {
-            page: state.page,
-            start: start + 1,
-            end,
-            length,
-        },
-    };
-}
+import { useState, useEffect } from "react";
+import { usePages } from "@bx/use-pages";
+import { FieldSwitch } from "@bx/field-switch";
+import { FieldText } from "@bx/field-text";
+import { Table } from "@bx/table";
+import { Pagination } from "@bx/pagination";
 
 const PAGES_PER_PAGES = [10, 20, 30, 40];
 
-export function Example() {
-    const [pagesPerPage, setPagesPerPage] = useState(PAGES_PER_PAGES[0]);
-    const [currentPage, setCurrentPage] = useState(0);
+const MOVE = {
+    ">": 1,
+    ">>": 2,
+    "<": -1,
+    "<<": -2,
+};
 
-    const data = [
-        { id: 1 },
-        { id: 2 },
-        { id: 3 },
-        { id: 4 },
-        { id: 5 },
-        { id: 6 },
-        { id: 7 },
-        { id: 8 },
-    ];
+export function Example({
+    header = {
+        id: "",
+        fullName: "Nombre",
+        avatar: "Imagen",
+        email: "Email",
+        emailVerified: "Seguro",
+    },
+    types = {
+        id: (data: any, value: string) => <strong>{value}</strong>,
+        avatar: (data: any, value) => (
+            <img
+                src={value}
+                loading="lazy"
+                style={{ width: 30, height: 30, borderRadius: 100 }}
+            />
+        ),
+        email: (data: any, value) => <FieldText value={value}></FieldText>,
+        emailVerified: (data: any, value) => (
+            <FieldSwitch checked={value === "truew"}></FieldSwitch>
+        ),
+    },
+}) {
+    const [data, setData] = useState([]);
+    const [pagesPerPage, setPagesPerPage] = useState(10);
+
+    useEffect(() => {
+        fetch("https://example-data.draftbit.com/users?_limit=40")
+            .then((res) => res.json())
+            .then(setData);
+    }, []);
 
     const pages = usePages(data, {
         page: 0,
-        pages: 3,
+        pages: pagesPerPage,
     });
 
     return (
         <div>
-            {pages.group.map((data) => (
-                <h1>{data.id}</h1>
-            ))}
-            <strong>
-                {pages.position.start} - {pages.position.end} de{" "}
-                {pages.position.length}
-            </strong>
-            <button
-                disabled={pages.isDisabled(-1)}
-                onClick={() => {
-                    pages.to(-1);
-                }}
-            >
-                prev
-            </button>
-            <button
-                disabled={pages.isDisabled(1)}
-                onClick={() => {
-                    pages.to(1);
-                }}
-            >
-                next
-            </button>
+            <Table data={pages.group} header={header} types={types}></Table>
+            <Pagination
+                isMoveDisabled={(type) => pages.isDisabled(MOVE[type])}
+                pagesPerPage={[10, 20, 30]}
+                pagedLabel="Filas por página"
+                moveLabel={`${pages.position.start} - ${pages.position.end} de ${pages.position.length}`}
+                onChangePagesPerPage={(value) => setPagesPerPage(Number(value))}
+                onChangeMove={(type) => pages.to(MOVE[type])}
+            />
         </div>
     );
 }

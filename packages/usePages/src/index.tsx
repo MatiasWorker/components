@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface Page {
     page: number;
@@ -20,6 +20,10 @@ const getLimit = (data: any[], pages: number) =>
  */
 export function usePages<Data extends any[]>(data: Data, page: Page) {
     const [state, setState] = useState(page);
+
+    useEffect(() => {
+        if (page.pages != state.pages) setState(page);
+    }, [page.pages]);
 
     const { length } = data;
     const start = state.page * state.pages;
