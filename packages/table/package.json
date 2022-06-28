@@ -3,9 +3,6 @@
     "version": "1.0.0",
     "private": true,
     "type": "module",
-    "scripts": {
-        "exports": "exports src/index.tsx --exports --types  --jsx react"
-    },
     "license": "ISC",
     "dependencies": {
         "react": "latest",
@@ -23,16 +20,8 @@
         "@bx/tsconfig": "*"
     },
     "module": "./dist/index.js",
+    "types": "./src/index.tsx",
     "exports": {
-        "./index": "./dist/index.js",
-        ".": "./dist/index.js"
-    },
-    "types": "types/index.d.ts",
-    "typesVersions": {
-        "*": {
-            "index": [
-                "./types/index.d.ts"
-            ]
-        }
+        ".": "./src/index.tsx"
     }
 }
