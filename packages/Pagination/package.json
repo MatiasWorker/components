@@ -17,6 +17,9 @@
         "react-dom": "latest",
         "@types/react": "latest"
     },
+    "devDependencies": {
+        "@bx/tsconfig": "*"
+    },
     "types": "./src/index.tsx",
     "exports": {
         ".": "./src/index.tsx"

@@ -1,5 +1,5 @@
 // src/index.tsx
-import { jsx as _jsx } from "react/jsx-runtime";
+import { createElement as _jsx } from "react";
 
 // ../../node_modules/atomico/src/utils.js
 function isEqualArray(before, after) {

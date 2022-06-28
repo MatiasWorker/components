@@ -4,7 +4,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "exports": "exports src/index.tsx --exports --watch --jsx react"
+        "exports": "exports src/index.tsx --exports --types  --jsx react"
     },
     "license": "ISC",
     "dependencies": {
@@ -19,10 +19,20 @@
     },
     "devDependencies": {
         "@bx/field-switch": "*",
-        "@bx/field-text": "*"
+        "@bx/field-text": "*",
+        "@bx/tsconfig": "*"
     },
-    "types": "./src/index.tsx",
+    "module": "./dist/index.js",
     "exports": {
-        ".": "./src/index.tsx"
+        "./index": "./dist/index.js",
+        ".": "./dist/index.js"
+    },
+    "types": "types/index.d.ts",
+    "typesVersions": {
+        "*": {
+            "index": [
+                "./types/index.d.ts"
+            ]
+        }
     }
 }

@@ -1,0 +1,15 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "tsconfig",
+    "include": ["./src/**/*"],
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "allowJs": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "lib": ["ESNext", "DOM", "DOM.Iterable"]
+    }
+}
