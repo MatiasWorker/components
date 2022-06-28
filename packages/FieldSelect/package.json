@@ -2,6 +2,7 @@
     "name": "@bx/field-select",
     "version": "1.0.0",
     "private": true,
+    "type": "module",
     "scripts": {},
     "license": "ISC",
     "dependencies": {

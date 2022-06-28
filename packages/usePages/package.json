@@ -2,7 +2,7 @@
     "name": "@bx/use-pages",
     "version": "1.0.0",
     "private": true,
-    "scripts": {},
+    "type": "module",
     "license": "ISC",
     "dependencies": {
         "react": "latest",

@@ -2,7 +2,10 @@
     "name": "@bx/table",
     "version": "1.0.0",
     "private": true,
-    "scripts": {},
+    "type": "module",
+    "scripts": {
+        "exports": "exports src/index.tsx --exports --watch --jsx react"
+    },
     "license": "ISC",
     "dependencies": {
         "react": "latest",
