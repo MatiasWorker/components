@@ -30,3 +30,8 @@
 .table_td--transparent {
     background: transparent;
 }
+
+.table_cell {
+    padding: var(--table-field-padding);
+    box-sizing: border-box;
+}

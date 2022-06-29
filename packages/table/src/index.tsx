@@ -14,6 +14,10 @@ export interface Types {
     [index: string]: TypeCallback;
 }
 
+export function TableCell({ children }: { children: any }) {
+    return <div className="table_cell">{children}</div>;
+}
+
 export function Table({
     data,
     header,
@@ -24,12 +28,22 @@ export function Table({
     types: Types;
 }) {
     const headerEntries = Object.entries(header);
+    const getCell = (row, prop: string, value: any) => {
+        const cell =
+            prop in types
+                ? types[prop](row, value)
+                : types.default
+                ? types.default(row, value)
+                : value;
+        return typeof cell === "object" ? cell : <TableCell>{cell}</TableCell>;
+    };
+
     return (
         <table className="table">
             <thead className="table_thead">
                 <tr className="table_tr">
                     {headerEntries.map(([prop, value]) => (
-                        <td className="table_td table_td--transparent">
+                        <td className="table_td table_td--transparent table_cell">
                             {value}
                         </td>
                     ))}
@@ -48,11 +62,7 @@ export function Table({
                                             : ""
                                     }`}
                                 >
-                                    {prop in types
-                                        ? types[prop](row, value)
-                                        : types.default
-                                        ? types.default(row, value)
-                                        : value}
+                                    {getCell(row, prop, value)}
                                 </td>
                             ))}
                     </tr>
