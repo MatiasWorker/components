@@ -1,23 +1,24 @@
 {
     "name": "@bxreact/table",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "publishConfig": {
         "access": "public"
     },
     "type": "module",
     "license": "ISC",
     "scripts": {
-        "exports": "exports src/index.tsx --exports --jsx react"
+        "exports": "exports src/index.tsx --exports --jsx react --css-inline --types"
     },
     "dependencies": {
+        "@types/react": "latest",
         "react": "latest",
         "react-dom": "latest",
-        "@types/react": "latest"
+        "ustyler": "^1.0.1"
     },
     "peerDependencies": {
+        "@types/react": "latest",
         "react": "latest",
-        "react-dom": "latest",
-        "@types/react": "latest"
+        "react-dom": "latest"
     },
     "devDependencies": {
         "@bxreact/field-switch": "*",
@@ -25,9 +26,16 @@
         "@bxreact/tsconfig": "*"
     },
     "module": "./dist/index.js",
-    "types": "./src/index.tsx",
+    "types": "types/index.d.ts",
     "exports": {
         ".": "./dist/index.js",
         "./index": "./dist/index.js"
+    },
+    "typesVersions": {
+        "*": {
+            "index": [
+                "./types/index.d.ts"
+            ]
+        }
     }
 }
