@@ -6,7 +6,8 @@
     },
     "type": "module",
     "scripts": {
-        "exports": "exports src/index.tsx --exports --jsx react --css-inline --types"
+        "exports": "exports src/index.tsx --exports --jsx react --css-inline --types",
+        "prepublishOnly": "npm run exports"
     },
     "license": "ISC",
     "dependencies": {
