@@ -7,7 +7,7 @@
     "type": "module",
     "license": "ISC",
     "scripts": {
-        "exports": "exports src/index.tsx --exports"
+        "exports": "exports src/index.tsx --exports --jsx react"
     },
     "dependencies": {
         "react": "latest",
@@ -27,6 +27,7 @@
     "module": "./dist/index.js",
     "types": "./src/index.tsx",
     "exports": {
-        ".": "./src/index.tsx"
+        ".": "./dist/index.js",
+        "./index": "./dist/index.js"
     }
 }

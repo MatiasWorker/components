@@ -17,7 +17,7 @@
         "singleQuote": false
     },
     "devDependencies": {
-        "@atomico/exports": "^0.34.1",
+        "@atomico/exports": "^0.35.0",
         "@babel/core": "^7.18.5",
         "@storybook/addon-actions": "^6.5.9",
         "@storybook/addon-essentials": "^6.5.9",
