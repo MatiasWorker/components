@@ -1,7 +1,7 @@
 {
     "name": "@bxreact/components",
     "version": "1.0.0",
-    "private":true,
+    "private": true,
     "scripts": {
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook"
@@ -17,6 +17,7 @@
         "singleQuote": false
     },
     "devDependencies": {
+        "@atomico/exports": "^0.34.1",
         "@babel/core": "^7.18.5",
         "@storybook/addon-actions": "^6.5.9",
         "@storybook/addon-essentials": "^6.5.9",

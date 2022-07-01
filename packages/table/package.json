@@ -6,6 +6,9 @@
     },
     "type": "module",
     "license": "ISC",
+    "scripts": {
+        "prepublishOnly":"exports src/*"
+    },
     "dependencies": {
         "react": "latest",
         "react-dom": "latest",
