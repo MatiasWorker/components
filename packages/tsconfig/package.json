@@ -1,6 +1,9 @@
 {
     "name": "@bxreact/tsconfig",
     "version": "1.0.0",
+    "publishConfig": {
+        "access": "public"
+    },
     "files": [
         "base.json"
     ]
