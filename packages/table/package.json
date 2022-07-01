@@ -25,17 +25,5 @@
         "@bxreact/field-text": "*",
         "@bxreact/tsconfig": "*"
     },
-    "module": "./dist/index.js",
-    "types": "types/index.d.ts",
-    "exports": {
-        ".": "./dist/index.js",
-        "./index": "./dist/index.js"
-    },
-    "typesVersions": {
-        "*": {
-            "index": [
-                "./types/index.d.ts"
-            ]
-        }
-    }
+    "module": "./dist/index.js"
 }
