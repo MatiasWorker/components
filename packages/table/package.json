@@ -1,7 +1,9 @@
 {
-    "name": "@bx/table",
+    "name": "@bxreact/table",
     "version": "1.0.0",
-    "private": true,
+    "publishConfig": {
+        "access": "public"
+    },
     "type": "module",
     "license": "ISC",
     "dependencies": {
@@ -15,9 +17,9 @@
         "@types/react": "latest"
     },
     "devDependencies": {
-        "@bx/field-switch": "*",
-        "@bx/field-text": "*",
-        "@bx/tsconfig": "*"
+        "@bxreact/field-switch": "*",
+        "@bxreact/field-text": "*",
+        "@bxreact/tsconfig": "*"
     },
     "module": "./dist/index.js",
     "types": "./src/index.tsx",

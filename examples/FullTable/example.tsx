@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { usePages } from "@bx/use-pages";
-import { FieldSwitch } from "@bx/field-switch";
-import { FieldText } from "@bx/field-text";
-import { Table } from "@bx/table";
-import { Pagination } from "@bx/pagination";
+import { usePages } from "@bxreact/use-pages";
+import { FieldSwitch } from "@bxreact/field-switch";
+import { FieldText } from "@bxreact/field-text";
+import { Table } from "@bxreact/table";
+import { Pagination } from "@bxreact/pagination";
 
 const PAGES_PER_PAGES = [10, 20, 30, 40];
 

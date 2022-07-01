@@ -1,24 +1,26 @@
 {
-    "name": "@bx/pagination",
+    "name": "@bxreact/pagination",
     "version": "1.0.0",
-    "private": true,
+    "publishConfig": {
+        "access": "public"
+    },
     "type": "module",
     "scripts": {},
     "license": "ISC",
     "dependencies": {
-        "@bx/field-select": "*",
+        "@bxreact/field-select": "*",
         "react": "latest",
         "react-dom": "latest",
         "@types/react": "latest"
     },
     "peerDependencies": {
-        "@bx/field-select": "*",
+        "@bxreact/field-select": "*",
         "react": "latest",
         "react-dom": "latest",
         "@types/react": "latest"
     },
     "devDependencies": {
-        "@bx/tsconfig": "*"
+        "@bxreact/tsconfig": "*"
     },
     "types": "./src/index.tsx",
     "exports": {

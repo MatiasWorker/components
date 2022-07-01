@@ -1,4 +1,4 @@
-import { FieldSelect } from "@bx/field-select";
+import { FieldSelect } from "@bxreact/field-select";
 import "./index.css";
 
 type PropsButtonType = ">>" | ">" | "<<" | "<";

@@ -1,7 +1,9 @@
 {
-    "name": "@bx/field-select",
+    "name": "@bxreact/field-select",
     "version": "1.0.0",
-    "private": true,
+    "publishConfig": {
+        "access": "public"
+    },
     "type": "module",
     "scripts": {},
     "license": "ISC",
@@ -16,7 +18,7 @@
         "@types/react": "latest"
     },
     "devDependencies": {
-        "@bx/tsconfig": "*"
+        "@bxreact/tsconfig": "*"
     },
     "types": "./src/index.tsx",
     "exports": {

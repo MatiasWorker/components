@@ -1,18 +1,17 @@
 {
-    "name": "@bx/full-table",
     "version": "1.0.0",
-    "private": true,
+    "private":true,
     "scripts": {},
     "license": "ISC",
     "dependencies": {
         "react": "latest",
         "react-dom": "latest",
         "@types/react": "latest",
-        "@bx/field-switch": "*",
-        "@bx/pagination": "*",
-        "@bx/field-text": "*",
-        "@bx/table": "*",
-        "@bx/use-pages": "*"
+        "@bxreact/field-switch": "*",
+        "@bxreact/pagination": "*",
+        "@bxreact/field-text": "*",
+        "@bxreact/table": "*",
+        "@bxreact/use-pages": "*"
     },
     "peerDependencies": {
         "react": "latest",

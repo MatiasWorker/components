@@ -1,7 +1,6 @@
 {
-    "name": "@bx/components",
+    "name": "@bxreact/components",
     "version": "1.0.0",
-    "private": true,
     "scripts": {
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook"

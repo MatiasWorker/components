@@ -1,7 +1,9 @@
 {
-    "name": "@bx/use-pages",
+    "name": "@bxreact/use-pages",
     "version": "1.0.0",
-    "private": true,
+    "publishConfig": {
+        "access": "public"
+    },
     "type": "module",
     "license": "ISC",
     "dependencies": {
@@ -15,7 +17,7 @@
         "@types/react": "latest"
     },
     "devDependencies": {
-        "@bx/tsconfig": "*"
+        "@bxreact/tsconfig": "*"
     },
     "types": "./src/index.tsx",
     "exports": {
