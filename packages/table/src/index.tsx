@@ -1,3 +1,5 @@
+import { CSSProperties } from "react";
+
 import "./index.css";
 
 export type TypeCallback = (props: any, value: any) => any;
@@ -18,15 +20,20 @@ export function TableCell({ children }: { children: any }) {
     return <div className="table_cell">{children}</div>;
 }
 
-export function Table({
-    data,
-    header,
-    types,
-}: {
+export interface TableProps {
     data: Data;
     header: Header;
     types: Types;
-}) {
+    rowStyle?: (data: any) =>
+        | (CSSProperties & {
+              "--table-row-min-height"?: string;
+              "--table-row-border-bottom"?: string;
+              "--table-row-background"?: string;
+          })
+        | null;
+}
+
+export function Table({ data, header, types, rowStyle }: TableProps) {
     const headerEntries = Object.entries(header);
     const getCell = (row, prop: string, value: any) => {
         const cell =
@@ -51,7 +58,10 @@ export function Table({
             </thead>
             <tbody className="table_tbody">
                 {data.map((row) => (
-                    <tr className="table_tr">
+                    <tr
+                        className="table_tr"
+                        style={rowStyle ? rowStyle(row) : null}
+                    >
                         {headerEntries
                             .map(([prop]) => [prop, row[prop]])
                             .map(([prop, value], key) => (

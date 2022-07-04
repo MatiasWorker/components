@@ -5,14 +5,27 @@ import { useState, useRef, useEffect } from "react";
 // src/index.css
 import css from "ustyler";
 var src_default = css`.field-text {
+    --field-text-background: transparent;
     --field-text-active-background: var(
         --bx-field-text-active-background,
-        #f0f0f0
+        var(--field-text-background)
     );
     --field-text-min-height: var(--table-row-min-height, 48px);
     --field-text-padding: var(--table-field-padding, 10px);
 
     position: relative;
+}
+
+.field-text--success {
+    --field-text-background: var(--bx-field-text-success, transparent);
+}
+
+.field-text--warning {
+    --field-text-background: var(--bx-field-text-warning, transparent);
+}
+
+.field-text--danger {
+    --field-text-background: var(--bx-field-text-warning, #fe9292);
 }
 
 .field-text_input {
@@ -21,7 +34,7 @@ var src_default = css`.field-text {
     min-height: var(--field-text-min-height);
     box-sizing: border-box;
     border: none;
-    background: transparent;
+    background: var(--field-text-background);
 }
 
 .field-text_input:not([disabled]) {
@@ -39,7 +52,7 @@ var src_default = css`.field-text {
 `;
 
 // src/index.tsx
-function FieldText({ value, onChange }) {
+function FieldText({ value, onChange, status = "" }) {
   const [edit, setEdit] = useState();
   const handlerToggleEdit = () => setEdit(!edit);
   const refInput = useRef();
@@ -49,7 +62,7 @@ function FieldText({ value, onChange }) {
     }
   }, [edit]);
   return /* @__PURE__ */ _jsx("div", {
-    className: "field-text"
+    className: `field-text field-text--${status}`
   }, /* @__PURE__ */ _jsx("input", {
     className: "field-text_input",
     onDoubleClick: handlerToggleEdit,

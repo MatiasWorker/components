@@ -48,11 +48,7 @@ function TableCell({ children }) {
     className: "table_cell"
   }, children);
 }
-function Table({
-  data,
-  header,
-  types
-}) {
+function Table({ data, header, types, rowStyle }) {
   const headerEntries = Object.entries(header);
   const getCell = (row, prop, value) => {
     const cell = prop in types ? types[prop](row, value) : types.default ? types.default(row, value) : value;
@@ -69,7 +65,8 @@ function Table({
   }, value)))), /* @__PURE__ */ _jsx("tbody", {
     className: "table_tbody"
   }, data.map((row) => /* @__PURE__ */ _jsx("tr", {
-    className: "table_tr"
+    className: "table_tr",
+    style: rowStyle ? rowStyle(row) : null
   }, headerEntries.map(([prop]) => [prop, row[prop]]).map(([prop, value], key) => /* @__PURE__ */ _jsx("td", {
     className: `table_td ${prop === "id" ? "table_td--transparent" : ""}`
   }, getCell(row, prop, value)))))));

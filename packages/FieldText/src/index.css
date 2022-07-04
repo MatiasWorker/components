@@ -1,12 +1,25 @@
 .field-text {
+    --field-text-background: transparent;
     --field-text-active-background: var(
         --bx-field-text-active-background,
-        #f0f0f0
+        var(--field-text-background)
     );
     --field-text-min-height: var(--table-row-min-height, 48px);
     --field-text-padding: var(--table-field-padding, 10px);
 
     position: relative;
+}
+
+.field-text--success {
+    --field-text-background: var(--bx-field-text-success, transparent);
+}
+
+.field-text--warning {
+    --field-text-background: var(--bx-field-text-warning, transparent);
+}
+
+.field-text--danger {
+    --field-text-background: var(--bx-field-text-warning, #fe9292);
 }
 
 .field-text_input {
@@ -15,7 +28,7 @@
     min-height: var(--field-text-min-height);
     box-sizing: border-box;
     border: none;
-    background: transparent;
+    background: var(--field-text-background);
 }
 
 .field-text_input:not([disabled]) {

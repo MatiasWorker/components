@@ -4,9 +4,10 @@ import "./index.css";
 interface Props {
     value: string;
     onChange?: (value: string) => void;
+    status?: "success" | "warning" | "danger" | "";
 }
 
-export function FieldText({ value, onChange }: Props) {
+export function FieldText({ value, onChange, status = "" }: Props) {
     const [edit, setEdit] = useState<boolean>();
     const handlerToggleEdit = () => setEdit(!edit);
     const refInput = useRef<HTMLInputElement | null>();
@@ -18,7 +19,7 @@ export function FieldText({ value, onChange }: Props) {
     }, [edit]);
 
     return (
-        <div className="field-text">
+        <div className={`field-text field-text--${status}`}>
             <input
                 className="field-text_input"
                 onDoubleClick={handlerToggleEdit}

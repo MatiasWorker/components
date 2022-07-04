@@ -44,4 +44,13 @@ export const ExampleTable = ({
         seguro: (data: any, value) => <input type="checkbox" checked={value} />,
         default: (data: any, value) => <span>{value}</span>,
     },
-}) => <Table data={data} header={header} types={types}></Table>;
+}) => (
+    <Table
+        data={data}
+        header={header}
+        types={types}
+        rowStyle={({ id }) =>
+            id == 3 ? { "--table-row-background": "#FFE9E9" } : null
+        }
+    ></Table>
+);

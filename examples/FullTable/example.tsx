@@ -31,9 +31,14 @@ export function Example({
                 style={{ width: 30, height: 30, borderRadius: 100 }}
             />
         ),
-        email: (data: any, value) => <FieldText value={value}></FieldText>,
+        email: (data: any, value) => (
+            <FieldText
+                value={value}
+                status={data.id === 1 ? "danger" : ""}
+            ></FieldText>
+        ),
         emailVerified: (data: any, value) => (
-            <FieldSwitch checked={value === "truew"}></FieldSwitch>
+            <FieldSwitch checked={value === "true"}></FieldSwitch>
         ),
     },
 }) {
@@ -53,7 +58,18 @@ export function Example({
 
     return (
         <div>
-            <Table data={pages.group} header={header} types={types}></Table>
+            <Table
+                rowStyle={(data) =>
+                    data.id === 1
+                        ? {
+                              "--table-row-background": "#FFE9E9",
+                          }
+                        : null
+                }
+                data={pages.group}
+                header={header}
+                types={types}
+            ></Table>
             <Pagination
                 isMoveDisabled={(type) => pages.isDisabled(MOVE[type])}
                 pagesPerPage={[10, 20, 30]}
