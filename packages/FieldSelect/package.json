@@ -5,7 +5,9 @@
         "access": "public"
     },
     "type": "module",
-    "scripts": {},
+    "scripts": {
+        "exports": "exports src/index.tsx --exports --jsx react --css-inline --types --publish"
+    },
     "license": "ISC",
     "dependencies": {
         "react": "latest",
