@@ -23,5 +23,18 @@
     },
     "devDependencies": {
         "@bxreact/tsconfig": "*"
+    },
+    "module": "./dist/index.js",
+    "exports": {
+        "./index": "./dist/index.js",
+        ".": "./dist/index.js"
+    },
+    "types": "types/index.d.ts",
+    "typesVersions": {
+        "*": {
+            "index": [
+                "./types/index.d.ts"
+            ]
+        }
     }
 }
