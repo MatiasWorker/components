@@ -1,12 +1,12 @@
 {
     "version": "1.0.0",
-    "private":true,
+    "private": true,
     "scripts": {},
     "license": "ISC",
     "dependencies": {
-        "react": "latest",
-        "react-dom": "latest",
-        "@types/react": "latest",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "@types/react": "^17.0.38",
         "@bxreact/field-switch": "*",
         "@bxreact/pagination": "*",
         "@bxreact/field-text": "*",
@@ -14,9 +14,9 @@
         "@bxreact/use-pages": "*"
     },
     "peerDependencies": {
-        "react": "latest",
-        "react-dom": "latest",
-        "@types/react": "latest"
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "@types/react": "^17.0.38"
     },
     "exports": {
         ".": "./src/core.tsx"

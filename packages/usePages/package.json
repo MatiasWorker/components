@@ -11,14 +11,14 @@
     },
     "license": "ISC",
     "dependencies": {
-        "react": "latest",
-        "react-dom": "latest",
-        "@types/react": "latest"
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "@types/react": "^17.0.38"
     },
     "peerDependencies": {
-        "react": "latest",
-        "react-dom": "latest",
-        "@types/react": "latest"
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "@types/react": "^17.0.38"
     },
     "devDependencies": {
         "@bxreact/tsconfig": "*"
