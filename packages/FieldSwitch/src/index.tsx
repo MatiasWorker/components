@@ -6,7 +6,7 @@ interface Props {
     onChange?: (checked: boolean) => void;
 }
 
-export function FieldSwitch({ checked, onChange }: Props) {
+export function FieldSwitch({ checked, onChange }: Props): JSX.Element {
     return (
         <div
             className={`field-switch ${checked ? "field-switch--checked" : ""}`}
