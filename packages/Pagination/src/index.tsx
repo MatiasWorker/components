@@ -23,7 +23,7 @@ export function PaginationButton({
     type,
     disabled,
     onChangeMove,
-}: PropsButton) {
+}: PropsButton): JSX.Element {
     return (
         <button
             disabled={disabled}

@@ -48,7 +48,12 @@ function TableCell({ children }) {
     className: "table_cell"
   }, children);
 }
-function Table({ data, header, types, rowStyle }) {
+function Table({
+  data,
+  header,
+  types,
+  rowStyle
+}) {
   const headerEntries = Object.entries(header);
   const getCell = (row, prop, value) => {
     const cell = prop in types ? types[prop](row, value) : types.default ? types.default(row, value) : value;

@@ -23,4 +23,4 @@ export interface TableProps {
         "--table-row-background"?: string;
     }) | null;
 }
-export declare function Table({ data, header, types, rowStyle }: TableProps): JSX.Element;
+export declare function Table({ data, header, types, rowStyle, }: TableProps): JSX.Element;
