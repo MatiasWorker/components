@@ -55,7 +55,11 @@ export function Table({
             <thead className="table_thead">
                 <tr className="table_tr">
                     {headerEntries.map(([prop, value]) => (
-                        <td className="table_td table_td--transparent table_cell">
+                        <td
+                            className={`table_td table_td--transparent ${
+                                typeof value === "object" ? "" : "table_cell"
+                            }`}
+                        >
                             {value}
                         </td>
                     ))}
