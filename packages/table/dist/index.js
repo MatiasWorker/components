@@ -66,7 +66,7 @@ function Table({
   }, /* @__PURE__ */ _jsx("tr", {
     className: "table_tr"
   }, headerEntries.map(([prop, value]) => /* @__PURE__ */ _jsx("td", {
-    className: "table_td table_td--transparent table_cell"
+    className: `table_td table_td--transparent ${typeof value === "object" ? "" : "table_cell"}`
   }, value)))), /* @__PURE__ */ _jsx("tbody", {
     className: "table_tbody"
   }, data.map((row) => /* @__PURE__ */ _jsx("tr", {
