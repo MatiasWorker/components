@@ -52,7 +52,11 @@ var src_default = css`.field-text {
 `;
 
 // src/index.tsx
-function FieldText({ value, onChange, status = "" }) {
+function FieldText({
+  value,
+  onChange,
+  status = ""
+}) {
   const [edit, setEdit] = useState();
   const handlerToggleEdit = () => setEdit(!edit);
   const refInput = useRef();

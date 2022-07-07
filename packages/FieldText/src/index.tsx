@@ -7,7 +7,11 @@ interface Props {
     status?: "success" | "warning" | "danger" | "";
 }
 
-export function FieldText({ value, onChange, status = "" }: Props) {
+export function FieldText({
+    value,
+    onChange,
+    status = "",
+}: Props): JSX.Element {
     const [edit, setEdit] = useState<boolean>();
     const handlerToggleEdit = () => setEdit(!edit);
     const refInput = useRef<HTMLInputElement | null>();

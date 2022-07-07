@@ -33,7 +33,12 @@ export interface TableProps {
         | null;
 }
 
-export function Table({ data, header, types, rowStyle }: TableProps) {
+export function Table({
+    data,
+    header,
+    types,
+    rowStyle,
+}: TableProps): JSX.Element {
     const headerEntries = Object.entries(header);
     const getCell = (row, prop: string, value: any) => {
         const cell =

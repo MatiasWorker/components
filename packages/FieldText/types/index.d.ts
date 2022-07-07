@@ -5,5 +5,5 @@ interface Props {
     onChange?: (value: string) => void;
     status?: "success" | "warning" | "danger" | "";
 }
-export declare function FieldText({ value, onChange, status }: Props): JSX.Element;
+export declare function FieldText({ value, onChange, status, }: Props): JSX.Element;
 export {};
