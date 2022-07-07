@@ -12,7 +12,7 @@ export function FieldSelect({
     placeholder,
     options = [],
     onChange,
-}: Props) {
+}: Props): JSX.Element {
     return (
         <div className="field-select">
             <svg
