@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import "./index.css";
 declare type PropsButtonType = ">>" | ">" | "<<" | "<";
 declare type OnChangeMove = (value: PropsButtonType) => void;
