@@ -1,6 +1,6 @@
 import { CSSProperties } from "react";
 import "./index.css";
-export declare type TypeCallback = (props: any, value: any) => any;
+export declare type TypeCallback = (props: any, value: any, prop: string) => any;
 export interface Data {
     [index: string]: any;
 }
@@ -10,7 +10,8 @@ export interface Header {
 export interface Types {
     [index: string]: TypeCallback;
 }
-export declare function TableCell({ children, color, background, align, }: {
+export declare function TableCell({ children, color, background, align, className, }: {
+    className?: string;
     children: any;
     color?: string;
     background?: string;

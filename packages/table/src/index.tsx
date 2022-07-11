@@ -2,7 +2,7 @@ import { CSSProperties } from "react";
 
 import "./index.css";
 
-export type TypeCallback = (props: any, value: any) => any;
+export type TypeCallback = (props: any, value: any, prop: string) => any;
 
 export interface Data {
     [index: string]: any;
@@ -21,7 +21,9 @@ export function TableCell({
     color,
     background,
     align,
+    className,
 }: {
+    className?: string;
     children: any;
     color?: string;
     background?: string;
@@ -34,7 +36,7 @@ export function TableCell({
     if (background) style["--table-cell-background"] = background;
 
     return (
-        <div className={`table_cell`} style={style}>
+        <div className={`table_cell ${className || ""}`} style={style}>
             <div className="table_cell_content">{children}</div>
         </div>
     );
@@ -63,9 +65,9 @@ export function Table({
     const getCell = (row, prop: string, value: any) => {
         const cell =
             prop in types
-                ? types[prop](row, value)
+                ? types[prop](row, value, prop)
                 : types.default
-                ? types.default(row, value)
+                ? types.default(row, value, prop)
                 : value;
         return typeof cell === "object" ? cell : <TableCell>{cell}</TableCell>;
     };
@@ -74,8 +76,11 @@ export function Table({
         <table className="table">
             <thead className="table_thead">
                 <tr className="table_tr">
-                    {headerEntries.map(([prop, value]) => (
-                        <td className={`table_td table_td--transparent`}>
+                    {headerEntries.map(([prop, value], key) => (
+                        <td
+                            className={`table_td table_td--transparent`}
+                            key={key + ""}
+                        >
                             {typeof value === "object" ? (
                                 value
                             ) : (
@@ -86,8 +91,9 @@ export function Table({
                 </tr>
             </thead>
             <tbody className="table_tbody">
-                {data.map((row) => (
+                {data.map((row: any, key: number) => (
                     <tr
+                        key={key + ""}
                         className="table_tr"
                         style={rowStyle ? rowStyle(row) : null}
                     >
@@ -95,6 +101,7 @@ export function Table({
                             .map(([prop]) => [prop, row[prop]])
                             .map(([prop, value], key) => (
                                 <td
+                                    key={key + ""}
                                     className={`table_td ${
                                         prop === "id"
                                             ? "table_td--transparent"

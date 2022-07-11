@@ -56,7 +56,8 @@ function TableCell({
   children,
   color,
   background,
-  align
+  align,
+  className
 }) {
   const style = {};
   if (align)
@@ -66,7 +67,7 @@ function TableCell({
   if (background)
     style["--table-cell-background"] = background;
   return /* @__PURE__ */ _jsx("div", {
-    className: `table_cell`,
+    className: `table_cell ${className || ""}`,
     style
   }, /* @__PURE__ */ _jsx("div", {
     className: "table_cell_content"
@@ -80,7 +81,7 @@ function Table({
 }) {
   const headerEntries = Object.entries(header);
   const getCell = (row, prop, value) => {
-    const cell = prop in types ? types[prop](row, value) : types.default ? types.default(row, value) : value;
+    const cell = prop in types ? types[prop](row, value, prop) : types.default ? types.default(row, value, prop) : value;
     return typeof cell === "object" ? cell : /* @__PURE__ */ _jsx(TableCell, null, cell);
   };
   return /* @__PURE__ */ _jsx("table", {
@@ -89,14 +90,17 @@ function Table({
     className: "table_thead"
   }, /* @__PURE__ */ _jsx("tr", {
     className: "table_tr"
-  }, headerEntries.map(([prop, value]) => /* @__PURE__ */ _jsx("td", {
-    className: `table_td table_td--transparent`
+  }, headerEntries.map(([prop, value], key) => /* @__PURE__ */ _jsx("td", {
+    className: `table_td table_td--transparent`,
+    key: key + ""
   }, typeof value === "object" ? value : /* @__PURE__ */ _jsx(TableCell, null, value))))), /* @__PURE__ */ _jsx("tbody", {
     className: "table_tbody"
-  }, data.map((row) => /* @__PURE__ */ _jsx("tr", {
+  }, data.map((row, key) => /* @__PURE__ */ _jsx("tr", {
+    key: key + "",
     className: "table_tr",
     style: rowStyle ? rowStyle(row) : null
-  }, headerEntries.map(([prop]) => [prop, row[prop]]).map(([prop, value], key) => /* @__PURE__ */ _jsx("td", {
+  }, headerEntries.map(([prop]) => [prop, row[prop]]).map(([prop, value], key2) => /* @__PURE__ */ _jsx("td", {
+    key: key2 + "",
     className: `table_td ${prop === "id" ? "table_td--transparent" : ""}`
   }, getCell(row, prop, value)))))));
 }
