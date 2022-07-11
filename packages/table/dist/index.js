@@ -37,16 +37,40 @@ var src_default = css`.table {
 }
 
 .table_cell {
-    padding: var(--table-field-padding);
+    min-height: 100%;
+    color: var(--table-cell-color, unset);
+    background: var(--table-cell-background, unset);
+}
+
+.table_cell_content {
+    display: flex;
+    min-height: var(--table-row-min-height);
+    align-items: var(--table-cell-align, center);
     box-sizing: border-box;
+    padding: var(--table-field-padding);
 }
 `;
 
 // src/index.tsx
-function TableCell({ children }) {
+function TableCell({
+  children,
+  color,
+  background,
+  align
+}) {
+  const style = {};
+  if (align)
+    style["--table-cell-align"] = align;
+  if (color)
+    style["--table-cell-color"] = color;
+  if (background)
+    style["--table-cell-background"] = background;
   return /* @__PURE__ */ _jsx("div", {
-    className: "table_cell"
-  }, children);
+    className: `table_cell`,
+    style
+  }, /* @__PURE__ */ _jsx("div", {
+    className: "table_cell_content"
+  }, children));
 }
 function Table({
   data,
@@ -66,8 +90,8 @@ function Table({
   }, /* @__PURE__ */ _jsx("tr", {
     className: "table_tr"
   }, headerEntries.map(([prop, value]) => /* @__PURE__ */ _jsx("td", {
-    className: `table_td table_td--transparent ${typeof value === "object" ? "" : "table_cell"}`
-  }, value)))), /* @__PURE__ */ _jsx("tbody", {
+    className: `table_td table_td--transparent`
+  }, typeof value === "object" ? value : /* @__PURE__ */ _jsx(TableCell, null, value))))), /* @__PURE__ */ _jsx("tbody", {
     className: "table_tbody"
   }, data.map((row) => /* @__PURE__ */ _jsx("tr", {
     className: "table_tr",

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { usePages } from "@bxreact/use-pages";
 import { FieldSwitch } from "@bxreact/field-switch";
 import { FieldText } from "@bxreact/field-text";
-import { Table } from "@bxreact/table";
+import { Table, TableCell } from "@bxreact/table";
 import { Pagination } from "@bxreact/pagination";
 
 const PAGES_PER_PAGES = [10, 20, 30, 40];
@@ -17,6 +17,11 @@ const MOVE = {
 export function Example({
     header = {
         id: "",
+        status: (
+            <TableCell background="tomato" color="white">
+                Status
+            </TableCell>
+        ),
         fullName: "Nombre",
         avatar: "Imagen",
         email: "Email",
@@ -24,6 +29,7 @@ export function Example({
     },
     types = {
         id: (data: any, value: string) => <strong>{value}</strong>,
+        status: () => <TableCell>Status</TableCell>,
         avatar: (data: any, value) => (
             <img
                 src={value}

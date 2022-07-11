@@ -32,6 +32,15 @@
 }
 
 .table_cell {
-    padding: var(--table-field-padding);
+    min-height: 100%;
+    color: var(--table-cell-color, unset);
+    background: var(--table-cell-background, unset);
+}
+
+.table_cell_content {
+    display: flex;
+    min-height: var(--table-row-min-height);
+    align-items: var(--table-cell-align, center);
     box-sizing: border-box;
+    padding: var(--table-field-padding);
 }

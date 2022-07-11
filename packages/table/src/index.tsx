@@ -16,8 +16,28 @@ export interface Types {
     [index: string]: TypeCallback;
 }
 
-export function TableCell({ children }: { children: any }) {
-    return <div className="table_cell">{children}</div>;
+export function TableCell({
+    children,
+    color,
+    background,
+    align,
+}: {
+    children: any;
+    color?: string;
+    background?: string;
+    align?: "center" | "start" | "end";
+}) {
+    const style = {};
+
+    if (align) style["--table-cell-align"] = align;
+    if (color) style["--table-cell-color"] = color;
+    if (background) style["--table-cell-background"] = background;
+
+    return (
+        <div className={`table_cell`} style={style}>
+            <div className="table_cell_content">{children}</div>
+        </div>
+    );
 }
 
 export interface TableProps {
@@ -55,12 +75,12 @@ export function Table({
             <thead className="table_thead">
                 <tr className="table_tr">
                     {headerEntries.map(([prop, value]) => (
-                        <td
-                            className={`table_td table_td--transparent ${
-                                typeof value === "object" ? "" : "table_cell"
-                            }`}
-                        >
-                            {value}
+                        <td className={`table_td table_td--transparent`}>
+                            {typeof value === "object" ? (
+                                value
+                            ) : (
+                                <TableCell>{value}</TableCell>
+                            )}
                         </td>
                     ))}
                 </tr>
