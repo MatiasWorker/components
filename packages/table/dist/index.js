@@ -48,6 +48,7 @@ var src_default = css`.table {
     align-items: var(--table-cell-align, center);
     box-sizing: border-box;
     padding: var(--table-field-padding);
+    white-space: nowrap;
 }
 `;
 
