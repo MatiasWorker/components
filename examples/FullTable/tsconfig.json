@@ -1,0 +1,4 @@
+{
+    "extends": "@bxreact/tsconfig/base.json",
+    "include": ["*"]
+}

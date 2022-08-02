@@ -9,6 +9,7 @@
         "@types/react": "^17.0.38",
         "@bxreact/field-switch": "*",
         "@bxreact/pagination": "*",
+        "@bxreact/tsconfig": "*",
         "@bxreact/field-text": "*",
         "@bxreact/table": "*",
         "@bxreact/use-pages": "*"
