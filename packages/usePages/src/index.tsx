@@ -10,8 +10,7 @@ interface Page {
  * @param data - date that defines the length
  * @param pages - group limit
  */
-const getLimit = (data: any[], pages: number) =>
-    Math.round(data.length / pages);
+const getLimit = (data: any[], pages: number) => Math.ceil(data.length / pages);
 
 /**
  *

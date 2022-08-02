@@ -1,6 +1,6 @@
 // src/index.tsx
 import { useState, useEffect } from "react";
-var getLimit = (data, pages) => Math.round(data.length / pages);
+var getLimit = (data, pages) => Math.ceil(data.length / pages);
 function usePages(data, page) {
   const [state, setState] = useState(page);
   useEffect(() => {
