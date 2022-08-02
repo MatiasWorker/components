@@ -7,8 +7,7 @@
     "type": "module",
     "license": "ISC",
     "scripts": {
-        "exports": "exports src/index.tsx --exports --jsx react --css-inline --types --publish",
-        "prepublishOnly": "npm run exports"
+        "exports": "exports src/index.tsx --exports --jsx react --css-inline --types --publish"
     },
     "dependencies": {
         "@types/react": "^17.0.38",
