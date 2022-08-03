@@ -28,6 +28,10 @@ var src_default = css`.field-text {
     --field-text-background: var(--bx-field-text-warning, #fe9292);
 }
 
+.field-text--edited {
+    --field-text-background: var(--bx-field-text-edited, transparent);
+}
+
 .field-text_input {
     width: 100%;
     padding: var(--field-text-padding);
@@ -54,10 +58,15 @@ var src_default = css`.field-text {
 // src/index.tsx
 function FieldText({
   value,
+  type,
+  className,
   onChange,
+  minLength,
+  maxLength,
   status = ""
 }) {
   const [edit, setEdit] = useState();
+  const [edited, setEdited] = useState();
   const handlerToggleEdit = () => setEdit(!edit);
   const refInput = useRef();
   useEffect(() => {
@@ -66,14 +75,20 @@ function FieldText({
     }
   }, [edit]);
   return /* @__PURE__ */ _jsx("div", {
-    className: `field-text field-text--${status}`
+    className: `field-text field-text--${edited ? "edited" : status} ${edit ? "field-text--opened" : ""} ${className ? className : ""}`
   }, /* @__PURE__ */ _jsx("input", {
     className: "field-text_input",
     onDoubleClick: handlerToggleEdit,
     disabled: !edit,
     value,
     ref: refInput,
-    onInput: (event) => onChange && onChange(event.currentTarget.value)
+    type,
+    minLength,
+    maxLength,
+    onInput: (event) => {
+      setEdited(true);
+      onChange && onChange(event.currentTarget.value);
+    }
   }), !edit && /* @__PURE__ */ _jsx("div", {
     className: "field-text_mask",
     onDoubleClick: handlerToggleEdit
