@@ -26,8 +26,10 @@ export function FieldText({
 }: Props): JSX.Element {
     const [edit, setEdit] = useState<boolean>();
     const [edited, setEdited] = useState<boolean>();
+    const [minWidth, setMinWidth] = useState<number>();
     const handlerToggleEdit = () => setEdit(!edit);
     const refInput = useRef<HTMLInputElement | null>();
+    const refReflect = useRef<HTMLDivElement | null>();
 
     useEffect(() => {
         if (edit && refInput.current) {
@@ -35,12 +37,23 @@ export function FieldText({
         }
     }, [edit]);
 
+    useEffect(() => {
+        setMinWidth(refReflect.current.clientWidth);
+    }, [value]);
+
     return (
         <div
             className={`field-text field-text--${edited ? "edited" : status} ${
                 edit ? "field-text--opened" : ""
             } ${className ? className : ""}`}
+            style={minWidth ? ({ "--min-width": `${minWidth}px` } as any) : {}}
         >
+            <div
+                ref={refReflect}
+                className="field-text_input field-text_reflect"
+            >
+                {value}
+            </div>
             <input
                 className="field-text_input"
                 onDoubleClick={handlerToggleEdit}

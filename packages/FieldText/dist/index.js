@@ -12,7 +12,7 @@ var src_default = css`.field-text {
     );
     --field-text-min-height: var(--table-row-min-height, 48px);
     --field-text-padding: var(--table-field-padding, 10px);
-
+    min-width: calc(var(--min-width, 0) + 20px);
     position: relative;
 }
 
@@ -45,6 +45,12 @@ var src_default = css`.field-text {
     background: var(--field-text-active-background);
 }
 
+.field-text_reflect {
+    width: auto;
+    position: absolute;
+    opacity: 0;
+}
+
 .field-text_mask {
     position: absolute;
     top: 0;
@@ -63,20 +69,31 @@ function FieldText({
   onChange,
   minLength,
   maxLength,
+  min,
+  max,
   status = ""
 }) {
   const [edit, setEdit] = useState();
   const [edited, setEdited] = useState();
+  const [minWidth, setMinWidth] = useState();
   const handlerToggleEdit = () => setEdit(!edit);
   const refInput = useRef();
+  const refReflect = useRef();
   useEffect(() => {
     if (edit && refInput.current) {
       refInput.current.focus();
     }
   }, [edit]);
+  useEffect(() => {
+    setMinWidth(refReflect.current.clientWidth);
+  }, [value]);
   return /* @__PURE__ */ _jsx("div", {
-    className: `field-text field-text--${edited ? "edited" : status} ${edit ? "field-text--opened" : ""} ${className ? className : ""}`
-  }, /* @__PURE__ */ _jsx("input", {
+    className: `field-text field-text--${edited ? "edited" : status} ${edit ? "field-text--opened" : ""} ${className ? className : ""}`,
+    style: minWidth ? { "--min-width": `${minWidth}px` } : {}
+  }, /* @__PURE__ */ _jsx("div", {
+    ref: refReflect,
+    className: "field-text_input field-text_reflect"
+  }, value), /* @__PURE__ */ _jsx("input", {
     className: "field-text_input",
     onDoubleClick: handlerToggleEdit,
     disabled: !edit,
@@ -85,6 +102,8 @@ function FieldText({
     type,
     minLength,
     maxLength,
+    min,
+    max,
     onInput: (event) => {
       setEdited(true);
       onChange && onChange(event.currentTarget.value);

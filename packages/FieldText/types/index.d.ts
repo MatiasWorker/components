@@ -5,8 +5,10 @@ interface Props {
     className?: string;
     onChange?: (value: string) => void;
     status?: "success" | "warning" | "danger" | "";
-    minLength: number;
-    maxLength: number;
+    minLength?: number;
+    maxLength?: number;
+    min?: number;
+    max?: number;
 }
-export declare function FieldText({ value, type, className, onChange, minLength, maxLength, status, }: Props): JSX.Element;
+export declare function FieldText({ value, type, className, onChange, minLength, maxLength, min, max, status, }: Props): JSX.Element;
 export {};

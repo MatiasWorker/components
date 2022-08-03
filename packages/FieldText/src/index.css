@@ -6,7 +6,7 @@
     );
     --field-text-min-height: var(--table-row-min-height, 48px);
     --field-text-padding: var(--table-field-padding, 10px);
-
+    min-width: calc(var(--min-width, 0) + 20px);
     position: relative;
 }
 
@@ -37,6 +37,12 @@
 
 .field-text_input:not([disabled]) {
     background: var(--field-text-active-background);
+}
+
+.field-text_reflect {
+    width: auto;
+    position: absolute;
+    opacity: 0;
 }
 
 .field-text_mask {
