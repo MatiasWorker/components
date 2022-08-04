@@ -38,7 +38,7 @@ export function FieldText({
     }, [edit]);
 
     useEffect(() => {
-        setMinWidth(refReflect.current.clientWidth);
+        setMinWidth(Math.ceil(refReflect.current?.clientWidth || 0));
     }, [value]);
 
     return (
