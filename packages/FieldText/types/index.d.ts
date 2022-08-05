@@ -9,6 +9,7 @@ interface Props {
     maxLength?: number;
     min?: number;
     max?: number;
+    doubleClick?: boolean;
 }
-export declare function FieldText({ value, type, className, onChange, minLength, maxLength, min, max, status, }: Props): JSX.Element;
+export declare function FieldText({ value, type, className, onChange, minLength, maxLength, min, max, status, doubleClick, }: Props): JSX.Element;
 export {};

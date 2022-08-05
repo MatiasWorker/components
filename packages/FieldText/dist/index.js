@@ -47,6 +47,7 @@ var src_default = css`.field-text {
 
 .field-text_reflect {
     width: auto;
+    height: 100%;
     position: absolute;
     opacity: 0;
 }
@@ -71,7 +72,8 @@ function FieldText({
   maxLength,
   min,
   max,
-  status = ""
+  status = "",
+  doubleClick
 }) {
   const [edit, setEdit] = useState();
   const [edited, setEdited] = useState();
@@ -85,8 +87,11 @@ function FieldText({
     }
   }, [edit]);
   useEffect(() => {
-    setMinWidth(refReflect.current.clientWidth);
+    setMinWidth(Math.ceil(refReflect.current?.clientWidth || 0));
   }, [value]);
+  const handlerTrigger = {
+    [doubleClick ? "onDoubleClick" : "onClick"]: handlerToggleEdit
+  };
   return /* @__PURE__ */ _jsx("div", {
     className: `field-text field-text--${edited ? "edited" : status} ${edit ? "field-text--opened" : ""} ${className ? className : ""}`,
     style: minWidth ? { "--min-width": `${minWidth}px` } : {}
@@ -95,7 +100,6 @@ function FieldText({
     className: "field-text_input field-text_reflect"
   }, value), /* @__PURE__ */ _jsx("input", {
     className: "field-text_input",
-    onDoubleClick: handlerToggleEdit,
     disabled: !edit,
     value,
     ref: refInput,
@@ -110,7 +114,7 @@ function FieldText({
     }
   }), !edit && /* @__PURE__ */ _jsx("div", {
     className: "field-text_mask",
-    onDoubleClick: handlerToggleEdit
+    ...handlerTrigger
   }));
 }
 export {

@@ -11,6 +11,7 @@ interface Props {
     maxLength?: number;
     min?: number;
     max?: number;
+    doubleClick?: boolean;
 }
 
 export function FieldText({
@@ -23,6 +24,7 @@ export function FieldText({
     min,
     max,
     status = "",
+    doubleClick,
 }: Props): JSX.Element {
     const [edit, setEdit] = useState<boolean>();
     const [edited, setEdited] = useState<boolean>();
@@ -41,6 +43,10 @@ export function FieldText({
         setMinWidth(Math.ceil(refReflect.current?.clientWidth || 0));
     }, [value]);
 
+    const handlerTrigger = {
+        [doubleClick ? "onDoubleClick" : "onClick"]: handlerToggleEdit,
+    };
+
     return (
         <div
             className={`field-text field-text--${edited ? "edited" : status} ${
@@ -56,7 +62,6 @@ export function FieldText({
             </div>
             <input
                 className="field-text_input"
-                onDoubleClick={handlerToggleEdit}
                 disabled={!edit}
                 value={value}
                 ref={refInput}
@@ -71,10 +76,7 @@ export function FieldText({
                 }}
             />
             {!edit && (
-                <div
-                    className="field-text_mask"
-                    onDoubleClick={handlerToggleEdit}
-                ></div>
+                <div className="field-text_mask" {...handlerTrigger}></div>
             )}
         </div>
     );

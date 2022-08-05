@@ -41,6 +41,7 @@
 
 .field-text_reflect {
     width: auto;
+    height: 100%;
     position: absolute;
     opacity: 0;
 }
