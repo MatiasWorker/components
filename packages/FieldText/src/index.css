@@ -8,6 +8,7 @@
     --field-text-padding: var(--table-field-padding, 10px);
     min-width: calc(var(--min-width, 0) + 20px);
     position: relative;
+    overflow: hidden;
 }
 
 .field-text--success {
@@ -43,8 +44,8 @@
 
 .field-text_reflect {
     width: auto;
-    height: 100%;
-    position: absolute;
+    height: auto;
+    position: fixed;
     opacity: 0;
     z-index: 0;
 }
