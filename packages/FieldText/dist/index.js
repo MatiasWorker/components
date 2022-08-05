@@ -1,6 +1,6 @@
 // src/index.tsx
 import { createElement as _jsx } from "react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 
 // src/index.css
 import css from "ustyler";
@@ -14,6 +14,7 @@ var src_default = css`.field-text {
     --field-text-padding: var(--table-field-padding, 10px);
     min-width: calc(var(--min-width, 0) + 20px);
     position: relative;
+    overflow: hidden;
 }
 
 .field-text--success {
@@ -39,6 +40,8 @@ var src_default = css`.field-text {
     box-sizing: border-box;
     border: none;
     background: var(--field-text-background);
+    position: relative;
+    z-index: 1;
 }
 
 .field-text_input:not([disabled]) {
@@ -47,9 +50,10 @@ var src_default = css`.field-text {
 
 .field-text_reflect {
     width: auto;
-    height: 100%;
-    position: absolute;
+    height: auto;
+    position: fixed;
     opacity: 0;
+    z-index: 0;
 }
 
 .field-text_mask {
@@ -58,7 +62,7 @@ var src_default = css`.field-text {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 2;
 }
 `;
 
@@ -80,14 +84,15 @@ function FieldText({
   const [minWidth, setMinWidth] = useState();
   const handlerToggleEdit = () => setEdit(!edit);
   const refInput = useRef();
-  const refReflect = useRef();
   useEffect(() => {
     if (edit && refInput.current) {
       refInput.current.focus();
     }
   }, [edit]);
-  useEffect(() => {
-    setMinWidth(Math.ceil(refReflect.current?.clientWidth || 0));
+  const callbackRef = useCallback((node) => {
+    if (node !== null) {
+      setMinWidth(Math.ceil(node.clientWidth || 0));
+    }
   }, [value]);
   const handlerTrigger = {
     [doubleClick ? "onDoubleClick" : "onClick"]: handlerToggleEdit
@@ -96,7 +101,7 @@ function FieldText({
     className: `field-text field-text--${edited ? "edited" : status} ${edit ? "field-text--opened" : ""} ${className ? className : ""}`,
     style: minWidth ? { "--min-width": `${minWidth}px` } : {}
   }, /* @__PURE__ */ _jsx("div", {
-    ref: refReflect,
+    ref: callbackRef,
     className: "field-text_input field-text_reflect"
   }, value), /* @__PURE__ */ _jsx("input", {
     className: "field-text_input",

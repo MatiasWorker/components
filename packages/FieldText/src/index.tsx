@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import "./index.css";
 
 interface Props {
@@ -31,7 +31,6 @@ export function FieldText({
     const [minWidth, setMinWidth] = useState<number>();
     const handlerToggleEdit = () => setEdit(!edit);
     const refInput = useRef<HTMLInputElement | null>();
-    const refReflect = useRef<HTMLDivElement | null>();
 
     useEffect(() => {
         if (edit && refInput.current) {
@@ -39,9 +38,12 @@ export function FieldText({
         }
     }, [edit]);
 
-    useEffect(() => {
-        setMinWidth(Math.ceil(refReflect.current?.clientWidth || 0));
-    }, [value]);
+    const callbackRef = useCallback(
+        (node: HTMLDivElement) => {
+            if (node !== null) setMinWidth(Math.ceil(node.clientWidth || 0));
+        },
+        [value]
+    );
 
     const handlerTrigger = {
         [doubleClick ? "onDoubleClick" : "onClick"]: handlerToggleEdit,
@@ -55,7 +57,7 @@ export function FieldText({
             style={minWidth ? ({ "--min-width": `${minWidth}px` } as any) : {}}
         >
             <div
-                ref={refReflect}
+                ref={callbackRef}
                 className="field-text_input field-text_reflect"
             >
                 {value}
