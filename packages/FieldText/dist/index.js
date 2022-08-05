@@ -1,6 +1,7 @@
 // src/index.tsx
 import { createElement as _jsx } from "react";
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
+import useResizeObserver from "use-resize-observer";
 
 // src/index.css
 import css from "ustyler";
@@ -81,7 +82,6 @@ function FieldText({
 }) {
   const [edit, setEdit] = useState();
   const [edited, setEdited] = useState();
-  const [minWidth, setMinWidth] = useState();
   const handlerToggleEdit = () => setEdit(!edit);
   const refInput = useRef();
   useEffect(() => {
@@ -89,19 +89,15 @@ function FieldText({
       refInput.current.focus();
     }
   }, [edit]);
-  const callbackRef = useCallback((node) => {
-    if (node !== null) {
-      setMinWidth(Math.ceil(node.clientWidth || 0));
-    }
-  }, [value]);
+  const resize = useResizeObserver();
   const handlerTrigger = {
     [doubleClick ? "onDoubleClick" : "onClick"]: handlerToggleEdit
   };
   return /* @__PURE__ */ _jsx("div", {
     className: `field-text field-text--${edited ? "edited" : status} ${edit ? "field-text--opened" : ""} ${className ? className : ""}`,
-    style: minWidth ? { "--min-width": `${minWidth}px` } : {}
+    style: resize.width ? { "--min-width": `${resize.width}px` } : {}
   }, /* @__PURE__ */ _jsx("div", {
-    ref: callbackRef,
+    ref: resize.ref,
     className: "field-text_input field-text_reflect"
   }, value), /* @__PURE__ */ _jsx("input", {
     className: "field-text_input",

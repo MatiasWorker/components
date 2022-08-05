@@ -1,4 +1,5 @@
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
+import useResizeObserver from "use-resize-observer";
 import "./index.css";
 
 interface Props {
@@ -28,7 +29,6 @@ export function FieldText({
 }: Props): JSX.Element {
     const [edit, setEdit] = useState<boolean>();
     const [edited, setEdited] = useState<boolean>();
-    const [minWidth, setMinWidth] = useState<number>();
     const handlerToggleEdit = () => setEdit(!edit);
     const refInput = useRef<HTMLInputElement | null>();
 
@@ -38,12 +38,7 @@ export function FieldText({
         }
     }, [edit]);
 
-    const callbackRef = useCallback(
-        (node: HTMLDivElement) => {
-            if (node !== null) setMinWidth(Math.ceil(node.clientWidth || 0));
-        },
-        [value]
-    );
+    const resize = useResizeObserver<HTMLDivElement>();
 
     const handlerTrigger = {
         [doubleClick ? "onDoubleClick" : "onClick"]: handlerToggleEdit,
@@ -54,10 +49,14 @@ export function FieldText({
             className={`field-text field-text--${edited ? "edited" : status} ${
                 edit ? "field-text--opened" : ""
             } ${className ? className : ""}`}
-            style={minWidth ? ({ "--min-width": `${minWidth}px` } as any) : {}}
+            style={
+                resize.width
+                    ? ({ "--min-width": `${resize.width}px` } as any)
+                    : {}
+            }
         >
             <div
-                ref={callbackRef}
+                ref={resize.ref}
                 className="field-text_input field-text_reflect"
             >
                 {value}
