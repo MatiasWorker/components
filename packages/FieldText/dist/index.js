@@ -82,11 +82,10 @@ function FieldText({
   disabled
 }) {
   const [focus, setFocus] = useState();
-  const [edited, setEdited] = useState();
   const refInput = useRef();
   const resize = useResizeObserver();
   return /* @__PURE__ */ _jsx("div", {
-    className: `field-text field-text--${edited ? "edited" : status} ${focus ? "field-text--focus" : ""} ${className ? className : ""}`,
+    className: `field-text field-text--${status} ${focus ? "field-text--focus" : ""} ${className ? className : ""}`,
     style: resize.width ? { "--min-width": `${resize.width}px` } : {}
   }, /* @__PURE__ */ _jsx("div", {
     ref: resize.ref,
@@ -104,7 +103,6 @@ function FieldText({
     onFocus: () => setFocus(true),
     onBlur: () => setFocus(false),
     onInput: (event) => {
-      setEdited(true);
       onChange && onChange(event.currentTarget.value);
     }
   }));

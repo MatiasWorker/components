@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import useResizeObserver from "use-resize-observer";
 import "./index.css";
 
@@ -28,14 +28,12 @@ export function FieldText({
     disabled,
 }: Props): JSX.Element {
     const [focus, setFocus] = useState<boolean>();
-    const [edited, setEdited] = useState<boolean>();
     const refInput = useRef<HTMLInputElement | null>();
-
     const resize = useResizeObserver<HTMLDivElement>();
 
     return (
         <div
-            className={`field-text field-text--${edited ? "edited" : status} ${
+            className={`field-text field-text--${status} ${
                 focus ? "field-text--focus" : ""
             } ${className ? className : ""}`}
             style={
@@ -63,7 +61,6 @@ export function FieldText({
                 onFocus={() => setFocus(true)}
                 onBlur={() => setFocus(false)}
                 onInput={(event) => {
-                    setEdited(true);
                     onChange && onChange(event.currentTarget.value);
                 }}
             />
