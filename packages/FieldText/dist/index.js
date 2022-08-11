@@ -1,6 +1,6 @@
 // src/index.tsx
 import { createElement as _jsx } from "react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import useResizeObserver from "use-resize-observer";
 
 // src/index.css
@@ -55,6 +55,7 @@ var src_default = css`.field-text {
     position: fixed;
     opacity: 0;
     z-index: 0;
+    visibility: hidden;
 }
 
 .field-text_mask {
@@ -78,30 +79,21 @@ function FieldText({
   min,
   max,
   status = "",
-  doubleClick
+  disabled
 }) {
-  const [edit, setEdit] = useState();
+  const [focus, setFocus] = useState();
   const [edited, setEdited] = useState();
-  const handlerToggleEdit = () => setEdit(!edit);
   const refInput = useRef();
-  useEffect(() => {
-    if (edit && refInput.current) {
-      refInput.current.focus();
-    }
-  }, [edit]);
   const resize = useResizeObserver();
-  const handlerTrigger = {
-    [doubleClick ? "onDoubleClick" : "onClick"]: handlerToggleEdit
-  };
   return /* @__PURE__ */ _jsx("div", {
-    className: `field-text field-text--${edited ? "edited" : status} ${edit ? "field-text--opened" : ""} ${className ? className : ""}`,
+    className: `field-text field-text--${edited ? "edited" : status} ${focus ? "field-text--focus" : ""} ${className ? className : ""}`,
     style: resize.width ? { "--min-width": `${resize.width}px` } : {}
   }, /* @__PURE__ */ _jsx("div", {
     ref: resize.ref,
     className: "field-text_input field-text_reflect"
   }, value), /* @__PURE__ */ _jsx("input", {
+    disabled,
     className: "field-text_input",
-    disabled: !edit,
     value,
     ref: refInput,
     type,
@@ -109,13 +101,12 @@ function FieldText({
     maxLength,
     min,
     max,
+    onFocus: () => setFocus(true),
+    onBlur: () => setFocus(false),
     onInput: (event) => {
       setEdited(true);
       onChange && onChange(event.currentTarget.value);
     }
-  }), !edit && /* @__PURE__ */ _jsx("div", {
-    className: "field-text_mask",
-    ...handlerTrigger
   }));
 }
 export {
