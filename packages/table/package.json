@@ -7,6 +7,7 @@
     "type": "module",
     "license": "ISC",
     "scripts": {
+        "build": "exports src/index.tsx --exports --jsx react --css-inline --types",
         "exports": "exports src/index.tsx --exports --jsx react --css-inline --types --publish"
     },
     "dependencies": {

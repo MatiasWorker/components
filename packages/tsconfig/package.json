@@ -4,6 +4,10 @@
     "publishConfig": {
         "access": "public"
     },
+    "scripts":{
+        "build":"",
+        "exports":""
+    },
     "files": [
         "base.json"
     ]

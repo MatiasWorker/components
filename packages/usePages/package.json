@@ -6,6 +6,7 @@
     },
     "type": "module",
     "scripts": {
+        "build": "",
         "exports": "exports src/index.tsx --exports --jsx react --types --publish"
     },
     "license": "ISC",

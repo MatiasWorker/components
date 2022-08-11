@@ -5,6 +5,7 @@
     "scripts": {
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
+        "components:build": "npm run build -w=packages",
         "components:publish": "npm run exports -w=packages"
     },
     "workspaces": [
