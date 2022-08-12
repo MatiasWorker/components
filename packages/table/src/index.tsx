@@ -1,4 +1,5 @@
-import { CSSProperties } from "react";
+import { CSSProperties, useState } from "react";
+import { useFloating, flip, shift } from "@floating-ui/react-dom";
 
 import "./index.css";
 
@@ -22,22 +23,50 @@ export function TableCell({
     background,
     align,
     className,
+    tooltip,
 }: {
     className?: string;
     children: any;
     color?: string;
     background?: string;
     align?: "center" | "start" | "end";
+    tooltip?: any;
 }) {
     const style = {};
+    const { x, y, reference, floating, strategy } = useFloating({
+        placement: "bottom",
+        middleware: [
+            flip({
+                fallbackPlacements: ["top", "bottom"],
+            }),
+            shift(),
+        ],
+    });
 
     if (align) style["--table-cell-align"] = align;
     if (color) style["--table-cell-color"] = color;
     if (background) style["--table-cell-background"] = background;
 
     return (
-        <div className={`table_cell ${className || ""}`} style={style}>
+        <div
+            ref={reference}
+            className={`table_cell ${className || ""}`}
+            style={style}
+        >
             <div className="table_cell_content">{children}</div>
+            {tooltip && (
+                <div
+                    className={`table_cell_tooltip`}
+                    ref={floating}
+                    style={{
+                        position: strategy,
+                        top: y ?? 0,
+                        left: x ?? 0,
+                    }}
+                >
+                    {tooltip}
+                </div>
+            )}
         </div>
     );
 }

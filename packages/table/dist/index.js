@@ -1,5 +1,6 @@
 // src/index.tsx
 import { createElement as _jsx } from "react";
+import { useFloating, flip, shift } from "@floating-ui/react-dom";
 
 // src/index.css
 import css from "ustyler";
@@ -14,6 +15,17 @@ var src_default = css`.table {
     );
     --table-row-background: var(--bx-table-row-background, #fff);
     --table-field-padding: 10px;
+
+    --table-tooltip-background: var(--bx-table-tooltip-background, #fff);
+    --table-tooltip-border: var(
+        --bx-table-tooltip-border,
+        var(--table-row-border-bottom)
+    );
+    --table-tooltip-radius: var(--bx-table-tooltip-radius, 0.5rem);
+    --table-tooltip-shadow: var(
+        --bx-table-tooltip-shadow,
+        0px 2px 4px rgba(0, 0, 0, 0.08)
+    );
 
     width: 100%;
     background: var(--table-background);
@@ -40,6 +52,7 @@ var src_default = css`.table {
     min-height: 100%;
     color: var(--table-cell-color, unset);
     background: var(--table-cell-background, unset);
+    position: relative;
 }
 
 .table_cell_content {
@@ -50,6 +63,26 @@ var src_default = css`.table {
     padding: var(--table-field-padding);
     white-space: nowrap;
 }
+
+.table_cell_tooltip {
+    min-width: 100%;
+    padding: var(--table-field-padding);
+    background: var(--table-tooltip-background);
+    border: var(--table-tooltip-border);
+    border-radius: var(--table-tooltip-radius);
+    box-sizing: border-box;
+    opacity: var(--tooltip-opacity, 0);
+    visibility: var(--tooltip-visibility, hidden);
+    box-shadow: var(--table-tooltip-shadow);
+    transition: 0.23s ease all;
+    --tooltip-position: -10px;
+    transform: translateY(var(--tooltip-position));
+}
+
+.table_cell:hover {
+    --tooltip-opacity: 1;
+    --tooltip-visibility: visible;
+}
 `;
 
 // src/index.tsx
@@ -58,9 +91,19 @@ function TableCell({
   color,
   background,
   align,
-  className
+  className,
+  tooltip
 }) {
   const style = {};
+  const { x, y, reference, floating, strategy } = useFloating({
+    placement: "bottom",
+    middleware: [
+      flip({
+        fallbackPlacements: ["top", "bottom"]
+      }),
+      shift()
+    ]
+  });
   if (align)
     style["--table-cell-align"] = align;
   if (color)
@@ -68,11 +111,20 @@ function TableCell({
   if (background)
     style["--table-cell-background"] = background;
   return /* @__PURE__ */ _jsx("div", {
+    ref: reference,
     className: `table_cell ${className || ""}`,
     style
   }, /* @__PURE__ */ _jsx("div", {
     className: "table_cell_content"
-  }, children));
+  }, children), tooltip && /* @__PURE__ */ _jsx("div", {
+    className: `table_cell_tooltip`,
+    ref: floating,
+    style: {
+      position: strategy,
+      top: y ?? 0,
+      left: x ?? 0
+    }
+  }, tooltip));
 }
 function Table({
   data,

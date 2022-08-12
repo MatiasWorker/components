@@ -10,12 +10,13 @@ export interface Header {
 export interface Types {
     [index: string]: TypeCallback;
 }
-export declare function TableCell({ children, color, background, align, className, }: {
+export declare function TableCell({ children, color, background, align, className, tooltip, }: {
     className?: string;
     children: any;
     color?: string;
     background?: string;
     align?: "center" | "start" | "end";
+    tooltip?: any;
 }): JSX.Element;
 export interface TableProps {
     data: Data;

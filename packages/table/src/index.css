@@ -10,6 +10,17 @@
     --table-row-background: var(--bx-table-row-background, #fff);
     --table-field-padding: 10px;
 
+    --table-tooltip-background: var(--bx-table-tooltip-background, #fff);
+    --table-tooltip-border: var(
+        --bx-table-tooltip-border,
+        var(--table-row-border-bottom)
+    );
+    --table-tooltip-radius: var(--bx-table-tooltip-radius, 0.5rem);
+    --table-tooltip-shadow: var(
+        --bx-table-tooltip-shadow,
+        0px 2px 4px rgba(0, 0, 0, 0.08)
+    );
+
     width: 100%;
     background: var(--table-background);
     font-size: var(--table-font-size);
@@ -35,6 +46,7 @@
     min-height: 100%;
     color: var(--table-cell-color, unset);
     background: var(--table-cell-background, unset);
+    position: relative;
 }
 
 .table_cell_content {
@@ -44,4 +56,24 @@
     box-sizing: border-box;
     padding: var(--table-field-padding);
     white-space: nowrap;
+}
+
+.table_cell_tooltip {
+    min-width: 100%;
+    padding: var(--table-field-padding);
+    background: var(--table-tooltip-background);
+    border: var(--table-tooltip-border);
+    border-radius: var(--table-tooltip-radius);
+    box-sizing: border-box;
+    opacity: var(--tooltip-opacity, 0);
+    visibility: var(--tooltip-visibility, hidden);
+    box-shadow: var(--table-tooltip-shadow);
+    transition: 0.23s ease all;
+    --tooltip-position: -10px;
+    transform: translateY(var(--tooltip-position));
+}
+
+.table_cell:hover {
+    --tooltip-opacity: 1;
+    --tooltip-visibility: visible;
 }

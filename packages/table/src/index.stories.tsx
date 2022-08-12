@@ -1,4 +1,4 @@
-import { Table } from "./";
+import { Table, TableCell } from "./";
 
 export default {
     title: "Table/Core",
@@ -34,7 +34,7 @@ export const ExampleTable = ({
     ],
     header = {
         id: "",
-        nombre: "Nombre",
+        nombre: <TableCell tooltip={"Nombre completo"}>Nombre</TableCell>,
         apellido: "Apellido",
         comuna: "Zona",
         seguro: "Seguro",
