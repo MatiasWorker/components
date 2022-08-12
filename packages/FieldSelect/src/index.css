@@ -12,18 +12,47 @@
     font-size: var(--select-font-size);
 }
 
+.field-select--cell {
+    height: 100%;
+    --select-border-radius: 0px;
+    --select-font-weight: unset;
+    --select-font-size: unset;
+    --select-background: transparent;
+}
+
+.field-select--danger {
+    --select-background: var(--bx-field-select-warning, #fe9292);
+}
+
+.field-text--success {
+    --select-background: var(--bx-field-select-success, transparent);
+}
+
+.field-text--warning {
+    --select-background: var(--bx-field-select-warning, transparent);
+}
+
 .field-select_select {
     width: 100%;
     min-height: 100%;
     margin: 0;
-    appearance: none;
     background: var(--select-background);
     border-radius: var(--select-border-radius);
     border: none;
     font-family: unset;
     font-weight: unset;
     font-size: unset;
+    box-sizing: border-box;
+    padding: 0px var(--select-space-x);
+}
 
+.field-select_select option {
+    background: white;
+    color: black;
+}
+
+.field-select--pagination .field-select_select {
+    appearance: none;
     padding: calc(var(--select-space-x) / 2)
         calc(var(--select-space-x) * 2 + var(--select-icon-width))
         calc(var(--select-space-x) / 2) var(--select-space-x);

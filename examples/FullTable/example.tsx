@@ -2,6 +2,7 @@ import { useState } from "react";
 import { usePages } from "@bxreact/use-pages";
 import { FieldSwitch } from "@bxreact/field-switch";
 import { FieldText } from "@bxreact/field-text";
+import { FieldSelect } from "@bxreact/field-select";
 import { Table, TableCell } from "@bxreact/table";
 import { Pagination } from "@bxreact/pagination";
 import { data, Item } from "./data";
@@ -44,6 +45,7 @@ export function Example() {
                     ),
                     fullName: "Nombre",
                     avatar: "Imagen",
+                    newKey: "newKey",
                     email: "Email",
                     emailVerified: "Seguro",
                     phone: "Telefono",
@@ -76,6 +78,16 @@ export function Example() {
                                 });
                             }}
                         ></FieldSwitch>
+                    ),
+                    newKey: () => (
+                        <FieldSelect
+                            appearance="cell"
+                            placeholder="Region"
+                            value=""
+                            status="danger"
+                            options={[{ label: "a", value: "a" }]}
+                            onChange={() => {}}
+                        ></FieldSelect>
                     ),
                     default: (data: Item, value: string, property: string) => (
                         <FieldText

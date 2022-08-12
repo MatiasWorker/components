@@ -7,6 +7,8 @@ interface Props {
         value: string;
         label?: string;
     }[];
+    appearance?: "pagination" | "cell";
+    status?: "success" | "warning" | "danger" | "";
 }
-export declare function FieldSelect({ value, placeholder, options, onChange, }: Props): JSX.Element;
+export declare function FieldSelect({ value, placeholder, options, onChange, appearance, status, }: Props): JSX.Element;
 export {};

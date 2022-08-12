@@ -12,7 +12,8 @@
         "@bxreact/tsconfig": "*",
         "@bxreact/field-text": "*",
         "@bxreact/table": "*",
-        "@bxreact/use-pages": "*"
+        "@bxreact/use-pages": "*",
+        "@bxreact/field-select": "*"
     },
     "peerDependencies": {
         "react": "^17.0.2",
