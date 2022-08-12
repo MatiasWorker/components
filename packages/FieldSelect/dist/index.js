@@ -11,14 +11,16 @@ var src_default = css`.field-select {
     --select-font-size: var(--bx-lect-font-size, 12px);
     --select-icon-width: var(--bx-lect-icon-width, 15px);
     --select-icon-color: var(--bx-select-icon-color, #ff7a00);
-
+    --select-width: 100%;
     position: relative;
     font-weight: var(--select-font-weight);
     font-size: var(--select-font-size);
 }
 
 .field-select--cell {
+    min-width: 100%;
     height: 100%;
+    --select-width: auto;
     --select-border-radius: 0px;
     --select-font-weight: unset;
     --select-font-size: unset;
@@ -38,7 +40,7 @@ var src_default = css`.field-select {
 }
 
 .field-select_select {
-    width: 100%;
+    width: var(--select-width);
     min-height: 100%;
     margin: 0;
     background: var(--select-background);

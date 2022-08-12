@@ -85,7 +85,16 @@ export function Example() {
                             placeholder="Region"
                             value=""
                             status="danger"
-                            options={[{ label: "a", value: "a" }]}
+                            options={[
+                                {
+                                    label: "1 id pariatur anim sunt",
+                                    value: "a",
+                                },
+                                {
+                                    label: "2 id pariatur anim sunt...",
+                                    value: "b",
+                                },
+                            ]}
                             onChange={() => {}}
                         ></FieldSelect>
                     ),
