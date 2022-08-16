@@ -24,7 +24,7 @@ var src_default = css`.table {
     --table-tooltip-radius: var(--bx-table-tooltip-radius, 0.5rem);
     --table-tooltip-shadow: var(
         --bx-table-tooltip-shadow,
-        0px 2px 4px rgba(0, 0, 0, 0.08)
+        0px 4px 6px rgba(0, 0, 0, 0.1)
     );
 
     width: 100%;
@@ -75,7 +75,6 @@ var src_default = css`.table {
     visibility: var(--tooltip-visibility, hidden);
     box-shadow: var(--table-tooltip-shadow);
     transition: 0.23s ease all;
-    --tooltip-position: -10px;
     transform: translateY(var(--tooltip-position));
 }
 
