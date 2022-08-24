@@ -1,0 +1,12 @@
+.table-wrapper {
+    width: 100%;
+    max-width: 100%;
+}
+.table-wrapper_overflow {
+    overflow-x: auto;
+}
+.table-wrapper_footer {
+    padding: var(--table-wrapper-footer-padding, 1rem 0);
+    display: flex;
+    justify-content: flex-end;
+}
