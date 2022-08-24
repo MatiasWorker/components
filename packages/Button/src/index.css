@@ -1,0 +1,10 @@
+.button {
+    --button-padding: var(--bx-button-padding, 10px 24px);
+    --button-min-height: var(--bx-button-min-height, 48px);
+    --button-radius: var(--bx-button-radius, 16px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--button-padding);
+    min-height: var(--button-min-height);
+}
