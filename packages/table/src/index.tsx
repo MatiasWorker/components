@@ -92,12 +92,13 @@ export function Table<Data extends any[]>({
 }: TableProps<Data>): JSX.Element {
     const headerEntries = Object.entries(header);
     const getCell = (row, prop: string, value: any) => {
-        const cell =
-            prop in types
+        const cell = types
+            ? prop in types
                 ? types[prop](row, value, prop)
                 : types.default
                 ? types.default(row, value, prop)
-                : value;
+                : value
+            : value;
         return typeof cell === "object" ? cell : <TableCell>{cell}</TableCell>;
     };
 
