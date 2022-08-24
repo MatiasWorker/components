@@ -1,6 +1,6 @@
-// src/index.css
+// src/colors.css
 import css from "ustyler";
-var src_default = css`:root {
+var colors_default = css`:root {
     /* bx colors */
     /* blue */
     --bx-color-blue: #3363ff;
@@ -35,7 +35,7 @@ var src_default = css`:root {
     --bx-color-orange-point: #ffa57c;
     --bx-color-orange-fly: #ffb28f;
     --bx-color-orange-rubber: #ffbea1;
-    --bx-color-orange-elastic: #ffcbb4;
+    --bx-color-orange-elastic: #ffca99;
     --bx-color-orange-candy: #ffd8c7;
     --bx-color-orange-rose: #ffe5da;
     --bx-color-orange-blank: #fff2ec;
@@ -186,7 +186,74 @@ var src_default = css`:root {
         0px 8px 8px -4px rgba(24, 39, 75, 0.08);
     --bx-register-footer-height: 56px;
     --bx-register-footer-fg: var(--bx-color-lblue-give);
+}
+`;
 
+// src/input.css
+import css2 from "ustyler";
+var input_default = css2`:root {
+    --bx-input-font-family: var(--bx-font-secondary);
+    --bx-input-font-weight: 700;
+
+    --bx-input-xs-font-size: 0.875rem;
+    --bx-input-sm-font-size: 0.875rem;
+    --bx-input-md-font-size: 0.875rem;
+    --bx-input-lg-font-size: 1.125rem;
+
+    --bx-input-xs-height: 2rem;
+    --bx-input-sm-height: 2.5rem;
+    --bx-input-md-height: 3rem;
+    --bx-input-lg-height: 3.5rem;
+
+    --bx-input-xs-padding: 0.5rem 1rem;
+    --bx-input-sm-padding: 0.5rem 1rem;
+    --bx-input-md-padding: 0.5rem 1.5rem;
+    --bx-input-lg-padding: 0.5rem 2rem;
+
+    --bx-input-xs-radius: 0.75rem;
+    --bx-input-sm-radius: 0.75rem;
+    --bx-input-md-radius: 1rem;
+    --bx-input-lg-radius: 1rem;
+
+    --bx-input-gap: 0.5rem;
+}
+`;
+
+// src/button.css
+import css3 from "ustyler";
+var button_default = css3`:root {
+    --bx-button-shadow: 0px 2px 4px -2px rgba(24, 39, 75, 0.2);
+
+    --bx-button-filled-bgcolor: var(--bx-color-orange);
+    --bx-button-filled-color: var(--bx-color-white);
+    --bx-button-filled-disabled-bgcolor: var(--bx-color-orange-elastic);
+    --bx-button-filled-disabled-color: var(--bx-color-white);
+
+    --bx-button-gap: 0.5rem;
+
+    --bx-button-thead-bgcolor: var(--bx-color-white);
+    --bx-button-thead-color: var(--bx-color-black);
+
+    --bx-button-thead-disabled-bgcolor: var(--bx-color-white);
+    --bx-button-thead-disabled-color: var(--bx-color-grey-time);
+
+    --bx-button-thead-info-bgcolor: var(--bx-color-green-game);
+    --bx-button-thead-info-color: var(--bx-color-green-future);
+
+    --bx-button-thead-success-bgcolor: var(--bx-color-lorange-send);
+    --bx-button-thead-success-color: var(--bx-color-orange-get);
+
+    --bx-button-thead-warning-bgcolor: var(--bx-color-lorange-send);
+    --bx-button-thead-warning-color: var(--bx-color-orange-get);
+
+    --bx-button-thead-danger-bgcolor: var(--bx-color-red-clean);
+    --bx-button-thead-danger-color: var(--bx-color-red-alert);
+}
+`;
+
+// src/font.css
+import css4 from "ustyler";
+var font_default = css4`:root {
     /* fonts */
     --bx-font-primary: "Mont", system-ui, -apple-system, "Segoe UI", Roboto,
         "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,

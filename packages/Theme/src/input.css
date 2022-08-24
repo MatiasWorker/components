@@ -1,0 +1,26 @@
+:root {
+    --bx-input-font-family: var(--bx-font-secondary);
+    --bx-input-font-weight: 700;
+
+    --bx-input-xs-font-size: 0.875rem;
+    --bx-input-sm-font-size: 0.875rem;
+    --bx-input-md-font-size: 0.875rem;
+    --bx-input-lg-font-size: 1.125rem;
+
+    --bx-input-xs-height: 2rem;
+    --bx-input-sm-height: 2.5rem;
+    --bx-input-md-height: 3rem;
+    --bx-input-lg-height: 3.5rem;
+
+    --bx-input-xs-padding: 0.5rem 1rem;
+    --bx-input-sm-padding: 0.5rem 1rem;
+    --bx-input-md-padding: 0.5rem 1.5rem;
+    --bx-input-lg-padding: 0.5rem 2rem;
+
+    --bx-input-xs-radius: 0.75rem;
+    --bx-input-sm-radius: 0.75rem;
+    --bx-input-md-radius: 1rem;
+    --bx-input-lg-radius: 1rem;
+
+    --bx-input-gap: 0.5rem;
+}

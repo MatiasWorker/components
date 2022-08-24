@@ -33,7 +33,7 @@
     --bx-color-orange-point: #ffa57c;
     --bx-color-orange-fly: #ffb28f;
     --bx-color-orange-rubber: #ffbea1;
-    --bx-color-orange-elastic: #ffcbb4;
+    --bx-color-orange-elastic: #ffca99;
     --bx-color-orange-candy: #ffd8c7;
     --bx-color-orange-rose: #ffe5da;
     --bx-color-orange-blank: #fff2ec;
@@ -184,14 +184,4 @@
         0px 8px 8px -4px rgba(24, 39, 75, 0.08);
     --bx-register-footer-height: 56px;
     --bx-register-footer-fg: var(--bx-color-lblue-give);
-
-    /* fonts */
-    --bx-font-primary: "Mont", system-ui, -apple-system, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
-    --bx-font-secondary: "Lato", system-ui, -apple-system, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
 }
