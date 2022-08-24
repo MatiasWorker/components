@@ -11,6 +11,7 @@
     },
     "license": "ISC",
     "dependencies": {
+        "@bxreact/theme": "*",
         "@bxreact/field-select": "*",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
@@ -18,7 +19,6 @@
         "ustyler": "^1.0.1"
     },
     "peerDependencies": {
-        "@bxreact/field-select": "*",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "@types/react": "^17.0.38"

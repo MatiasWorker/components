@@ -1,0 +1,19 @@
+{
+    "name": "@bxreact/theme",
+    "version": "1.0.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "type": "module",
+    "scripts": {
+        "build": "exports src/index.tsx --exports --jsx react --css-inline --types",
+        "exports": "exports src/index.tsx --exports --jsx react --css-inline --types --publish"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "ustyler": "^1.0.1"
+    },
+    "devDependencies": {
+        "@bxreact/tsconfig": "*"
+    }
+}
