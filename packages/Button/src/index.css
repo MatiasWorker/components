@@ -57,6 +57,7 @@
 .button--thead {
     --button-bgcolor: var(--bx-button-thead-bgcolor);
     --button-color: var(--bx-button-thead-color);
+    --button-radius: 0.75rem;
     box-shadow: var(--bx-button-shadow);
 }
 
