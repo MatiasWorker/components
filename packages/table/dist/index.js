@@ -76,6 +76,7 @@ var src_default = css`.table {
     box-shadow: var(--table-tooltip-shadow);
     transition: 0.23s ease all;
     transform: translateY(var(--tooltip-position));
+    z-index: 100;
 }
 
 .table_cell:hover {

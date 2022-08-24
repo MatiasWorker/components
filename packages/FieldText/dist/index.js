@@ -56,6 +56,7 @@ var src_default = css`.field-text {
     opacity: 0;
     z-index: 0;
     visibility: hidden;
+    white-space: nowrap;
 }
 
 .field-text_mask {

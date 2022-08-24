@@ -1,33 +1,42 @@
-import { useState } from "react";
-import { usePages } from "@bxreact/use-pages";
+import { useState, useEffect } from "react";
 import { FieldSwitch } from "@bxreact/field-switch";
 import { FieldText } from "@bxreact/field-text";
 import { FieldSelect } from "@bxreact/field-select";
-import { Table, TableCell } from "@bxreact/table";
-import { Pagination } from "@bxreact/pagination";
-import { data, Item } from "./data";
+import { TableCell } from "@bxreact/table";
+import { TableWrapper } from "@bxreact/table-wrapper";
 
-const MOVE = {
-    ">": 1,
-    ">>": 2,
-    "<": -1,
-    "<<": -2,
-};
+interface RootObject {
+    avatar: string;
+    bio: string;
+    email: string;
+    emailVerified: boolean | string;
+    firstName: string;
+    fullName: string;
+    id: number;
+    lastName: string;
+    newKey: number;
+    phone: string;
+    selected: boolean;
+    twitterHandle: string;
+    username: string;
+}
 
 export function Example() {
-    const [pagesPerPage, setPagesPerPage] = useState(10);
     const [updates, setUpdates] = useState<{
-        [index: number]: Item;
+        [index: number]: any;
     }>({});
 
-    const pages = usePages(data, {
-        page: 0,
-        pages: pagesPerPage,
-    });
+    const [data, setData] = useState<RootObject[]>([]);
+
+    useEffect(() => {
+        fetch("https://example-data.draftbit.com/users?_limit=40")
+            .then((res) => res.json())
+            .then(setData);
+    }, []);
 
     return (
         <div>
-            <Table
+            <TableWrapper
                 rowStyle={(data) =>
                     data.id === 1
                         ? {
@@ -35,7 +44,7 @@ export function Example() {
                           }
                         : null
                 }
-                data={pages.group}
+                data={data}
                 header={{
                     id: "",
                     status: (
@@ -52,16 +61,16 @@ export function Example() {
                     bio: "Bio",
                 }}
                 types={{
-                    id: (data: Item, value: string) => <strong>{value}</strong>,
-                    status: () => <TableCell>Status</TableCell>,
-                    avatar: (data: any, value) => (
+                    id: (data, value) => <strong>{value}</strong>,
+                    status: (data) => <TableCell>Status</TableCell>,
+                    avatar: (data, value) => (
                         <img
                             src={value}
                             loading="lazy"
                             style={{ width: 30, height: 30, borderRadius: 100 }}
                         />
                     ),
-                    emailVerified: (data: Item, value) => (
+                    emailVerified: (data, value) => (
                         <FieldSwitch
                             checked={
                                 "emailVerified" in (updates[data.id] || {})
@@ -98,7 +107,7 @@ export function Example() {
                             onChange={() => {}}
                         ></FieldSelect>
                     ),
-                    default: (data: Item, value: string, property: string) => (
+                    default: (data, value, property) => (
                         <FieldText
                             value={updates?.[data.id]?.[property] || value}
                             status={data.id === 1 ? "danger" : ""}
@@ -114,15 +123,7 @@ export function Example() {
                         ></FieldText>
                     ),
                 }}
-            ></Table>
-            <Pagination
-                isMoveDisabled={(type) => pages.isDisabled(MOVE[type])}
-                pagesPerPage={[10, 20, 30]}
-                pagedLabel="Filas por página"
-                moveLabel={`${pages.position.start} - ${pages.position.end} de ${pages.position.length}`}
-                onChangePagesPerPage={(value) => setPagesPerPage(Number(value))}
-                onChangeMove={(type) => pages.to(MOVE[type])}
-            />
+            ></TableWrapper>
         </div>
     );
 }

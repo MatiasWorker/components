@@ -3,20 +3,6 @@ import { useFloating, flip, shift } from "@floating-ui/react-dom";
 
 import "./index.css";
 
-export type TypeCallback = (props: any, value: any, prop: string) => any;
-
-export interface Data {
-    [index: string]: any;
-}
-
-export interface Header {
-    [index: string]: any;
-}
-
-export interface Types {
-    [index: string]: TypeCallback;
-}
-
 export function TableCell({
     children,
     color,
@@ -71,11 +57,25 @@ export function TableCell({
     );
 }
 
-export interface TableProps {
+type Fill<Value> = Value | { [index: string]: any };
+
+export interface TableProps<Data extends any[]> {
     data: Data;
-    header: Header;
-    types: Types;
-    rowStyle?: (data: any) =>
+    header: Fill<
+        {
+            [I in keyof Data[0]]?: any;
+        }
+    >;
+    types?: Fill<
+        {
+            [I in keyof Data[0]]?: (
+                data: Data[0],
+                value: Data[0][I],
+                property: I
+            ) => any;
+        }
+    >;
+    rowStyle?: (data: Data[0]) =>
         | (CSSProperties & {
               "--table-row-min-height"?: string;
               "--table-row-border-bottom"?: string;
@@ -84,12 +84,12 @@ export interface TableProps {
         | null;
 }
 
-export function Table({
+export function Table<Data extends any[]>({
     data,
     header,
     types,
     rowStyle,
-}: TableProps): JSX.Element {
+}: TableProps<Data>): JSX.Element {
     const headerEntries = Object.entries(header);
     const getCell = (row, prop: string, value: any) => {
         const cell =
