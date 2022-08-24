@@ -4,63 +4,35 @@ import { Button } from "./";
 export default {
     title: "Table/Button",
     argTypes: {
-        backgroundColor: { control: "color" },
+        size: {
+            options: ["xs", "sm", "md", "lg"],
+            control: { type: "radio" },
+        },
+        thead: { control: "boolean" },
+        href: { control: "text" },
+        icon: { control: "boolean" },
+        disabled: { control: "boolean" },
+        open: { control: "boolean" },
+        status: {
+            options: ["info", "success", "warning", "danger"],
+            control: { type: "radio" },
+        },
     },
 };
 
-export const Default = () => <Button>Button</Button>;
-
-export const DefaultWithIcon = () => (
-    <Button>
+export const Default = (props) => (
+    <Button {...props}>
         <span>★</span>
-        <span>Button</span>
+        {!props.icon && <span>Button</span>}
     </Button>
 );
 
-export const DefaultOnlyIcon = () => <Button icon>★</Button>;
-
-export const DefaultXs = () => <Button size="xs">Button</Button>;
-
-export const DefaultMd = () => <Button size="md">Button</Button>;
-
-export const DefaultLg = () => <Button size="lg">Button</Button>;
-
-export const DefaulttDisabled = () => <Button disabled>Button</Button>;
-
-export const Thead = () => <Button thead>Button</Button>;
-
-export const TheadOnlyIcon = () => (
-    <Button icon thead>
-        ★
-    </Button>
-);
-
-export const TheadInfo = () => (
-    <Button thead status="info">
-        Button
-    </Button>
-);
-
-export const TheadSuccess = () => (
-    <Button thead status="success">
-        Button
-    </Button>
-);
-
-export const TheadWarning = () => (
-    <Button thead status="warning">
-        Button
-    </Button>
-);
-
-export const TheadDanger = () => (
-    <Button thead status="danger">
-        Button
-    </Button>
-);
-
-export const TheadDisabled = () => (
-    <Button thead disabled>
-        Button
-    </Button>
-);
+Default.args = {
+    size: "",
+    href: "",
+    open: false,
+    disabled: false,
+    thead: false,
+    icon: false,
+    status: "",
+};
