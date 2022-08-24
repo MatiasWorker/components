@@ -7,6 +7,7 @@ interface Props {
     open?: boolean;
     disabled?: boolean;
     thead?: boolean;
+    icon?: boolean;
     status?: "info" | "success" | "warning" | "danger";
     onClick?: (event: MouseEventHandler<HTMLButtonElement>) => void;
     children: any;
@@ -21,6 +22,7 @@ export function Button({
     size,
     thead,
     status,
+    icon,
 }: Props): JSX.Element {
     const Type = href ? "a" : "button";
     const className: string[] = ["button"];
@@ -30,6 +32,8 @@ export function Button({
     if (thead) className.push(`button--thead`);
 
     if (status) className.push(`button--status-${status}`);
+
+    if (icon) className.push(`button--icon`);
 
     return (
         <Type

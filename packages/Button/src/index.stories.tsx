@@ -17,6 +17,8 @@ export const DefaultWithIcon = () => (
     </Button>
 );
 
+export const DefaultOnlyIcon = () => <Button icon>★</Button>;
+
 export const DefaultXs = () => <Button size="xs">Button</Button>;
 
 export const DefaultMd = () => <Button size="md">Button</Button>;
@@ -26,6 +28,12 @@ export const DefaultLg = () => <Button size="lg">Button</Button>;
 export const DefaulttDisabled = () => <Button disabled>Button</Button>;
 
 export const Thead = () => <Button thead>Button</Button>;
+
+export const TheadOnlyIcon = () => (
+    <Button icon thead>
+        ★
+    </Button>
+);
 
 export const TheadInfo = () => (
     <Button thead status="info">
