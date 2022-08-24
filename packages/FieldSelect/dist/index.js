@@ -42,6 +42,7 @@ var src_default = css`.field-select {
 .field-select_select {
     width: var(--select-width);
     min-height: 100%;
+    min-width: 100%;
     margin: 0;
     background: var(--select-background);
     border-radius: var(--select-border-radius);
