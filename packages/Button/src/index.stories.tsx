@@ -11,6 +11,7 @@ export default {
         thead: { control: "boolean" },
         badge: { control: "boolean" },
         href: { control: "text" },
+        bgcolor: { control: "text" },
         color: { control: "text" },
         icon: { control: "boolean" },
         disabled: { control: "boolean" },
@@ -39,4 +40,5 @@ Default.args = {
     icon: false,
     status: "",
     color: "",
+    bgcolor: "",
 };
