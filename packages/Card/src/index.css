@@ -1,0 +1,14 @@
+.card {
+    --card-shadow: var(--bx-card-lg-shadow);
+    --card-radius: var(--bx-card-radius);
+
+    width: 100%;
+    max-width: var(--bx-card-max-width);
+    background: white;
+    box-shadow: var(--card-shadow);
+    border-radius: var(--card-radius);
+}
+
+.card--size-md {
+    --card-shadow: var(--bx-card-md-shadow);
+}

@@ -1,6 +1,21 @@
-// src/colors.css
+// src/font.css
 import css from "ustyler";
-var colors_default = css`:root {
+var font_default = css`:root {
+    /* fonts */
+    --bx-font-primary: "Mont", system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+    --bx-font-secondary: "Lato", system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+}
+`;
+
+// src/colors.css
+import css2 from "ustyler";
+var colors_default = css2`:root {
     /* bx colors */
     /* blue */
     --bx-color-blue: #3363ff;
@@ -190,8 +205,8 @@ var colors_default = css`:root {
 `;
 
 // src/input.css
-import css2 from "ustyler";
-var input_default = css2`:root {
+import css3 from "ustyler";
+var input_default = css3`:root {
     --bx-input-font-family: var(--bx-font-secondary);
     --bx-input-font-weight: 700;
 
@@ -220,8 +235,8 @@ var input_default = css2`:root {
 `;
 
 // src/button.css
-import css3 from "ustyler";
-var button_default = css3`:root {
+import css4 from "ustyler";
+var button_default = css4`:root {
     --bx-button-shadow: 0px 2px 4px -2px rgba(24, 39, 75, 0.2);
 
     --bx-button-filled-bgcolor: var(--bx-color-orange);
@@ -251,17 +266,14 @@ var button_default = css3`:root {
 }
 `;
 
-// src/font.css
-import css4 from "ustyler";
-var font_default = css4`:root {
-    /* fonts */
-    --bx-font-primary: "Mont", system-ui, -apple-system, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
-    --bx-font-secondary: "Lato", system-ui, -apple-system, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
+// src/card.css
+import css5 from "ustyler";
+var card_default = css5`:root {
+    --bx-card-background: var(--bx-color-white);
+    --bx-card-radius: 1rem;
+    --bx-card-max-width: 60rem;
+
+    --bx-card-md-shadow: 0px 5px 8px -2px rgba(24, 39, 75, 0.2);
+    --bx-card-lg-shadow: 0px 8px 14px -10px rgba(33, 33, 33, 0.08);
 }
 `;

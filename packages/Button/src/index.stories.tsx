@@ -2,7 +2,7 @@ import "@bxreact/theme";
 import { Button } from "./";
 
 export default {
-    title: "Table/Button",
+    title: "Generic/Button",
     argTypes: {
         size: {
             options: ["xs", "sm", "md", "lg"],
