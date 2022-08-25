@@ -9,7 +9,9 @@ export default {
             control: { type: "radio" },
         },
         thead: { control: "boolean" },
+        badge: { control: "boolean" },
         href: { control: "text" },
+        color: { control: "text" },
         icon: { control: "boolean" },
         disabled: { control: "boolean" },
         open: { control: "boolean" },
@@ -33,6 +35,8 @@ Default.args = {
     open: false,
     disabled: false,
     thead: false,
+    badge: false,
     icon: false,
     status: "",
+    color: "",
 };

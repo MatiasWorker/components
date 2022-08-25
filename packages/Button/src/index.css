@@ -6,7 +6,7 @@
     --button-color: var(--bx-button-filled-color);
     --button-font-size: var(--bx-input-sm-font-size);
 
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: var(--button-padding);
@@ -21,9 +21,9 @@
     color: var(--button-color);
     font-size: var(--button-font-size);
     line-height: 1;
-    cursor: pointer;
     text-decoration: none;
     gap: var(--bx-button-gap);
+    pointer-events: none;
 }
 
 .button--xs {
@@ -91,4 +91,17 @@
     width: var(--button-height);
     height: var(--button-height);
     padding: 0px;
+}
+
+.button.button--badge {
+    --button-height: 1.5rem;
+    --button-radius: 0.5rem;
+    --button-font-size: 0.75rem;
+    --button-padding: 0px 0.75rem;
+    white-space: nowrap;
+}
+
+.button.button--pointer {
+    pointer-events: all;
+    cursor: pointer;
 }

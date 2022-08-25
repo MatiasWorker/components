@@ -10,6 +10,8 @@ interface Props {
     icon?: boolean;
     status?: "info" | "success" | "warning" | "danger";
     onClick?: (event: MouseEventHandler<HTMLButtonElement>) => void;
+    badge?: boolean;
+    color?: string;
     children: any;
 }
 
@@ -23,6 +25,8 @@ export function Button({
     thead,
     status,
     icon,
+    badge,
+    color,
 }: Props): JSX.Element {
     const Type = href ? "a" : "button";
     const className: string[] = ["button"];
@@ -35,6 +39,10 @@ export function Button({
 
     if (icon) className.push(`button--icon`);
 
+    if (badge) className.push(`button--badge`);
+
+    if ((onClick || href) && !disabled) className.push(`button--pointer`);
+
     return (
         <Type
             className={className.join(" ")}
@@ -42,6 +50,13 @@ export function Button({
             href={href}
             target={open ? "_blank" : null}
             disabled={disabled}
+            style={
+                color
+                    ? ({
+                          "--button-bgcolor": `var(--bx-color-${color}, var(--bx-button-filled-bgcolor))`,
+                      } as any)
+                    : null
+            }
         >
             {children}
         </Type>
