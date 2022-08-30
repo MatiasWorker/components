@@ -1,4 +1,5 @@
 .field-text {
+    --field-text-add-width: 30px;
     --field-text-background: transparent;
     --field-text-active-background: var(
         --bx-field-text-active-background,
@@ -6,7 +7,7 @@
     );
     --field-text-min-height: var(--table-row-min-height, 48px);
     --field-text-padding: var(--table-field-padding, 10px);
-    min-width: calc(var(--min-width, 0) + 20px);
+    min-width: calc(var(--min-width, 0) + var(--field-text-add-width));
     display: flex;
     align-items: stretch;
     position: relative;
@@ -66,6 +67,7 @@
 
 .field-text--danger {
     padding: 6.5px 4px;
+    --field-text-add-width: 34px;
 }
 
 .field-text--danger .field-text_input {
