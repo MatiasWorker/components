@@ -13,6 +13,7 @@ interface Props {
     badge?: boolean;
     color?: string;
     bgcolor?: string;
+    wrap?: boolean;
     onClick?: (event: MouseEventHandler<HTMLButtonElement>) => void;
     children: any;
 }
@@ -27,6 +28,7 @@ export function Button({
     thead,
     status,
     icon,
+    wrap,
     badge,
     color,
     bgcolor,
@@ -47,6 +49,8 @@ export function Button({
     if (badge) className.push(`button--badge`);
 
     if (outline) className.push(`button--outline`);
+
+    if (wrap) className.push(`button--wrap`);
 
     if ((onClick || href) && !disabled) className.push(`button--pointer`);
 

@@ -27,6 +27,11 @@
     pointer-events: none;
     border: var(--bx-button-border) var(--button-border-color);
     transition: var(--bx-input-transition);
+    white-space: nowrap;
+}
+
+.button--wrap {
+    white-space: normal;
 }
 
 .button:not(.button--thead):hover {
@@ -112,7 +117,6 @@
     --button-radius: 0.5rem;
     --button-font-size: 0.75rem;
     --button-padding: 0px 0.75rem;
-    white-space: nowrap;
 }
 
 .button.button--pointer {
