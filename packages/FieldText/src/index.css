@@ -7,8 +7,13 @@
     --field-text-min-height: var(--table-row-min-height, 48px);
     --field-text-padding: var(--table-field-padding, 10px);
     min-width: calc(var(--min-width, 0) + 20px);
+    display: flex;
+    align-items: stretch;
     position: relative;
     overflow: hidden;
+    background: var(--field-text-background);
+    height: var(--field-text-min-height);
+    box-sizing: border-box;
 }
 
 .field-text--success {
@@ -30,10 +35,8 @@
 .field-text_input {
     width: 100%;
     padding: var(--field-text-padding);
-    min-height: var(--field-text-min-height);
     box-sizing: border-box;
     border: none;
-    background: var(--field-text-background);
     position: relative;
     z-index: 1;
 }
@@ -59,4 +62,15 @@
     width: 100%;
     height: 100%;
     z-index: 2;
+}
+
+.field-text--danger {
+    padding: 6.5px 4px;
+}
+
+.field-text--danger .field-text_input {
+    background: var(--bx-input-bgcolor);
+    color: var(--bx-input-color);
+    border: var(--bx-input-border) var(--bx-color-red-alert);
+    border-radius: var(--bx-input-xs-radius);
 }

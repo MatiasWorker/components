@@ -3,10 +3,17 @@ import { FieldText } from "./";
 export default {
     title: "Table/FieldText",
     argTypes: {
-        backgroundColor: { control: "color" },
+        status: {
+            options: ["info", "success", "warning", "danger"],
+            control: { type: "radio" },
+        },
     },
 };
 
-export const ExampleFieldText = () => (
-    <FieldText value="example" onChange={console.log} />
+export const ExampleFieldText = (props) => (
+    <FieldText value="example" onChange={console.log} {...props} />
 );
+
+ExampleFieldText.args = {
+    status: "",
+};

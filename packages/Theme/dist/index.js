@@ -245,6 +245,11 @@ import css4 from "ustyler";
 var input_default = css4`:root {
     --bx-input-transition: 0.25s ease all;
 
+    --bx-input-border: 1px solid;
+
+    --bx-input-bgcolor: var(--bx-color-white);
+    --bx-input-color: unset;
+
     --bx-input-font-family: var(--bx-font-secondary);
     --bx-input-font-weight: 700;
 
