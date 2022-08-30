@@ -8,11 +8,12 @@ interface Props {
     disabled?: boolean;
     thead?: boolean;
     icon?: boolean;
-    status?: "info" | "success" | "warning" | "danger";
-    onClick?: (event: MouseEventHandler<HTMLButtonElement>) => void;
+    status?: "info" | "success" | "warning" | "danger" | "";
+    outline?: boolean;
     badge?: boolean;
     color?: string;
     bgcolor?: string;
+    onClick?: (event: MouseEventHandler<HTMLButtonElement>) => void;
     children: any;
 }
 
@@ -29,6 +30,7 @@ export function Button({
     badge,
     color,
     bgcolor,
+    outline,
 }: Props): JSX.Element {
     const Type = href ? "a" : "button";
     const className: string[] = ["button"];
@@ -43,6 +45,8 @@ export function Button({
     if (icon) className.push(`button--icon`);
 
     if (badge) className.push(`button--badge`);
+
+    if (outline) className.push(`button--outline`);
 
     if ((onClick || href) && !disabled) className.push(`button--pointer`);
 

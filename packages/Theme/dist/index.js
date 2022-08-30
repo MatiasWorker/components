@@ -11,11 +11,47 @@ var font_default = css`:root {
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
 }
+
+`;
+
+// src/default.css
+import css2 from "ustyler";
+var default_default = css2`h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0px;
+    font-family: var(--bx-font-primary);
+}
+
+body {
+    font-family: var(--bx-font-secondary);
+}
+
+button,
+a {
+    text-decoration: none;
+    font-family: unset;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 18px;
+}
 `;
 
 // src/colors.css
-import css2 from "ustyler";
-var colors_default = css2`:root {
+import css3 from "ustyler";
+var colors_default = css3`:root {
     /* bx colors */
     /* blue */
     --bx-color-blue: #3363ff;
@@ -205,14 +241,16 @@ var colors_default = css2`:root {
 `;
 
 // src/input.css
-import css3 from "ustyler";
-var input_default = css3`:root {
+import css4 from "ustyler";
+var input_default = css4`:root {
+    --bx-input-transition: 0.25s ease all;
+
     --bx-input-font-family: var(--bx-font-secondary);
     --bx-input-font-weight: 700;
 
     --bx-input-xs-font-size: 0.875rem;
     --bx-input-sm-font-size: 0.875rem;
-    --bx-input-md-font-size: 0.875rem;
+    --bx-input-md-font-size: 1rem;
     --bx-input-lg-font-size: 1.125rem;
 
     --bx-input-xs-height: 2rem;
@@ -235,14 +273,18 @@ var input_default = css3`:root {
 `;
 
 // src/button.css
-import css4 from "ustyler";
-var button_default = css4`:root {
+import css5 from "ustyler";
+var button_default = css5`:root {
     --bx-button-shadow: 0px 2px 4px -2px rgba(24, 39, 75, 0.2);
+
+    --bx-button-border: 1.5px solid;
 
     --bx-button-filled-bgcolor: var(--bx-color-orange);
     --bx-button-filled-color: var(--bx-color-white);
     --bx-button-filled-disabled-bgcolor: var(--bx-color-orange-elastic);
     --bx-button-filled-disabled-color: var(--bx-color-white);
+    --bx-button-filled-hover-bgcolor: var(--bx-color-orange-full);
+    --bx-button-filled-hover-color: var(--bx-color-white);
 
     --bx-button-gap: 0.5rem;
 
@@ -267,8 +309,8 @@ var button_default = css4`:root {
 `;
 
 // src/card.css
-import css5 from "ustyler";
-var card_default = css5`:root {
+import css6 from "ustyler";
+var card_default = css6`:root {
     --bx-card-background: var(--bx-color-white);
     --bx-card-radius: 1rem;
     --bx-card-max-width: 60rem;

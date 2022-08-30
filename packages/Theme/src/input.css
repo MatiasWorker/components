@@ -1,10 +1,12 @@
 :root {
+    --bx-input-transition: 0.25s ease all;
+
     --bx-input-font-family: var(--bx-font-secondary);
     --bx-input-font-weight: 700;
 
     --bx-input-xs-font-size: 0.875rem;
     --bx-input-sm-font-size: 0.875rem;
-    --bx-input-md-font-size: 0.875rem;
+    --bx-input-md-font-size: 1rem;
     --bx-input-lg-font-size: 1.125rem;
 
     --bx-input-xs-height: 2rem;

@@ -5,6 +5,7 @@
     --button-bgcolor: var(--bx-button-filled-bgcolor);
     --button-color: var(--bx-button-filled-color);
     --button-font-size: var(--bx-input-sm-font-size);
+    --button-border-color: transparent;
 
     display: inline-flex;
     align-items: center;
@@ -24,6 +25,19 @@
     text-decoration: none;
     gap: var(--bx-button-gap);
     pointer-events: none;
+    border: var(--bx-button-border) var(--button-border-color);
+    transition: var(--bx-input-transition);
+}
+
+.button:not(.button--thead):hover {
+    --button-bgcolor: var(--bx-button-filled-hover-bgcolor);
+    --button-color: var(--bx-button-filled-hover-color);
+}
+
+.button--outline:not(:hover) {
+    --button-border-color: var(--button-bgcolor);
+    --button-color: var(--button-bgcolor) !important;
+    background: transparent;
 }
 
 .button--xs {
