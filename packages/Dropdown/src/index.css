@@ -42,13 +42,13 @@
     cursor: pointer;
 }
 
-.dropdown_content {
+.dropdown_space {
     visibility: hidden;
     opacity: 0;
     transition: 0.3s ease all;
 }
 
-.dropdown.dropdown--show .dropdown_content {
+.dropdown.dropdown--show .dropdown_space {
     visibility: visible;
     opacity: 1;
 }
