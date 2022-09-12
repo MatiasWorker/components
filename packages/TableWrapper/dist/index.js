@@ -15,9 +15,10 @@ var src_default = css`.table-wrapper {
     overflow-x: auto;
 }
 .table-wrapper_footer {
-    padding: var(--table-wrapper-footer-padding, 1rem 0);
+    padding: var(--table-wrapper-footer-padding, 0.75rem 1rem);
     display: flex;
     justify-content: flex-end;
+    box-sizing: border-box;
 }
 `;
 

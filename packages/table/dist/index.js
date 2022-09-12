@@ -134,7 +134,7 @@ function Table({
 }) {
   const headerEntries = Object.entries(header);
   const getCell = (row, prop, value) => {
-    const cell = prop in types ? types[prop](row, value, prop) : types.default ? types.default(row, value, prop) : value;
+    const cell = types ? prop in types ? types[prop](row, value, prop) : types.default ? types.default(row, value, prop) : value : value;
     return typeof cell === "object" ? cell : /* @__PURE__ */ _jsx(TableCell, null, cell);
   };
   return /* @__PURE__ */ _jsx("table", {

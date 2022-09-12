@@ -10,8 +10,9 @@ var src_default = css`.button {
     --button-bgcolor: var(--bx-button-filled-bgcolor);
     --button-color: var(--bx-button-filled-color);
     --button-font-size: var(--bx-input-sm-font-size);
+    --button-border-color: transparent;
 
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: var(--button-padding);
@@ -26,9 +27,27 @@ var src_default = css`.button {
     color: var(--button-color);
     font-size: var(--button-font-size);
     line-height: 1;
-    cursor: pointer;
     text-decoration: none;
     gap: var(--bx-button-gap);
+    pointer-events: none;
+    border: var(--bx-button-border) var(--button-border-color);
+    transition: var(--bx-input-transition);
+    white-space: nowrap;
+}
+
+.button--wrap {
+    white-space: normal;
+}
+
+.button:not(.button--thead):hover {
+    --button-bgcolor: var(--bx-button-filled-hover-bgcolor);
+    --button-color: var(--bx-button-filled-hover-color);
+}
+
+.button--outline:not(:hover) {
+    --button-border-color: var(--button-bgcolor);
+    --button-color: var(--button-bgcolor) !important;
+    background: transparent;
 }
 
 .button--xs {
@@ -62,6 +81,7 @@ var src_default = css`.button {
 .button--thead {
     --button-bgcolor: var(--bx-button-thead-bgcolor);
     --button-color: var(--bx-button-thead-color);
+    --button-radius: 0.75rem;
     box-shadow: var(--bx-button-shadow);
 }
 
@@ -96,6 +116,18 @@ var src_default = css`.button {
     height: var(--button-height);
     padding: 0px;
 }
+
+.button.button--badge {
+    --button-height: 1.5rem;
+    --button-radius: 0.5rem;
+    --button-font-size: 0.75rem;
+    --button-padding: 0px 0.75rem;
+}
+
+.button.button--pointer {
+    pointer-events: all;
+    cursor: pointer;
+}
 `;
 
 // src/index.tsx
@@ -108,10 +140,16 @@ function Button({
   size,
   thead,
   status,
-  icon
+  icon,
+  wrap,
+  badge,
+  color,
+  bgcolor,
+  outline
 }) {
   const Type = href ? "a" : "button";
   const className = ["button"];
+  const style = {};
   if (size)
     className.push(`button--${size}`);
   if (thead)
@@ -120,12 +158,27 @@ function Button({
     className.push(`button--status-${status}`);
   if (icon)
     className.push(`button--icon`);
+  if (badge)
+    className.push(`button--badge`);
+  if (outline)
+    className.push(`button--outline`);
+  if (wrap)
+    className.push(`button--wrap`);
+  if ((onClick || href) && !disabled)
+    className.push(`button--pointer`);
+  if (color) {
+    style["--button-color"] = `var(--bx-color-${color}, var(--bx-button-filled-color))`;
+  }
+  if (bgcolor) {
+    style["--button-bgcolor"] = `var(--bx-color-${bgcolor}, var(--bx-button-filled-bgcolor))`;
+  }
   return /* @__PURE__ */ _jsx(Type, {
     className: className.join(" "),
     onClick,
     href,
     target: open ? "_blank" : null,
-    disabled
+    disabled,
+    style
   }, children);
 }
 export {
