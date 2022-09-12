@@ -2,14 +2,20 @@
     position: relative;
     display: inline-block;
     max-width: 100%;
+    z-index: 2;
+}
+
+.dropdown_space {
+    min-width: 100%;
+    padding: var(--bx-dropdown-space, 0.25rem) 0px;
 }
 
 .dropdown_content {
-    min-width: 100%;
     background: var(--bx-card-background);
     border-radius: var(--bx-card-radius);
     box-shadow: var(--bx-card-md-shadow);
     font-size: var(--bx-dropdown-font-size, 12px);
+    white-space: nowrap;
 }
 
 .dropdown_content ul {

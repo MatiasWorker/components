@@ -56,15 +56,15 @@ export function Dropdown({ content, children }: Props): JSX.Element {
                 {children}
             </div>
             <div
-                ref={floating}
                 style={{
                     position: strategy,
                     top: y ?? 0,
                     left: x ?? 0,
                 }}
-                className="dropdown_content"
+                ref={floating}
+                className="dropdown_space"
             >
-                {content}
+                <div className="dropdown_content">{content}</div>
             </div>
         </div>
     );
