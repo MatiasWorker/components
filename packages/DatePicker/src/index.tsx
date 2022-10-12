@@ -36,7 +36,7 @@ export function DatePickerRange({ onChange, range }: Props) {
         <div className="form-date-picker">
             <Dropdown
                 onChange={(show) => {
-                    if (!show && currentRange != range) onChange(range);
+                    if (!show && currentRange != range) onChange(currentRange);
                 }}
                 content={
                     <DateRange
