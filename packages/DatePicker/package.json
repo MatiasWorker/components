@@ -1,0 +1,51 @@
+{
+    "name": "@bxreact/date-picker",
+    "version": "1.0.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "type": "module",
+    "scripts": {
+        "build": "exports src/index.tsx --exports --jsx react --css-inline --types",
+        "exports": "exports src/index.tsx --exports --jsx react --css-inline --types --publish"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "@bxreact/theme": "*",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "@types/react": "^17.0.38",
+        "ustyler": "^1.0.1",
+        "react-date-range": "^1.4.0",
+        "classnames": "latest",
+        "@types/react-date-range": "^1.4.4",
+        "@bxreact/input": "*",
+        "@bxreact/dropdown": "*",
+        "@bxreact/icon": "*",
+        "@types/classnames": "latest"
+    },
+    "peerDependencies": {
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "@types/react": "^17.0.38",
+        "@types/react-date-range": "^1.4.4",
+        "react-date-range": "^1.4.0",
+        "classnames": "latest"
+    },
+    "devDependencies": {
+        "@bxreact/tsconfig": "*"
+    },
+    "module": "./dist/index.js",
+    "exports": {
+        "./index": "./dist/index.js",
+        ".": "./dist/index.js"
+    },
+    "types": "types/index.d.ts",
+    "typesVersions": {
+        "*": {
+            "index": [
+                "./types/index.d.ts"
+            ]
+        }
+    }
+}
