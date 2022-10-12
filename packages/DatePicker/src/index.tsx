@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { DateRange } from "react-date-range";
 import { es } from "date-fns/locale";
 import { Dropdown } from "@bxreact/dropdown";
@@ -25,16 +26,25 @@ export interface Props {
 }
 
 export function DatePickerRange({ onChange, range }: Props) {
+    const [currentRange, setCurrentRange] = useState<InternalRange>(range);
+
+    useEffect(() => {
+        if (range != currentRange) setCurrentRange(range);
+    }, [range]);
+
     return (
         <div className="form-date-picker">
             <Dropdown
+                onChange={(show) => {
+                    if (!show && currentRange != range) onChange(range);
+                }}
                 content={
                     <DateRange
                         locale={es}
-                        ranges={[{ ...range, key: "range" }]}
+                        ranges={[{ ...currentRange, key: "range" }]}
                         maxDate={now}
                         onChange={({ range }) =>
-                            onChange(range as InternalRange)
+                            setCurrentRange(range as InternalRange)
                         }
                         showDateDisplay={false}
                     />
@@ -47,7 +57,7 @@ export function DatePickerRange({ onChange, range }: Props) {
                             return [format(startDate), " - ", format(endDate)];
                         })}
                     </strong>
-                    <Icon.Down />
+                    <Icon.Down size="1em" />
                 </button>
             </Dropdown>
         </div>

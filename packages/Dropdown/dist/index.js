@@ -17,11 +17,11 @@ var src_default = css`.dropdown {
 }
 
 .dropdown_space {
-    padding: 0.5rem 0px;
+    min-width: 100%;
+    padding: var(--bx-dropdown-space, 0.25rem) 0px;
 }
 
 .dropdown_content {
-    min-width: 100%;
     background: var(--bx-card-background);
     border-radius: var(--bx-card-radius);
     box-shadow: var(--bx-card-md-shadow);
@@ -53,13 +53,13 @@ var src_default = css`.dropdown {
     cursor: pointer;
 }
 
-.dropdown_content {
+.dropdown_space {
     visibility: hidden;
     opacity: 0;
     transition: 0.3s ease all;
 }
 
-.dropdown.dropdown--show .dropdown_content {
+.dropdown.dropdown--show .dropdown_space {
     visibility: visible;
     opacity: 1;
 }
@@ -71,7 +71,7 @@ var src_default = css`.dropdown {
 `;
 
 // src/index.tsx
-function Dropdown({ content, children }) {
+function Dropdown({ content, children, onChange }) {
   const host = useRef();
   const [show, setShow] = useState(false);
   const { x, y, reference, floating, strategy } = useFloating({
@@ -96,6 +96,10 @@ function Dropdown({ content, children }) {
     host.current = node;
     reference(node);
   }, [reference]);
+  useEffect(() => {
+    if (show != null && onChange)
+      onChange(show);
+  }, [show]);
   return /* @__PURE__ */ _jsx("div", {
     className: `dropdown ${show ? "dropdown--show" : ""}`,
     ref: (node) => refCallback(node)
@@ -105,14 +109,14 @@ function Dropdown({ content, children }) {
     },
     className: "dropdown_children"
   }, children), /* @__PURE__ */ _jsx("div", {
-    className: "dropdown_space"
-  }, /* @__PURE__ */ _jsx("div", {
-    ref: floating,
     style: {
       position: strategy,
       top: y ?? 0,
       left: x ?? 0
     },
+    ref: floating,
+    className: "dropdown_space"
+  }, /* @__PURE__ */ _jsx("div", {
     className: "dropdown_content"
   }, content)));
 }

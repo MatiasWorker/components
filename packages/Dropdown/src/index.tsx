@@ -10,9 +10,10 @@ import "./index.css";
 interface Props {
     content: any;
     children: any;
+    onChange?: (show: boolean) => void;
 }
 
-export function Dropdown({ content, children }: Props): JSX.Element {
+export function Dropdown({ content, children, onChange }: Props): JSX.Element {
     const host = useRef<ReferenceType>();
     const [show, setShow] = useState(false);
     const { x, y, reference, floating, strategy } = useFloating({
@@ -41,6 +42,10 @@ export function Dropdown({ content, children }: Props): JSX.Element {
         },
         [reference]
     );
+
+    useEffect(() => {
+        if (show != null && onChange) onChange(show);
+    }, [show]);
 
     return (
         <div
