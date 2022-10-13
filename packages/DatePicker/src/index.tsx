@@ -57,7 +57,7 @@ export function DatePickerRange({ onChange, range }: Props) {
                             return [format(startDate), " - ", format(endDate)];
                         })}
                     </strong>
-                    <Icon.Down size="1em" />
+                    <Icon.Down size="1em" color="lblue-well" />
                 </button>
             </Dropdown>
         </div>
