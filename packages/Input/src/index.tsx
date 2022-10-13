@@ -1,6 +1,7 @@
 import { ReactNode, InputHTMLAttributes, useState, useCallback } from "react";
 import "./index.css";
 import cs from "classnames";
+import { Down } from "@bxreact/icon";
 
 type Props = {
     type?:
@@ -9,6 +10,7 @@ type Props = {
         | "password"
         | "search"
         | "number"
+        | "select"
         | "date"
         | string;
     error?: boolean;
@@ -21,6 +23,7 @@ type Props = {
     inputSize?: "sm" | "md";
     fill?: string;
     ref?: any;
+    options?: { value: string; label: string }[];
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export function Input({
@@ -40,6 +43,7 @@ export function Input({
     rightIcon,
     inputSize,
     fill,
+    options,
     ...props
 }: Props) {
     const [focused, setFocused] = useState(false);
@@ -60,6 +64,7 @@ export function Input({
                 "form-input-container-md": inputSize === "md",
                 "form-input-container-sm": inputSize === "sm",
                 "form-input-container-fill": fill,
+                "form-input-type-select": type === "select",
             })}
         >
             {leftIcon && (
@@ -67,24 +72,50 @@ export function Input({
                     {leftIcon}
                 </div>
             )}
-            <input
-                className={cs("form-input-text form-input-with-icon", {
-                    "form-input-fullwidth": fullWidth,
-                })}
-                type={type}
-                value={value}
-                onChange={onChange}
-                id={id}
-                disabled={disabled}
-                readOnly={readOnly}
-                placeholder={placeholder}
-                required={required}
-                form={form}
-                name={name}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                {...props}
-            />
+            {type === "select" ? (
+                <>
+                    <select
+                        className="form-input-select"
+                        name={name}
+                        value={value || ""}
+                        onChange={onChange as any}
+                    >
+                        {placeholder && (
+                            <option key="placeholder" value="" disabled>
+                                {placeholder}
+                            </option>
+                        )}
+                        {options.map((option, i) => (
+                            <option key={i} value={option.value}>
+                                {option.label}
+                            </option>
+                        ))}
+                    </select>
+                    <div className="form-input-select_icon">
+                        <Down size="1em" color="lblue-well"></Down>
+                    </div>
+                </>
+            ) : (
+                <input
+                    className={cs("form-input-text form-input-with-icon", {
+                        "form-input-fullwidth": fullWidth,
+                    })}
+                    type={type}
+                    value={value}
+                    onChange={onChange}
+                    id={id}
+                    disabled={disabled}
+                    readOnly={readOnly}
+                    placeholder={placeholder}
+                    required={required}
+                    form={form}
+                    name={name}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    {...props}
+                />
+            )}
+
             {rightIcon && (
                 <div className="form-icon-container form-icon-right">
                     {rightIcon}

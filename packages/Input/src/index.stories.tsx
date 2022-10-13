@@ -36,3 +36,15 @@ Default.args = {
     inputSize: "sm",
     placeholder: "Placeholder",
 };
+
+export const Select = (props) => (
+    <Input
+        type="select"
+        placeholder="Select option"
+        options={[
+            { value: "1", label: "One" },
+            { value: "2", label: "Two" },
+            { value: "3", label: "Three" },
+        ]}
+    ></Input>
+);

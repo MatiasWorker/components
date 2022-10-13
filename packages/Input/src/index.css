@@ -388,3 +388,25 @@
     text-align: left;
     flex: 0%;
 }
+
+.form-input-type-select {
+    padding: 0px;
+    position: relative;
+}
+
+.form-input-select {
+    all: unset;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 1rem;
+    z-index: 2;
+}
+
+.form-input-select_icon {
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+}
