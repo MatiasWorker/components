@@ -108,6 +108,11 @@
     --bx--color-yellow-nice: #ffeeb1;
     --bx--color-yellow-cloud: #fff6d8;
     --bx--color-yellow-blank: #fffcf2;
+    /* Progress */
+    --bx-color-success: #198754;
+    --bx-color-info: #0dcaf0;
+    --bx-color-warning: #ffc107;
+    --bx-color-danger: #dc3545;
     /* general */
     --bx-bg: #ffffff;
     --bx-bg-secondary: #eaeaeb;
