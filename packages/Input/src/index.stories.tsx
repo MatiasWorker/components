@@ -1,5 +1,5 @@
 import "@bxreact/theme";
-import { Input } from "./";
+import { Input, Textarea } from "./";
 
 export default {
     title: "Generic/Input",
@@ -37,7 +37,7 @@ Default.args = {
     placeholder: "Placeholder",
 };
 
-export const Select = (props) => (
+export const ExampleSelect = (props) => (
     <Input
         type="select"
         placeholder="Select option"
@@ -48,3 +48,5 @@ export const Select = (props) => (
         ]}
     ></Input>
 );
+
+export const ExampleTextarea = () => <Textarea></Textarea>;

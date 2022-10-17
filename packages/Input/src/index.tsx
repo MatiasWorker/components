@@ -2,7 +2,7 @@ import { ReactNode, InputHTMLAttributes, useState, useCallback } from "react";
 import "./index.css";
 import cs from "classnames";
 import { Down } from "@bxreact/icon";
-export * from "./TextArea";
+export * from "./Textarea";
 
 type Props = {
     type?:

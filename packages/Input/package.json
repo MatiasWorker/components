@@ -1,13 +1,13 @@
 {
     "name": "@bxreact/input",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "publishConfig": {
         "access": "public"
     },
     "type": "module",
     "scripts": {
-        "build": "exports src/index.tsx --exports --jsx react --css-inline --types",
-        "exports": "exports src/index.tsx --exports --jsx react --css-inline --types --publish"
+        "build": "exports src/**/*.tsx --exports --jsx react --css-inline --types --main index",
+        "exports": "exports src/**/*.tsx --exports --jsx react --css-inline --types --main index --publish"
     },
     "license": "ISC",
     "dependencies": {
@@ -34,13 +34,17 @@
     "module": "./dist/index.js",
     "exports": {
         "./index": "./dist/index.js",
-        ".": "./dist/index.js"
+        ".": "./dist/index.js",
+        "./TextArea": "./dist/TextArea.js"
     },
     "types": "types/index.d.ts",
     "typesVersions": {
         "*": {
             "index": [
                 "./types/index.d.ts"
+            ],
+            "TextArea": [
+                "./types/TextArea.d.ts"
             ]
         }
     }
