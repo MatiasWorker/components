@@ -407,6 +407,6 @@
 .form-input-select_icon {
     right: 1rem;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-40%);
     position: absolute;
 }
