@@ -1,14 +1,28 @@
+import { HTMLAttributes } from "react";
 import "./index.css";
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
     size?: "md" | "lg";
+    className?: string;
+    id?: string;
     children: any;
 }
 
-export function Card({ size, children }: Props): JSX.Element {
-    const className: string[] = ["card"];
+export function Card({
+    size,
+    children,
+    className,
+    ...props
+}: Props): JSX.Element {
+    const listClassName: string[] = ["card"];
 
-    if (size) className.push(`card--size-${size}`);
+    if (size) listClassName.push(`card--size-${size}`);
 
-    return <div className={className.join(" ")}>{children}</div>;
+    if (className) listClassName.push(className);
+
+    return (
+        <div {...props} className={listClassName.join(" ")}>
+            {children}
+        </div>
+    );
 }
