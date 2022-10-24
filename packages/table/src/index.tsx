@@ -159,12 +159,18 @@ export function Table<Data extends any[]>({
                                                 : ""
                                         }`}
                                     >
-                                        {label && (
-                                            <div className="table_label ">
-                                                {label}
-                                            </div>
+                                        {label ? (
+                                            <>
+                                                <div className="table_label ">
+                                                    {label}
+                                                </div>
+                                                <div className="table_value">
+                                                    {cell}
+                                                </div>
+                                            </>
+                                        ) : (
+                                            cell
                                         )}
-                                        {cell}
                                     </td>
                                 );
                             })}
