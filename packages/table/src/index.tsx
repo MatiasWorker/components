@@ -1,7 +1,17 @@
-import { CSSProperties, useState } from "react";
+import { CSSProperties, useState, ReactNode, isValidElement } from "react";
 import { useFloating, flip, shift } from "@floating-ui/react-dom";
 
 import "./index.css";
+
+interface PropsTableCell {
+    className?: string;
+    children: any;
+    color?: string;
+    background?: string;
+    align?: "center" | "start" | "end";
+    tooltip?: any;
+    label?: ReactNode;
+}
 
 export function TableCell({
     children,
@@ -10,14 +20,7 @@ export function TableCell({
     align,
     className,
     tooltip,
-}: {
-    className?: string;
-    children: any;
-    color?: string;
-    background?: string;
-    align?: "center" | "start" | "end";
-    tooltip?: any;
-}) {
+}: PropsTableCell) {
     const style = {};
     const { x, y, reference, floating, strategy } = useFloating({
         placement: "bottom",
@@ -61,6 +64,7 @@ type Fill<Value> = Value | { [index: string]: any };
 
 export interface TableProps<Data extends any[]> {
     data: Data;
+    collapse?: boolean;
     header: Fill<
         {
             [I in keyof Data[0]]?: any;
@@ -89,8 +93,10 @@ export function Table<Data extends any[]>({
     header,
     types,
     rowStyle,
+    collapse,
 }: TableProps<Data>): JSX.Element {
     const headerEntries = Object.entries(header);
+
     const getCell = (row, prop: string, value: any) => {
         const cell = types
             ? prop in types
@@ -102,8 +108,13 @@ export function Table<Data extends any[]>({
         return typeof cell === "object" ? cell : <TableCell>{cell}</TableCell>;
     };
 
+    const getLabel = (value: any) =>
+        isValidElement<PropsTableCell>(value) && value.type === TableCell
+            ? value.props.label
+            : false;
+
     return (
-        <table className="table">
+        <table className={`table ${collapse ? "table--collapse" : ""} `}>
             <thead className="table_thead">
                 <tr className="table_tr">
                     {headerEntries.map(([prop, value], key) => (
@@ -128,19 +139,35 @@ export function Table<Data extends any[]>({
                         style={rowStyle ? rowStyle(row) : null}
                     >
                         {headerEntries
-                            .map(([prop]) => [prop, row[prop]])
-                            .map(([prop, value], key) => (
-                                <td
-                                    key={key + ""}
-                                    className={`table_td ${
-                                        prop === "id"
-                                            ? "table_td--transparent"
-                                            : ""
-                                    }`}
-                                >
-                                    {getCell(row, prop, value)}
-                                </td>
-                            ))}
+                            .map(([prop, header]) => [prop, row[prop], header])
+                            .map(([prop, value, header], key) => {
+                                const cell = getCell(row, prop, value);
+                                const label = collapse
+                                    ? getLabel(cell) ||
+                                      getLabel(header) ||
+                                      header
+                                    : false;
+
+                                if (collapse && !label) return;
+
+                                return (
+                                    <td
+                                        key={key + ""}
+                                        className={`table_td ${
+                                            prop === "id"
+                                                ? "table_td--transparent"
+                                                : ""
+                                        }`}
+                                    >
+                                        {label && (
+                                            <div className="table_label ">
+                                                {label}
+                                            </div>
+                                        )}
+                                        {cell}
+                                    </td>
+                                );
+                            })}
                     </tr>
                 ))}
             </tbody>

@@ -1,5 +1,6 @@
 // src/index.tsx
 import { createElement as _jsx } from "react";
+import { isValidElement } from "react";
 import { useFloating, flip, shift } from "@floating-ui/react-dom";
 
 // src/index.css
@@ -83,6 +84,39 @@ var src_default = css`.table {
     --tooltip-opacity: 1;
     --tooltip-visibility: visible;
 }
+
+.table.table--collapse {
+    --table-row-min-height: auto;
+}
+
+.table.table--collapse tr {
+    display: grid;
+    border: var(--table-row-border-bottom);
+}
+
+.table.table--collapse tr:not(:last-child) {
+    border-bottom: none;
+}
+
+.table.table--collapse td {
+    display: grid;
+    border: none;
+    padding: var(--table-field-padding);
+    justify-content: flex-start;
+    gap: 0.5em;
+}
+
+.table.table--collapse .table_thead {
+    display: none;
+}
+
+.table.table--collapse .table_cell_content {
+    padding: 0px;
+}
+
+.table.table--collapse .table_label {
+    font-weight: var(--table-font-bold);
+}
 `;
 
 // src/index.tsx
@@ -130,15 +164,17 @@ function Table({
   data,
   header,
   types,
-  rowStyle
+  rowStyle,
+  collapse
 }) {
   const headerEntries = Object.entries(header);
   const getCell = (row, prop, value) => {
     const cell = types ? prop in types ? types[prop](row, value, prop) : types.default ? types.default(row, value, prop) : value : value;
     return typeof cell === "object" ? cell : /* @__PURE__ */ _jsx(TableCell, null, cell);
   };
+  const getLabel = (value) => isValidElement(value) && value.type === TableCell ? value.props.label : false;
   return /* @__PURE__ */ _jsx("table", {
-    className: "table"
+    className: `table ${collapse ? "table--collapse" : ""} `
   }, /* @__PURE__ */ _jsx("thead", {
     className: "table_thead"
   }, /* @__PURE__ */ _jsx("tr", {
@@ -152,10 +188,18 @@ function Table({
     key: key + "",
     className: "table_tr",
     style: rowStyle ? rowStyle(row) : null
-  }, headerEntries.map(([prop]) => [prop, row[prop]]).map(([prop, value], key2) => /* @__PURE__ */ _jsx("td", {
-    key: key2 + "",
-    className: `table_td ${prop === "id" ? "table_td--transparent" : ""}`
-  }, getCell(row, prop, value)))))));
+  }, headerEntries.map(([prop, header2]) => [prop, row[prop], header2]).map(([prop, value, header2], key2) => {
+    const cell = getCell(row, prop, value);
+    const label = collapse ? getLabel(cell) || getLabel(header2) || header2 : false;
+    if (collapse && !label)
+      return;
+    return /* @__PURE__ */ _jsx("td", {
+      key: key2 + "",
+      className: `table_td ${prop === "id" ? "table_td--transparent" : ""}`
+    }, label && /* @__PURE__ */ _jsx("div", {
+      className: "table_label "
+    }, label), cell);
+  })))));
 }
 export {
   Table,

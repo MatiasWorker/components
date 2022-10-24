@@ -77,3 +77,36 @@
     --tooltip-opacity: 1;
     --tooltip-visibility: visible;
 }
+
+.table.table--collapse {
+    --table-row-min-height: auto;
+}
+
+.table.table--collapse tr {
+    display: grid;
+    border: var(--table-row-border-bottom);
+}
+
+.table.table--collapse tr:not(:last-child) {
+    border-bottom: none;
+}
+
+.table.table--collapse td {
+    display: grid;
+    border: none;
+    padding: var(--table-field-padding);
+    justify-content: flex-start;
+    gap: 0.5em;
+}
+
+.table.table--collapse .table_thead {
+    display: none;
+}
+
+.table.table--collapse .table_cell_content {
+    padding: 0px;
+}
+
+.table.table--collapse .table_label {
+    font-weight: var(--table-font-bold);
+}

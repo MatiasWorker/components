@@ -5,7 +5,9 @@ export default {
     title: "Table/Wrapper",
     component: TableWrapper,
     argTypes: {
-        backgroundColor: { control: "color" },
+        collapse: {
+            control: "boolean",
+        },
     },
 };
 
@@ -25,7 +27,7 @@ interface RootObject {
     username: string;
 }
 
-export const ExampleTable = () => {
+export function ExampleTable({ collapse }: typeof ExampleTable.args) {
     const [data, setData] = useState<RootObject[]>([]);
 
     useEffect(() => {
@@ -36,6 +38,7 @@ export const ExampleTable = () => {
 
     return (
         <TableWrapper
+            collapse={collapse}
             data={data}
             header={{
                 firstName: "Nombre",
@@ -51,4 +54,8 @@ export const ExampleTable = () => {
             }}
         ></TableWrapper>
     );
+}
+
+ExampleTable.args = {
+    collapse: false,
 };
