@@ -1,6 +1,6 @@
 {
     "name": "@bxreact/button",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "publishConfig": {
         "access": "public"
     },
@@ -12,15 +12,12 @@
     "license": "ISC",
     "dependencies": {
         "@bxreact/theme": "*",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "@types/react": "^17.0.38",
         "ustyler": "^1.0.1"
     },
     "peerDependencies": {
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "@types/react": "^17.0.38"
+        "react": ">=17.0.2",
+        "react-dom": ">=17.0.2",
+        "@types/react": ">=17.0.38"
     },
     "devDependencies": {
         "@bxreact/tsconfig": "*"

@@ -1,6 +1,6 @@
 {
     "name": "@bxreact/pagination",
-    "version": "1.1.2",
+    "version": "1.2.0",
     "publishConfig": {
         "access": "public"
     },
@@ -13,15 +13,12 @@
     "dependencies": {
         "@bxreact/theme": "*",
         "@bxreact/field-select": "*",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "@types/react": "^17.0.38",
-        "ustyler": "^1.0.1"
+        "ustyler": "*"
     },
     "peerDependencies": {
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "@types/react": "^17.0.38"
+        "react": ">=17.0.2",
+        "react-dom": ">=17.0.2",
+        "@types/react": ">=17.0.38"
     },
     "devDependencies": {
         "@bxreact/tsconfig": "*"

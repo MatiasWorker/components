@@ -1,6 +1,6 @@
 {
     "name": "@bxreact/input",
-    "version": "1.2.2",
+    "version": "1.3.0",
     "publishConfig": {
         "access": "public"
     },
@@ -13,20 +13,16 @@
     "dependencies": {
         "@bxreact/icon": "*",
         "@bxreact/theme": "*",
-        "@types/classnames": "latest",
-        "@types/react": "^17.0.38",
-        "classnames": "latest",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "ustyler": "^1.0.1"
+        "ustyler": "*",
+        "classnames": "*",
+        "@types/classnames": "*",
+        "@types/react-date-range": "^1.4.4",
+        "react-date-range": "^1.4.0"
     },
     "peerDependencies": {
-        "@types/react": "^17.0.38",
-        "@types/react-date-range": "^1.4.4",
-        "classnames": "latest",
-        "react": "^17.0.2",
-        "react-date-range": "^1.4.0",
-        "react-dom": "^17.0.2"
+        "react": ">=17.0.2",
+        "react-dom": ">=17.0.2",
+        "@types/react": ">=17.0.38"
     },
     "devDependencies": {
         "@bxreact/tsconfig": "*"

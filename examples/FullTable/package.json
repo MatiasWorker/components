@@ -14,11 +14,6 @@
         "@bxreact/table-wrapper": "*",
         "@bxreact/field-select": "*"
     },
-    "peerDependencies": {
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "@types/react": "^17.0.38"
-    },
     "exports": {
         ".": "./src/core.tsx"
     }
