@@ -59,3 +59,27 @@ export declare function Copy({ size, color }: {
     size?: string;
     color?: string;
 }): JSX.Element;
+export declare function Closed({ size, color }: {
+    size?: string;
+    color?: string;
+}): JSX.Element;
+export declare function Upload({ size, color }: {
+    size?: string;
+    color?: string;
+}): JSX.Element;
+export declare function Warning({ size, color }: {
+    size?: string;
+    color?: string;
+}): JSX.Element;
+export declare function Eye({ size, color }: {
+    size?: string;
+    color?: string;
+}): JSX.Element;
+export declare function Info({ size, color }: {
+    size?: string;
+    color?: string;
+}): JSX.Element;
+export declare function Add({ size, color }: {
+    size?: string;
+    color?: string;
+}): JSX.Element;

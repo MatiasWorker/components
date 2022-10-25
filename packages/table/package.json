@@ -1,6 +1,6 @@
 {
     "name": "@bxreact/table",
-    "version": "1.7.1",
+    "version": "1.8.0",
     "publishConfig": {
         "access": "public"
     },
@@ -12,11 +12,12 @@
     },
     "dependencies": {
         "@bxreact/theme": "*",
-        "@types/react": "^17.0.38",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
+        "@bxreact/icon": "*",
         "ustyler": "^1.0.1",
         "@floating-ui/react-dom": "1.0.0"
+    },
+    "devDependencies": {
+        "@types/react": "^17.0.38"
     },
     "peerDependencies": {
         "@types/react": "^17.0.38",

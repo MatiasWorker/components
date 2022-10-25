@@ -1,6 +1,6 @@
 import { CSSProperties, useState, ReactNode, isValidElement } from "react";
 import { useFloating, flip, shift } from "@floating-ui/react-dom";
-
+import { Info } from "@bxreact/icon";
 import "./index.css";
 
 interface PropsTableCell {
@@ -11,6 +11,7 @@ interface PropsTableCell {
     align?: "center" | "start" | "end";
     tooltip?: any;
     label?: ReactNode;
+    tooltipIcon?: ReactNode;
 }
 
 export function TableCell({
@@ -20,6 +21,7 @@ export function TableCell({
     align,
     className,
     tooltip,
+    tooltipIcon = <Info size="1rem" color="lblue"></Info>,
 }: PropsTableCell) {
     const style = {};
     const { x, y, reference, floating, strategy } = useFloating({
@@ -42,7 +44,10 @@ export function TableCell({
             className={`table_cell ${className || ""}`}
             style={style}
         >
-            <div className="table_cell_content">{children}</div>
+            <div className="table_cell_content">
+                {children}
+                {tooltip && tooltipIcon}
+            </div>
             {tooltip && (
                 <div
                     className={`table_cell_tooltip`}
