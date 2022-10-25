@@ -3,8 +3,6 @@ import { DateRange } from "react-date-range";
 import { es } from "date-fns/locale";
 import { Dropdown } from "@bxreact/dropdown";
 import * as Icon from "@bxreact/icon";
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
 import "./index.css";
 
 const now = new Date();

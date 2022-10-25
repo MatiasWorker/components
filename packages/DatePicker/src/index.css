@@ -1,3 +1,6 @@
+@import url("react-date-range/dist/styles.css");
+@import url("react-date-range/dist/theme/default.css");
+
 .form-date-picker .dropdown_content {
     overflow: hidden;
 }
