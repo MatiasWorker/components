@@ -32,19 +32,19 @@
         "@bxreact/tsconfig": "*"
     },
     "module": "./dist/index.js",
+    "types": "types/index.d.ts",
     "exports": {
         "./index": "./dist/index.js",
         ".": "./dist/index.js",
-        "./TextArea": "./dist/TextArea.js"
+        "./Textarea": "./dist/Textarea.js"
     },
-    "types": "types/index.d.ts",
     "typesVersions": {
         "*": {
             "index": [
                 "./types/index.d.ts"
             ],
-            "TextArea": [
-                "./types/TextArea.d.ts"
+            "Textarea": [
+                "./types/Textarea.d.ts"
             ]
         }
     }
