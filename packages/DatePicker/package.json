@@ -1,6 +1,6 @@
 {
     "name": "@bxreact/date-picker",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "publishConfig": {
         "access": "public"
     },
@@ -12,12 +12,7 @@
     "license": "ISC",
     "dependencies": {
         "@bxreact/theme": "*",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "@types/react": "^17.0.38",
         "ustyler": "^1.0.1",
-        "react-date-range": "^1.4.0",
-        "@types/react-date-range": "^1.4.4",
         "@bxreact/input": "*",
         "@bxreact/dropdown": "*",
         "@bxreact/icon": "*"
@@ -25,12 +20,13 @@
     "peerDependencies": {
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
-        "@types/react": "^17.0.38",
-        "@types/react-date-range": "^1.4.4",
-        "react-date-range": "^1.4.0"
+        "@types/react": "^17.0.38"
     },
     "devDependencies": {
-        "@bxreact/tsconfig": "*"
+        "@types/react": "^17.0.38",
+        "@bxreact/tsconfig": "*",
+        "react-date-range": "^1.4.0",
+        "@types/react-date-range": "^1.4.4"
     },
     "module": "./dist/index.js",
     "exports": {
