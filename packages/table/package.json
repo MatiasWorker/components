@@ -1,14 +1,14 @@
 {
     "name": "@bxreact/table",
-    "version": "1.9.0",
+    "version": "1.10.0",
     "publishConfig": {
         "access": "public"
     },
     "type": "module",
     "license": "ISC",
     "scripts": {
-        "build": "exports src/index.tsx --exports --jsx react --css-inline --types",
-        "exports": "exports src/index.tsx --exports --jsx react --css-inline --types --publish"
+        "build": "exports src/**/*.tsx --exports --css-import-source @bxreact/theme/css --types --main index",
+        "exports": "exports src/**/*.tsx --exports --css-import-source @bxreact/theme/css --types --publish --main index"
     },
     "dependencies": {
         "@bxreact/theme": "*",

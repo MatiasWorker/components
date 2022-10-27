@@ -1,18 +1,17 @@
 {
     "name": "@bxreact/button",
-    "version": "1.5.0",
+    "version": "1.6.0",
     "publishConfig": {
         "access": "public"
     },
     "type": "module",
     "scripts": {
-        "build": "exports src/index.tsx --exports --jsx react --css-inline --types",
-        "exports": "exports src/index.tsx --exports --jsx react --css-inline --types --publish"
+        "build": "exports src/**/*.tsx --exports --css-import-source @bxreact/theme/css --types --main index",
+        "exports": "exports src/**/*.tsx --exports --css-import-source @bxreact/theme/css --types --publish --main index"
     },
     "license": "ISC",
     "dependencies": {
-        "@bxreact/theme": "*",
-        "ustyler": "^1.0.1"
+        "@bxreact/theme": "*"
     },
     "peerDependencies": {
         "react": ">=17.0.2",

@@ -1,18 +1,17 @@
 {
     "name": "@bxreact/field-select",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "publishConfig": {
         "access": "public"
     },
     "type": "module",
     "scripts": {
-        "build": "exports src/index.tsx --exports --jsx react --css-inline --types",
-        "exports": "exports src/index.tsx --exports --jsx react --css-inline --types --publish"
+        "build": "exports src/**/*.tsx --exports --css-import-source @bxreact/theme/css --types --main index",
+        "exports": "exports src/**/*.tsx --exports --css-import-source @bxreact/theme/css --types --publish --main index"
     },
     "license": "ISC",
     "dependencies": {
-        "@bxreact/theme": "*",
-        "ustyler": "*"
+        "@bxreact/theme": "*"
     },
     "peerDependencies": {
         "react": ">=17.0.2",

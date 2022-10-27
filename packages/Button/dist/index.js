@@ -1,8 +1,5 @@
-// src/index.tsx
-import { createElement as _jsx } from "react";
-
 // src/index.css
-import css from "ustyler";
+import css from "@bxreact/theme/css";
 var src_default = css`.button {
     --button-padding: var(--bx-input-sm-padding);
     --button-height: var(--bx-input-sm-height);
@@ -131,6 +128,7 @@ var src_default = css`.button {
 `;
 
 // src/index.tsx
+import { jsx } from "react/jsx-runtime";
 function Button({
   onClick,
   disabled,
@@ -172,14 +170,15 @@ function Button({
   if (bgcolor) {
     style["--button-bgcolor"] = `var(--bx-color-${bgcolor}, var(--bx-button-filled-bgcolor))`;
   }
-  return /* @__PURE__ */ _jsx(Type, {
+  return /* @__PURE__ */ jsx(Type, {
     className: className.join(" "),
     onClick,
     href,
     target: open ? "_blank" : null,
     disabled,
-    style
-  }, children);
+    style,
+    children
+  });
 }
 export {
   Button
