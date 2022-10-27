@@ -1,8 +1,5 @@
-// src/index.tsx
-import { createElement as _jsx } from "react";
-
 // src/index.css
-import css from "ustyler";
+import css from "@bxreact/theme/css";
 var src_default = css`.field-switch {
     --switch-space: var(--bx-switch-space, 2px);
     --switch-width: var(--bx-switch-width, 40px);
@@ -42,13 +39,15 @@ var src_default = css`.field-switch {
 `;
 
 // src/index.tsx
+import { jsx } from "react/jsx-runtime";
 function FieldSwitch({ checked, onChange }) {
-  return /* @__PURE__ */ _jsx("div", {
+  return /* @__PURE__ */ jsx("div", {
     className: `field-switch ${checked ? "field-switch--checked" : ""}`,
-    onClick: () => onChange && onChange(!checked)
-  }, /* @__PURE__ */ _jsx("div", {
-    className: "field-switch_circle"
-  }));
+    onClick: () => onChange && onChange(!checked),
+    children: /* @__PURE__ */ jsx("div", {
+      className: "field-switch_circle"
+    })
+  });
 }
 export {
   FieldSwitch

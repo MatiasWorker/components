@@ -1,10 +1,9 @@
 // src/index.tsx
-import { createElement as _jsx } from "react";
 import { useState, useRef } from "react";
 import useResizeObserver from "use-resize-observer";
 
 // src/index.css
-import css from "ustyler";
+import css from "@bxreact/theme/css";
 var src_default = css`.field-text {
     --field-text-add-width: 30px;
     --field-text-background: transparent;
@@ -86,6 +85,7 @@ var src_default = css`.field-text {
 `;
 
 // src/index.tsx
+import { jsx, jsxs } from "react/jsx-runtime";
 function FieldText({
   value,
   type,
@@ -101,28 +101,33 @@ function FieldText({
   const [focus, setFocus] = useState();
   const refInput = useRef();
   const resize = useResizeObserver();
-  return /* @__PURE__ */ _jsx("div", {
+  return /* @__PURE__ */ jsxs("div", {
     className: `field-text field-text--${status} ${focus ? "field-text--focus" : ""} ${className ? className : ""}`,
-    style: resize.width ? { "--min-width": `${resize.width}px` } : {}
-  }, /* @__PURE__ */ _jsx("div", {
-    ref: resize.ref,
-    className: "field-text_input field-text_reflect"
-  }, value), /* @__PURE__ */ _jsx("input", {
-    disabled,
-    className: "field-text_input",
-    value,
-    ref: refInput,
-    type,
-    minLength,
-    maxLength,
-    min,
-    max,
-    onFocus: () => setFocus(true),
-    onBlur: () => setFocus(false),
-    onInput: (event) => {
-      onChange && onChange(event.currentTarget.value);
-    }
-  }));
+    style: resize.width ? { "--min-width": `${resize.width}px` } : {},
+    children: [
+      /* @__PURE__ */ jsx("div", {
+        ref: resize.ref,
+        className: "field-text_input field-text_reflect",
+        children: value
+      }),
+      /* @__PURE__ */ jsx("input", {
+        disabled,
+        className: "field-text_input",
+        value,
+        ref: refInput,
+        type,
+        minLength,
+        maxLength,
+        min,
+        max,
+        onFocus: () => setFocus(true),
+        onBlur: () => setFocus(false),
+        onInput: (event) => {
+          onChange && onChange(event.currentTarget.value);
+        }
+      })
+    ]
+  });
 }
 export {
   FieldText

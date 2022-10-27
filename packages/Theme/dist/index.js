@@ -1,5 +1,5 @@
 // src/font.css
-import css from "ustyler";
+import css from "@bxreact/theme/css";
 var font_default = css`:root {
     /* fonts */
     --bx-font-primary: "Mont", system-ui, -apple-system, "Segoe UI", Roboto,
@@ -15,7 +15,7 @@ var font_default = css`:root {
 `;
 
 // src/default.css
-import css2 from "ustyler";
+import css2 from "@bxreact/theme/css";
 var default_default = css2`h1,
 h2,
 h3,
@@ -50,7 +50,7 @@ h3 {
 `;
 
 // src/colors.css
-import css3 from "ustyler";
+import css3 from "@bxreact/theme/css";
 var colors_default = css3`:root {
     /* bx colors */
     /* blue */
@@ -246,7 +246,7 @@ var colors_default = css3`:root {
 `;
 
 // src/input.css
-import css4 from "ustyler";
+import css4 from "@bxreact/theme/css";
 var input_default = css4`:root {
     --bx-input-transition: 0.25s ease all;
 
@@ -283,7 +283,7 @@ var input_default = css4`:root {
 `;
 
 // src/button.css
-import css5 from "ustyler";
+import css5 from "@bxreact/theme/css";
 var button_default = css5`:root {
     --bx-button-shadow: 0px 2px 4px -2px rgba(24, 39, 75, 0.2);
 
@@ -319,7 +319,7 @@ var button_default = css5`:root {
 `;
 
 // src/card.css
-import css6 from "ustyler";
+import css6 from "@bxreact/theme/css";
 var card_default = css6`:root {
     --bx-card-background: var(--bx-color-white);
     --bx-card-radius: 1rem;

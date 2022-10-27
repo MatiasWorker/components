@@ -6,12 +6,15 @@
     },
     "type": "module",
     "scripts": {
-        "build": "exports src/**/*.tsx --exports --css-import-source @bxreact/theme/css --types --main index",
-        "exports": "exports src/**/*.tsx --exports --css-import-source @bxreact/theme/css --types --publish --main index"
+        "build": "exports src/**/*.ts --exports --css-import-source @bxreact/theme/css --types --main index",
+        "exports": "exports src/**/*.ts --exports --css-import-source @bxreact/theme/css --types --publish --main index"
     },
     "license": "ISC",
     "dependencies": {
         "ustyler": "*"
+    },
+    "peerDependencies": {
+        "@bxreact/theme/css": "*"
     },
     "devDependencies": {
         "@bxreact/tsconfig": "*"

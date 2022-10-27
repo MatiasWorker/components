@@ -8,8 +8,9 @@ interface PropsTableCell {
     align?: "center" | "start" | "end";
     tooltip?: any;
     label?: ReactNode;
+    tooltipIcon?: ReactNode;
 }
-export declare function TableCell({ children, color, background, align, className, tooltip, }: PropsTableCell): JSX.Element;
+export declare function TableCell({ children, color, background, align, className, tooltip, tooltipIcon, }: PropsTableCell): JSX.Element;
 declare type Fill<Value> = Value | {
     [index: string]: any;
 };

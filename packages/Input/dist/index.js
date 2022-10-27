@@ -1,13 +1,12 @@
 import {
   Textarea
-} from "./chunk-DXZJEOJC.js";
+} from "./chunk-ZPVAWQLF.js";
 
 // src/index.tsx
-import { createElement as _jsx, Fragment as _Fragment } from "react";
 import { useState, useCallback } from "react";
 
 // src/index.css
-import css from "ustyler";
+import css from "@bxreact/theme/css";
 var src_default = css`.form-input {
     display: flex;
     width: 100%;
@@ -474,6 +473,7 @@ var src_default = css`.form-input {
 // src/index.tsx
 import cs from "classnames";
 import { Down } from "@bxreact/icon";
+import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 function Input({
   type,
   value,
@@ -501,7 +501,7 @@ function Input({
   const handleBlur = useCallback(() => {
     setFocused(false);
   }, []);
-  return /* @__PURE__ */ _jsx("div", {
+  return /* @__PURE__ */ jsxs("div", {
     className: cs("form-input", {
       "form-input-container-disabled": disabled,
       "form-input-invalid": error,
@@ -511,46 +511,63 @@ function Input({
       "form-input-container-sm": inputSize === "sm",
       "form-input-container-fill": fill,
       "form-input-type-select": type === "select"
-    })
-  }, leftIcon && /* @__PURE__ */ _jsx("div", {
-    className: "form-icon-container form-icon-left"
-  }, leftIcon), type === "select" ? /* @__PURE__ */ _jsx(_Fragment, null, /* @__PURE__ */ _jsx("select", {
-    className: "form-input-select",
-    name,
-    value: value || "",
-    onChange
-  }, placeholder && /* @__PURE__ */ _jsx("option", {
-    key: "placeholder",
-    value: "",
-    disabled: true
-  }, placeholder), options.map((option, i) => /* @__PURE__ */ _jsx("option", {
-    key: i,
-    value: option.value
-  }, option.label))), /* @__PURE__ */ _jsx("div", {
-    className: "form-input-select_icon"
-  }, /* @__PURE__ */ _jsx(Down, {
-    size: "1em",
-    color: "lblue-well"
-  }))) : /* @__PURE__ */ _jsx("input", {
-    className: cs("form-input-text form-input-with-icon", {
-      "form-input-fullwidth": fullWidth
     }),
-    type,
-    value,
-    onChange,
-    id,
-    disabled,
-    readOnly,
-    placeholder,
-    required,
-    form,
-    name,
-    onFocus: handleFocus,
-    onBlur: handleBlur,
-    ...props
-  }), rightIcon && /* @__PURE__ */ _jsx("div", {
-    className: "form-icon-container form-icon-right"
-  }, rightIcon));
+    children: [
+      leftIcon && /* @__PURE__ */ jsx("div", {
+        className: "form-icon-container form-icon-left",
+        children: leftIcon
+      }),
+      type === "select" ? /* @__PURE__ */ jsxs(Fragment, {
+        children: [
+          /* @__PURE__ */ jsxs("select", {
+            className: "form-input-select",
+            name,
+            value: value || "",
+            onChange,
+            children: [
+              placeholder && /* @__PURE__ */ jsx("option", {
+                value: "",
+                disabled: true,
+                children: placeholder
+              }, "placeholder"),
+              options.map((option, i) => /* @__PURE__ */ jsx("option", {
+                value: option.value,
+                children: option.label
+              }, i))
+            ]
+          }),
+          /* @__PURE__ */ jsx("div", {
+            className: "form-input-select_icon",
+            children: /* @__PURE__ */ jsx(Down, {
+              size: "1em",
+              color: "lblue-well"
+            })
+          })
+        ]
+      }) : /* @__PURE__ */ jsx("input", {
+        className: cs("form-input-text form-input-with-icon", {
+          "form-input-fullwidth": fullWidth
+        }),
+        type,
+        value,
+        onChange,
+        id,
+        disabled,
+        readOnly,
+        placeholder,
+        required,
+        form,
+        name,
+        onFocus: handleFocus,
+        onBlur: handleBlur,
+        ...props
+      }),
+      rightIcon && /* @__PURE__ */ jsx("div", {
+        className: "form-icon-container form-icon-right",
+        children: rightIcon
+      })
+    ]
+  });
 }
 export {
   Input,

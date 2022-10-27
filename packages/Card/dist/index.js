@@ -1,8 +1,5 @@
-// src/index.tsx
-import { createElement as _jsx } from "react";
-
 // src/index.css
-import css from "ustyler";
+import css from "@bxreact/theme/css";
 var src_default = css`.card {
     --card-shadow: var(--bx-card-lg-shadow);
     --card-radius: var(--bx-card-radius);
@@ -20,13 +17,23 @@ var src_default = css`.card {
 `;
 
 // src/index.tsx
-function Card({ size, children }) {
-  const className = ["card"];
+import { jsx } from "react/jsx-runtime";
+function Card({
+  size,
+  children,
+  className,
+  ...props
+}) {
+  const listClassName = ["card"];
   if (size)
-    className.push(`card--size-${size}`);
-  return /* @__PURE__ */ _jsx("div", {
-    className: className.join(" ")
-  }, children);
+    listClassName.push(`card--size-${size}`);
+  if (className)
+    listClassName.push(className);
+  return /* @__PURE__ */ jsx("div", {
+    ...props,
+    className: listClassName.join(" "),
+    children
+  });
 }
 export {
   Card

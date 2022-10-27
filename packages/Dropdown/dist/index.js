@@ -1,5 +1,4 @@
 // src/index.tsx
-import { createElement as _jsx } from "react";
 import { useEffect, useState, useRef, useCallback } from "react";
 import {
   useFloating,
@@ -8,7 +7,7 @@ import {
 } from "@floating-ui/react-dom";
 
 // src/index.css
-import css from "ustyler";
+import css from "@bxreact/theme/css";
 var src_default = css`.dropdown {
     position: relative;
     display: inline-block;
@@ -71,6 +70,7 @@ var src_default = css`.dropdown {
 `;
 
 // src/index.tsx
+import { jsx, jsxs } from "react/jsx-runtime";
 function Dropdown({ content, children, onChange }) {
   const host = useRef();
   const [show, setShow] = useState(false);
@@ -92,33 +92,43 @@ function Dropdown({ content, children, onChange }) {
     window.addEventListener("click", handler);
     return () => window.removeEventListener("click", handler);
   }, []);
-  const refCallback = useCallback((node) => {
-    host.current = node;
-    reference(node);
-  }, [reference]);
+  const refCallback = useCallback(
+    (node) => {
+      host.current = node;
+      reference(node);
+    },
+    [reference]
+  );
   useEffect(() => {
     if (show != null && onChange)
       onChange(show);
   }, [show]);
-  return /* @__PURE__ */ _jsx("div", {
+  return /* @__PURE__ */ jsxs("div", {
     className: `dropdown ${show ? "dropdown--show" : ""}`,
-    ref: (node) => refCallback(node)
-  }, /* @__PURE__ */ _jsx("div", {
-    onClick: () => {
-      setShow(!show);
-    },
-    className: "dropdown_children"
-  }, children), /* @__PURE__ */ _jsx("div", {
-    style: {
-      position: strategy,
-      top: y ?? 0,
-      left: x ?? 0
-    },
-    ref: floating,
-    className: "dropdown_space"
-  }, /* @__PURE__ */ _jsx("div", {
-    className: "dropdown_content"
-  }, content)));
+    ref: (node) => refCallback(node),
+    children: [
+      /* @__PURE__ */ jsx("div", {
+        onClick: () => {
+          setShow(!show);
+        },
+        className: "dropdown_children",
+        children
+      }),
+      /* @__PURE__ */ jsx("div", {
+        style: {
+          position: strategy,
+          top: y ?? 0,
+          left: x ?? 0
+        },
+        ref: floating,
+        className: "dropdown_space",
+        children: /* @__PURE__ */ jsx("div", {
+          className: "dropdown_content",
+          children: content
+        })
+      })
+    ]
+  });
 }
 export {
   Dropdown

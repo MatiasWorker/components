@@ -1,10 +1,10 @@
 // src/index.tsx
-import { createElement as _jsx } from "react";
 import { isValidElement } from "react";
 import { useFloating, flip, shift } from "@floating-ui/react-dom";
+import { Info } from "@bxreact/icon";
 
 // src/index.css
-import css from "ustyler";
+import css from "@bxreact/theme/css";
 var src_default = css`.table {
     --table-background: var(--bx-table-background, #f6f6f6);
     --table-font-size: var(--bx-table-font-size, 12px);
@@ -63,6 +63,9 @@ var src_default = css`.table {
     box-sizing: border-box;
     padding: var(--table-field-padding);
     white-space: nowrap;
+    gap: 0.5em;
+    line-height: 1;
+    justify-content: space-between;
 }
 
 .table_cell_tooltip {
@@ -120,13 +123,18 @@ var src_default = css`.table {
 `;
 
 // src/index.tsx
+import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 function TableCell({
   children,
   color,
   background,
   align,
   className,
-  tooltip
+  tooltip,
+  tooltipIcon = /* @__PURE__ */ jsx(Info, {
+    size: "1rem",
+    color: "lblue"
+  })
 }) {
   const style = {};
   const { x, y, reference, floating, strategy } = useFloating({
@@ -144,21 +152,30 @@ function TableCell({
     style["--table-cell-color"] = color;
   if (background)
     style["--table-cell-background"] = background;
-  return /* @__PURE__ */ _jsx("div", {
+  return /* @__PURE__ */ jsxs("div", {
     ref: reference,
     className: `table_cell ${className || ""}`,
-    style
-  }, /* @__PURE__ */ _jsx("div", {
-    className: "table_cell_content"
-  }, children), tooltip && /* @__PURE__ */ _jsx("div", {
-    className: `table_cell_tooltip`,
-    ref: floating,
-    style: {
-      position: strategy,
-      top: y ?? 0,
-      left: x ?? 0
-    }
-  }, tooltip));
+    style,
+    children: [
+      /* @__PURE__ */ jsxs("div", {
+        className: "table_cell_content",
+        children: [
+          children,
+          tooltip && tooltipIcon
+        ]
+      }),
+      tooltip && /* @__PURE__ */ jsx("div", {
+        className: `table_cell_tooltip`,
+        ref: floating,
+        style: {
+          position: strategy,
+          top: y ?? 0,
+          left: x ?? 0
+        },
+        children: tooltip
+      })
+    ]
+  });
 }
 function Table({
   data,
@@ -170,36 +187,56 @@ function Table({
   const headerEntries = Object.entries(header);
   const getCell = (row, prop, value) => {
     const cell = types ? prop in types ? types[prop](row, value, prop) : types.default ? types.default(row, value, prop) : value : value;
-    return typeof cell === "object" ? cell : /* @__PURE__ */ _jsx(TableCell, null, cell);
+    return typeof cell === "object" ? cell : /* @__PURE__ */ jsx(TableCell, {
+      children: cell
+    });
   };
   const getLabel = (value) => isValidElement(value) && value.type === TableCell ? value.props.label : false;
-  return /* @__PURE__ */ _jsx("table", {
-    className: `table ${collapse ? "table--collapse" : ""} `
-  }, /* @__PURE__ */ _jsx("thead", {
-    className: "table_thead"
-  }, /* @__PURE__ */ _jsx("tr", {
-    className: "table_tr"
-  }, headerEntries.map(([prop, value], key) => /* @__PURE__ */ _jsx("td", {
-    className: `table_td table_td--transparent`,
-    key: key + ""
-  }, typeof value === "object" ? value : /* @__PURE__ */ _jsx(TableCell, null, value))))), /* @__PURE__ */ _jsx("tbody", {
-    className: "table_tbody"
-  }, data.map((row, key) => /* @__PURE__ */ _jsx("tr", {
-    key: key + "",
-    className: "table_tr",
-    style: rowStyle ? rowStyle(row) : null
-  }, headerEntries.map(([prop, header2]) => [prop, row[prop], header2]).map(([prop, value, header2], key2) => {
-    const cell = getCell(row, prop, value);
-    const label = collapse ? getLabel(cell) || getLabel(header2) || header2 : false;
-    if (collapse && !label)
-      return;
-    return /* @__PURE__ */ _jsx("td", {
-      key: key2 + "",
-      className: `table_td ${prop === "id" ? "table_td--transparent" : ""}`
-    }, label && /* @__PURE__ */ _jsx("div", {
-      className: "table_label "
-    }, label), cell);
-  })))));
+  return /* @__PURE__ */ jsxs("table", {
+    className: `table ${collapse ? "table--collapse" : ""} `,
+    children: [
+      /* @__PURE__ */ jsx("thead", {
+        className: "table_thead",
+        children: /* @__PURE__ */ jsx("tr", {
+          className: "table_tr",
+          children: headerEntries.map(([prop, value], key) => /* @__PURE__ */ jsx("td", {
+            className: `table_td table_td--transparent`,
+            children: typeof value === "object" ? value : /* @__PURE__ */ jsx(TableCell, {
+              children: value
+            })
+          }, key + ""))
+        })
+      }),
+      /* @__PURE__ */ jsx("tbody", {
+        className: "table_tbody",
+        children: data.map((row, key) => /* @__PURE__ */ jsx("tr", {
+          className: "table_tr",
+          style: rowStyle ? rowStyle(row) : null,
+          children: headerEntries.map(([prop, header2]) => [prop, row[prop], header2]).map(([prop, value, header2], key2) => {
+            const cell = getCell(row, prop, value);
+            const label = collapse ? getLabel(cell) || getLabel(header2) || header2 : false;
+            if (collapse && !label)
+              return;
+            return /* @__PURE__ */ jsx("td", {
+              className: `table_td ${prop === "id" ? "table_td--transparent" : ""}`,
+              children: label ? /* @__PURE__ */ jsxs(Fragment, {
+                children: [
+                  /* @__PURE__ */ jsx("div", {
+                    className: "table_label ",
+                    children: label
+                  }),
+                  /* @__PURE__ */ jsx("div", {
+                    className: "table_value",
+                    children: cell
+                  })
+                ]
+              }) : cell
+            }, key2 + "");
+          })
+        }, key + ""))
+      })
+    ]
+  });
 }
 export {
   Table,

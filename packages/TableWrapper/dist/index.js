@@ -1,12 +1,11 @@
 // src/index.tsx
-import { createElement as _jsx } from "react";
 import { useState } from "react";
 import { Table } from "@bxreact/table";
 import { usePages } from "@bxreact/use-pages";
 import { Pagination } from "@bxreact/pagination";
 
 // src/index.css
-import css from "ustyler";
+import css from "@bxreact/theme/css";
 var src_default = css`.table-wrapper {
     width: 100%;
     max-width: 100%;
@@ -23,6 +22,7 @@ var src_default = css`.table-wrapper {
 `;
 
 // src/index.tsx
+import { jsx, jsxs } from "react/jsx-runtime";
 var options = {
   paginations: [10, 20, 30, 40],
   labelPaginations: "Filas por p\xE1gina",
@@ -44,23 +44,29 @@ function TableWrapper({
     page: 0,
     pages: pagesPerPage
   });
-  return /* @__PURE__ */ _jsx("div", {
-    className: "table-wrapper"
-  }, /* @__PURE__ */ _jsx("div", {
-    className: "table-wrapper_overflow"
-  }, /* @__PURE__ */ _jsx(Table, {
-    data: pages.group,
-    ...propsTable
-  })), /* @__PURE__ */ _jsx("div", {
-    className: "table-wrapper_footer"
-  }, /* @__PURE__ */ _jsx(Pagination, {
-    isMoveDisabled: (type) => pages.isDisabled(options.moves[type]),
-    pagesPerPage: paginations,
-    pagedLabel: labelPaginations,
-    moveLabel: `${pages.position.start} - ${pages.position.end} de ${pages.position.length}`,
-    onChangePagesPerPage: (value) => setPagesPerPage(Number(value)),
-    onChangeMove: (type) => pages.to(options.moves[type])
-  })));
+  return /* @__PURE__ */ jsxs("div", {
+    className: "table-wrapper",
+    children: [
+      /* @__PURE__ */ jsx("div", {
+        className: "table-wrapper_overflow",
+        children: /* @__PURE__ */ jsx(Table, {
+          data: pages.group,
+          ...propsTable
+        })
+      }),
+      /* @__PURE__ */ jsx("div", {
+        className: "table-wrapper_footer",
+        children: /* @__PURE__ */ jsx(Pagination, {
+          isMoveDisabled: (type) => pages.isDisabled(options.moves[type]),
+          pagesPerPage: paginations,
+          pagedLabel: labelPaginations,
+          moveLabel: `${pages.position.start} - ${pages.position.end} de ${pages.position.length}`,
+          onChangePagesPerPage: (value) => setPagesPerPage(Number(value)),
+          onChangeMove: (type) => pages.to(options.moves[type])
+        })
+      })
+    ]
+  });
 }
 export {
   TableWrapper,

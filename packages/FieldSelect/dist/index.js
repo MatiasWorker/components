@@ -1,8 +1,5 @@
-// src/index.tsx
-import { createElement as _jsx } from "react";
-
 // src/index.css
-import css from "ustyler";
+import css from "@bxreact/theme/css";
 var src_default = css`.field-select {
     --select-background: var(--bx-select-background, #eaf8ff);
     --select-border-radius: var(--bx-lect-border-radius, 5px);
@@ -76,6 +73,7 @@ var src_default = css`.field-select {
 `;
 
 // src/index.tsx
+import { jsx, jsxs } from "react/jsx-runtime";
 function FieldSelect({
   value,
   placeholder,
@@ -84,31 +82,40 @@ function FieldSelect({
   appearance,
   status
 }) {
-  return /* @__PURE__ */ _jsx("div", {
-    className: `field-select field-select--${appearance} field-select--${status}`
-  }, appearance === "pagination" && /* @__PURE__ */ _jsx("svg", {
-    className: "field-select_icon",
-    width: "15",
-    height: "9",
-    viewBox: "0 0 15 9",
-    fill: "none"
-  }, /* @__PURE__ */ _jsx("path", {
-    d: "M14.3215 0.97836C14.0343 0.696178 13.5809 0.696178 13.2937 0.97836L7.64797 6.52545L1.75287 0.970934C1.46567 0.696178 1.00464 0.703604 0.732562 0.993211C0.46048 1.28282 0.46048 1.72837 0.755235 1.9957L7.15671 8.03289C7.30031 8.16656 7.48169 8.23339 7.66308 8.23339C7.85203 8.23339 8.03341 8.16656 8.17701 8.02547L14.3215 1.98827C14.6012 1.70609 14.6012 1.26054 14.3215 0.97836Z",
-    fill: "var(--select-icon-color)"
-  })), /* @__PURE__ */ _jsx("select", {
-    value: value || "",
-    className: "field-select_select",
-    onChange: (event) => {
-      onChange && onChange(event.currentTarget.value);
-    }
-  }, placeholder && /* @__PURE__ */ _jsx("option", {
-    value: "",
-    disabled: true,
-    key: "placeholder"
-  }, placeholder), options.map((option) => /* @__PURE__ */ _jsx("option", {
-    key: option.value,
-    value: option.value
-  }, option.label))));
+  return /* @__PURE__ */ jsxs("div", {
+    className: `field-select field-select--${appearance} field-select--${status}`,
+    children: [
+      appearance === "pagination" && /* @__PURE__ */ jsx("svg", {
+        className: "field-select_icon",
+        width: "15",
+        height: "9",
+        viewBox: "0 0 15 9",
+        fill: "none",
+        children: /* @__PURE__ */ jsx("path", {
+          d: "M14.3215 0.97836C14.0343 0.696178 13.5809 0.696178 13.2937 0.97836L7.64797 6.52545L1.75287 0.970934C1.46567 0.696178 1.00464 0.703604 0.732562 0.993211C0.46048 1.28282 0.46048 1.72837 0.755235 1.9957L7.15671 8.03289C7.30031 8.16656 7.48169 8.23339 7.66308 8.23339C7.85203 8.23339 8.03341 8.16656 8.17701 8.02547L14.3215 1.98827C14.6012 1.70609 14.6012 1.26054 14.3215 0.97836Z",
+          fill: "var(--select-icon-color)"
+        })
+      }),
+      /* @__PURE__ */ jsxs("select", {
+        value: value || "",
+        className: "field-select_select",
+        onChange: (event) => {
+          onChange && onChange(event.currentTarget.value);
+        },
+        children: [
+          placeholder && /* @__PURE__ */ jsx("option", {
+            value: "",
+            disabled: true,
+            children: placeholder
+          }, "placeholder"),
+          options.map((option) => /* @__PURE__ */ jsx("option", {
+            value: option.value,
+            children: option.label
+          }, option.value))
+        ]
+      })
+    ]
+  });
 }
 export {
   FieldSelect
