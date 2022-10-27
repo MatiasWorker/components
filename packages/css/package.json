@@ -1,18 +1,15 @@
 {
-    "name": "@bxreact/theme",
-    "version": "1.6.0",
+    "name": "@bxreact/css",
+    "version": "1.0.0",
     "publishConfig": {
         "access": "public"
     },
     "type": "module",
     "scripts": {
-        "build": "exports src/**/*.ts --exports --css-import-source @bxreact/css --types --main index",
-        "exports": "exports src/**/*.ts --exports --css-import-source @bxreact/css --types --publish --main index"
+        "build": "exports src/**/*.ts --exports --css-import-source @bxreact/theme/css --types --main index",
+        "exports": "exports src/**/*.ts --exports --css-import-source @bxreact/theme/css --types --publish --main index"
     },
     "license": "ISC",
-    "dependencies": {
-        "@bxreact/css": "*"
-    },
     "devDependencies": {
         "@bxreact/tsconfig": "*"
     },
