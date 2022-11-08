@@ -1,3 +1,4 @@
+import "@bxreact/theme";
 import { MouseEventHandler } from "react";
 import "./index.css";
 
@@ -35,24 +36,24 @@ export function Button({
     outline,
 }: Props): JSX.Element {
     const Type = href ? "a" : "button";
-    const className: string[] = ["button"];
+    const className: string[] = ["bx-button"];
     const style = {};
 
-    if (size) className.push(`button--${size}`);
+    if (size) className.push(`bx-button--${size}`);
 
-    if (thead) className.push(`button--thead`);
+    if (thead) className.push(`bx-button--thead`);
 
-    if (status) className.push(`button--status-${status}`);
+    if (status) className.push(`bx-button--status-${status}`);
 
-    if (icon) className.push(`button--icon`);
+    if (icon) className.push(`bx-button--icon`);
 
-    if (badge) className.push(`button--badge`);
+    if (badge) className.push(`bx-button--badge`);
 
-    if (outline) className.push(`button--outline`);
+    if (outline) className.push(`bx-button--outline`);
 
-    if (wrap) className.push(`button--wrap`);
+    if (wrap) className.push(`bx-button--wrap`);
 
-    if ((onClick || href) && !disabled) className.push(`button--pointer`);
+    if ((onClick || href) && !disabled) className.push(`bx-button--pointer`);
 
     if (color) {
         style[

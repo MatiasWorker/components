@@ -1,4 +1,4 @@
-.button {
+.bx-button {
     --button-padding: var(--bx-input-sm-padding);
     --button-height: var(--bx-input-sm-height);
     --button-radius: var(--bx-input-sm-radius);
@@ -30,96 +30,96 @@
     white-space: nowrap;
 }
 
-.button--wrap {
+.bx-button--wrap {
     white-space: normal;
 }
 
-.button:not(.button--thead):hover {
+.bx-button:not(.bx-button--thead):hover {
     --button-bgcolor: var(--bx-button-filled-hover-bgcolor);
     --button-color: var(--bx-button-filled-hover-color);
 }
 
-.button--outline:not(:hover) {
+.bx-button--outline:not(:hover) {
     --button-border-color: var(--button-bgcolor);
     --button-color: var(--button-bgcolor) !important;
     background: transparent;
 }
 
-.button--xs {
+.bx-button--xs {
     --button-padding: var(--bx-input-xs-padding);
     --button-height: var(--bx-input-xs-height);
     --button-radius: var(--bx-input-xs-radius);
     --button-font-size: var(--bx-input-xs-font-size);
 }
 
-.button--md {
+.bx-button--md {
     --button-padding: var(--bx-input-md-padding);
     --button-height: var(--bx-input-md-height);
     --button-radius: var(--bx-input-md-radius);
     --button-font-size: var(--bx-input-md-font-size);
 }
 
-.button--lg {
+.bx-button--lg {
     --button-padding: var(--bx-input-lg-padding);
     --button-height: var(--bx-input-lg-height);
     --button-radius: var(--bx-input-lg-radius);
     --button-font-size: var(--bx-input-lg-font-size);
 }
 
-.button:disabled,
-.button[disabled] {
+.bx-button:disabled,
+.bx-button[disabled] {
     pointer-events: none;
     --button-bgcolor: var(--bx-button-filled-disabled-bgcolor);
     --button-color: var(--bx-button-filled-disabled-color);
 }
 
-.button--thead {
+.bx-button--thead {
     --button-bgcolor: var(--bx-button-thead-bgcolor);
     --button-color: var(--bx-button-thead-color);
     --button-radius: 0.75rem;
     box-shadow: var(--bx-button-shadow);
 }
 
-.button--thead.button--status-info {
+.bx-button--thead.bx-button--status-info {
     --button-bgcolor: var(--bx-button-thead-info-bgcolor);
     --button-color: var(--bx-button-thead-info-color);
 }
 
-.button--thead.button--status-success {
+.bx-button--thead.bx-button--status-success {
     --button-bgcolor: var(--bx-button-thead-success-bgcolor);
     --button-color: var(--bx-button-thead-success-color);
 }
 
-.button--thead.button--status-warning {
+.bx-button--thead.bx-button--status-warning {
     --button-bgcolor: var(--bx-button-thead-warning-bgcolor);
     --button-color: var(--bx-button-thead-warning-color);
 }
 
-.button--thead.button--status-danger {
+.bx-button--thead.bx-button--status-danger {
     --button-bgcolor: var(--bx-button-thead-danger-bgcolor);
     --button-color: var(--bx-button-thead-danger-color);
 }
 
-.button--thead:disabled,
-.button--thead[disabled] {
+.bx-button--thead:disabled,
+.bx-button--thead[disabled] {
     --button-bgcolor: var(--bx-button-thead-disabled-bgcolor);
     --button-color: var(--bx-button-thead-disabled-color);
 }
 
-.button--icon {
+.bx-button--icon {
     width: var(--button-height);
     height: var(--button-height);
     padding: 0px;
 }
 
-.button.button--badge {
+.bx-button.bx-button--badge {
     --button-height: 1.5rem;
     --button-radius: 0.5rem;
     --button-font-size: 0.75rem;
     --button-padding: 0px 0.75rem;
 }
 
-.button.button--pointer {
+.bx-button.bx-button--pointer {
     pointer-events: all;
     cursor: pointer;
 }
