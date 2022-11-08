@@ -1,4 +1,4 @@
-.pagination {
+.bx-pagination {
     --pagination-button-padding: var(--bx-pagination-button-padding, 7px);
     --pagination-label-padding: var(--bx-pagination-label-padding, 4px);
     --pagination-gap: var(--bx-pagination-gap, 24px);
@@ -14,31 +14,31 @@
     font-size: var(--pagination-font-size);
 }
 
-.pagination_paged_label {
+.bx-pagination_paged_label {
     padding: var(--pagination-label-padding);
 }
 
-.pagination_paged {
+.bx-pagination_paged {
     display: flex;
 }
 
-.pagination_btn {
+.bx-pagination_btn {
     cursor: pointer;
 }
 
-.pagination_btn,
-.pagination_move_label {
+.bx-pagination_btn,
+.bx-pagination_move_label {
     background: transparent;
     border: none;
     padding: var(--pagination-button-padding);
     margin: 0px;
 }
 
-.pagination_move {
+.bx-pagination_move {
     display: flex;
     align-items: center;
 }
 
-.pagination_btn--disabled {
+.bx-pagination_btn--disabled {
     opacity: 0.34;
 }

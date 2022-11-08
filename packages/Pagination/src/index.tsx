@@ -28,8 +28,8 @@ export function PaginationButton({
         <button
             disabled={disabled}
             onClick={() => onChangeMove && onChangeMove(type)}
-            className={`pagination_btn ${
-                disabled ? "pagination_btn--disabled" : ""
+            className={`bx-pagination_btn ${
+                disabled ? "bx-pagination_btn--disabled" : ""
             }`}
         >
             {type == ">>" ? (
@@ -82,9 +82,11 @@ export function Pagination({
     isMoveDisabled,
 }: PropsPagination) {
     return (
-        <div className="pagination">
-            <div className="pagination_paged">
-                <strong className="pagination_paged_label">{pagedLabel}</strong>
+        <div className="bx-pagination">
+            <div className="bx-pagination_paged">
+                <strong className="bx-pagination_paged_label">
+                    {pagedLabel}
+                </strong>
                 <FieldSelect
                     value="10"
                     onChange={onChangePagesPerPage}
@@ -94,7 +96,7 @@ export function Pagination({
                     }))}
                 ></FieldSelect>
             </div>
-            <div className="pagination_move">
+            <div className="bx-pagination_move">
                 <PaginationButton
                     onChangeMove={onChangeMove}
                     disabled={isMoveDisabled && isMoveDisabled("<<")}
@@ -105,7 +107,9 @@ export function Pagination({
                     disabled={isMoveDisabled && isMoveDisabled("<")}
                     type="<"
                 ></PaginationButton>
-                <strong className="pagination_move_label">{moveLabel}</strong>
+                <strong className="bx-pagination_move_label">
+                    {moveLabel}
+                </strong>
                 <PaginationButton
                     onChangeMove={onChangeMove}
                     disabled={isMoveDisabled && isMoveDisabled(">")}
