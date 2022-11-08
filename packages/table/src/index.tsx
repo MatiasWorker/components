@@ -41,16 +41,16 @@ export function TableCell({
     return (
         <div
             ref={reference}
-            className={`table_cell ${className || ""}`}
+            className={`bx-table_cell ${className || ""}`}
             style={style}
         >
-            <div className="table_cell_content">
+            <div className="bx-table_cell_content">
                 {children}
                 {tooltip && tooltipIcon}
             </div>
             {tooltip && (
                 <div
-                    className={`table_cell_tooltip`}
+                    className={`bx-table_cell_tooltip`}
                     ref={floating}
                     style={{
                         position: strategy,
@@ -119,12 +119,12 @@ export function Table<Data extends any[]>({
             : false;
 
     return (
-        <table className={`table ${collapse ? "table--collapse" : ""} `}>
-            <thead className="table_thead">
-                <tr className="table_tr">
+        <table className={`bx-table ${collapse ? "bx-table--collapse" : ""} `}>
+            <thead className="bx-table_thead">
+                <tr className="bx-table_tr">
                     {headerEntries.map(([prop, value], key) => (
                         <td
-                            className={`table_td table_td--transparent`}
+                            className={`bx-table_td bx-table_td--transparent`}
                             key={key + ""}
                         >
                             {typeof value === "object" ? (
@@ -136,11 +136,11 @@ export function Table<Data extends any[]>({
                     ))}
                 </tr>
             </thead>
-            <tbody className="table_tbody">
+            <tbody className="bx-table_tbody">
                 {data.map((row: any, key: number) => (
                     <tr
                         key={key + ""}
-                        className="table_tr"
+                        className="bx-table_tr"
                         style={rowStyle ? rowStyle(row) : null}
                     >
                         {headerEntries
@@ -158,18 +158,18 @@ export function Table<Data extends any[]>({
                                 return (
                                     <td
                                         key={key + ""}
-                                        className={`table_td ${
+                                        className={`bx-table_td ${
                                             prop === "id"
-                                                ? "table_td--transparent"
+                                                ? "bx-table_td--transparent"
                                                 : ""
                                         }`}
                                     >
                                         {label ? (
                                             <>
-                                                <div className="table_label ">
+                                                <div className="bx-table_label ">
                                                     {label}
                                                 </div>
-                                                <div className="table_value">
+                                                <div className="bx-table_value">
                                                     {cell}
                                                 </div>
                                             </>
