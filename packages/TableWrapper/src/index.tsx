@@ -35,17 +35,18 @@ export function TableWrapper<Data extends { [prop: string]: any }[]>({
     });
 
     return (
-        <div className="table-wrapper">
-            <div className="table-wrapper_overflow">
+        <div className="bx-table-wrapper">
+            <div className="bx-table-wrapper_overflow">
                 <Table data={pages.group} {...(propsTable as any)}></Table>
             </div>
-            <div className="table-wrapper_footer">
+            <div className="bx-table-wrapper_footer">
                 <Pagination
                     isMoveDisabled={(type) =>
                         pages.isDisabled(options.moves[type])
                     }
                     pagesPerPage={paginations}
                     pagedLabel={labelPaginations}
+                    value={pagesPerPage}
                     moveLabel={`${pages.position.start} - ${pages.position.end} de ${pages.position.length}`}
                     onChangePagesPerPage={(value) =>
                         setPagesPerPage(Number(value))

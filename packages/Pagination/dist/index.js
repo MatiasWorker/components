@@ -3,7 +3,7 @@ import { FieldSelect } from "@bxreact/field-select";
 
 // src/index.css
 import css from "@bxreact/theme/css";
-var src_default = css`.pagination {
+var src_default = css`.bx-pagination {
     --pagination-button-padding: var(--bx-pagination-button-padding, 7px);
     --pagination-label-padding: var(--bx-pagination-label-padding, 4px);
     --pagination-gap: var(--bx-pagination-gap, 24px);
@@ -19,32 +19,32 @@ var src_default = css`.pagination {
     font-size: var(--pagination-font-size);
 }
 
-.pagination_paged_label {
+.bx-pagination_paged_label {
     padding: var(--pagination-label-padding);
 }
 
-.pagination_paged {
+.bx-pagination_paged {
     display: flex;
 }
 
-.pagination_btn {
+.bx-pagination_btn {
     cursor: pointer;
 }
 
-.pagination_btn,
-.pagination_move_label {
+.bx-pagination_btn,
+.bx-pagination_move_label {
     background: transparent;
     border: none;
     padding: var(--pagination-button-padding);
     margin: 0px;
 }
 
-.pagination_move {
+.bx-pagination_move {
     display: flex;
     align-items: center;
 }
 
-.pagination_btn--disabled {
+.bx-pagination_btn--disabled {
     opacity: 0.34;
 }
 `;
@@ -59,7 +59,7 @@ function PaginationButton({
   return /* @__PURE__ */ jsx("button", {
     disabled,
     onClick: () => onChangeMove && onChangeMove(type),
-    className: `pagination_btn ${disabled ? "pagination_btn--disabled" : ""}`,
+    className: `bx-pagination_btn ${disabled ? "bx-pagination_btn--disabled" : ""}`,
     children: type == ">>" ? /* @__PURE__ */ jsxs("svg", {
       width: "13",
       height: "15",
@@ -117,30 +117,31 @@ function Pagination({
   moveLabel,
   onChangePagesPerPage,
   onChangeMove,
-  isMoveDisabled
+  isMoveDisabled,
+  value
 }) {
   return /* @__PURE__ */ jsxs("div", {
-    className: "pagination",
+    className: "bx-pagination",
     children: [
       /* @__PURE__ */ jsxs("div", {
-        className: "pagination_paged",
+        className: "bx-pagination_paged",
         children: [
           /* @__PURE__ */ jsx("strong", {
-            className: "pagination_paged_label",
+            className: "bx-pagination_paged_label",
             children: pagedLabel
           }),
           /* @__PURE__ */ jsx(FieldSelect, {
-            value: "10",
+            value: value.toString(),
             onChange: onChangePagesPerPage,
-            options: pagesPerPage.map((value) => ({
-              label: value.toString(),
-              value: value.toString()
+            options: pagesPerPage.map((value2) => ({
+              label: value2.toString(),
+              value: value2.toString()
             }))
           })
         ]
       }),
       /* @__PURE__ */ jsxs("div", {
-        className: "pagination_move",
+        className: "bx-pagination_move",
         children: [
           /* @__PURE__ */ jsx(PaginationButton, {
             onChangeMove,
@@ -153,7 +154,7 @@ function Pagination({
             type: "<"
           }),
           /* @__PURE__ */ jsx("strong", {
-            className: "pagination_move_label",
+            className: "bx-pagination_move_label",
             children: moveLabel
           }),
           /* @__PURE__ */ jsx(PaginationButton, {

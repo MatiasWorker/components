@@ -14,6 +14,7 @@ interface PropsPagination {
     pagesPerPage: number[];
     pagedLabel: string;
     moveLabel: string;
+    value: number;
     onChangePagesPerPage?: (value: string) => void;
     onChangeMove?: OnChangeMove;
     isMoveDisabled?: (value: PropsButtonType) => boolean;
@@ -80,6 +81,7 @@ export function Pagination({
     onChangePagesPerPage,
     onChangeMove,
     isMoveDisabled,
+    value,
 }: PropsPagination) {
     return (
         <div className="bx-pagination">
@@ -88,7 +90,7 @@ export function Pagination({
                     {pagedLabel}
                 </strong>
                 <FieldSelect
-                    value="10"
+                    value={value.toString()}
                     onChange={onChangePagesPerPage}
                     options={pagesPerPage.map((value) => ({
                         label: value.toString(),
