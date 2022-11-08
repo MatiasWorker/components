@@ -8,10 +8,12 @@ interface Props {
 export function FieldSwitch({ checked, onChange }: Props): JSX.Element {
     return (
         <div
-            className={`field-switch ${checked ? "field-switch--checked" : ""}`}
+            className={`bx-field-switch ${
+                checked ? "bx-field-switch--checked" : ""
+            }`}
             onClick={() => onChange && onChange(!checked)}
         >
-            <div className="field-switch_circle"></div>
+            <div className="bx-field-switch_circle"></div>
         </div>
     );
 }

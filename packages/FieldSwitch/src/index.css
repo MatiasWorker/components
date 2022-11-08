@@ -1,4 +1,4 @@
-.field-switch {
+.bx-field-switch {
     --switch-space: var(--bx-switch-space, 2px);
     --switch-width: var(--bx-switch-width, 40px);
     --switch-height: var(--bx-switch-height, 19px);
@@ -19,12 +19,12 @@
     transition: var(--switch-transition);
 }
 
-.field-switch--checked {
+.bx-field-switch--checked {
     --switch-fill: var(--switch-fill-checked);
     ---translate-x: calc(var(--switch-width) - var(--switch-height));
 }
 
-.field-switch_circle {
+.bx-field-switch_circle {
     width: var(---size);
     height: var(---size);
     display: block;
