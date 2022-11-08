@@ -1,3 +1,4 @@
+import "@bxreact/input";
 import { useEffect, useState } from "react";
 import { DateRange } from "react-date-range";
 import { es } from "date-fns/locale";
@@ -31,7 +32,7 @@ export function DatePickerRange({ onChange, range }: Props) {
     }, [range]);
 
     return (
-        <div className="form-date-picker">
+        <div className="bx-form-date-picker">
             <Dropdown
                 onChange={(show) => {
                     if (!show && currentRange != range) onChange(currentRange);
@@ -48,9 +49,9 @@ export function DatePickerRange({ onChange, range }: Props) {
                     />
                 }
             >
-                <button className="form-input form-input-button">
+                <button className="bx-form-input bx-form-input-button">
                     <Icon.Calendar size="1em" />
-                    <strong className="form-input-button_label">
+                    <strong className="bx-form-input-button_label">
                         {[range].map(({ startDate, endDate }) => {
                             return [format(startDate), " - ", format(endDate)];
                         })}

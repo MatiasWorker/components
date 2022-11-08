@@ -1,10 +1,10 @@
 @import url("react-date-range/dist/styles.css");
 @import url("react-date-range/dist/theme/default.css");
 
-.form-date-picker .dropdown_content {
+.bx-form-date-picker .dropdown_content {
     overflow: hidden;
 }
 
-.form-date-picker .rdrDay {
+.bx-form-date-picker .rdrDay {
     margin: 0px !important;
 }
