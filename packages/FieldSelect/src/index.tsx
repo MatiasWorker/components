@@ -19,11 +19,11 @@ export function FieldSelect({
 }: Props): JSX.Element {
     return (
         <div
-            className={`field-select field-select--${appearance} field-select--${status}`}
+            className={`bx-field-select bx-field-select--${appearance} bx-field-select--${status}`}
         >
             {appearance === "pagination" && (
                 <svg
-                    className="field-select_icon"
+                    className="bx-field-select_icon"
                     width="15"
                     height="9"
                     viewBox="0 0 15 9"
@@ -37,7 +37,7 @@ export function FieldSelect({
             )}
             <select
                 value={value || ""}
-                className="field-select_select"
+                className="bx-field-select_select"
                 onChange={(event) => {
                     onChange && onChange(event.currentTarget.value);
                 }}
