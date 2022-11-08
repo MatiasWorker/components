@@ -57,26 +57,26 @@ export function Input({
     }, []);
     return (
         <div
-            className={cs("form-input", {
-                "form-input-container-disabled": disabled,
-                "form-input-invalid": error,
-                "form-input-fullwidth": fullWidth,
-                "form-input-container-focus": focused,
-                "form-input-container-md": inputSize === "md",
-                "form-input-container-sm": inputSize === "sm",
-                "form-input-container-fill": fill,
-                "form-input-type-select": type === "select",
+            className={cs("bx-form-input", {
+                "bx-form-input-container-disabled": disabled,
+                "bx-form-input-invalid": error,
+                "bx-form-input-fullwidth": fullWidth,
+                "bx-form-input-container-focus": focused,
+                "bx-form-input-container-md": inputSize === "md",
+                "bx-form-input-container-sm": inputSize === "sm",
+                "bx-form-input-container-fill": fill,
+                "bx-form-input-type-select": type === "select",
             })}
         >
             {leftIcon && (
-                <div className="form-icon-container form-icon-left">
+                <div className="bx-form-icon-container bx-form-icon-left">
                     {leftIcon}
                 </div>
             )}
             {type === "select" ? (
                 <>
                     <select
-                        className="form-input-select"
+                        className="bx-form-input-select"
                         name={name}
                         value={value || ""}
                         onChange={onChange as any}
@@ -92,15 +92,18 @@ export function Input({
                             </option>
                         ))}
                     </select>
-                    <div className="form-input-select_icon">
+                    <div className="bx-form-input-select_icon">
                         <Down size="1em" color="lblue-well"></Down>
                     </div>
                 </>
             ) : (
                 <input
-                    className={cs("form-input-text form-input-with-icon", {
-                        "form-input-fullwidth": fullWidth,
-                    })}
+                    className={cs(
+                        "bx-form-input-text bx-form-input-with-icon",
+                        {
+                            "bx-form-input-fullwidth": fullWidth,
+                        }
+                    )}
                     type={type}
                     value={value}
                     onChange={onChange}
@@ -118,7 +121,7 @@ export function Input({
             )}
 
             {rightIcon && (
-                <div className="form-icon-container form-icon-right">
+                <div className="bx-form-icon-container bx-form-icon-right">
                     {rightIcon}
                 </div>
             )}
