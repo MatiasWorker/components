@@ -8,19 +8,19 @@ import {
 
 // src/index.css
 import css from "@bxreact/theme/css";
-var src_default = css`.dropdown {
+var src_default = css`.bx-dropdown {
     position: relative;
     display: inline-block;
     max-width: 100%;
     z-index: 2;
 }
 
-.dropdown_space {
+.bx-dropdown_space {
     min-width: 100%;
     padding: var(--bx-dropdown-space, 0.25rem) 0px;
 }
 
-.dropdown_content {
+.bx-dropdown_content {
     background: var(--bx-card-background);
     border-radius: var(--bx-card-radius);
     box-shadow: var(--bx-card-md-shadow);
@@ -28,13 +28,13 @@ var src_default = css`.dropdown {
     white-space: nowrap;
 }
 
-.dropdown_content ul {
+.bx-dropdown_content ul {
     padding: 0px;
     appearance: none;
     margin: 0px;
 }
 
-.dropdown_content li {
+.bx-dropdown_content li {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -44,26 +44,26 @@ var src_default = css`.dropdown {
     align-items: center;
 }
 
-.dropdown_content li:not(:last-child) {
+.bx-dropdown_content li:not(:last-child) {
     border-bottom: 1px solid var(--bx-color-blue-clear);
 }
 
-.dropdown_children {
+.bx-dropdown_children {
     cursor: pointer;
 }
 
-.dropdown_space {
+.bx-dropdown_space {
     visibility: hidden;
     opacity: 0;
     transition: 0.3s ease all;
 }
 
-.dropdown.dropdown--show .dropdown_space {
+.bx-dropdown.bx-dropdown--show .bx-dropdown_space {
     visibility: visible;
     opacity: 1;
 }
 
-.dropdown_header {
+.bx-dropdown_header {
     padding: var(--bx-dropdown-header-padding, 0.875rem 1rem 0.5rem);
     font-weight: var(--bx-dropdow-header-font-weight, 800);
 }

@@ -1,4 +1,4 @@
-.field-text {
+.bx-field-text {
     --field-text-add-width: 30px;
     --field-text-background: transparent;
     --field-text-active-background: var(
@@ -17,23 +17,23 @@
     box-sizing: border-box;
 }
 
-.field-text--success {
+.bx-field-text--success {
     --field-text-background: var(--bx-field-text-success, transparent);
 }
 
-.field-text--warning {
+.bx-field-text--warning {
     --field-text-background: var(--bx-field-text-warning, transparent);
 }
 
-.field-text--danger {
+.bx-field-text--danger {
     --field-text-background: var(--bx-field-text-warning, #fe9292);
 }
 
-.field-text--edited {
+.bx-field-text--edited {
     --field-text-background: var(--bx-field-text-edited, transparent);
 }
 
-.field-text_input {
+.bx-field-text_input {
     width: 100%;
     padding: var(--field-text-padding);
     box-sizing: border-box;
@@ -42,11 +42,11 @@
     z-index: 1;
 }
 
-.field-text_input:not([disabled]) {
+.bx-field-text_input:not([disabled]) {
     background: var(--field-text-active-background);
 }
 
-.field-text_reflect {
+.bx-field-text_reflect {
     width: auto;
     height: auto;
     position: fixed;
@@ -56,7 +56,7 @@
     white-space: nowrap;
 }
 
-.field-text_mask {
+.bx-field-text_mask {
     position: absolute;
     top: 0;
     left: 0;
@@ -65,12 +65,12 @@
     z-index: 2;
 }
 
-.field-text--danger {
+.bx-field-text--danger {
     padding: 6.5px 4px;
     --field-text-add-width: 34px;
 }
 
-.field-text--danger .field-text_input {
+.bx-field-text--danger .bx-field-text_input {
     background: var(--bx-input-bgcolor);
     color: var(--bx-input-color);
     border: var(--bx-input-border) var(--bx-color-red-alert);

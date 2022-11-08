@@ -7,7 +7,7 @@ import { useState, useCallback } from "react";
 
 // src/index.css
 import css from "@bxreact/theme/css";
-var src_default = css`.form-input {
+var src_default = css`.bx-form-input {
     display: flex;
     width: 100%;
     padding: 0 1rem;
@@ -29,12 +29,12 @@ var src_default = css`.form-input {
     font-family: var(--bx-font-secondary);
 }
 
-.form-input-text {
+.bx-form-input-text {
     padding: 0px;
     line-height: 1;
 }
 
-.form-input-container {
+.bx-form-input-container {
     display: flex;
     align-items: center;
     width: 100%;
@@ -48,15 +48,15 @@ var src_default = css`.form-input {
     transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.form-input-container-sm {
+.bx-form-input-container-sm {
     height: 38px;
 }
 
-.form-input-container-fill {
+.bx-form-input-container-fill {
     background: white;
 }
 
-.form-input-with-icon {
+.bx-form-input-with-icon {
     border: none;
     appearance: none;
     background: transparent;
@@ -71,7 +71,7 @@ var src_default = css`.form-input {
     font-size: 14px;
 }
 
-.form-icon-container {
+.bx-form-icon-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,7 +79,7 @@ var src_default = css`.form-input {
     cursor: pointer;
 }
 
-.form-select-container {
+.bx-form-select-container {
     position: relative;
     display: flex;
     width: 100%;
@@ -94,15 +94,15 @@ var src_default = css`.form-input {
     transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.form-select-container-md {
+.bx-form-select-container-md {
     height: var(--bx-input-sm-height);
 }
 
-.form-select-container-sm {
+.bx-form-select-container-sm {
     height: 40px;
 }
 
-.form-select {
+.bx-form-select {
     display: flex;
     z-index: 2;
     width: 100%;
@@ -122,7 +122,7 @@ var src_default = css`.form-input {
     transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.form-select-arrow {
+.bx-form-select-arrow {
     position: absolute;
     z-index: 1;
     right: 0;
@@ -137,7 +137,7 @@ var src_default = css`.form-input {
     color: var(--bx-color-black);
 }
 
-.form-checkbox-container {
+.bx-form-checkbox-container {
     --checkbox-size: 1.25rem;
     --checkbox-color: var(--bx-color-orange);
     --checkbox-label: var(--bx-color-black);
@@ -150,14 +150,14 @@ var src_default = css`.form-input {
     cursor: pointer;
 }
 
-.form-checkbox-check {
+.bx-form-checkbox-check {
     display: flex;
     align-items: center;
     padding: 2px;
     align-self: start;
 }
 
-.form-checkbox {
+.bx-form-checkbox {
     opacity: 0;
     outline: none;
     position: absolute;
@@ -169,7 +169,7 @@ var src_default = css`.form-input {
     background-color: transparent;
 }
 
-.form-checkbox-icon {
+.bx-form-checkbox-icon {
     border: 1px solid var(--checkbox-color);
     border-radius: 3px;
     height: 1rem;
@@ -179,20 +179,20 @@ var src_default = css`.form-input {
     transform: rotate(0.000001deg);
 }
 
-.form-checkbox-icon svg {
+.bx-form-checkbox-icon svg {
     position: absolute;
     top: -1px;
     left: -1px;
 }
 
-.form-checkbox-label {
+.bx-form-checkbox-label {
     margin-left: 8px;
     color: var(--checkbox-label);
     user-select: none;
     line-height: var(--checkbox-size);
 }
 
-.form-toggle-container {
+.bx-form-toggle-container {
     display: inline-flex;
     width: auto;
     align-items: center;
@@ -202,7 +202,7 @@ var src_default = css`.form-input {
     position: relative;
 }
 
-.form-toggle-container-sm {
+.bx-form-toggle-container-sm {
     --toggle-size: 1.25rem;
     --toggle-color: var(--bx-color-orange);
     --toggle-label: var(--bx-color-blue);
@@ -210,7 +210,7 @@ var src_default = css`.form-input {
     --toggle-height: 0.835rem;
 }
 
-.form-toggle-container-md {
+.bx-form-toggle-container-md {
     --toggle-size: 1.25rem;
     --toggle-color: var(--bx-color-orange);
     --toggle-label: var(--bx-color-blue);
@@ -218,7 +218,7 @@ var src_default = css`.form-input {
     --toggle-height: 0.875rem;
 }
 
-.form-toggle-container-lg {
+.bx-form-toggle-container-lg {
     --toggle-size: 1.25rem;
     --toggle-color: var(--bx-color-orange);
     --toggle-label: var(--bx-color-blue);
@@ -226,7 +226,7 @@ var src_default = css`.form-input {
     --toggle-height: 1rem;
 }
 
-.form-toggle-input {
+.bx-form-toggle-input {
     opacity: 0;
     outline: none;
     position: absolute;
@@ -238,7 +238,7 @@ var src_default = css`.form-input {
     background-color: transparent;
 }
 
-.form-toggle {
+.bx-form-toggle {
     border-radius: var(--bx-input-sm-radius);
     width: var(--toggle-width);
     height: var(--toggle-height);
@@ -252,11 +252,11 @@ var src_default = css`.form-input {
     position: relative;
 }
 
-.form-toggle-is-checked {
+.bx-form-toggle-is-checked {
     background-color: var(--toggle-color);
 }
 
-.form-toggle-inner {
+.bx-form-toggle-inner {
     width: calc(var(--toggle-height) - 2px);
     height: calc(var(--toggle-height) - 2px);
     position: absolute;
@@ -269,12 +269,12 @@ var src_default = css`.form-input {
     background-color: #ffffff;
 }
 
-.form-toggle-inner-is-checked {
+.bx-form-toggle-inner-is-checked {
     left: calc(100% - (var(--toggle-height) - 2px));
     box-shadow: none;
 }
 
-.form-textarea-container {
+.bx-form-textarea-container {
     display: inline-flex;
     width: 100%;
     min-width: 12.5rem;
@@ -287,13 +287,13 @@ var src_default = css`.form-input {
     user-select: none;
 }
 
-.form-textarea-container-focus {
+.bx-form-textarea-container-focus {
     border: 1px solid var(--bx-color-blue-cross-2);
     outline: none;
     box-shadow: 0 0 0 0.15rem rgba(56, 22, 98, 0.25);
 }
 
-.form-textarea {
+.bx-form-textarea {
     background-color: transparent;
     box-shadow: none;
     display: block;
@@ -306,134 +306,134 @@ var src_default = css`.form-input {
     padding: 8pt;
 }
 
-.form-textarea:focus {
+.bx-form-textarea:focus {
     outline: none;
 }
 
-.form-checkbox-container-disabled,
-.form-toggle-container-disabled,
-.form-textarea-container-disabled {
+.bx-form-checkbox-container-disabled,
+.bx-form-toggle-container-disabled,
+.bx-form-textarea-container-disabled {
     --checkbox-color: var(--bx-color-blue-shine);
     cursor: not-allowed;
     opacity: 0.75;
 }
 
-.form-checkbox:disabled,
-.form-textarea:disabled,
-.form-checkbox[disabled],
-.form-textarea[disabled] {
+.bx-form-checkbox:disabled,
+.bx-form-textarea:disabled,
+.bx-form-checkbox[disabled],
+.bx-form-textarea[disabled] {
     cursor: not-allowed;
 }
 
-.form-input:focus {
+.bx-form-input:focus {
     border: 1px solid var(--bx-color-blue-cross-2);
     outline: none;
     box-shadow: 0 0 0 0.15rem rgba(56, 22, 98, 0.25);
 }
 
-.form-input-fullwidth {
+.bx-form-input-fullwidth {
     width: 100%;
 }
 
-.form-select-fullwidth {
+.bx-form-select-fullwidth {
     width: 100%;
 }
 
-.form-input-with-icon:focus {
+.bx-form-input-with-icon:focus {
     outline: none;
 }
 
-.form-select:focus {
+.bx-form-select:focus {
     outline: none;
 }
 
-.form-input:disabled,
-.form-input[disabled],
-.form-input[readonly],
-.form-input-with-icon:disabled,
-.form-input-with-icon[disabled],
-.form-input-with-icon[readonly] {
+.bx-form-input:disabled,
+.bx-form-input[disabled],
+.bx-form-input[readonly],
+.bx-form-input-with-icon:disabled,
+.bx-form-input-with-icon[disabled],
+.bx-form-input-with-icon[readonly] {
     opacity: 1;
     cursor: not-allowed;
     background-color: var(--bx-form-disabled);
 }
 
-.form-select:disabled,
-.form-select[disabled],
-.form-select[readonly] {
+.bx-form-select:disabled,
+.bx-form-select[disabled],
+.bx-form-select[readonly] {
     opacity: 1;
     cursor: not-allowed;
 }
 
-.form-input-invalid {
+.bx-form-input-invalid {
     border: 1px solid var(--bx-fv-invalid);
 }
 
-.form-input:focus.form-input-invalid {
+.bx-form-input:focus.bx-form-input-invalid {
     border: 1px solid var(--bx-fv-invalid);
     box-shadow: 0 0 0 0.15rem var(--bx-fv-invalid-rgba) !important;
 }
 
-.form-input-invalid svg {
+.bx-form-input-invalid svg {
     color: var(--bx-fv-invalid);
 }
 
-.form-input-container-disabled {
+.bx-form-input-container-disabled {
     opacity: 1;
     cursor: not-allowed;
     background-color: var(--bx-form-disabled);
 }
 
-.form-select-container-disabled {
+.bx-form-select-container-disabled {
     opacity: 1;
     cursor: not-allowed;
     background-color: var(--bx-form-disabled);
 }
 
-.form-input-container-focus {
+.bx-form-input-container-focus {
     border: 1px solid var(--bx-color-blue-cross-2);
     outline: none;
     box-shadow: 0 0 0 0.15rem rgba(56, 22, 98, 0.25);
 }
 
-.form-select-container-focus {
+.bx-form-select-container-focus {
     border: 1px solid var(--bx-color-blue-cross-2);
     outline: none;
     box-shadow: 0 0 0 0.15rem rgba(56, 22, 98, 0.25);
 }
 
-.form-text {
+.bx-form-text {
     margin-top: 0.25rem;
     color: var(--bx-form-text);
     font-size: 10px;
 }
 
-.form-label {
+.bx-form-label {
     display: inline-block;
     margin-bottom: 0.813rem;
     font-size: 14px;
 }
 
-.form-feedback {
+.bx-form-feedback {
     display: none;
     width: 100%;
     margin-top: 0.25rem;
     font-size: 10px;
 }
 
-.form-feedback-valid {
+.bx-form-feedback-valid {
     color: var(--bx-fv-valid);
 }
 
-.form-feedback-invalid {
+.bx-form-feedback-invalid {
     color: var(--bx-fv-invalid);
 }
 
-.form-feedback-is-active {
+.bx-form-feedback-is-active {
     display: block;
 }
 
-.form-input.form-input-button {
+.bx-form-input.bx-form-input-button {
     align-items: center;
     gap: 1rem;
     z-index: 30;
@@ -441,17 +441,17 @@ var src_default = css`.form-input {
     white-space: nowrap;
 }
 
-.form-input-button_label {
+.bx-form-input-button_label {
     text-align: left;
     flex: 0%;
 }
 
-.form-input-type-select {
+.bx-form-input-type-select {
     padding: 0px;
     position: relative;
 }
 
-.form-input-select {
+.bx-form-input-select {
     all: unset;
     width: 100%;
     display: flex;
@@ -462,7 +462,7 @@ var src_default = css`.form-input {
     font-family: unset;
 }
 
-.form-input-select_icon {
+.bx-form-input-select_icon {
     right: 1rem;
     top: 50%;
     transform: translateY(-40%);
@@ -502,25 +502,25 @@ function Input({
     setFocused(false);
   }, []);
   return /* @__PURE__ */ jsxs("div", {
-    className: cs("form-input", {
-      "form-input-container-disabled": disabled,
-      "form-input-invalid": error,
-      "form-input-fullwidth": fullWidth,
-      "form-input-container-focus": focused,
-      "form-input-container-md": inputSize === "md",
-      "form-input-container-sm": inputSize === "sm",
-      "form-input-container-fill": fill,
-      "form-input-type-select": type === "select"
+    className: cs("bx-form-input", {
+      "bx-form-input-container-disabled": disabled,
+      "bx-form-input-invalid": error,
+      "bx-form-input-fullwidth": fullWidth,
+      "bx-form-input-container-focus": focused,
+      "bx-form-input-container-md": inputSize === "md",
+      "bx-form-input-container-sm": inputSize === "sm",
+      "bx-form-input-container-fill": fill,
+      "bx-form-input-type-select": type === "select"
     }),
     children: [
       leftIcon && /* @__PURE__ */ jsx("div", {
-        className: "form-icon-container form-icon-left",
+        className: "bx-form-icon-container bx-form-icon-left",
         children: leftIcon
       }),
       type === "select" ? /* @__PURE__ */ jsxs(Fragment, {
         children: [
           /* @__PURE__ */ jsxs("select", {
-            className: "form-input-select",
+            className: "bx-form-input-select",
             name,
             value: value || "",
             onChange,
@@ -537,7 +537,7 @@ function Input({
             ]
           }),
           /* @__PURE__ */ jsx("div", {
-            className: "form-input-select_icon",
+            className: "bx-form-input-select_icon",
             children: /* @__PURE__ */ jsx(Down, {
               size: "1em",
               color: "lblue-well"
@@ -545,9 +545,12 @@ function Input({
           })
         ]
       }) : /* @__PURE__ */ jsx("input", {
-        className: cs("form-input-text form-input-with-icon", {
-          "form-input-fullwidth": fullWidth
-        }),
+        className: cs(
+          "bx-form-input-text bx-form-input-with-icon",
+          {
+            "bx-form-input-fullwidth": fullWidth
+          }
+        ),
         type,
         value,
         onChange,
@@ -563,7 +566,7 @@ function Input({
         ...props
       }),
       rightIcon && /* @__PURE__ */ jsx("div", {
-        className: "form-icon-container form-icon-right",
+        className: "bx-form-icon-container bx-form-icon-right",
         children: rightIcon
       })
     ]

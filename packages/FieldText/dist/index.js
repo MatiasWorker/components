@@ -4,7 +4,7 @@ import useResizeObserver from "use-resize-observer";
 
 // src/index.css
 import css from "@bxreact/theme/css";
-var src_default = css`.field-text {
+var src_default = css`.bx-field-text {
     --field-text-add-width: 30px;
     --field-text-background: transparent;
     --field-text-active-background: var(
@@ -23,23 +23,23 @@ var src_default = css`.field-text {
     box-sizing: border-box;
 }
 
-.field-text--success {
+.bx-field-text--success {
     --field-text-background: var(--bx-field-text-success, transparent);
 }
 
-.field-text--warning {
+.bx-field-text--warning {
     --field-text-background: var(--bx-field-text-warning, transparent);
 }
 
-.field-text--danger {
+.bx-field-text--danger {
     --field-text-background: var(--bx-field-text-warning, #fe9292);
 }
 
-.field-text--edited {
+.bx-field-text--edited {
     --field-text-background: var(--bx-field-text-edited, transparent);
 }
 
-.field-text_input {
+.bx-field-text_input {
     width: 100%;
     padding: var(--field-text-padding);
     box-sizing: border-box;
@@ -48,11 +48,11 @@ var src_default = css`.field-text {
     z-index: 1;
 }
 
-.field-text_input:not([disabled]) {
+.bx-field-text_input:not([disabled]) {
     background: var(--field-text-active-background);
 }
 
-.field-text_reflect {
+.bx-field-text_reflect {
     width: auto;
     height: auto;
     position: fixed;
@@ -62,7 +62,7 @@ var src_default = css`.field-text {
     white-space: nowrap;
 }
 
-.field-text_mask {
+.bx-field-text_mask {
     position: absolute;
     top: 0;
     left: 0;
@@ -71,12 +71,12 @@ var src_default = css`.field-text {
     z-index: 2;
 }
 
-.field-text--danger {
+.bx-field-text--danger {
     padding: 6.5px 4px;
     --field-text-add-width: 34px;
 }
 
-.field-text--danger .field-text_input {
+.bx-field-text--danger .bx-field-text_input {
     background: var(--bx-input-bgcolor);
     color: var(--bx-input-color);
     border: var(--bx-input-border) var(--bx-color-red-alert);
@@ -102,17 +102,17 @@ function FieldText({
   const refInput = useRef();
   const resize = useResizeObserver();
   return /* @__PURE__ */ jsxs("div", {
-    className: `field-text field-text--${status} ${focus ? "field-text--focus" : ""} ${className ? className : ""}`,
+    className: `bx-field-text bx-field-text--${status} ${focus ? "bx-field-text--focus" : ""} ${className ? className : ""}`,
     style: resize.width ? { "--min-width": `${resize.width}px` } : {},
     children: [
       /* @__PURE__ */ jsx("div", {
         ref: resize.ref,
-        className: "field-text_input field-text_reflect",
+        className: "bx-field-text_input bx-field-text_reflect",
         children: value
       }),
       /* @__PURE__ */ jsx("input", {
         disabled,
-        className: "field-text_input",
+        className: "bx-field-text_input",
         value,
         ref: refInput,
         type,

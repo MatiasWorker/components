@@ -1,6 +1,6 @@
 // src/index.css
 import css from "@bxreact/theme/css";
-var src_default = css`.field-select {
+var src_default = css`.bx-field-select {
     --select-background: var(--bx-select-background, #eaf8ff);
     --select-border-radius: var(--bx-lect-border-radius, 5px);
     --select-space-x: var(--bx-lect-space-x, 8px);
@@ -14,7 +14,7 @@ var src_default = css`.field-select {
     font-size: var(--select-font-size);
 }
 
-.field-select--cell {
+.bx-field-select--cell {
     min-width: 100%;
     height: 100%;
     --select-width: auto;
@@ -24,19 +24,19 @@ var src_default = css`.field-select {
     --select-background: transparent;
 }
 
-.field-select--danger {
+.bx-field-select--danger {
     --select-background: var(--bx-field-select-warning, #fe9292);
 }
 
-.field-text--success {
+.bx-field-text--success {
     --select-background: var(--bx-field-select-success, transparent);
 }
 
-.field-text--warning {
+.bx-field-text--warning {
     --select-background: var(--bx-field-select-warning, transparent);
 }
 
-.field-select_select {
+.bx-field-select_select {
     width: var(--select-width);
     min-height: 100%;
     min-width: 100%;
@@ -51,19 +51,19 @@ var src_default = css`.field-select {
     padding: 0px var(--select-space-x);
 }
 
-.field-select_select option {
+.bx-field-select_select option {
     background: white;
     color: black;
 }
 
-.field-select--pagination .field-select_select {
+.bx-field-select--pagination .bx-field-select_select {
     appearance: none;
     padding: calc(var(--select-space-x) / 2)
         calc(var(--select-space-x) * 2 + var(--select-icon-width))
         calc(var(--select-space-x) / 2) var(--select-space-x);
 }
 
-.field-select_icon {
+.bx-field-select_icon {
     position: absolute;
     width: var(--select-icon-width);
     top: 50%;
@@ -83,10 +83,10 @@ function FieldSelect({
   status
 }) {
   return /* @__PURE__ */ jsxs("div", {
-    className: `field-select field-select--${appearance} field-select--${status}`,
+    className: `bx-field-select bx-field-select--${appearance} bx-field-select--${status}`,
     children: [
       appearance === "pagination" && /* @__PURE__ */ jsx("svg", {
-        className: "field-select_icon",
+        className: "bx-field-select_icon",
         width: "15",
         height: "9",
         viewBox: "0 0 15 9",
@@ -98,7 +98,7 @@ function FieldSelect({
       }),
       /* @__PURE__ */ jsxs("select", {
         value: value || "",
-        className: "field-select_select",
+        className: "bx-field-select_select",
         onChange: (event) => {
           onChange && onChange(event.currentTarget.value);
         },

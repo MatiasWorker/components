@@ -131,7 +131,7 @@ function Pagination({
             children: pagedLabel
           }),
           /* @__PURE__ */ jsx(FieldSelect, {
-            value: value.toString(),
+            value: (value || pagesPerPage.at(0))?.toString(),
             onChange: onChangePagesPerPage,
             options: pagesPerPage.map((value2) => ({
               label: value2.toString(),

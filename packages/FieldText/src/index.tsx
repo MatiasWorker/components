@@ -33,8 +33,8 @@ export function FieldText({
 
     return (
         <div
-            className={`field-text field-text--${status} ${
-                focus ? "field-text--focus" : ""
+            className={`bx-field-text bx-field-text--${status} ${
+                focus ? "bx-field-text--focus" : ""
             } ${className ? className : ""}`}
             style={
                 resize.width
@@ -44,13 +44,13 @@ export function FieldText({
         >
             <div
                 ref={resize.ref}
-                className="field-text_input field-text_reflect"
+                className="bx-field-text_input bx-field-text_reflect"
             >
                 {value}
             </div>
             <input
                 disabled={disabled}
-                className="field-text_input"
+                className="bx-field-text_input"
                 value={value}
                 ref={refInput}
                 type={type}

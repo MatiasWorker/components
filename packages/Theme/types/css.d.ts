@@ -1,1 +1,2 @@
-export default function css(part: TemplateStringsArray, ...args: any): void;
+import css from "@bxreact/css";
+export default css;

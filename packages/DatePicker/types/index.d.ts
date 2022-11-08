@@ -1,3 +1,4 @@
+import "@bxreact/input";
 import "./index.css";
 interface InternalRange {
     startDate: Date;

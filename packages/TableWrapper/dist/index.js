@@ -6,14 +6,14 @@ import { Pagination } from "@bxreact/pagination";
 
 // src/index.css
 import css from "@bxreact/theme/css";
-var src_default = css`.table-wrapper {
+var src_default = css`.bx-table-wrapper {
     width: 100%;
     max-width: 100%;
 }
-.table-wrapper_overflow {
+.bx-table-wrapper_overflow {
     overflow-x: auto;
 }
-.table-wrapper_footer {
+.bx-table-wrapper_footer {
     padding: var(--table-wrapper-footer-padding, 0.75rem 1rem);
     display: flex;
     justify-content: flex-end;
@@ -45,21 +45,22 @@ function TableWrapper({
     pages: pagesPerPage
   });
   return /* @__PURE__ */ jsxs("div", {
-    className: "table-wrapper",
+    className: "bx-table-wrapper",
     children: [
       /* @__PURE__ */ jsx("div", {
-        className: "table-wrapper_overflow",
+        className: "bx-table-wrapper_overflow",
         children: /* @__PURE__ */ jsx(Table, {
           data: pages.group,
           ...propsTable
         })
       }),
       /* @__PURE__ */ jsx("div", {
-        className: "table-wrapper_footer",
+        className: "bx-table-wrapper_footer",
         children: /* @__PURE__ */ jsx(Pagination, {
           isMoveDisabled: (type) => pages.isDisabled(options.moves[type]),
           pagesPerPage: paginations,
           pagedLabel: labelPaginations,
+          value: pagesPerPage,
           moveLabel: `${pages.position.start} - ${pages.position.end} de ${pages.position.length}`,
           onChangePagesPerPage: (value) => setPagesPerPage(Number(value)),
           onChangeMove: (type) => pages.to(options.moves[type])

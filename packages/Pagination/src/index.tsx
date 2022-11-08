@@ -90,7 +90,7 @@ export function Pagination({
                     {pagedLabel}
                 </strong>
                 <FieldSelect
-                    value={value.toString()}
+                    value={(value || pagesPerPage.at(0))?.toString()}
                     onChange={onChangePagesPerPage}
                     options={pagesPerPage.map((value) => ({
                         label: value.toString(),

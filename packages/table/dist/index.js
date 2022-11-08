@@ -5,7 +5,7 @@ import { Info } from "@bxreact/icon";
 
 // src/index.css
 import css from "@bxreact/theme/css";
-var src_default = css`.table {
+var src_default = css`.bx-table {
     --table-background: var(--bx-table-background, #f6f6f6);
     --table-font-size: var(--bx-table-font-size, 12px);
     --table-font-bold: var(--bx-table-font-bold, 600);
@@ -34,29 +34,29 @@ var src_default = css`.table {
     border-spacing: 0px;
 }
 
-.table_thead {
+.bx-table_thead {
     font-weight: var(--table-font-bold);
 }
 
-.table_td {
+.bx-table_td {
     height: var(--table-row-min-height);
     padding: 0px;
     border-bottom: var(--table-row-border-bottom);
     background: var(--table-row-background);
 }
 
-.table_td--transparent {
+.bx-table_td--transparent {
     background: transparent;
 }
 
-.table_cell {
+.bx-table_cell {
     min-height: 100%;
     color: var(--table-cell-color, unset);
     background: var(--table-cell-background, unset);
     position: relative;
 }
 
-.table_cell_content {
+.bx-table_cell_content {
     display: flex;
     min-height: var(--table-row-min-height);
     align-items: var(--table-cell-align, center);
@@ -68,7 +68,7 @@ var src_default = css`.table {
     justify-content: space-between;
 }
 
-.table_cell_tooltip {
+.bx-table_cell_tooltip {
     min-width: 100%;
     padding: var(--table-field-padding);
     background: var(--table-tooltip-background);
@@ -83,25 +83,25 @@ var src_default = css`.table {
     z-index: 100;
 }
 
-.table_cell:hover {
+.bx-table_cell:hover {
     --tooltip-opacity: 1;
     --tooltip-visibility: visible;
 }
 
-.table.table--collapse {
+.bx-table.bx-table--collapse {
     --table-row-min-height: auto;
 }
 
-.table.table--collapse tr {
+.bx-table.bx-table--collapse tr {
     display: grid;
     border: var(--table-row-border-bottom);
 }
 
-.table.table--collapse tr:not(:last-child) {
+.bx-table.bx-table--collapse tr:not(:last-child) {
     border-bottom: none;
 }
 
-.table.table--collapse td {
+.bx-table.bx-table--collapse td {
     display: grid;
     border: none;
     padding: var(--table-field-padding);
@@ -109,15 +109,15 @@ var src_default = css`.table {
     gap: 0.5em;
 }
 
-.table.table--collapse .table_thead {
+.bx-table.bx-table--collapse .bx-table_thead {
     display: none;
 }
 
-.table.table--collapse .table_cell_content {
+.bx-table.bx-table--collapse .bx-table_cell_content {
     padding: 0px;
 }
 
-.table.table--collapse .table_label {
+.bx-table.bx-table--collapse .bx-table_label {
     font-weight: var(--table-font-bold);
 }
 `;
@@ -154,18 +154,18 @@ function TableCell({
     style["--table-cell-background"] = background;
   return /* @__PURE__ */ jsxs("div", {
     ref: reference,
-    className: `table_cell ${className || ""}`,
+    className: `bx-table_cell ${className || ""}`,
     style,
     children: [
       /* @__PURE__ */ jsxs("div", {
-        className: "table_cell_content",
+        className: "bx-table_cell_content",
         children: [
           children,
           tooltip && tooltipIcon
         ]
       }),
       tooltip && /* @__PURE__ */ jsx("div", {
-        className: `table_cell_tooltip`,
+        className: `bx-table_cell_tooltip`,
         ref: floating,
         style: {
           position: strategy,
@@ -193,14 +193,14 @@ function Table({
   };
   const getLabel = (value) => isValidElement(value) && value.type === TableCell ? value.props.label : false;
   return /* @__PURE__ */ jsxs("table", {
-    className: `table ${collapse ? "table--collapse" : ""} `,
+    className: `bx-table ${collapse ? "bx-table--collapse" : ""} `,
     children: [
       /* @__PURE__ */ jsx("thead", {
-        className: "table_thead",
+        className: "bx-table_thead",
         children: /* @__PURE__ */ jsx("tr", {
-          className: "table_tr",
+          className: "bx-table_tr",
           children: headerEntries.map(([prop, value], key) => /* @__PURE__ */ jsx("td", {
-            className: `table_td table_td--transparent`,
+            className: `bx-table_td bx-table_td--transparent`,
             children: typeof value === "object" ? value : /* @__PURE__ */ jsx(TableCell, {
               children: value
             })
@@ -208,9 +208,9 @@ function Table({
         })
       }),
       /* @__PURE__ */ jsx("tbody", {
-        className: "table_tbody",
+        className: "bx-table_tbody",
         children: data.map((row, key) => /* @__PURE__ */ jsx("tr", {
-          className: "table_tr",
+          className: "bx-table_tr",
           style: rowStyle ? rowStyle(row) : null,
           children: headerEntries.map(([prop, header2]) => [prop, row[prop], header2]).map(([prop, value, header2], key2) => {
             const cell = getCell(row, prop, value);
@@ -218,15 +218,15 @@ function Table({
             if (collapse && !label)
               return;
             return /* @__PURE__ */ jsx("td", {
-              className: `table_td ${prop === "id" ? "table_td--transparent" : ""}`,
+              className: `bx-table_td ${prop === "id" ? "bx-table_td--transparent" : ""}`,
               children: label ? /* @__PURE__ */ jsxs(Fragment, {
                 children: [
                   /* @__PURE__ */ jsx("div", {
-                    className: "table_label ",
+                    className: "bx-table_label ",
                     children: label
                   }),
                   /* @__PURE__ */ jsx("div", {
-                    className: "table_value",
+                    className: "bx-table_value",
                     children: cell
                   })
                 ]

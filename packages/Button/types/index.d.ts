@@ -1,3 +1,4 @@
+import "@bxreact/theme";
 import { MouseEventHandler } from "react";
 import "./index.css";
 interface Props {

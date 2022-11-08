@@ -1,6 +1,6 @@
 // src/index.css
 import css from "@bxreact/theme/css";
-var src_default = css`.card {
+var src_default = css`.bx-card {
     --card-shadow: var(--bx-card-lg-shadow);
     --card-radius: var(--bx-card-radius);
 
@@ -11,7 +11,7 @@ var src_default = css`.card {
     border-radius: var(--card-radius);
 }
 
-.card--size-md {
+.bx-card--size-md {
     --card-shadow: var(--bx-card-md-shadow);
 }
 `;
@@ -24,9 +24,9 @@ function Card({
   className,
   ...props
 }) {
-  const listClassName = ["card"];
+  const listClassName = ["bx-card"];
   if (size)
-    listClassName.push(`card--size-${size}`);
+    listClassName.push(`bx-card--size-${size}`);
   if (className)
     listClassName.push(className);
   return /* @__PURE__ */ jsx("div", {
