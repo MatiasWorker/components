@@ -1,4 +1,4 @@
-.card {
+.bx-card {
     --card-shadow: var(--bx-card-lg-shadow);
     --card-radius: var(--bx-card-radius);
 
@@ -9,6 +9,6 @@
     border-radius: var(--card-radius);
 }
 
-.card--size-md {
+.bx-card--size-md {
     --card-shadow: var(--bx-card-md-shadow);
 }

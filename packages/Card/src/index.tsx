@@ -14,9 +14,9 @@ export function Card({
     className,
     ...props
 }: Props): JSX.Element {
-    const listClassName: string[] = ["card"];
+    const listClassName: string[] = ["bx-card"];
 
-    if (size) listClassName.push(`card--size-${size}`);
+    if (size) listClassName.push(`bx-card--size-${size}`);
 
     if (className) listClassName.push(className);
 
