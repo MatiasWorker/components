@@ -1,7 +1,7 @@
 :root {
     /* bx colors */
     /* blue */
-    --bx-color-blue: #3363ff;
+    --bx-color-blue: #0032a0;
     --bx-color-blue-space: #0a1433;
     --bx-color-blue-tea: #0f1e4c;
     --bx-color-blue-clip: #142866;
@@ -55,7 +55,7 @@
     --bx-color-lblue-winter: #aae3ff;
     --bx-color-lblue-easy: #bfeaff;
     --bx-color-lblue-thin: #d5f1ff;
-    --bx-color-lblue-day: #eaf8ff;
+    --bx-color-lblue-day: #f2fcff;
     /* light orange */
     --bx-color-lorange: #fda460;
     --bx-color-lorange-state: #322615;
