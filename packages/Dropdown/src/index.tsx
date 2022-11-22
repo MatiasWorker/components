@@ -49,14 +49,14 @@ export function Dropdown({ content, children, onChange }: Props): JSX.Element {
 
     return (
         <div
-            className={`dropdown ${show ? "dropdown--show" : ""}`}
+            className={`bx-dropdown ${show ? "bx-dropdown--show" : ""}`}
             ref={(node) => refCallback(node)}
         >
             <div
                 onClick={() => {
                     setShow(!show);
                 }}
-                className="dropdown_children"
+                className="bx-dropdown_children"
             >
                 {children}
             </div>
@@ -67,9 +67,9 @@ export function Dropdown({ content, children, onChange }: Props): JSX.Element {
                     left: x ?? 0,
                 }}
                 ref={floating}
-                className="dropdown_space"
+                className="bx-dropdown_space"
             >
-                <div className="dropdown_content">{content}</div>
+                <div className="bx-dropdown_content">{content}</div>
             </div>
         </div>
     );
