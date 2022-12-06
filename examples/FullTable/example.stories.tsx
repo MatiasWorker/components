@@ -7,9 +7,6 @@ import { TableWrapper } from "@bxreact/table-wrapper";
 
 export default {
     title: "Table/Example",
-    argTypes: {
-        backgroundColor: { control: "color" },
-    },
 };
 
 interface RootObject {

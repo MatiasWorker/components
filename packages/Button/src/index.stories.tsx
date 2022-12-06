@@ -8,20 +8,23 @@ export default {
             options: ["xs", "sm", "md", "lg"],
             control: { type: "radio" },
         },
-        thead: { control: "boolean" },
-        badge: { control: "boolean" },
-        wrap: { control: "boolean" },
-        outline: { control: "boolean" },
-        href: { control: "text" },
-        bgcolor: { control: "text" },
-        color: { control: "text" },
-        icon: { control: "boolean" },
-        disabled: { control: "boolean" },
-        open: { control: "boolean" },
+
         status: {
             options: ["info", "success", "warning", "danger"],
             control: { type: "radio" },
         },
+    },
+    args: {
+        thead: false,
+        badge: false,
+        wrap: false,
+        outline: false,
+        href: "",
+        bgcolor: "",
+        color: "",
+        icon: false,
+        disabled: false,
+        open: false,
     },
 };
 

@@ -4,8 +4,8 @@ import { Pagination } from "@bxreact/pagination";
 
 export default {
     title: "Table/Example with request",
-    argTypes: {
-        backgroundColor: { control: "color" },
+    args: {
+        collapse: false,
     },
 };
 
@@ -25,7 +25,7 @@ interface RootObject {
     username: string;
 }
 
-export function Example() {
+export function Example(props) {
     const [currentPage, setCurrentPage] = useState(0);
     const [limit, setLimit] = useState(10);
     const [data, setData] = useState<{ items: RootObject[]; size: number }>({
@@ -42,8 +42,9 @@ export function Example() {
     }, [currentPage]);
 
     return (
-        <div>
+        <>
             <Table
+                {...props}
                 rowStyle={(data) =>
                     data.id === 1
                         ? {
@@ -92,6 +93,6 @@ export function Example() {
                     type == ">>" || type == "<<" ? true : false
                 }
             />
-        </div>
+        </>
     );
 }
