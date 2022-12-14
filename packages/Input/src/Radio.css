@@ -35,8 +35,8 @@
 }
 
 .bx-form-radio-dot {
-    width: 65%;
-    height: 65%;
+    width: 0.625rem;
+    height: 0.625rem;
     border-radius: 100%;
     background: var(--background);
 }
