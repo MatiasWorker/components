@@ -1,5 +1,5 @@
 import "@bxreact/theme";
-import { Input, Textarea } from "./";
+import { Input, Textarea, Checkbox, Radio } from "./";
 
 export default {
     title: "Generic/Input",
@@ -9,6 +9,7 @@ export default {
             control: { type: "radio" },
         },
         disabled: { control: "boolean" },
+        checked: { control: "boolean" },
         fullWidth: { control: "boolean" },
         name: { control: "text" },
         placeholder: { control: "text" },
@@ -49,4 +50,16 @@ export const ExampleSelect = (props) => (
     ></Input>
 );
 
-export const ExampleTextarea = () => <Textarea></Textarea>;
+export const ExampleTextarea = (props) => <Textarea {...props}></Textarea>;
+
+export const ExampleCheckbox = (props) => <Checkbox {...props}></Checkbox>;
+
+ExampleCheckbox.args = {
+    checked: false,
+};
+
+export const ExampleRadio = (props) => <Radio {...props}></Radio>;
+
+ExampleRadio.args = {
+    checked: false,
+};

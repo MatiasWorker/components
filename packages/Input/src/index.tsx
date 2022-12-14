@@ -3,6 +3,8 @@ import "./index.css";
 import cs from "classnames";
 import { Down } from "@bxreact/icon";
 export * from "./Textarea";
+export * from "./Checkbox";
+export * from "./Radio";
 
 type Props = {
     type?:
@@ -48,6 +50,7 @@ export function Input({
     ...props
 }: Props) {
     const [focused, setFocused] = useState(false);
+
     const handleFocus = useCallback(() => {
         setFocused(true);
     }, []);
@@ -55,6 +58,7 @@ export function Input({
     const handleBlur = useCallback(() => {
         setFocused(false);
     }, []);
+
     return (
         <div
             className={cs("bx-form-input", {

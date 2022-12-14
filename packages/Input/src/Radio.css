@@ -1,0 +1,42 @@
+.bx-form-radio-container {
+    --background-checked: var(--bx-color-orange);
+    --background: transparent;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    display: block;
+    cursor: pointer;
+}
+.bx-form-radio-container--checked {
+    --background: var(--bx-color-orange);
+}
+.bx-form-radio-container--disabled {
+    --background-checked: var(--bx-color-blue-shine);
+}
+
+.bx-form-radio-container--checked.bx-form-radio-container--disabled {
+    --background: var(--bx-color-blue-shine);
+}
+
+.bx-form-radio {
+    display: none;
+}
+
+.bx-form-radio-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    border: 1px solid var(--background-checked);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bx-form-radio-dot {
+    width: 65%;
+    height: 65%;
+    border-radius: 100%;
+    background: var(--background);
+}

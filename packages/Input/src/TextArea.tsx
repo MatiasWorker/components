@@ -27,14 +27,14 @@ export function Textarea({
     }, []);
     return (
         <div
-            className={cs("form-textarea-container", {
-                "form-textarea-container-disabled": disabled,
-                "form-textarea-container-error": error,
-                "form-textarea-container-focus": focused,
+            className={cs("bx-form-textarea-container", {
+                "bx-form-textarea-container-disabled": disabled,
+                "bx-form-textarea-container-error": error,
+                "bx-form-textarea-container-focus": focused,
             })}
         >
             <textarea
-                className="form-textarea"
+                className="bx-form-textarea"
                 value={value}
                 onChange={onChange}
                 id={id}
