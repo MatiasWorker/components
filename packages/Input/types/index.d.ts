@@ -1,6 +1,9 @@
 import { ReactNode, InputHTMLAttributes } from "react";
 import "./index.css";
 export * from "./Textarea";
+export * from "./Checkbox";
+export * from "./Radio";
+export * from "./Select";
 declare type Props = {
     type?: "text" | "email" | "password" | "search" | "number" | "select" | "date" | string;
     error?: boolean;

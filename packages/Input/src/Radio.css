@@ -1,8 +1,11 @@
 .bx-form-radio-container {
     --background-checked: var(--bx-color-orange);
     --background: transparent;
-    width: 2rem;
-    height: 2rem;
+    --size: 2rem;
+    width: var(--size);
+    height: var(--size);
+    min-width: var(--size);
+    min-height: var(--size);
     padding: 0.5rem;
     box-sizing: border-box;
     display: block;

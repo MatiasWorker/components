@@ -1,6 +1,6 @@
 {
     "name": "@bxreact/input",
-    "version": "2.1.1",
+    "version": "2.2.0",
     "publishConfig": {
         "access": "public"
     },
@@ -31,7 +31,10 @@
     "exports": {
         "./index": "./dist/index.js",
         ".": "./dist/index.js",
-        "./Textarea": "./dist/Textarea.js"
+        "./Textarea": "./dist/Textarea.js",
+        "./Checkbox": "./dist/Checkbox.js",
+        "./Radio": "./dist/Radio.js",
+        "./Select": "./dist/Select.js"
     },
     "typesVersions": {
         "*": {
@@ -40,6 +43,15 @@
             ],
             "Textarea": [
                 "./types/Textarea.d.ts"
+            ],
+            "Checkbox": [
+                "./types/Checkbox.d.ts"
+            ],
+            "Radio": [
+                "./types/Radio.d.ts"
+            ],
+            "Select": [
+                "./types/Select.d.ts"
             ]
         }
     }

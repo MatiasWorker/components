@@ -7,7 +7,6 @@ export function Radio({
     checked,
     ...props
 }: InputHTMLAttributes<HTMLInputElement>) {
-    console.log(props);
     return (
         <label
             className={cs("bx-form-radio-container", {
