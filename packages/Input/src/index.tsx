@@ -53,13 +53,14 @@ export function Input({
             )}
 
             <input
+                {...props}
                 className={cs("bx-form-input-text bx-form-input-with-icon", {
                     "bx-form-input-fullwidth": fullWidth,
                 })}
                 disabled={disabled}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
-                {...props}
+                onChange={(event) => props?.onChange(event)}
             />
 
             {rightIcon && (

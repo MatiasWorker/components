@@ -16,11 +16,12 @@ export function Radio({
             })}
         >
             <input
+                {...props}
                 className="bx-form-radio"
                 type="radio"
                 disabled={disabled}
                 checked={checked}
-                {...props}
+                onChange={(event) => props?.onChange(event)}
             />
             <div className="bx-form-radio-icon">
                 <div className="bx-form-radio-dot"></div>

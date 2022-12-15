@@ -49,11 +49,12 @@ export function Select({
             })}
         >
             <select
+                {...props}
                 className="bx-form-input-select"
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 disabled={disabled}
-                {...props}
+                onChange={(event) => props?.onChange(event)}
             >
                 {placeholder && (
                     <option key="placeholder" value="" disabled>

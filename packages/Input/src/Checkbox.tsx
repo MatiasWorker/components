@@ -16,11 +16,12 @@ export function Checkbox({
             })}
         >
             <input
+                {...props}
                 className="bx-form-checkbox"
                 type="checkbox"
                 disabled={disabled}
                 checked={checked}
-                {...props}
+                onChange={(event) => props?.onChange(event)}
             />
             <div className="bx-form-checkbox-icon">
                 {checked && (

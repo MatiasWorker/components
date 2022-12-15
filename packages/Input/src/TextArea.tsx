@@ -7,16 +7,7 @@ type Props = {
     disabled?: boolean;
 } & TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-export function Textarea({
-    value,
-    onChange,
-    id,
-    error,
-    disabled,
-    placeholder,
-    form,
-    ...props
-}: Props) {
+export function Textarea({ error, disabled, form, ...props }: Props) {
     const [focused, setFocused] = useState(false);
     const handleFocus = useCallback(() => {
         setFocused(true);
@@ -25,6 +16,7 @@ export function Textarea({
     const handleBlur = useCallback(() => {
         setFocused(false);
     }, []);
+
     return (
         <div
             className={cs("bx-form-textarea-container", {
@@ -34,16 +26,12 @@ export function Textarea({
             })}
         >
             <textarea
+                {...props}
                 className="bx-form-textarea"
-                value={value}
-                onChange={onChange}
-                id={id}
                 disabled={disabled}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
-                placeholder={placeholder}
-                form={form}
-                {...props}
+                onChange={(event) => props?.onChange(event)}
             />
         </div>
     );
