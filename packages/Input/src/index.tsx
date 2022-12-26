@@ -1,4 +1,10 @@
-import { ReactNode, InputHTMLAttributes, useState, useCallback } from "react";
+import {
+    ReactNode,
+    InputHTMLAttributes,
+    useState,
+    useCallback,
+    Ref,
+} from "react";
 import "./index.css";
 import cs from "classnames";
 import { Down } from "@bxreact/icon";
@@ -14,6 +20,7 @@ type Props = {
     leftIcon?: ReactNode;
     rightIcon?: ReactNode;
     size?: "sm" | "md";
+    reference?: Ref<HTMLInputElement | null>;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export function Input({
@@ -23,6 +30,7 @@ export function Input({
     leftIcon,
     rightIcon,
     size,
+    reference,
     ...props
 }: Props) {
     const [focused, setFocused] = useState(false);
@@ -60,6 +68,7 @@ export function Input({
                 disabled={disabled}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
+                ref={reference}
                 onChange={(event) => props?.onChange(event)}
             />
 

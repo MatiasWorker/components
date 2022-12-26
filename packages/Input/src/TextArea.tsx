@@ -1,13 +1,20 @@
-import { useState, useCallback, TextareaHTMLAttributes } from "react";
+import { useState, useCallback, TextareaHTMLAttributes, Ref } from "react";
 import cs from "classnames";
 
 type Props = {
     id?: string;
     error?: boolean;
     disabled?: boolean;
+    reference?: Ref<HTMLTextAreaElement | null>;
 } & TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-export function Textarea({ error, disabled, form, ...props }: Props) {
+export function Textarea({
+    error,
+    disabled,
+    form,
+    reference,
+    ...props
+}: Props) {
     const [focused, setFocused] = useState(false);
     const handleFocus = useCallback(() => {
         setFocused(true);
@@ -31,6 +38,7 @@ export function Textarea({ error, disabled, form, ...props }: Props) {
                 disabled={disabled}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
+                ref={reference}
                 onChange={(event) => props?.onChange(event)}
             />
         </div>
