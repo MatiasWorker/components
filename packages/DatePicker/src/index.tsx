@@ -1,6 +1,6 @@
 import "@bxreact/input";
 import { useEffect, useState } from "react";
-import { DateRange } from "react-date-range";
+import { DateRange, CalendarProps } from "react-date-range";
 import { es } from "date-fns/locale";
 import { Dropdown } from "@bxreact/dropdown";
 import * as Icon from "@bxreact/icon";
@@ -24,7 +24,11 @@ export interface Props {
     range: InternalRange;
 }
 
-export function DatePickerRange({ onChange, range }: Props) {
+export function DatePickerRange({
+    onChange,
+    range,
+    ...dateRangeProps
+}: Props & Omit<CalendarProps, "onChange">) {
     const [currentRange, setCurrentRange] = useState<InternalRange>(range);
 
     useEffect(() => {
@@ -46,6 +50,7 @@ export function DatePickerRange({ onChange, range }: Props) {
                             setCurrentRange(range as InternalRange)
                         }
                         showDateDisplay={false}
+                        {...dateRangeProps}
                     />
                 }
             >
