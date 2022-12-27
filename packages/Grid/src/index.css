@@ -1,0 +1,26 @@
+.bx-grid {
+    --grid-max-width: var(--bx-grid-max-width, 1024px);
+    --gap-x: 4rem;
+    --gap-y: 1.25rem;
+    --gap: var(--gap-y) var(--gap-x);
+    --columns: 1;
+    --column: calc(
+        (var(--grid-max-width) - (var(--gap-x) * var(--columns))) /
+            var(--columns)
+    );
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: var(
+        --columns-raw,
+        repeat(var(--mode), minmax(var(--min-width, var(--column)), 1fr))
+    );
+    gap: var(--gap);
+    box-sizing: border-box;
+    padding: var(--padding);
+}
+
+.bx-grid--only {
+    display: flex;
+    flex-flow: column;
+}
