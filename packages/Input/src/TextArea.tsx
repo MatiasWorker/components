@@ -5,7 +5,7 @@ type Props = {
     id?: string;
     error?: boolean;
     disabled?: boolean;
-    reference?: Ref<HTMLTextAreaElement | null>;
+    reference?: Ref<HTMLTextAreaElement>;
 } & TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 export function Textarea({

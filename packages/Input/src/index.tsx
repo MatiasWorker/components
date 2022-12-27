@@ -20,7 +20,7 @@ type Props = {
     leftIcon?: ReactNode;
     rightIcon?: ReactNode;
     size?: "sm" | "md";
-    reference?: Ref<HTMLInputElement | null>;
+    reference?: Ref<HTMLInputElement>;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export function Input({
