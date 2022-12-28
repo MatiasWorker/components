@@ -16,7 +16,11 @@ var font_default = css`:root {
 
 // src/default.css
 import css2 from "@bxreact/css";
-var default_default = css2`h1,
+var default_default = css2`* {
+    line-height: 1.35;
+}
+
+h1,
 h2,
 h3,
 h4,
@@ -41,7 +45,7 @@ h1 {
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 22px;
 }
 
 h3 {
