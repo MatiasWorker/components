@@ -1,0 +1,27 @@
+.bx-tooltip {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    z-index: 2;
+}
+
+.bx-tooltip_space {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease all;
+    min-width: 100%;
+    padding: var(--bx-tooltip-space, 0.25rem) 0px;
+}
+
+.bx-tooltip_content {
+    background: var(--bx-tooltip-background, var(--bx-color-lblue-easy));
+    border-radius: var(--bx-tooltip-radius, 0.25rem);
+    font-size: var(--bx-tooltip-font-size, 0.75rem);
+    white-space: nowrap;
+    padding: var(--bx-tooltip-padding, 0.5rem 0.75rem);
+}
+
+.bx-tooltip.bx-tooltip--show .bx-tooltip_space {
+    visibility: visible;
+    opacity: 1;
+}
