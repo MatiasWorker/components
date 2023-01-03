@@ -44,6 +44,7 @@ export function Card({
             className={listClassName.join(" ")}
             style={
                 {
+                    ...props.style,
                     "--card-radius": `var(--bx-${radius}-radius)`,
                     "--card-background": `var(--bx-color-${bgColor})`,
                     "--card-color": `var(--bx-color-${color})`,

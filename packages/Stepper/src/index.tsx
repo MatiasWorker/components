@@ -1,4 +1,4 @@
-import { ReactChild, useRef, useState } from "react";
+import { ReactNode, useRef, useState } from "react";
 import "@bxreact/theme";
 import useResizeObserver from "use-resize-observer";
 import "./index.css";
@@ -13,7 +13,7 @@ function StepLabel({
     children,
     onResize,
 }: {
-    children: ReactChild;
+    children: ReactNode;
     onResize: (value: {
         width: number | undefined;
         height: number | undefined;

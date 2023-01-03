@@ -1,6 +1,6 @@
 {
-    "name": "@bxreact/stepper",
-    "version": "1.0.1",
+    "name": "@bxreact/modal",
+    "version": "1.0.0",
     "publishConfig": {
         "access": "public"
     },
@@ -11,8 +11,7 @@
     },
     "license": "ISC",
     "dependencies": {
-        "@bxreact/theme": "*",
-        "use-resize-observer": "^9.0.2"
+        "@bxreact/theme": "*"
     },
     "peerDependencies": {
         "react": ">=17.0.2",
@@ -20,7 +19,8 @@
         "@types/react": ">=17.0.38"
     },
     "devDependencies": {
-        "@bxreact/tsconfig": "*"
+        "@bxreact/tsconfig": "*",
+        "@bxreact/card": "*"
     },
     "module": "./dist/index.js",
     "exports": {
