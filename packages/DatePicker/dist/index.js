@@ -1085,7 +1085,11 @@ var format = new Intl.DateTimeFormat("es", {
   month: "short",
   day: "numeric"
 }).format;
-function DatePickerRange({ onChange, range }) {
+function DatePickerRange({
+  onChange,
+  range,
+  ...dateRangeProps
+}) {
   const [currentRange, setCurrentRange] = useState(range);
   useEffect(() => {
     if (range != currentRange)
@@ -1103,7 +1107,8 @@ function DatePickerRange({ onChange, range }) {
         ranges: [{ ...currentRange, key: "range" }],
         maxDate: now,
         onChange: ({ range: range2 }) => setCurrentRange(range2),
-        showDateDisplay: false
+        showDateDisplay: false,
+        ...dateRangeProps
       }),
       children: /* @__PURE__ */ jsxs("button", {
         className: "bx-form-input bx-form-input-button",

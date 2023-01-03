@@ -104,14 +104,14 @@ function Dropdown({ content, children, onChange }) {
       onChange(show);
   }, [show]);
   return /* @__PURE__ */ jsxs("div", {
-    className: `dropdown ${show ? "dropdown--show" : ""}`,
+    className: `bx-dropdown ${show ? "bx-dropdown--show" : ""}`,
     ref: (node) => refCallback(node),
     children: [
       /* @__PURE__ */ jsx("div", {
         onClick: () => {
           setShow(!show);
         },
-        className: "dropdown_children",
+        className: "bx-dropdown_children",
         children
       }),
       /* @__PURE__ */ jsx("div", {
@@ -121,9 +121,9 @@ function Dropdown({ content, children, onChange }) {
           left: x ?? 0
         },
         ref: floating,
-        className: "dropdown_space",
+        className: "bx-dropdown_space",
         children: /* @__PURE__ */ jsx("div", {
-          className: "dropdown_content",
+          className: "bx-dropdown_content",
           children: content
         })
       })

@@ -26,11 +26,11 @@
     "devDependencies": {
         "@bxreact/tsconfig": "*"
     },
-    "module": "./dist/index.js",
-    "types": "types/index.d.ts",
+    "module": "./dist/Select/index.js",
+    "types": "types/Select/index.d.ts",
     "exports": {
-        "./index": "./dist/index.js",
-        ".": "./dist/index.js",
+        "./index": "./dist/Select/index.js",
+        ".": "./dist/Select/index.js",
         "./Textarea": "./dist/Textarea.js",
         "./Checkbox": "./dist/Checkbox.js",
         "./Radio": "./dist/Radio.js",
@@ -39,7 +39,7 @@
     "typesVersions": {
         "*": {
             "index": [
-                "./types/index.d.ts"
+                "./types/Select/index.d.ts"
             ],
             "Textarea": [
                 "./types/Textarea.d.ts"

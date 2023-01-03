@@ -7,10 +7,10 @@ import {
 } from "react";
 import "./index.css";
 import cs from "classnames";
-export * from "./Textarea";
-export * from "./Checkbox";
-export * from "./Radio";
-export * from "./Select";
+export * from "./textarea/textarea";
+export * from "./checkbox/checkbox";
+export * from "./radio/radio";
+export * from "./select/select";
 
 type Props = {
     error?: boolean;

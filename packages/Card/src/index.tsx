@@ -5,7 +5,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
     className?: string;
     id?: string;
     children: any;
-    deep: 0 | 1 | 2;
+    deep?: 0 | 1 | 2;
     radius?: "xs" | "sm" | "md" | "lg";
     theme?: "" | "success" | "info" | "warning" | "danger";
     color?: string;
