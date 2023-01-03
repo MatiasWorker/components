@@ -34,6 +34,14 @@ Default.args = {
     placeholder: "Placeholder",
 };
 
+export const ExampleWithLeftIcon = (props) => (
+    <Input {...props} leftIcon={"😃"}></Input>
+);
+
+export const ExampleWithRightIcon = (props) => (
+    <Input {...props} rightIcon={"😃"}></Input>
+);
+
 export const ExampleSelect = (props) => (
     <Select
         placeholder="Select option"
