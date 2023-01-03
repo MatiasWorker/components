@@ -16,7 +16,7 @@ interface Props {
 export function Tooltip({ content, children, onChange }: Props): JSX.Element {
     const host = useRef<ReferenceType>();
     const [show, setShow] = useState(false);
-    const { x, y, reference, floating, strategy } = useFloating({
+    const { x, y, reference, floating, strategy, placement } = useFloating({
         placement: "bottom",
         middleware: [
             flip({
@@ -68,6 +68,9 @@ export function Tooltip({ content, children, onChange }: Props): JSX.Element {
                 ref={floating}
                 className="bx-tooltip_space"
             >
+                <div
+                    className={`bx-tooltip_arrow bx-tooltip_arrow--${placement}`}
+                ></div>
                 <div className="bx-tooltip_content">{content}</div>
             </div>
         </div>

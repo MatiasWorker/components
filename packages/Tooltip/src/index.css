@@ -1,4 +1,6 @@
 .bx-tooltip {
+    --background: var(--bx-tooltip-background, var(--bx-color-lblue-easy));
+    --radius: var(--bx-tooltip-radius, 0.25rem);
     position: relative;
     display: inline-block;
     max-width: 100%;
@@ -14,8 +16,8 @@
 }
 
 .bx-tooltip_content {
-    background: var(--bx-tooltip-background, var(--bx-color-lblue-easy));
-    border-radius: var(--bx-tooltip-radius, 0.25rem);
+    background: var(--background);
+    border-radius: var(--radius);
     font-size: var(--bx-tooltip-font-size, 0.75rem);
     white-space: nowrap;
     padding: var(--bx-tooltip-padding, 0.5rem 0.75rem);
@@ -24,4 +26,23 @@
 .bx-tooltip.bx-tooltip--show .bx-tooltip_space {
     visibility: visible;
     opacity: 1;
+}
+
+.bx-tooltip_arrow {
+    --size: 12px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: var(--radius);
+    position: absolute;
+    background: var(--background);
+    left: calc(50% - var(--size) / 2);
+    transform: rotate(45deg);
+}
+
+.bx-tooltip_arrow--bottom {
+    top: 0px;
+}
+
+.bx-tooltip_arrow--top {
+    bottom: 0px;
 }
