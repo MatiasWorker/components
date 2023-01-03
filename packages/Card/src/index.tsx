@@ -9,8 +9,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
     radius?: "xs" | "sm" | "md" | "lg";
     theme?: "" | "success" | "info" | "warning" | "danger";
     color?: string;
-    bgcolor?: string;
-    brcolor?: string;
+    bgColor?: string;
+    brColor?: string;
 }
 
 export function Card({
@@ -18,9 +18,9 @@ export function Card({
     className,
     deep = 1,
     radius = "md",
-    bgcolor = "white",
+    bgColor = "white",
     color = "unset",
-    brcolor = "",
+    brColor = "",
     theme = "",
     ...props
 }: Props): JSX.Element {
@@ -31,12 +31,12 @@ export function Card({
     if (className) listClassName.push(className);
 
     if (theme) {
-        brcolor = `alert-${theme}-border`;
-        bgcolor = `alert-${theme}-bg`;
+        brColor = `alert-${theme}-border`;
+        bgColor = `alert-${theme}-bg`;
         color = `alert-${theme}-fg`;
     }
 
-    if (brcolor) listClassName.push(`bx-card--with-border`);
+    if (brColor) listClassName.push(`bx-card--with-border`);
 
     return (
         <div
@@ -45,9 +45,9 @@ export function Card({
             style={
                 {
                     "--card-radius": `var(--bx-${radius}-radius)`,
-                    "--card-background": `var(--bx-color-${bgcolor})`,
+                    "--card-background": `var(--bx-color-${bgColor})`,
                     "--card-color": `var(--bx-color-${color})`,
-                    "--card-brcolor": `var(--bx-color-${brcolor})`,
+                    "--card-brColor": `var(--bx-color-${brColor})`,
                 } as CSSProperties
             }
         >

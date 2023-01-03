@@ -12,13 +12,13 @@ export default {
             options: [0, 1, 2],
             control: { type: "radio" },
         },
-        bgcolor: {
+        bgColor: {
             control: "text",
         },
         color: {
             control: "text",
         },
-        brcolor: {
+        brColor: {
             control: "text",
         },
         theme: {
