@@ -5,7 +5,7 @@ import { Card } from "@bxreact/card";
 export default {
     title: "Generic/Modal",
     args: {
-        show: false,
+        show: true,
         zIndex: 0,
     },
 };
