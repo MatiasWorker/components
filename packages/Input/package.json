@@ -1,6 +1,6 @@
 {
     "name": "@bxreact/input",
-    "version": "2.5.0",
+    "version": "2.5.1",
     "publishConfig": {
         "access": "public"
     },
@@ -26,32 +26,32 @@
     "devDependencies": {
         "@bxreact/tsconfig": "*"
     },
-    "module": "./dist/Select/index.js",
-    "types": "types/Select/index.d.ts",
+    "module": "./dist/index.js",
     "exports": {
-        "./index": "./dist/Select/index.js",
-        ".": "./dist/Select/index.js",
-        "./Textarea": "./dist/Textarea.js",
-        "./Checkbox": "./dist/Checkbox.js",
-        "./Radio": "./dist/Radio.js",
-        "./Select": "./dist/Select.js"
+        "./index": "./dist/index.js",
+        ".": "./dist/index.js",
+        "./checkbox": "./dist/checkbox/checkbox.js",
+        "./radio": "./dist/radio/radio.js",
+        "./select": "./dist/select/select.js",
+        "./textarea": "./dist/textarea/textarea.js"
     },
+    "types": "types/index.d.ts",
     "typesVersions": {
         "*": {
             "index": [
-                "./types/Select/index.d.ts"
+                "./types/index.d.ts"
             ],
-            "Textarea": [
-                "./types/Textarea.d.ts"
+            "checkbox": [
+                "./types/checkbox/checkbox.d.ts"
             ],
-            "Checkbox": [
-                "./types/Checkbox.d.ts"
+            "radio": [
+                "./types/radio/radio.d.ts"
             ],
-            "Radio": [
-                "./types/Radio.d.ts"
+            "select": [
+                "./types/select/select.d.ts"
             ],
-            "Select": [
-                "./types/Select.d.ts"
+            "textarea": [
+                "./types/textarea/textarea.d.ts"
             ]
         }
     }

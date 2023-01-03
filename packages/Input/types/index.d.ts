@@ -1,9 +1,9 @@
 import { ReactNode, InputHTMLAttributes, Ref } from "react";
 import "./index.css";
-export * from "./Textarea";
-export * from "./Checkbox";
-export * from "./Radio";
-export * from "./Select";
+export * from "./textarea/textarea";
+export * from "./checkbox/checkbox";
+export * from "./radio/radio";
+export * from "./select/select";
 declare type Props = {
     error?: boolean;
     fullWidth?: boolean;
