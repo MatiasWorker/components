@@ -1,7 +1,6 @@
 import { Down } from "@bxreact/icon";
 import cs from "classnames";
 import { SelectHTMLAttributes, ReactNode, useCallback, useState } from "react";
-import "./index.css";
 
 type Props = {
     error?: boolean;

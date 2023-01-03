@@ -1,6 +1,6 @@
 import cs from "classnames";
 import { InputHTMLAttributes } from "react";
-import "./Radio.css";
+import "./index.css";
 
 export function Radio({
     disabled,

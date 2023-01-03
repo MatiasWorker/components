@@ -1,6 +1,6 @@
 import cs from "classnames";
 import { InputHTMLAttributes } from "react";
-import "./Checkbox.css";
+import "./index.css";
 
 export function Checkbox({
     disabled,
