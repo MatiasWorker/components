@@ -7,7 +7,6 @@ import {
 } from "react";
 import "./index.css";
 import cs from "classnames";
-import { Down } from "@bxreact/icon";
 export * from "./Textarea";
 export * from "./Checkbox";
 export * from "./Radio";

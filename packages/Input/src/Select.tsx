@@ -2,9 +2,6 @@ import { Down } from "@bxreact/icon";
 import cs from "classnames";
 import { SelectHTMLAttributes, ReactNode, useCallback, useState } from "react";
 import "./index.css";
-export * from "./Checkbox";
-export * from "./Radio";
-export * from "./Textarea";
 
 type Props = {
     error?: boolean;
