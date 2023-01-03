@@ -18,6 +18,7 @@
     gap: var(--gap);
     box-sizing: border-box;
     padding: var(--padding);
+    align-items: var(--align);
 }
 
 .bx-grid--only {
