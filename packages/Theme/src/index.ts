@@ -1,3 +1,4 @@
+import "./generic.css";
 import "./font.css";
 import "./default.css";
 import "./colors.css";

@@ -4,8 +4,25 @@ import { Card } from "./";
 export default {
     title: "Generic/Card",
     argTypes: {
-        size: {
-            options: ["md", "lg"],
+        radius: {
+            options: ["xs", "sm", "md", "lg"],
+            control: { type: "radio" },
+        },
+        deep: {
+            options: [0, 1, 2],
+            control: { type: "radio" },
+        },
+        bgcolor: {
+            control: "text",
+        },
+        color: {
+            control: "text",
+        },
+        brcolor: {
+            control: "text",
+        },
+        theme: {
+            options: ["", "success", "info", "warning", "danger"],
             control: { type: "radio" },
         },
     },
@@ -20,7 +37,3 @@ export const Default = (props) => (
         commodo et aute et aliqua consectetur
     </Card>
 );
-
-Default.args = {
-    size: "",
-};

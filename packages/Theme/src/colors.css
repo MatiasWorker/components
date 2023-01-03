@@ -148,21 +148,21 @@
     --bx-login-button-shadow: 0px 2px 4px -2px rgba(24, 39, 75, 0.12),
         0px 4px 4px -2px rgba(24, 39, 75, 0.08);
     /* alerts */
-    --bx-alert-dark: #d3d3d4;
-    --bx-alert-border-dark: #bcbebf;
-    --bx-alert-danger: #dc3545;
-    --bx-alert-success-border: var(--bx-color-green-future);
-    --bx-alert-success-fg: var(--bx-color-green-future);
-    --bx-alert-success-bg: var(--bx-color-green-game);
-    --bx-alert-danger-border: var(--bx-color-red-alert);
-    --bx-alert-danger-fg: var(--bx-color-red-alert);
-    --bx-alert-danger-bg: var(--bx-color-red-clean);
-    --bx-alert-info-border: var(--bx-color-light-express);
-    --bx-alert-info-fg: var(--bx-color-light-express);
-    --bx-alert-info-bg: var(--bx-color-light-dream);
-    --bx-alert-warning-border: var(--bx--color-yellow-brown);
-    --bx-alert-warning-fg: var(--bx--color-yellow-brown);
-    --bx-alert-warning-bg: var(--bx--color-yellow-blank);
+    --bx-color-alert-dark: #d3d3d4;
+    --bx-color-alert-border-dark: #bcbebf;
+    --bx-color-alert-danger: #dc3545;
+    --bx-color-alert-success-border: var(--bx-color-green-future);
+    --bx-color-alert-success-fg: var(--bx-color-green-future);
+    --bx-color-alert-success-bg: var(--bx-color-green-game);
+    --bx-color-alert-danger-border: var(--bx-color-red-alert);
+    --bx-color-alert-danger-fg: var(--bx-color-red-alert);
+    --bx-color-alert-danger-bg: var(--bx-color-red-clean);
+    --bx-color-alert-info-border: var(--bx-color-light-express);
+    --bx-color-alert-info-fg: var(--bx-color-light-express);
+    --bx-color-alert-info-bg: var(--bx-color-light-dream);
+    --bx-color-alert-warning-border: var(--bx--color-yellow-brown);
+    --bx-color-alert-warning-fg: var(--bx--color-yellow-gold);
+    --bx-color-alert-warning-bg: var(--bx--color-yellow-blank);
     /* forms */
     --bx-form-input-border: #ced4da;
     --bx-form-text: #6c757d;
