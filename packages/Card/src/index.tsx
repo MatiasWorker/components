@@ -48,7 +48,7 @@ export function Card({
                     "--card-radius": `var(--bx-${radius}-radius)`,
                     "--card-background": `var(--bx-color-${bgColor})`,
                     "--card-color": `var(--bx-color-${color})`,
-                    "--card-brColor": `var(--bx-color-${brColor})`,
+                    "--card-brcolor": `var(--bx-color-${brColor})`,
                 } as CSSProperties
             }
         >
