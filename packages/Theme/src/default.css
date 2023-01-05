@@ -1,5 +1,5 @@
 * {
-    line-height: 1.35;
+    line-height: var(--bx-font-line-height, 1.35);
 }
 
 h1,
@@ -23,13 +23,18 @@ a {
 }
 
 h1 {
-    font-size: 32px;
+    font-size: var(--bx-font-size-title-1, 32px);
 }
 
 h2 {
-    font-size: 22px;
+    font-size: var(--bx-font-size-title-2, 22px);
 }
 
 h3 {
-    font-size: 18px;
+    font-size: var(--bx-font-size-title-3, 18px);
+}
+
+strong,
+b {
+    font-weight: var(--bx-font-bold, 900);
 }
