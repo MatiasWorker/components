@@ -25,3 +25,12 @@
     opacity: 0;
     visibility: hidden;
 }
+
+.bx-modal_content {
+    width: 100%;
+    max-width: var(--bx-card-max-width);
+}
+
+.bx-modal_content > .bx-modal_content {
+    --bx-card-max-width: unset;
+}

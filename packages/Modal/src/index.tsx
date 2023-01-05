@@ -6,11 +6,13 @@ export function Modal({
     show,
     zIndex,
     position = "fixed",
+    onClosed,
 }: {
     children: ReactNode;
     show?: boolean;
     zIndex?: number;
     position?: "absolute" | "fixed";
+    onClosed?: () => void;
 }): JSX.Element {
     const cssProps: CSSProperties = {};
 
@@ -31,8 +33,11 @@ export function Modal({
             onTransitionEnd={() => {
                 if (!show) setShowFx(false);
             }}
+            onClick={(event) => {
+                if (event.currentTarget === event.target) onClosed();
+            }}
         >
-            <div>{showFx && children}</div>
+            <div className="bx-modal_content">{showFx && children}</div>
         </div>
     );
 }

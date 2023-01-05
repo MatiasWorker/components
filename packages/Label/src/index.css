@@ -35,3 +35,7 @@
 .bx-label--reverse.bx-label--horizontal {
     flex-flow: row-reverse;
 }
+
+.bx-label_detail {
+    font-size: 0.85em;
+}

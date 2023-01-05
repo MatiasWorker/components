@@ -24,14 +24,24 @@ export function Label({
                 layout ? `bx-label--${layout}` : ""
             } `}
         >
-            {title && (
+            {!!title && (
                 <div className={`bx-label_title ${classNameCenter}`}>
                     {title}
                     {required && <span className="bx-label_required">*</span>}
                 </div>
             )}
-            <div className={`${classNameCenter}`}>{children}</div>
-            {detail && <div className={`${classNameCenter}`}>{detail}</div>}
+
+            {!!children && (
+                <div className={`bx-label_content ${classNameCenter}`}>
+                    {children}
+                </div>
+            )}
+
+            {!!detail && (
+                <div className={`bx-label_detail ${classNameCenter}`}>
+                    {detail}
+                </div>
+            )}
         </label>
     );
 }
