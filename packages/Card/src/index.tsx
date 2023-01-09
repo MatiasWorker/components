@@ -1,3 +1,4 @@
+import type { Spaces, Radius } from "@bxreact/theme";
 import { HTMLAttributes, CSSProperties } from "react";
 import "./index.css";
 
@@ -6,8 +7,9 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
     id?: string;
     children: any;
     deep?: 0 | 1 | 2;
-    radius?: "xs" | "sm" | "md" | "lg";
+    radius?: Radius;
     theme?: "" | "success" | "info" | "warning" | "danger";
+    padding?: Spaces | `${Spaces} ${Spaces}`;
     color?: string;
     bgColor?: string;
     brColor?: string;
@@ -22,6 +24,7 @@ export function Card({
     color = "unset",
     brColor = "",
     theme = "",
+    padding,
     ...props
 }: Props): JSX.Element {
     const listClassName: string[] = ["bx-card"];
@@ -38,20 +41,23 @@ export function Card({
 
     if (brColor) listClassName.push(`bx-card--with-border`);
 
+    const cssProps = {
+        ...props.style,
+        "--card-radius": `var(--bx-${radius}-radius)`,
+        "--card-background": `var(--bx-color-${bgColor})`,
+        "--card-color": `var(--bx-color-${color})`,
+        "--card-brcolor": `var(--bx-color-${brColor})`,
+    } as CSSProperties;
+
+    if (padding) {
+        cssProps["--card-padding"] = padding
+            .split(/\s+/)
+            .map((size) => `var(--bx-space-${size})`)
+            .join(" ");
+    }
+
     return (
-        <div
-            {...props}
-            className={listClassName.join(" ")}
-            style={
-                {
-                    ...props.style,
-                    "--card-radius": `var(--bx-${radius}-radius)`,
-                    "--card-background": `var(--bx-color-${bgColor})`,
-                    "--card-color": `var(--bx-color-${color})`,
-                    "--card-brcolor": `var(--bx-color-${brColor})`,
-                } as CSSProperties
-            }
-        >
+        <div {...props} className={listClassName.join(" ")} style={cssProps}>
             {children}
         </div>
     );

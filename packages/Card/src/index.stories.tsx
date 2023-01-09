@@ -15,6 +15,9 @@ export default {
         bgColor: {
             control: "text",
         },
+        padding: {
+            control: "text",
+        },
         color: {
             control: "text",
         },

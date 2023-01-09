@@ -5,6 +5,8 @@
     border-radius: var(--card-radius);
     box-shadow: var(--card-shadow);
     color: var(--card-color);
+    padding: var(--card-padding);
+    box-sizing: border-box;
 }
 
 .bx-card--deep-1 {
