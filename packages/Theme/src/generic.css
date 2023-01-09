@@ -22,4 +22,10 @@
         "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
+
+    --bx-space-xl: 4rem;
+    --bx-space-lg: 2rem;
+    --bx-space-md: 1.25rem;
+    --bx-space-sm: 0.5rem;
+    --bx-space-xs: 0.25rem;
 }
