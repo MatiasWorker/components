@@ -1,4 +1,4 @@
-.bx-label {
+.bx-label_row {
     --gap: 0.25rem;
     width: 100%;
     display: flex;
@@ -17,7 +17,7 @@
     top: 0.1em;
 }
 
-.bx-label--horizontal {
+.bx-label_row--horizontal {
     flex-flow: row;
     align-items: center;
     --gap: 1rem;
@@ -28,14 +28,18 @@
     justify-content: center;
 }
 
-.bx-label--reverse {
+.bx-label_row--reverse {
     flex-flow: column-reverse;
 }
 
-.bx-label--reverse.bx-label--horizontal {
+.bx-label_row--reverse.bx-label--horizontal {
     flex-flow: row-reverse;
 }
 
 .bx-label_detail {
-    font-size: 0.85em;
+    font-size: 0.75rem;
+}
+
+.bx-label_detail small {
+    font-size: 0.625rem;
 }

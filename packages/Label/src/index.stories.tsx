@@ -22,3 +22,24 @@ export const Default = (props) => (
         <input type="text" />
     </Label>
 );
+
+export const LabelWithDetailSmall = (props) => (
+    <Label
+        {...props}
+        title={"Header"}
+        detail={<small>Detail 10px</small>}
+    ></Label>
+);
+
+export const LabelWithIcon = (props) => (
+    <Label {...props} title="Header" icon="😀" detail="detail..."></Label>
+);
+
+export const LabelWithCheckbox = (props) => (
+    <Label
+        {...props}
+        title="Header"
+        icon={<input type="checkbox" />}
+        detail="detail..."
+    ></Label>
+);
