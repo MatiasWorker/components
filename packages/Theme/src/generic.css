@@ -23,9 +23,11 @@
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
 
-    --bx-space-xl: 4rem;
-    --bx-space-lg: 2rem;
-    --bx-space-md: 1.25rem;
-    --bx-space-sm: 0.5rem;
-    --bx-space-xs: 0.25rem;
+    --bx-space-xxl: 4rem;
+    --bx-space-xl: 2rem;
+    --bx-space-lg: 1.5rem;
+    --bx-space-md: 1rem;
+    --bx-space-sm: 0.75rem;
+    --bx-space-xs: 0.5rem;
+    --bx-space-xxs: 0.25rem;
 }

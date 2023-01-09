@@ -5,5 +5,5 @@ import "./input.css";
 import "./button.css";
 import "./card.css";
 
-export type Spaces = "xl" | "lg" | "md" | "sm" | "xs";
+export type Spaces = "xxl" | "xl" | "lg" | "md" | "sm" | "xs" | "xxs";
 export type Radius = "xs" | "sm" | "md" | "lg";
