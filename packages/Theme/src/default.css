@@ -23,18 +23,18 @@ a {
 }
 
 h1 {
-    font-size: var(--bx-font-size-title-1, 32px);
+    font-size: var(--bx-font-size-title-1);
 }
 
 h2 {
-    font-size: var(--bx-font-size-title-2, 22px);
+    font-size: var(--bx-font-size-title-2);
 }
 
 h3 {
-    font-size: var(--bx-font-size-title-3, 18px);
+    font-size: var(--bx-font-size-title-3);
 }
 
 strong,
 b {
-    font-weight: var(--bx-font-bold, 900);
+    font-weight: var(--bx-font-bold);
 }
