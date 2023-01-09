@@ -24,6 +24,12 @@ var generic_default = css`:root {
         "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
+
+    --bx-space-xl: 4rem;
+    --bx-space-lg: 2rem;
+    --bx-space-md: 1.25rem;
+    --bx-space-sm: 0.5rem;
+    --bx-space-xs: 0.25rem;
 }
 `;
 
@@ -280,10 +286,10 @@ var input_default = css4`:root {
     --bx-input-font-family: var(--bx-font-secondary);
     --bx-input-font-weight: 700;
 
-    --bx-input-xs-font-size: 0.875rem;
-    --bx-input-sm-font-size: 0.875rem;
-    --bx-input-md-font-size: 1rem;
-    --bx-input-lg-font-size: 1.125rem;
+    --bx-input-xs-font-size: var(--bx-font-size-text-2);
+    --bx-input-sm-font-size: var(--bx-font-size-text-2);
+    --bx-input-md-font-size: var(--bx-font-size-text-1);
+    --bx-input-lg-font-size: var(--bx-font-size-title-3);
 
     --bx-input-xs-height: 2rem;
     --bx-input-sm-height: 2.5rem;
