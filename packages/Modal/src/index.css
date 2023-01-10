@@ -34,3 +34,15 @@
 .bx-modal_content > .bx-modal_content {
     --bx-card-max-width: unset;
 }
+
+.bx-modal_closed {
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    box-sizing: border-box;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

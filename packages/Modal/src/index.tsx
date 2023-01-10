@@ -1,5 +1,16 @@
-import { ReactNode, useEffect, useState, CSSProperties } from "react";
+import {
+    ReactNode,
+    useEffect,
+    useState,
+    CSSProperties,
+    createContext,
+    useContext,
+} from "react";
+import { Header } from "@bxreact/header";
+import * as Icon from "@bxreact/icon";
 import "./index.css";
+
+export const ModalContext = createContext(() => {});
 
 export function Modal({
     children,
@@ -34,10 +45,34 @@ export function Modal({
                 if (!show) setShowFx(false);
             }}
             onClick={(event) => {
-                if (event.currentTarget === event.target) onClosed();
+                if (event.currentTarget === event.target)
+                    onClosed && onClosed();
             }}
         >
-            <div className="bx-modal_content">{showFx && children}</div>
+            <ModalContext.Provider value={onClosed}>
+                <div className="bx-modal_content">{showFx && children}</div>
+            </ModalContext.Provider>
         </div>
+    );
+}
+
+export function ModalHeader({
+    children,
+    small,
+}: {
+    children: ReactNode;
+    small?: boolean;
+}): JSX.Element {
+    const onClosed = useContext(ModalContext);
+    return (
+        <Header
+            small={small}
+            title={children}
+            rightIcon={
+                <button className="bx-modal_closed" onClick={onClosed}>
+                    <Icon.Closed />
+                </button>
+            }
+        ></Header>
     );
 }

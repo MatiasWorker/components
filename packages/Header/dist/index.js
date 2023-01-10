@@ -12,6 +12,15 @@ var src_default = css`.bx-header_required {
     position: relative;
     top: 0.2em;
 }
+
+.bx-header_title {
+    display: flex;
+    gap: var(--bx-space-md);
+}
+
+.bx-header_title_right-icon {
+    margin: auto 0px auto auto;
+}
 `;
 
 // src/index.tsx
@@ -19,22 +28,36 @@ import { jsx, jsxs } from "react/jsx-runtime";
 function Header({
   title,
   children,
-  required
+  required,
+  small,
+  rightIcon,
+  leftIcon
 }) {
+  const Size = small ? "h3" : "h2";
   return /* @__PURE__ */ jsxs("header", {
     className: "bx-header",
     children: [
-      /* @__PURE__ */ jsx("div", {
+      /* @__PURE__ */ jsxs("div", {
         className: "bx-header_title",
-        children: /* @__PURE__ */ jsxs("h2", {
-          children: [
-            title,
-            required && /* @__PURE__ */ jsx("span", {
-              className: "bx-header_required",
-              children: "*"
-            })
-          ]
-        })
+        children: [
+          leftIcon && /* @__PURE__ */ jsx("div", {
+            className: "bx-header_title_left-icon",
+            children: leftIcon
+          }),
+          /* @__PURE__ */ jsxs(Size, {
+            children: [
+              title,
+              required && /* @__PURE__ */ jsx("span", {
+                className: "bx-header_required",
+                children: "*"
+              })
+            ]
+          }),
+          rightIcon && /* @__PURE__ */ jsx("div", {
+            className: "bx-header_title_right-icon",
+            children: rightIcon
+          })
+        ]
       }),
       children && /* @__PURE__ */ jsx("div", {
         className: "bx-header_content",

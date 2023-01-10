@@ -1,18 +1,19 @@
 import "@bxreact/theme";
-import { Modal } from "./";
+import { Modal, ModalHeader } from "./";
 import { Card } from "@bxreact/card";
 
 export default {
     title: "Generic/Modal",
     args: {
         show: true,
-        zIndex: 0,
+        zIndex: 10,
     },
 };
 
 export const Default = (props) => (
-    <Modal {...props}>
-        <Card style={{ padding: "1rem", boxSizing: "border-box" }}>
+    <Modal {...props} onClosed={() => console.log("closed")}>
+        <Card padding="sm">
+            <ModalHeader>Modal</ModalHeader>
             culpa ea laborum sint esse sit eu esse voluptate commodo nostrud et
             Lorem id excepteur cillum in sint nisi esse Lorem et esse Lorem
             culpa veniam anim culpa non exercitation cupidatat ex nostrud aute
