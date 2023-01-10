@@ -4,7 +4,7 @@
     display: flex;
     gap: var(--gap);
     flex-flow: column;
-    font-size: var(--bx-font-size-text-1);
+    font-size: var(--bx-font-size-text-2);
 }
 
 .bx-label_required {
@@ -37,9 +37,9 @@
 }
 
 .bx-label_detail {
-    font-size: var(--bx-font-size-text-2);
+    font-size: var(--bx-font-size-text-3);
 }
 
 .bx-label_detail small {
-    font-size: var(--bx-font-size-text-3);
+    font-size: var(--bx-font-size-text-4);
 }
