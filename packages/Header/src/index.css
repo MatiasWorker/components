@@ -7,3 +7,12 @@
     position: relative;
     top: 0.2em;
 }
+
+.bx-header_title {
+    display: flex;
+    gap: var(--bx-space-md);
+}
+
+.bx-header_title_right-icon {
+    margin: auto 0px auto auto;
+}
