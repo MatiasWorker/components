@@ -83,3 +83,7 @@ export declare function Add({ size, color }: {
     size?: string;
     color?: string;
 }): JSX.Element;
+export declare function Place({ size, color }: {
+    size?: string;
+    color?: string;
+}): JSX.Element;
