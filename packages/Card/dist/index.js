@@ -7,6 +7,8 @@ var src_default = css`.bx-card {
     border-radius: var(--card-radius);
     box-shadow: var(--card-shadow);
     color: var(--card-color);
+    padding: var(--card-padding);
+    box-sizing: border-box;
 }
 
 .bx-card--deep-1 {
@@ -33,6 +35,7 @@ function Card({
   color = "unset",
   brColor = "",
   theme = "",
+  padding,
   ...props
 }) {
   const listClassName = ["bx-card"];
@@ -47,16 +50,20 @@ function Card({
   }
   if (brColor)
     listClassName.push(`bx-card--with-border`);
+  const cssProps = {
+    ...props.style,
+    "--card-radius": `var(--bx-${radius}-radius)`,
+    "--card-background": `var(--bx-color-${bgColor})`,
+    "--card-color": `var(--bx-color-${color})`,
+    "--card-brcolor": `var(--bx-color-${brColor})`
+  };
+  if (padding) {
+    cssProps["--card-padding"] = padding.split(/\s+/).map((size) => `var(--bx-space-${size})`).join(" ");
+  }
   return /* @__PURE__ */ jsx("div", {
     ...props,
     className: listClassName.join(" "),
-    style: {
-      ...props.style,
-      "--card-radius": `var(--bx-${radius}-radius)`,
-      "--card-background": `var(--bx-color-${bgColor})`,
-      "--card-color": `var(--bx-color-${color})`,
-      "--card-brColor": `var(--bx-color-${brColor})`
-    },
+    style: cssProps,
     children
   });
 }

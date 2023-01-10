@@ -2,7 +2,7 @@ import type { Spaces, Radius } from "@bxreact/theme";
 import { HTMLAttributes, CSSProperties } from "react";
 import "./index.css";
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+export interface Props extends HTMLAttributes<HTMLDivElement> {
     className?: string;
     id?: string;
     children: any;
