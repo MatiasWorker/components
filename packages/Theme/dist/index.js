@@ -12,7 +12,8 @@ var generic_default = css`:root {
 
     --bx-font-size-text-1: 1rem;
     --bx-font-size-text-2: 0.875rem;
-    --bx-font-size-text-3: 0.625rem;
+    --bx-font-size-text-3: 0.75rem;
+    --bx-font-size-text-4: 0.625rem;
 
     --bx-font-bold: 900;
 
