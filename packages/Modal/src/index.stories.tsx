@@ -6,8 +6,9 @@ import { useState } from "react";
 export default {
     title: "Generic/Modal",
     args: {
-        show: false,
+        show: true,
         zIndex: 10,
+        maxWidth: "520px",
     },
 };
 

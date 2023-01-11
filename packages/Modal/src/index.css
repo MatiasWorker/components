@@ -28,7 +28,7 @@
 
 .bx-modal_content {
     width: 100%;
-    max-width: var(--bx-card-max-width);
+    max-width: var(--bx-modal-max-width, var(--bx-card-max-width));
 }
 
 .bx-modal_content > .bx-modal_content {

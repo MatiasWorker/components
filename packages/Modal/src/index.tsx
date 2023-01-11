@@ -18,11 +18,13 @@ export function Modal({
     zIndex,
     position = "fixed",
     onClosed,
+    maxWidth,
 }: {
     children: ReactNode;
     show?: boolean;
     zIndex?: number;
     position?: "absolute" | "fixed";
+    maxWidth?: string;
     onClosed?: () => void;
 }): JSX.Element {
     const cssProps: CSSProperties = {};
@@ -34,6 +36,10 @@ export function Modal({
     }, [show]);
 
     if (zIndex) cssProps.zIndex = zIndex;
+
+    if (maxWidth) {
+        cssProps["--bx-modal-max-width"] = maxWidth;
+    }
 
     return (
         <div
