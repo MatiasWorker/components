@@ -1,0 +1,22 @@
+.bx-card {
+    width: 100%;
+    max-width: var(--bx-card-max-width);
+    background: var(--card-background);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    color: var(--card-color);
+    padding: var(--card-padding);
+    box-sizing: border-box;
+}
+
+.bx-card--deep-1 {
+    --card-shadow: var(--bx-card-lg-shadow);
+}
+
+.bx-card--deep-2 {
+    --card-shadow: var(--bx-card-md-shadow);
+}
+
+.bx-card--with-border {
+    border: 1px solid var(--card-brcolor);
+}

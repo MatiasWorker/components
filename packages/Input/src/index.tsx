@@ -11,6 +11,7 @@ export * from "./textarea/textarea";
 export * from "./checkbox/checkbox";
 export * from "./radio/radio";
 export * from "./select/select";
+export { FieldSwitch as Switch } from "@bxreact/field-switch";
 
 type Props = {
     error?: boolean;

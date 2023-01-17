@@ -1,6 +1,6 @@
 {
-    "name": "@bxreact/input",
-    "version": "2.6.0",
+    "name": "@bxreact/form",
+    "version": "1.0.0",
     "publishConfig": {
         "access": "public"
     },
@@ -11,13 +11,8 @@
     },
     "license": "ISC",
     "dependencies": {
-        "@bxreact/icon": "*",
         "@bxreact/theme": "*",
-        "@bxreact/field-switch": "*",
-        "classnames": "*",
-        "@types/classnames": "*",
-        "@types/react-date-range": "^1.4.4",
-        "react-date-range": "^1.4.0"
+        "@bxreact/input": "*"
     },
     "peerDependencies": {
         "react": ">=17.0.2",
@@ -30,29 +25,13 @@
     "module": "./dist/index.js",
     "exports": {
         "./index": "./dist/index.js",
-        ".": "./dist/index.js",
-        "./checkbox": "./dist/checkbox/checkbox.js",
-        "./radio": "./dist/radio/radio.js",
-        "./select": "./dist/select/select.js",
-        "./textarea": "./dist/textarea/textarea.js"
+        ".": "./dist/index.js"
     },
     "types": "types/index.d.ts",
     "typesVersions": {
         "*": {
             "index": [
                 "./types/index.d.ts"
-            ],
-            "checkbox": [
-                "./types/checkbox/checkbox.d.ts"
-            ],
-            "radio": [
-                "./types/radio/radio.d.ts"
-            ],
-            "select": [
-                "./types/select/select.d.ts"
-            ],
-            "textarea": [
-                "./types/textarea/textarea.d.ts"
             ]
         }
     }
