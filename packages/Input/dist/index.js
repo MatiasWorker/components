@@ -434,6 +434,7 @@ var src_default = css`.bx-form-input {
 
 // src/index.tsx
 import cs from "classnames";
+import { FieldSwitch } from "@bxreact/field-switch";
 import { jsx, jsxs } from "react/jsx-runtime";
 function Input({
   disabled,
@@ -489,5 +490,6 @@ export {
   Input,
   Radio,
   Select,
+  FieldSwitch as Switch,
   Textarea
 };

@@ -12,6 +12,8 @@
     "license": "ISC",
     "dependencies": {
         "@bxreact/theme": "*",
+        "@bxreact/grid": "*",
+        "@bxreact/label": "*",
         "@bxreact/input": "*"
     },
     "peerDependencies": {
