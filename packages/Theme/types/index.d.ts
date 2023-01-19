@@ -6,3 +6,4 @@ import "./button.css";
 import "./card.css";
 export declare type Spaces = "xxl" | "xl" | "lg" | "md" | "sm" | "xs" | "xxs";
 export declare type Radius = "xs" | "sm" | "md" | "lg";
+export declare type Status = "info" | "danger" | "warning" | "success";

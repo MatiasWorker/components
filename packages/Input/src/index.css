@@ -1,13 +1,15 @@
 .bx-form-input {
+    --color: var(--bx-color-black);
+    --border-color: var(--bx-color-lblue-well)
     display: flex;
     width: 100%;
     padding: 0 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: var(--bx-color-black);
+    color: var(--color);
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid var(--bx-color-lblue-well);
+    border: 1px solid var(--border-color);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -28,6 +30,26 @@
 .bx-form-input-text {
     padding: 0px;
     line-height: 1;
+}
+
+.bx-form-input--status-danger {
+    --color: var(--bx-color-danger);
+    --border-color: var(--bx-color-danger);
+}
+
+.bx-form-input--status-info {
+    --color: var(--bx-color-info);
+    --border-color: var(--bx-color-info);
+}
+
+.bx-form-input--status-success {
+    --color: var(--bx-color-success);
+    --border-color: var(--bx-color-success);
+}
+
+.bx-form-input--status-warning {
+    --color: var(--bx-color-warning);
+    --border-color: var(--bx-color-warning);
 }
 
 .bx-form-input-container {

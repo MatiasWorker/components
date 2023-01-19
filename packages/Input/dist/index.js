@@ -12,23 +12,26 @@ import {
 } from "./chunk-7CIPGOPY.js";
 
 // src/index.tsx
+import cs from "classnames";
 import {
-  useState,
-  useCallback
+  useCallback,
+  useState
 } from "react";
 
 // src/index.css
 import css from "@bxreact/theme/css";
 var src_default = css`.bx-form-input {
+    --color: var(--bx-color-black);
+    --border-color: var(--bx-color-lblue-well)
     display: flex;
     width: 100%;
     padding: 0 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: var(--bx-color-black);
+    color: var(--color);
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid var(--bx-color-lblue-well);
+    border: 1px solid var(--border-color);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -49,6 +52,26 @@ var src_default = css`.bx-form-input {
 .bx-form-input-text {
     padding: 0px;
     line-height: 1;
+}
+
+.bx-form-input--status-danger {
+    --color: var(--bx-color-danger);
+    --border-color: var(--bx-color-danger);
+}
+
+.bx-form-input--status-info {
+    --color: var(--bx-color-info);
+    --border-color: var(--bx-color-info);
+}
+
+.bx-form-input--status-success {
+    --color: var(--bx-color-success);
+    --border-color: var(--bx-color-success);
+}
+
+.bx-form-input--status-warning {
+    --color: var(--bx-color-warning);
+    --border-color: var(--bx-color-warning);
 }
 
 .bx-form-input-container {
@@ -433,7 +456,6 @@ var src_default = css`.bx-form-input {
 `;
 
 // src/index.tsx
-import cs from "classnames";
 import { FieldSwitch } from "@bxreact/field-switch";
 import { jsx, jsxs } from "react/jsx-runtime";
 function Input({
@@ -444,6 +466,7 @@ function Input({
   rightIcon,
   size,
   reference,
+  status,
   ...props
 }) {
   const [focused, setFocused] = useState(false);
@@ -454,14 +477,14 @@ function Input({
     setFocused(false);
   }, []);
   return /* @__PURE__ */ jsxs("div", {
-    className: cs("bx-form-input", {
+    className: `${cs("bx-form-input", {
       "bx-form-input-container-disabled": disabled,
       "bx-form-input-invalid": error,
       "bx-form-input-fullwidth": fullWidth,
       "bx-form-input-container-focus": focused,
       "bx-form-input-container-md": size === "md",
       "bx-form-input-container-sm": size === "sm"
-    }),
+    })} bx-form-input--status-${status}`,
     children: [
       leftIcon && /* @__PURE__ */ jsx("div", {
         className: "bx-form-icon-container bx-form-icon-left",

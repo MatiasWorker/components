@@ -18,6 +18,10 @@ export default {
             options: ["text", "email", "password", "search", "number", "date"],
             control: { type: "radio" },
         },
+        status: {
+            options: ["", "success", "info", "warning", "danger"],
+            control: { type: "radio" },
+        },
     },
 };
 

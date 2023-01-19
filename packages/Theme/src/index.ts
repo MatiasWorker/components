@@ -7,3 +7,4 @@ import "./card.css";
 
 export type Spaces = "xxl" | "xl" | "lg" | "md" | "sm" | "xs" | "xxs";
 export type Radius = "xs" | "sm" | "md" | "lg";
+export type Status = "info" | "danger" | "warning" | "success";

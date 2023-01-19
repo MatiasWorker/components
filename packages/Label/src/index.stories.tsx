@@ -7,6 +7,10 @@ export default {
             control: "radio",
             options: ["vertical", "horizontal", "center"],
         },
+        status: {
+            options: ["", "success", "info", "warning", "danger"],
+            control: { type: "radio" },
+        },
     },
     args: {
         title: "Title",

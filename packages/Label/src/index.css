@@ -1,3 +1,7 @@
+.bx-label {
+    --color-detail: currentColor;
+}
+
 .bx-label_row {
     --gap: 0.25rem;
     width: 100%;
@@ -38,8 +42,25 @@
 
 .bx-label_detail {
     font-size: var(--bx-font-size-text-3);
+    color: var(--color-detail);
 }
 
 .bx-label_detail small {
     font-size: var(--bx-font-size-text-4);
+}
+
+.bx-label--status-danger {
+    --color-detail: var(--bx-color-danger);
+}
+
+.bx-label--status-success {
+    --color-detail: var(--bx-color-success);
+}
+
+.bx-label--status-info {
+    --color-detail: var(--bx-color-info);
+}
+
+.bx-label--status-warning {
+    --color-detail: var(--bx-color-warning);
 }

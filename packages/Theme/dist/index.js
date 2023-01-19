@@ -196,7 +196,7 @@ var colors_default = css3`:root {
     --bx-color-success: #198754;
     --bx-color-info: #0dcaf0;
     --bx-color-warning: #ffc107;
-    --bx-color-danger: #dc3545;
+    --bx-color-danger: #fd2626;
     /* general */
     --bx-bg: #ffffff;
     --bx-bg-secondary: #eaeaeb;

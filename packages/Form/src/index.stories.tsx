@@ -10,6 +10,7 @@ export const Default = (props) => {
     const [data, setData] = useState({
         reasonType: "",
         reasonTopic: "",
+        status: "",
         serviceOrderNumberIsRequired: "",
     });
 
@@ -287,6 +288,16 @@ export const Default = (props) => {
                     ],
                     config: {
                         column: 1,
+                    },
+                },
+                status: {
+                    type: "text",
+                    label: "Label...",
+                    detail: "detail...",
+                    required: true,
+                    status: "danger",
+                    config: {
+                        column: 2,
                     },
                 },
                 // reservationNumberIsRequired: {
