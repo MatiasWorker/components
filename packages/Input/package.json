@@ -34,7 +34,8 @@
         "./checkbox": "./dist/checkbox/checkbox.js",
         "./radio": "./dist/radio/radio.js",
         "./select": "./dist/select/select.js",
-        "./textarea": "./dist/textarea/textarea.js"
+        "./textarea": "./dist/textarea/textarea.js",
+        "./file": "./dist/file/file.js"
     },
     "types": "types/index.d.ts",
     "typesVersions": {
@@ -53,6 +54,9 @@
             ],
             "textarea": [
                 "./types/textarea/textarea.d.ts"
+            ],
+            "file": [
+                "./types/file/file.d.ts"
             ]
         }
     }

@@ -1,5 +1,6 @@
+import type { Status } from "@bxreact/theme";
 export interface InputData {
-    [prop: string]: number | boolean | string;
+    [prop: string]: number | boolean | string | File;
 }
 
 export type InputOptions<Value extends unknown> = {
@@ -26,13 +27,14 @@ export interface InputGeneric<
 > extends InputLogic<Data & MetaData> {
     label?: string;
     detail?: string;
+    description?: string;
     name?: string;
     config?: {
         column?: number;
     };
     value?: Value;
     placeholder?: string;
-    status?: "warning" | "danger" | "success" | "info";
+    status?: Status;
 }
 
 export interface InputSelect<

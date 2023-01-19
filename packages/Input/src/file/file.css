@@ -1,0 +1,52 @@
+.bx-form-file {
+    display: grid;
+    gap: var(--bx-space-md);
+    font-size: var(--bx-font-size-text-3);
+}
+
+.bx-form-file_label {
+    width: 100%;
+    height: var(--bx-form-file-height, 8rem);
+    position: relative;
+    border: 1px dashed var(--bx-color-blue);
+    display: block;
+    border-radius: var(--bx-sm-radius);
+    background: var(--bx-color-grey-on);
+}
+
+.bx-form-file input {
+    display: block;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+.bx-form_content {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: var(--bx-space-sm);
+    text-align: center;
+    color: var(--bx-color-blue);
+}
+
+.bx-form-file_file {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr auto;
+    gap: var(--bx-space-sm);
+}
+
+.bx-form-file_file_label {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1rem auto;
+    gap: var(--bx-space-sm);
+}

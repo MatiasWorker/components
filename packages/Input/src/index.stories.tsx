@@ -1,5 +1,5 @@
 import "@bxreact/theme";
-import { Input, Textarea, Checkbox, Radio, Select } from "./";
+import { Input, Textarea, Checkbox, Radio, Select, File } from "./";
 
 export default {
     title: "Generic/Input",
@@ -70,3 +70,5 @@ export const ExampleRadio = (props) => <Radio {...props}></Radio>;
 ExampleRadio.args = {
     checked: false,
 };
+
+export const ExampleFile = () => <File multiple></File>;

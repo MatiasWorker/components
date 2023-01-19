@@ -14,6 +14,7 @@ export * from "./checkbox/checkbox";
 export * from "./radio/radio";
 export * from "./select/select";
 export * from "./textarea/textarea";
+export * from "./file/file";
 
 type Props = {
     error?: boolean;

@@ -1,4 +1,7 @@
 import {
+  File
+} from "./chunk-DVIKLGUH.js";
+import {
   Checkbox
 } from "./chunk-UYOHTXH7.js";
 import {
@@ -456,6 +459,7 @@ var src_default = css`.bx-form-input {
 `;
 
 // src/index.tsx
+import * as Icon from "@bxreact/icon";
 import { FieldSwitch } from "@bxreact/field-switch";
 import { jsx, jsxs } from "react/jsx-runtime";
 function Input({
@@ -501,15 +505,18 @@ function Input({
         ref: reference,
         onChange: (event) => props?.onChange(event)
       }),
-      rightIcon && /* @__PURE__ */ jsx("div", {
+      (rightIcon || status) && /* @__PURE__ */ jsx("div", {
         className: "bx-form-icon-container bx-form-icon-right",
-        children: rightIcon
+        children: status ? /* @__PURE__ */ jsx(Icon.Warning, {
+          size: "1.5em"
+        }) : rightIcon
       })
     ]
   });
 }
 export {
   Checkbox,
+  File,
   Input,
   Radio,
   Select,

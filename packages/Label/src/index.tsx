@@ -9,6 +9,7 @@ export function Label({
     children,
     detail,
     required,
+    description,
     layout,
     icon,
     status,
@@ -16,6 +17,7 @@ export function Label({
     title?: ReactNode;
     children?: ReactNode;
     detail?: ReactNode;
+    description?: ReactNode;
     reverse?: boolean;
     required?: boolean;
     icon?: ReactNode;
@@ -38,6 +40,12 @@ export function Label({
                             {required && (
                                 <span className="bx-label_required">*</span>
                             )}
+                        </div>
+                    )}
+
+                    {!!description && (
+                        <div className={`bx-label_title ${classNameCenter}`}>
+                            {description}
                         </div>
                     )}
 

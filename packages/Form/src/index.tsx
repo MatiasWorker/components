@@ -1,4 +1,11 @@
-import { Checkbox, Input, Select, Switch, Textarea } from "@bxreact/input";
+import {
+    Checkbox,
+    Input,
+    Select,
+    Switch,
+    Textarea,
+    File,
+} from "@bxreact/input";
 import { Label } from "@bxreact/label";
 import { CSSProperties } from "react";
 import "./index.css";
@@ -149,6 +156,7 @@ function InputCase({
                     }
                     title={input.label}
                     detail={input.detail}
+                    status={input.status}
                 ></Label>
             );
         case "text":
@@ -159,10 +167,12 @@ function InputCase({
                     required={required}
                     title={input.label}
                     detail={input.detail}
+                    status={input.status}
                 >
                     <Input
-                        placeholder={input.placeholder}
                         type={input.type}
+                        status={input.status}
+                        placeholder={input.placeholder}
                         value={value || input.value}
                         onChange={({ target }) =>
                             set(
@@ -182,6 +192,7 @@ function InputCase({
                     required={required}
                     title={input.label}
                     detail={input.detail}
+                    status={input.status}
                 >
                     <Textarea
                         placeholder={input.placeholder}
@@ -190,12 +201,24 @@ function InputCase({
                     ></Textarea>
                 </Label>
             );
+        case "file":
+            return (
+                <Label
+                    required={required}
+                    title={input.label}
+                    detail={input.detail}
+                    status={input.status}
+                >
+                    <File onChange={({ target }) => set(target.value)}></File>
+                </Label>
+            );
         case "select":
             return (
                 <Label
                     required={required}
                     title={input.label}
                     detail={input.detail}
+                    status={input.status}
                 >
                     <Select
                         placeholder={input.placeholder}

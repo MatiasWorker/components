@@ -11,6 +11,7 @@ export const Default = (props) => {
         reasonType: "",
         reasonTopic: "",
         status: "",
+        file: "",
         serviceOrderNumberIsRequired: "",
     });
 
@@ -296,6 +297,15 @@ export const Default = (props) => {
                     detail: "detail...",
                     required: true,
                     status: "danger",
+                    config: {
+                        column: 2,
+                    },
+                },
+                file: {
+                    type: "file",
+                    label: "Sube un archivo(opcional)",
+                    description:
+                        "Carga archivos .png, .jpg o PDF de hasta [peso máximo]",
                     config: {
                         column: 2,
                     },
