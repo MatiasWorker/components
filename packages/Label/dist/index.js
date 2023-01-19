@@ -79,6 +79,7 @@ function Label({
   children,
   detail,
   required,
+  description,
   layout,
   icon,
   status
@@ -105,6 +106,10 @@ function Label({
                   children: "*"
                 })
               ]
+            }),
+            !!description && /* @__PURE__ */ jsx("div", {
+              className: `bx-label_title ${classNameCenter}`,
+              children: description
             }),
             !!children && /* @__PURE__ */ jsx("div", {
               className: `bx-label_content ${classNameCenter}`,
