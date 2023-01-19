@@ -22,7 +22,7 @@ import {
 import css from "@bxreact/theme/css";
 var src_default = css`.bx-form-input {
     --color: var(--bx-color-black);
-    --border-color: var(--bx-color-lblue-well)
+    --border-color: var(--bx-color-lblue-well);
     display: flex;
     width: 100%;
     padding: 0 1rem;
@@ -84,7 +84,7 @@ var src_default = css`.bx-form-input {
     border: 1px solid var(--bx-color-lblue-well);
     font-weight: 400;
     line-height: 1.5;
-    color: var(--bx-color-black);
+    color: currentColor;
     transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -96,7 +96,7 @@ var src_default = css`.bx-form-input {
     background: white;
 }
 
-.bx-form-input-with-icon {
+.bx-form-input-text {
     border: none;
     appearance: none;
     background: transparent;
@@ -105,10 +105,10 @@ var src_default = css`.bx-form-input {
     height: 100%;
     font-weight: 400;
     line-height: 1.5;
-    color: var(--bx-color-black);
     font-family: unset;
     min-width: 1px;
     font-size: 14px;
+    color: currentColor;
 }
 
 .bx-form-icon-container {

@@ -8,6 +8,7 @@ import {
     useState,
 } from "react";
 import "./index.css";
+import * as Icon from "@bxreact/icon";
 export { FieldSwitch as Switch } from "@bxreact/field-switch";
 export * from "./checkbox/checkbox";
 export * from "./radio/radio";
@@ -75,9 +76,13 @@ export function Input({
                 onChange={(event) => props?.onChange(event)}
             />
 
-            {rightIcon && (
+            {(rightIcon || status) && (
                 <div className="bx-form-icon-container bx-form-icon-right">
-                    {rightIcon}
+                    {status ? (
+                        <Icon.Warning size="1.5em"></Icon.Warning>
+                    ) : (
+                        rightIcon
+                    )}
                 </div>
             )}
         </div>

@@ -1,6 +1,6 @@
 .bx-form-input {
     --color: var(--bx-color-black);
-    --border-color: var(--bx-color-lblue-well)
+    --border-color: var(--bx-color-lblue-well);
     display: flex;
     width: 100%;
     padding: 0 1rem;
@@ -62,7 +62,7 @@
     border: 1px solid var(--bx-color-lblue-well);
     font-weight: 400;
     line-height: 1.5;
-    color: var(--bx-color-black);
+    color: currentColor;
     transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .bx-form-input-container-sm {
@@ -71,7 +71,7 @@
 .bx-form-input-container-fill {
     background: white;
 }
-.bx-form-input-with-icon {
+.bx-form-input-text {
     border: none;
     appearance: none;
     background: transparent;
@@ -80,10 +80,10 @@
     height: 100%;
     font-weight: 400;
     line-height: 1.5;
-    color: var(--bx-color-black);
     font-family: unset;
     min-width: 1px;
     font-size: 14px;
+    color: currentColor;
 }
 
 .bx-form-icon-container {
