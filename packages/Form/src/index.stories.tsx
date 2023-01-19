@@ -346,81 +346,8 @@ export const Default = (props) => {
                         column: 2,
                     },
                 },
-                // reservationNumberIsRequired: {
-                //     type: "text",
-                //     required: {
-                //         reasonType: ["solicitudes-o-problema-retiro"],
-                //     },
-                //     logic: [
-                //         {
-                //             reasonType: ["solicitudes-o-problema-retiro"],
-                //         },
-                //     ],
-                //     config: {
-                //         column: 1,
-                //     },
-                // },
-                // fileUrlIsRequired: {
-                //     type: "text",
-                //     required: {
-                //         reasonType: [
-                //             "problema-con-pedido",
-                //             "problemas-con-plataforma",
-                //         ],
-                //     },
-                //     logic: [
-                //         {
-                //             reasonType: [
-                //                 "problema-con-pedido",
-                //                 "problemas-con-plataforma",
-                //             ],
-                //         },
-                //         {
-                //             reasonTopic: [
-                //                 "pedido-danado",
-                //                 "problemas-para-emitir-ordenes",
-                //             ],
-                //         },
-                //     ],
-                //     config: {
-                //         column: 2,
-                //     },
-                // },
-                // descriptionIsRequired: {
-                //     type: "textarea",
-                //     required: {
-                //         typeTicket: [
-                //             "problema-con-pedido",
-                //             "consulta-sobre-mis-indemnizaciones",
-                //             "solicitudes-o-problema-retiro",
-                //             "problemas-con-plataforma",
-                //             "consultas-comerciales",
-                //             "consultas-problemas-puntos-blue-express",
-                //         ],
-                //     },
-                //     logic: [
-                //         {
-                //             typeTicket: [
-                //                 "problema-con-pedido",
-                //                 "consulta-sobre-mis-indemnizaciones",
-                //                 "solicitudes-o-problema-retiro",
-                //                 "problemas-con-plataforma",
-                //                 "consultas-comerciales",
-                //                 "consultas-problemas-puntos-blue-express",
-                //             ],
-                //         },
-                //     ],
-                //     config: {
-                //         column: 1,
-                //     },
-                // },
             }}
             onChange={(data) => setData(data)}
-            // status={{
-            //     region() {
-            //         return "loading";
-            //     },
-            // }}
         ></Form>
     );
 };
