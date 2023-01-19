@@ -12,6 +12,10 @@ export const Default = (props) => {
         email: "",
         reasonType: "",
         reasonTopic: "",
+        region: "",
+        commune: "",
+        address: "",
+        addressNumber: "",
         detail: "",
         file: "",
         numberOs: "",
@@ -293,6 +297,56 @@ export const Default = (props) => {
                         },
                     },
                 ],
+                region: {
+                    type: "select",
+                    label: "Región",
+                    required: true,
+                    options: [
+                        {
+                            label: "RM",
+                            value: "rm",
+                        },
+                    ],
+                    logic: {
+                        reasonTopic: ["modificacion-direccion-retiro"],
+                    },
+                },
+                commune: {
+                    type: "select",
+                    label: "Comuna",
+                    required: true,
+                    options: [
+                        {
+                            label: "Santiago",
+                            value: "sm",
+                        },
+                    ],
+                    logic: {
+                        reasonTopic: ["modificacion-direccion-retiro"],
+                    },
+                    config: {
+                        column: 2,
+                    },
+                },
+                address: {
+                    type: "text",
+                    required: true,
+                    label: "Nombre de la calle",
+                    logic: {
+                        reasonTopic: ["modificacion-direccion-retiro"],
+                    },
+                },
+                addressNumber: {
+                    type: "text",
+                    required: true,
+                    label: "Número domicilio",
+                    logic: {
+                        reasonTopic: ["modificacion-direccion-retiro"],
+                    },
+                    config: {
+                        column: 2,
+                    },
+                },
                 numberOs: {
                     type: "text",
                     required: true,
@@ -305,10 +359,10 @@ export const Default = (props) => {
                                 "consultas-problemas-puntos-blue-express",
                             ],
                         },
+                        {
+                            reasonTopic: ["modificacion-direccion-retiro"],
+                        },
                     ],
-                    config: {
-                        column: 1,
-                    },
                 },
                 detail: {
                     type: "textarea",
@@ -325,6 +379,7 @@ export const Default = (props) => {
                                 "consultas-problemas-puntos-blue-express",
                             ],
                         },
+                        { reasonTopic: ["modificacion-direccion-retiro"] },
                     ],
                 },
                 file: {
@@ -335,9 +390,12 @@ export const Default = (props) => {
                     config: {
                         column: 2,
                     },
-                    logic: {
-                        reasonType: "problema-con-pedido",
-                    },
+                    logic: [
+                        {
+                            reasonType: "problema-con-pedido",
+                        },
+                        { reasonTopic: ["modificacion-direccion-retiro"] },
+                    ],
                 },
                 notifyViaEmail: {
                     type: "checkbox",
