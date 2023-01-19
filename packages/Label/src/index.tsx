@@ -44,7 +44,7 @@ export function Label({
                     )}
 
                     {!!description && (
-                        <div className={`bx-label_title ${classNameCenter}`}>
+                        <div className={`bx-label_detail ${classNameCenter}`}>
                             {description}
                         </div>
                     )}

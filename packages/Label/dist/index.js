@@ -108,7 +108,7 @@ function Label({
               ]
             }),
             !!description && /* @__PURE__ */ jsx("div", {
-              className: `bx-label_title ${classNameCenter}`,
+              className: `bx-label_detail ${classNameCenter}`,
               children: description
             }),
             !!children && /* @__PURE__ */ jsx("div", {

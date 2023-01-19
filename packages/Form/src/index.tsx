@@ -156,6 +156,7 @@ function InputCase({
                     }
                     title={input.label}
                     detail={input.detail}
+                    description={input.description}
                     status={input.status}
                 ></Label>
             );
@@ -167,6 +168,7 @@ function InputCase({
                     required={required}
                     title={input.label}
                     detail={input.detail}
+                    description={input.description}
                     status={input.status}
                 >
                     <Input
@@ -192,6 +194,7 @@ function InputCase({
                     required={required}
                     title={input.label}
                     detail={input.detail}
+                    description={input.description}
                     status={input.status}
                 >
                     <Textarea
@@ -207,6 +210,7 @@ function InputCase({
                     required={required}
                     title={input.label}
                     detail={input.detail}
+                    description={input.description}
                     status={input.status}
                 >
                     <File onChange={({ target }) => set(target.value)}></File>
@@ -218,6 +222,7 @@ function InputCase({
                     required={required}
                     title={input.label}
                     detail={input.detail}
+                    description={input.description}
                     status={input.status}
                 >
                     <Select
