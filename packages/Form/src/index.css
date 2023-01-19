@@ -6,7 +6,8 @@
 
 .bx-form_column {
     display: grid;
-    gap: var(--bx-space-sm);
+    gap: var(--bx-space-md);
+    align-content: start;
 }
 
 @media (max-width: 420px) {

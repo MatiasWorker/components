@@ -162,6 +162,7 @@ function InputCase({
             );
         case "text":
         case "number":
+        case "email":
         case "date":
             return (
                 <Label

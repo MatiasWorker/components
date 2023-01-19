@@ -8,11 +8,14 @@ export default {
 
 export const Default = (props) => {
     const [data, setData] = useState({
+        account: "",
+        email: "",
         reasonType: "",
         reasonTopic: "",
-        status: "",
+        detail: "",
         file: "",
-        serviceOrderNumberIsRequired: "",
+        numberOs: "",
+        notifyViaEmail: true,
     });
 
     return (
@@ -20,9 +23,25 @@ export const Default = (props) => {
             columns={2}
             formData={data}
             metaData={{
-                supperapp: true,
+                supperapp: true as boolean,
             }}
             form={{
+                account: {
+                    type: "select",
+                    label: "Cuenta corriente",
+                    placeholder: "Cuenta corriente",
+                    required: true,
+                    options: [{ label: "76319382-1-x", value: "76319382-1-x" }],
+                },
+                email: {
+                    type: "email",
+                    label: "Email de contacto",
+                    required: true,
+                    placeholder: "Eg. demo@demo.com",
+                    config: {
+                        column: 2,
+                    },
+                },
                 reasonType: {
                     type: "select",
                     label: "Tipo de ticket",
@@ -274,10 +293,10 @@ export const Default = (props) => {
                         },
                     },
                 ],
-                serviceOrderNumberIsRequired: {
-                    type: "textarea",
+                numberOs: {
+                    type: "text",
                     required: true,
-                    label: "Detalle del motivo",
+                    label: "Número de Orden de Servicio (OS)",
                     logic: [
                         {
                             reasonType: [
@@ -291,21 +310,38 @@ export const Default = (props) => {
                         column: 1,
                     },
                 },
-                status: {
-                    type: "text",
-                    label: "Label...",
-                    detail: "detail...",
+                detail: {
+                    type: "textarea",
                     required: true,
-                    status: "danger",
-                    config: {
-                        column: 2,
-                    },
+                    label: "Detalle del motivo",
+                    placeholder:
+                        "Ingresa más información del motivo por el que estás creando el ticket",
+                    detail: "Máximo 120 caracteres",
+                    logic: [
+                        {
+                            reasonType: [
+                                "problema-con-pedido",
+                                "consulta-sobre-mis-indemnizaciones",
+                                "consultas-problemas-puntos-blue-express",
+                            ],
+                        },
+                    ],
                 },
                 file: {
                     type: "file",
                     label: "Sube un archivo(opcional)",
                     description:
                         "Carga archivos .png, .jpg o PDF de hasta [peso máximo]",
+                    config: {
+                        column: 2,
+                    },
+                    logic: {
+                        reasonType: "problema-con-pedido",
+                    },
+                },
+                notifyViaEmail: {
+                    type: "checkbox",
+                    label: "Notificar vía email la respuesta de este ticket",
                     config: {
                         column: 2,
                     },
