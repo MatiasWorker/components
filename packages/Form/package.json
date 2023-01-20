@@ -7,7 +7,7 @@
     "type": "module",
     "scripts": {
         "build": "exports src/**/*.tsx --exports --css-import-source @bxreact/theme/css --types --main index",
-        "exports:after": "exports src/**/*.tsx --exports --css-import-source @bxreact/theme/css --types --publish --main index"
+        "exports": "exports src/**/*.tsx --exports --css-import-source @bxreact/theme/css --types --publish --main index"
     },
     "license": "ISC",
     "dependencies": {
