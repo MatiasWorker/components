@@ -1,13 +1,13 @@
 {
     "name": "@bxreact/form",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "publishConfig": {
         "access": "public"
     },
     "type": "module",
     "scripts": {
         "build": "exports src/**/*.tsx --exports --css-import-source @bxreact/theme/css --types --main index",
-        "exports": "exports src/**/*.tsx --exports --css-import-source @bxreact/theme/css --types --publish --main index"
+        "exports:after": "exports src/**/*.tsx --exports --css-import-source @bxreact/theme/css --types --publish --main index"
     },
     "license": "ISC",
     "dependencies": {
