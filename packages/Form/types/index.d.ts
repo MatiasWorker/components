@@ -1,28 +1,11 @@
-import type { Spaces, Radius } from "@bxreact/theme";
-import { HTMLAttributes } from "react";
 import "./index.css";
-export interface Props extends HTMLAttributes<HTMLDivElement> {
-    className?: string;
-    id?: string;
-    children: any;
-    deep?: 0 | 1 | 2;
-    radius?: Radius;
-    theme?: "" | "success" | "info" | "warning" | "danger";
-    padding?: Spaces | `${Spaces} ${Spaces}`;
-    color?: string;
-    bgColor?: string;
-    brColor?: string;
+import { InputData, InputForm } from "./types";
+export { InputForm } from "./types";
+export interface Props<FormData extends InputData, MetaData extends InputData> {
+    formData: FormData;
+    metaData?: MetaData;
+    form: InputForm<FormData, MetaData>;
+    columns?: number;
+    onChange: (data: FormData) => void;
 }
-export declare function Card({
-    children,
-    className,
-    deep,
-    radius,
-    bgColor,
-    color,
-    brColor,
-    theme,
-    padding,
-    ...props
-}: Props): JSX.Element;
-export {};
+export declare function Form<FormData extends InputData, MetaFormData extends InputData>({ formData, metaData, form, onChange, columns, }: Props<FormData, MetaFormData>): JSX.Element;
