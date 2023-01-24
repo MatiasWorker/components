@@ -1,11 +1,11 @@
 // src/index.tsx
 import {
   Checkbox,
+  File,
   Input,
   Select,
   Switch,
-  Textarea,
-  File
+  Textarea
 } from "@bxreact/input";
 import { Label } from "@bxreact/label";
 

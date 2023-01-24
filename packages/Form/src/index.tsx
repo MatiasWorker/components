@@ -1,10 +1,10 @@
 import {
     Checkbox,
+    File,
     Input,
     Select,
     Switch,
     Textarea,
-    File,
 } from "@bxreact/input";
 
 import { Label } from "@bxreact/label";
