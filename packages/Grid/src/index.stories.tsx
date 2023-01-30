@@ -3,6 +3,12 @@ import { Grid } from "./";
 
 export default {
     title: "Generic/Grid",
+    argTypes: {
+        align: {
+            options: ["center", "left", "right"],
+            control: { type: "radio" },
+        },
+    },
     args: {
         cols: 2,
         minWidth: "",
@@ -64,4 +70,21 @@ export const Columns = (props) => (
 Columns.args = {
     cols: "1fr 1fr",
     minWidth: "5rem",
+};
+
+export const Align = (props) => (
+    <Grid {...props}>
+        <h1>Title</h1>
+        <div>
+            culpa ea laborum sint esse sit eu esse voluptate commodo nostrud et
+            Lorem id excepteur cillum in sint nisi esse Lorem et esse Lorem ...
+        </div>
+        <div>
+            <button>Ok</button>
+        </div>
+    </Grid>
+);
+
+Align.args = {
+    align: "center",
 };

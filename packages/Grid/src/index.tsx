@@ -9,13 +9,15 @@ export function Grid({
     fit,
     gap,
     align,
+    className,
 }: {
     children: ReactNode;
     gap?: string;
     cols?: number | string;
     minWidth?: string;
     fit?: boolean;
-    align?: "start" | "end" | "center";
+    align?: "left" | "end" | "right";
+    className?: string;
 }) {
     const [forceOnly, setForceOnly] = useState(false);
     const ref = useRef<HTMLDivElement>();
@@ -25,7 +27,6 @@ export function Grid({
         "--columns"?: number;
         "--columns-raw"?: string;
         "--min-width"?: string;
-        "--align"?: string;
         "--mode": string;
     } = {
         "--columns": typeCols === "number" ? (cols as number) : 1,
@@ -38,8 +39,6 @@ export function Grid({
     if (minWidth) customProperties["--min-width"] = minWidth;
 
     if (gap) customProperties["--gap"] = gap;
-
-    if (align) customProperties["--align"] = align;
 
     useResizeObserver({
         ref,
@@ -69,7 +68,7 @@ export function Grid({
         <div
             className={`bx-grid ${
                 forceOnly || (cols === 1 && !minWidth) ? "bx-grid--only" : ""
-            }`}
+            } bx-grid--align-${align} ${className || ""}`}
             style={customProperties}
             ref={ref}
         >

@@ -25,3 +25,18 @@
     display: flex;
     flex-flow: column;
 }
+
+.bx-grid--align-center {
+    --align: center;
+    text-align: center;
+}
+
+.bx-grid--align-left {
+    --align: start;
+    text-align: left;
+}
+
+.bx-grid--align-right {
+    --align: end;
+    text-align: right;
+}
