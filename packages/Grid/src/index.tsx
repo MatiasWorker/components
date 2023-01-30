@@ -16,7 +16,7 @@ export function Grid({
     cols?: number | string;
     minWidth?: string;
     fit?: boolean;
-    align?: "left" | "end" | "right";
+    align?: "left" | "center" | "right";
     className?: string;
 }) {
     const [forceOnly, setForceOnly] = useState(false);
