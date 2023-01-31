@@ -20,7 +20,7 @@ export const isBoolean = (value: any): value is boolean =>
 export const required = (form: Form, data: { [prop: string]: any }) =>
     Object.entries(logic(form, data))
         .filter(([, input]) => input.required)
-        .every(([prop, input]) => {
+        .some(([prop, input]) => {
             if (inputIsRequired(input, data)) {
                 if (
                     input.type === "text" ||
