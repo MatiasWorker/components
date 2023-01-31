@@ -22,10 +22,14 @@ export const required = (form: Form, data: { [prop: string]: any }) =>
         .filter(([, input]) => input.required)
         .every(([prop, input]) => {
             if (inputIsRequired(input, data)) {
-                if (input.type === "text" || input.type === "textarea") {
+                if (
+                    input.type === "text" ||
+                    input.type === "textarea" ||
+                    typeof data[prop] === "string"
+                ) {
                     return !!data[prop].trim();
                 } else {
-                    return data[prop] != null || data[prop] != "";
+                    return data[prop] != null;
                 }
             }
         });
