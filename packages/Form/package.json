@@ -1,13 +1,13 @@
 {
     "name": "@bxreact/form",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "publishConfig": {
         "access": "public"
     },
     "type": "module",
     "scripts": {
-        "build": "exports \"src/**/*.tsx\" --exports --css-import-source @bxreact/theme/css --types --main index",
-        "exports": "exports \"src/**/*.tsx\" --exports --css-import-source @bxreact/theme/css --types --publish --main index"
+        "build": "exports \"src/**/*.{tsx,ts}\" --exports --css-import-source @bxreact/theme/css --types --main index",
+        "exports": "exports \"src/**/*.{tsx,ts}\" --exports --css-import-source @bxreact/theme/css --types --publish --main index"
     },
     "license": "ISC",
     "dependencies": {
@@ -27,13 +27,21 @@
     "module": "./dist/index.js",
     "exports": {
         "./index": "./dist/index.js",
-        ".": "./dist/index.js"
+        ".": "./dist/index.js",
+        "./types": "./dist/types.js",
+        "./utils": "./dist/utils.js"
     },
     "types": "types/index.d.ts",
     "typesVersions": {
         "*": {
             "index": [
                 "./types/index.d.ts"
+            ],
+            "types": [
+                "./types/types.d.ts"
+            ],
+            "utils": [
+                "./types/utils.d.ts"
             ]
         }
     }

@@ -11,7 +11,9 @@ import { Label } from "@bxreact/label";
 import { CSSProperties } from "react";
 import "./index.css";
 import { InputData, InputForm, InputUnknown } from "./types";
-export { InputForm } from "./types";
+export { InputForm, InputUnknown } from "./types";
+import { logic, inputIsRequired } from "./utils";
+export { logic, required } from "./utils";
 
 export interface Props<FormData extends InputData, MetaData extends InputData> {
     formData: FormData;
@@ -20,10 +22,6 @@ export interface Props<FormData extends InputData, MetaData extends InputData> {
     columns?: number;
     onChange: (data: FormData) => void;
 }
-
-const isInput = (value: any): value is InputUnknown => !Array.isArray(value);
-
-const isBoolean = (value: any): value is boolean => typeof value === "boolean";
 
 export function Form<
     FormData extends InputData,
@@ -36,42 +34,7 @@ export function Form<
     columns,
 }: Props<FormData, MetaFormData>): JSX.Element {
     const data = { ...formData, ...metaData };
-    const viewForm: InputForm<any, any> = {};
-
-    // revisa si la vista actual debe ser enseñáda
-    Object.entries(form).forEach(function filter([prop, value]: [
-        string,
-        InputUnknown | InputUnknown[]
-    ]) {
-        if (isInput(value) && value.logic) {
-            const logic = [value.logic].flat();
-            const nextValue = logic.find((value) =>
-                Object.entries(value).every(([prop, value]) => {
-                    return Array.isArray(value)
-                        ? value.includes(data[prop])
-                        : data[prop] === value;
-                })
-            );
-            if (nextValue && !viewForm[prop])
-                viewForm[prop] = value as InputUnknown;
-        } else {
-            if (Array.isArray(value)) {
-                value.map((value) => filter([prop, value]));
-            } else {
-                viewForm[prop] = value;
-            }
-        }
-    });
-
-    // revisa si la si la propiedad actual es un campo requerido
-    const isRequired = (input: InputUnknown) => {
-        if (input.required) {
-            if (isBoolean(input.required)) return true;
-            return Object.entries(input.required).some(
-                ([prop, value]) => data[prop] === value
-            );
-        }
-    };
+    const viewForm = logic(form, data);
 
     return (
         <div
@@ -85,7 +48,7 @@ export function Form<
             }
         >
             {Object.entries(viewForm)
-                .reduce((cols, [prop, input]: [string, InputUnknown]) => {
+                .reduce((cols, [prop, input]) => {
                     const id = input?.config?.column || 1;
 
                     cols[id] = cols[id] || [];
@@ -103,15 +66,13 @@ export function Form<
                                     [prop]: value,
                                 });
 
-                            const required = isRequired(input);
-
                             return (
                                 <InputCase
                                     input={input}
                                     data={data}
                                     value={value}
                                     set={set}
-                                    required={required}
+                                    required={inputIsRequired(input, data)}
                                 ></InputCase>
                             );
                         })}
@@ -174,6 +135,7 @@ function InputCase({
                     status={input.status}
                 >
                     <Input
+                        required={required}
                         type={input.type}
                         status={input.status}
                         placeholder={input.placeholder}
@@ -200,6 +162,7 @@ function InputCase({
                     status={input.status}
                 >
                     <Textarea
+                        required={required}
                         placeholder={input.placeholder}
                         value={value || input.value}
                         onChange={({ target }) => set(target.value)}
@@ -215,7 +178,10 @@ function InputCase({
                     description={input.description}
                     status={input.status}
                 >
-                    <File onChange={({ target }) => set(target.value)}></File>
+                    <File
+                        required={required}
+                        onChange={({ target }) => set(target.value)}
+                    ></File>
                 </Label>
             );
         case "select":
@@ -228,6 +194,7 @@ function InputCase({
                     status={input.status}
                 >
                     <Select
+                        required={required}
                         placeholder={input.placeholder}
                         value={value}
                         options={

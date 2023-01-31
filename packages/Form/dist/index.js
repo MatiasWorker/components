@@ -1,3 +1,10 @@
+import "./chunk-6F4PWJZI.js";
+import {
+  inputIsRequired,
+  logic,
+  required
+} from "./chunk-ZQGRTJM5.js";
+
 // src/index.tsx
 import {
   Checkbox,
@@ -32,8 +39,6 @@ var src_default = css`.bx-form {
 
 // src/index.tsx
 import { jsx } from "react/jsx-runtime";
-var isInput = (value) => !Array.isArray(value);
-var isBoolean = (value) => typeof value === "boolean";
 function Form({
   formData,
   metaData,
@@ -42,34 +47,7 @@ function Form({
   columns
 }) {
   const data = { ...formData, ...metaData };
-  const viewForm = {};
-  Object.entries(form).forEach(function filter([prop, value]) {
-    if (isInput(value) && value.logic) {
-      const logic = [value.logic].flat();
-      const nextValue = logic.find(
-        (value2) => Object.entries(value2).every(([prop2, value3]) => {
-          return Array.isArray(value3) ? value3.includes(data[prop2]) : data[prop2] === value3;
-        })
-      );
-      if (nextValue && !viewForm[prop])
-        viewForm[prop] = value;
-    } else {
-      if (Array.isArray(value)) {
-        value.map((value2) => filter([prop, value2]));
-      } else {
-        viewForm[prop] = value;
-      }
-    }
-  });
-  const isRequired = (input) => {
-    if (input.required) {
-      if (isBoolean(input.required))
-        return true;
-      return Object.entries(input.required).some(
-        ([prop, value]) => data[prop] === value
-      );
-    }
-  };
+  const viewForm = logic(form, data);
   return /* @__PURE__ */ jsx("div", {
     className: "bx-form",
     style: columns ? {
@@ -88,13 +66,12 @@ function Form({
           ...data,
           [prop]: value2
         });
-        const required = isRequired(input);
         return /* @__PURE__ */ jsx(InputCase, {
           input,
           data,
           value,
           set,
-          required
+          required: inputIsRequired(input, data)
         });
       })
     }))
@@ -102,7 +79,7 @@ function Form({
 }
 function InputCase({
   input,
-  required,
+  required: required2,
   data,
   value,
   set
@@ -113,7 +90,7 @@ function InputCase({
     case "checkbox":
     case "switch":
       return /* @__PURE__ */ jsx(Label, {
-        required,
+        required: required2,
         icon: input.type === "checkbox" ? /* @__PURE__ */ jsx(Checkbox, {
           checked: !!value,
           onChange: ({ target }) => set(target.checked)
@@ -131,12 +108,13 @@ function InputCase({
     case "email":
     case "date":
       return /* @__PURE__ */ jsx(Label, {
-        required,
+        required: required2,
         title: input.label,
         detail: input.detail,
         description: input.description,
         status: input.status,
         children: /* @__PURE__ */ jsx(Input, {
+          required: required2,
           type: input.type,
           status: input.status,
           placeholder: input.placeholder,
@@ -148,12 +126,13 @@ function InputCase({
       });
     case "textarea":
       return /* @__PURE__ */ jsx(Label, {
-        required,
+        required: required2,
         title: input.label,
         detail: input.detail,
         description: input.description,
         status: input.status,
         children: /* @__PURE__ */ jsx(Textarea, {
+          required: required2,
           placeholder: input.placeholder,
           value: value || input.value,
           onChange: ({ target }) => set(target.value)
@@ -161,23 +140,25 @@ function InputCase({
       });
     case "file":
       return /* @__PURE__ */ jsx(Label, {
-        required,
+        required: required2,
         title: input.label,
         detail: input.detail,
         description: input.description,
         status: input.status,
         children: /* @__PURE__ */ jsx(File, {
+          required: required2,
           onChange: ({ target }) => set(target.value)
         })
       });
     case "select":
       return /* @__PURE__ */ jsx(Label, {
-        required,
+        required: required2,
         title: input.label,
         detail: input.detail,
         description: input.description,
         status: input.status,
         children: /* @__PURE__ */ jsx(Select, {
+          required: required2,
           placeholder: input.placeholder,
           value,
           options: input.options,
@@ -187,5 +168,7 @@ function InputCase({
   }
 }
 export {
-  Form
+  Form,
+  logic,
+  required
 };
