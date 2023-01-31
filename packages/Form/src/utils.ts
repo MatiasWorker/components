@@ -27,9 +27,9 @@ export const required = (form: Form, data: { [prop: string]: any }) =>
                     input.type === "textarea" ||
                     typeof data[prop] === "string"
                 ) {
-                    return !!data[prop].trim();
+                    return !data[prop].trim();
                 } else {
-                    return data[prop] != null;
+                    return data[prop] == null;
                 }
             }
         });
