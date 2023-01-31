@@ -10,8 +10,8 @@ import {
 import { Label } from "@bxreact/label";
 import { CSSProperties } from "react";
 import "./index.css";
-import { InputData, InputForm, InputUnknown } from "./types";
-export { InputForm, InputUnknown } from "./types";
+import { InputData, InputForm, InputUnknown, InputReplace } from "./types";
+export { InputTypes, InputForm, InputUnknown } from "./types";
 import { logic, inputIsRequired } from "./utils";
 export { logic, required } from "./utils";
 
@@ -21,6 +21,7 @@ export interface Props<FormData extends InputData, MetaData extends InputData> {
     form: InputForm<FormData, MetaData>;
     columns?: number;
     onChange: (data: FormData) => void;
+    types?: InputReplace<FormData, MetaData>;
 }
 
 export function Form<
@@ -32,6 +33,7 @@ export function Form<
     form,
     onChange,
     columns,
+    types,
 }: Props<FormData, MetaFormData>): JSX.Element {
     const data = { ...formData, ...metaData };
     const viewForm = logic(form, data);
@@ -48,6 +50,23 @@ export function Form<
             }
         >
             {Object.entries(viewForm)
+                .reduce((inputs, [prop, input]) => {
+                    if (types[prop]) {
+                        const next = types[prop](
+                            input,
+                            data,
+                            data[prop] as any
+                        );
+                        if (typeof next?.type === "string") {
+                            inputs.push([prop, next]);
+                        } else {
+                            inputs.push(...Object.entries(next));
+                        }
+                    } else {
+                        inputs.push([prop, input]);
+                    }
+                    return inputs;
+                }, [])
                 .reduce((cols, [prop, input]) => {
                     const id = input?.config?.column || 1;
 

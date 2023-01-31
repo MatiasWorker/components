@@ -150,4 +150,16 @@ export type InputForm<Data extends InputData, MetaData extends InputData> = {
         | InputTypes<Data, MetaData, Data[Prop]>[];
 };
 
+export type InputReplace<Data extends InputData, MetaData extends InputData> = {
+    [Prop in keyof Data]?: (
+        input: InputUnknown,
+        data: Data & MetaData,
+        value: Data[Prop]
+    ) =>
+        | InputUnknown
+        | {
+              [input: string]: InputUnknown;
+          };
+};
+
 export type InputUnknown = InputTypes<any, any, any>;
