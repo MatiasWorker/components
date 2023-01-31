@@ -44,7 +44,8 @@ function Form({
   metaData,
   form,
   onChange,
-  columns
+  columns,
+  types
 }) {
   const data = { ...formData, ...metaData };
   const viewForm = logic(form, data);
@@ -53,7 +54,23 @@ function Form({
     style: columns ? {
       "--columns": `${"1fr ".repeat(columns)}`
     } : null,
-    children: Object.entries(viewForm).reduce((cols, [prop, input]) => {
+    children: Object.entries(viewForm).reduce((inputs, [prop, input]) => {
+      if (types[prop]) {
+        const next = types[prop](
+          input,
+          data,
+          data[prop]
+        );
+        if (typeof next?.type === "string") {
+          inputs.push([prop, next]);
+        } else {
+          inputs.push(...Object.entries(next));
+        }
+      } else {
+        inputs.push([prop, input]);
+      }
+      return inputs;
+    }, []).reduce((cols, [prop, input]) => {
       const id = input?.config?.column || 1;
       cols[id] = cols[id] || [];
       cols[id].push([prop, input]);
