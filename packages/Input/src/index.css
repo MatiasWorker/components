@@ -1,5 +1,6 @@
 .bx-form-input {
     --color: var(--bx-color-black);
+    --color-placeholder: var(--bx-color-grey-play);
     --border-color: var(--bx-color-lblue-well);
     display: flex;
     width: 100%;
@@ -381,6 +382,11 @@
     padding: 0 1rem;
     z-index: 2;
     font-family: unset;
+    color: var(--color-placeholder);
+}
+
+.bx-form-input-select--with-value {
+    color: var(--color);
 }
 
 .bx-form-input-select_icon {

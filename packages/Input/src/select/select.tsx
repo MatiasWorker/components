@@ -1,6 +1,12 @@
 import { Down } from "@bxreact/icon";
 import cs from "classnames";
-import { SelectHTMLAttributes, ReactNode, useCallback, useState } from "react";
+import {
+    SelectHTMLAttributes,
+    ReactNode,
+    useCallback,
+    useState,
+    useEffect,
+} from "react";
 
 type Props = {
     error?: boolean;
@@ -25,6 +31,8 @@ export function Select({
 }: Props) {
     const [focused, setFocused] = useState(false);
 
+    const [value, setValue] = useState<boolean>(!!props.value);
+
     const handleFocus = useCallback(() => {
         setFocused(true);
     }, []);
@@ -32,6 +40,10 @@ export function Select({
     const handleBlur = useCallback(() => {
         setFocused(false);
     }, []);
+
+    useEffect(() => {
+        setValue(!!props.value);
+    }, [props.value]);
 
     return (
         <div
@@ -46,14 +58,24 @@ export function Select({
         >
             <select
                 {...props}
-                className="bx-form-input-select"
+                className={`bx-form-input-select ${
+                    value ? "bx-form-input-select--with-value" : ""
+                }`}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 disabled={disabled}
-                onChange={(event) => props?.onChange(event)}
+                onChange={(event) => {
+                    setValue(true);
+                    props?.onChange(event);
+                }}
             >
                 {placeholder && (
-                    <option key="placeholder" value="" disabled>
+                    <option
+                        key="placeholder"
+                        value=""
+                        disabled
+                        selected={!value}
+                    >
                         {placeholder}
                     </option>
                 )}

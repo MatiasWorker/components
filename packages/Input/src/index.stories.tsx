@@ -12,6 +12,7 @@ export default {
         checked: { control: "boolean" },
         fullWidth: { control: "boolean" },
         name: { control: "text" },
+        value: { control: "text" },
         placeholder: { control: "text" },
         error: { control: "boolean" },
         type: {
@@ -49,6 +50,7 @@ export const ExampleWithRightIcon = (props) => (
 export const ExampleSelect = (props) => (
     <Select
         placeholder="Select option"
+        value={props.value}
         options={[
             { value: "1", label: "One" },
             { value: "2", label: "Two" },
