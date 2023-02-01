@@ -28,6 +28,7 @@ export const Default = (props) => {
             formData={data}
             metaData={{
                 supperapp: true as boolean,
+                demo: [{ id: 100 }],
             }}
             types={{
                 account: (input) => {

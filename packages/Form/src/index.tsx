@@ -10,12 +10,21 @@ import {
 import { Label } from "@bxreact/label";
 import { CSSProperties } from "react";
 import "./index.css";
-import { InputData, InputForm, InputUnknown, InputReplace } from "./types";
+import {
+    InputData,
+    InputForm,
+    InputUnknown,
+    InputReplace,
+    InputMetaData,
+} from "./types";
 export { InputTypes, InputForm, InputUnknown } from "./types";
 import { logic, inputIsRequired } from "./utils";
 export { logic, required } from "./utils";
 
-export interface Props<FormData extends InputData, MetaData extends InputData> {
+export interface Props<
+    FormData extends InputData,
+    MetaData extends InputMetaData
+> {
     formData: FormData;
     metaData?: MetaData;
     form: InputForm<FormData, MetaData>;
@@ -26,7 +35,7 @@ export interface Props<FormData extends InputData, MetaData extends InputData> {
 
 export function Form<
     FormData extends InputData,
-    MetaFormData extends InputData
+    MetaFormData extends InputMetaData
 >({
     formData,
     metaData,
