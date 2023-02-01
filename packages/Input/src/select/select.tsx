@@ -31,7 +31,7 @@ export function Select({
 }: Props) {
     const [focused, setFocused] = useState(false);
 
-    const [value, setValue] = useState<boolean>(!!props.value);
+    const [withValue, setWithValue] = useState<boolean>(!!props.value);
 
     const handleFocus = useCallback(() => {
         setFocused(true);
@@ -42,8 +42,11 @@ export function Select({
     }, []);
 
     useEffect(() => {
-        setValue(!!props.value);
+        setWithValue(!!props.value);
     }, [props.value]);
+
+    const withValidValue =
+        withValue && options.some(({ value }) => value === props.value);
 
     return (
         <div
@@ -59,13 +62,14 @@ export function Select({
             <select
                 {...props}
                 className={`bx-form-input-select ${
-                    value ? "bx-form-input-select--with-value" : ""
+                    withValidValue ? "bx-form-input-select--with-value" : ""
                 }`}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 disabled={disabled}
+                value={withValidValue ? props.value : ""}
                 onChange={(event) => {
-                    setValue(true);
+                    setWithValue(true);
                     props?.onChange(event);
                 }}
             >
@@ -74,7 +78,7 @@ export function Select({
                         key="placeholder"
                         value=""
                         disabled
-                        selected={!value}
+                        selected={!withValidValue}
                     >
                         {placeholder}
                     </option>
