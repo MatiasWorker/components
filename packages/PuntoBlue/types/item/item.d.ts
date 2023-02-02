@@ -1,4 +1,3 @@
-import { HTMLAttributes } from "react";
 import "./item.css";
 export interface ItemProps {
     title: string;
@@ -12,6 +11,7 @@ export interface ItemProps {
     address: string;
     checked?: boolean;
     value?: string;
+    onChange?: (value: string) => any;
 }
 export declare const Week: {
     monday: string;
@@ -23,4 +23,4 @@ export declare const Week: {
     holidays: string;
 };
 export declare function getHumanSchedule(data: ItemProps["schedule"]): string[];
-export declare function PuntoBlueItem({ title, status, schedule, address, checked, value, }: ItemProps & HTMLAttributes<HTMLDivElement>): JSX.Element;
+export declare function PuntoBlueItem({ title, status, schedule, address, checked, value, onChange, }: ItemProps): JSX.Element;

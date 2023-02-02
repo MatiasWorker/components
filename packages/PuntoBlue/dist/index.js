@@ -2,7 +2,7 @@ import {
   PuntoBlueItem,
   Week,
   getHumanSchedule
-} from "./chunk-P4PU2PEF.js";
+} from "./chunk-T4MSN55S.js";
 
 // src/index.tsx
 import { Card } from "@bxreact/card";
@@ -168,7 +168,8 @@ function PuntoBlueList({
       options.length,
       " Puntos Blue Express"
     ]
-  })
+  }),
+  onChange
 }) {
   return /* @__PURE__ */ jsxs2(Grid, {
     children: [
@@ -192,7 +193,8 @@ function PuntoBlueList({
             address: `${location.street_name} ${location.street_number}`,
             status: "Abierto",
             checked: agency_id === value,
-            value: agency_id
+            value: agency_id,
+            onChange
           })
         ) : /* @__PURE__ */ jsx2(Card, {
           theme: "warning",
