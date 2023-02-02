@@ -6,6 +6,7 @@ interface Props {
     size?: "xs" | "sm" | "md" | "lg";
     href?: string;
     open?: boolean;
+    type?: "submit" | "reset" | "button";
     disabled?: boolean;
     thead?: boolean;
     icon?: boolean;
@@ -80,3 +81,5 @@ export function Button({
         </Type>
     );
 }
+
+<Button type="reset">s</Button>;
