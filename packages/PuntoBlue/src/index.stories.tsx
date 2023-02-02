@@ -1,5 +1,6 @@
 import "@bxreact/theme";
-import { PuntoBlueList, PuntoBlueItem } from "./";
+import { PuntoBlueList } from "./";
+
 const data = [
     {
         geospatial: {
