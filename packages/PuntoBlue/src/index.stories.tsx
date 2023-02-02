@@ -1,61 +1,162 @@
 import "@bxreact/theme";
-import { PuntoBlue } from "./";
-
-export default {
-    title: "Business/Punto blue",
-    args: {
-        title: "Punto Blue Express Almacen Belorado",
-        status: "Abierto",
-        address: "Julio Prado 1885",
-        checked: false,
-        schedule: {
+import { PuntoBlueList, PuntoBlueItem } from "./";
+const data = [
+    {
+        geospatial: {
+            type: "Point",
+            coordinates: [-71.71784, -46.54294],
+        },
+        _id: "63d8845cba29a4ad9f80eb56",
+        location: {
+            geolocation: {
+                latitude: -46.54294,
+                longitude: -71.71784,
+            },
+            country_name: "Chile",
+            state_name: "Aysén",
+            city_name: "CHILE CHICO",
+            city_id: "11401",
+            street_name: "Cantalicio Jara",
+            street_number: "749",
+        },
+        status: "active",
+        agency_id: "4005",
+        agency_name: "Punto Blue Express Provisiones Nissi",
+        package_reception: true,
+        pickup_availability: true,
+        open_hours: {
             monday: [
                 {
-                    from: "16:00",
-                    to: "20:00",
+                    from: "11:00",
+                    to: "22:00",
                 },
             ],
             tuesday: [
                 {
-                    from: "16:00",
-                    to: "20:00",
+                    from: "11:00",
+                    to: "22:00",
                 },
             ],
             wednesday: [
                 {
-                    from: "16:00",
-                    to: "20:00",
+                    from: "11:00",
+                    to: "22:00",
                 },
             ],
             thursday: [
                 {
-                    from: "16:00",
-                    to: "20:00",
+                    from: "11:00",
+                    to: "22:00",
                 },
             ],
             friday: [
                 {
-                    from: "16:00",
-                    to: "20:00",
+                    from: "11:00",
+                    to: "22:00",
                 },
             ],
             saturday: [
                 {
-                    from: "16:00",
-                    to: "18:00",
+                    from: "12:00",
+                    to: "22:00",
                 },
             ],
             holidays: [],
         },
+        last_updated: "",
+        volumetric_capacity: "0",
+        maximum_package_dimensions: {
+            length: 1,
+            height: 1,
+            width: 1,
+            weight: 20,
+        },
+        commune_code: "11401",
+        phone: "6006000115",
+        createdAt: "2023-01-31T03:00:44.438Z",
+        __v: 0,
     },
+    {
+        geospatial: {
+            type: "Point",
+            coordinates: [-71.7256723, -46.5394756],
+        },
+        _id: "63d8845cba29a4316980eb63",
+        location: {
+            geolocation: {
+                latitude: -46.5394756,
+                longitude: -71.7256723,
+            },
+            country_name: "Chile",
+            state_name: "Aysén",
+            city_name: "CHILE CHICO",
+            city_id: "11401",
+            street_name: "Bernardo Ohiggins",
+            street_number: "408",
+        },
+        status: "active",
+        agency_id: "444",
+        agency_name: "Punto Blue Express Regalitoys",
+        package_reception: true,
+        pickup_availability: true,
+        open_hours: {
+            monday: [
+                {
+                    from: "09:00",
+                    to: "19:30",
+                },
+            ],
+            tuesday: [
+                {
+                    from: "09:00",
+                    to: "19:30",
+                },
+            ],
+            wednesday: [
+                {
+                    from: "09:00",
+                    to: "19:30",
+                },
+            ],
+            thursday: [
+                {
+                    from: "09:00",
+                    to: "19:30",
+                },
+            ],
+            friday: [
+                {
+                    from: "09:00",
+                    to: "19:30",
+                },
+            ],
+            saturday: [
+                {
+                    from: "15:00",
+                    to: "19:30",
+                },
+            ],
+            holidays: [],
+        },
+        last_updated: "",
+        volumetric_capacity: "0",
+        maximum_package_dimensions: {
+            length: 1,
+            height: 1,
+            width: 1,
+            weight: 25,
+        },
+        commune_code: "11401",
+        phone: "6006000115",
+        createdAt: "2023-01-31T03:00:44.451Z",
+        __v: 0,
+    },
+];
+
+export default {
+    title: "Business/Punto blue",
 };
 
-export const Default = (props) => (
-    <PuntoBlue {...props}>
-        culpa ea laborum sint esse sit eu esse voluptate commodo nostrud et
-        Lorem id excepteur cillum in sint nisi esse Lorem et esse Lorem culpa
-        veniam anim culpa non exercitation cupidatat ex nostrud aute elit veniam
-        officia proident laboris exercitation labore fugiat tempor cupidatat in
-        commodo et aute et aliqua consectetur
-    </PuntoBlue>
+export const Default = () => (
+    <PuntoBlueList value="" options={data as any}></PuntoBlueList>
 );

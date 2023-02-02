@@ -74,6 +74,18 @@ h3 {
     font-size: var(--bx-font-size-title-3);
 }
 
+h4 {
+    font-size: var(--bx-font-size-text-1);
+}
+
+h5 {
+    font-size: var(--bx-font-size-text-2);
+}
+
+h3 {
+    font-size: var(--bx-font-size-text-3);
+}
+
 strong,
 b {
     font-weight: var(--bx-font-bold);
@@ -244,9 +256,9 @@ var colors_default = css3`:root {
     --bx-color-alert-info-border: var(--bx-color-light-express);
     --bx-color-alert-info-fg: var(--bx-color-light-express);
     --bx-color-alert-info-bg: var(--bx-color-light-dream);
-    --bx-color-alert-warning-border: var(--bx--color-yellow-brown);
-    --bx-color-alert-warning-fg: var(--bx--color-yellow-gold);
-    --bx-color-alert-warning-bg: var(--bx--color-yellow-blank);
+    --bx-color-alert-warning-border: var(--bx-color-orange);
+    --bx-color-alert-warning-fg: var(--bx-color-blue);
+    --bx-color-alert-warning-bg: var(--bx-color-lorange-send);
     /* forms */
     --bx-form-input-border: #ced4da;
     --bx-form-text: #6c757d;

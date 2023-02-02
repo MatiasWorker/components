@@ -68,7 +68,7 @@ export interface InputFile<Data extends InputData, MetaData extends InputMetaDat
 }
 export interface InputCustom<Data extends InputData, MetaData extends InputMetaData, Value extends unknown> extends InputGeneric<Data, MetaData, Value> {
     type: "custom";
-    render?: (data: Data & MetaData, value: Value) => any;
+    render?: (data: Data & MetaData, value: Value, name: string, set: (nextData: InputData) => void) => any;
 }
 export declare type InputTypes<Data extends InputData, MetaData extends InputMetaData, Value> = InputSelect<Data, MetaData, Value> | InputRadio<Data, MetaData, Value> | InputText<Data, MetaData, Value> | InputNumber<Data, MetaData, Value> | InputCheckbox<Data, MetaData, Value> | InputDate<Data, MetaData, Value> | InputFile<Data, MetaData, Value> | InputEmail<Data, MetaData, Value> | InputCustom<Data, MetaData, Value> | InputTextArea<Data, MetaData, Value>;
 export declare type InputForm<Data extends InputData, MetaData extends InputMetaData> = {

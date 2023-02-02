@@ -1,83 +1,76 @@
-import { HTMLAttributes } from "react";
-import { Card, Props as PropsCard } from "@bxreact/card";
+import { Card } from "@bxreact/card";
+import { Grid } from "@bxreact/grid";
 import * as Icon from "@bxreact/icon";
+import { Label } from "@bxreact/label";
+import { ReactNode } from "react";
 import "./index.css";
+import { PuntoBlueItem } from "./item/item";
+import { PuntoBlueResponseItem } from "./types";
+export * from "./item/item";
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
-    title: string;
-    status: string;
-    schedule: {
-        [type: string]: { from: string; to: string }[];
-    };
-    address: string;
-    checked?: boolean;
-}
-
-export const Week = {
-    monday: "lun",
-    tuesday: "mar",
-    wednesday: "mir",
-    thursday: "jue",
-    friday: "vie",
-    saturday: "sab",
-    holidays: "festivos",
-};
-
-export function getHumanSchedule(data: Props["schedule"]) {
-    const list = Object.entries(data).reduce<{
-        [id: string]: string[];
-    }>((groups, [id, config]) => {
-        config.map((item) => {
-            const did = item.from + " - " + item.to;
-            groups[did] = groups[did] || [];
-            groups[did].push(id);
-        });
-        return groups;
-    }, {});
-
-    return Object.entries(list).map(
-        ([id, week]) =>
-            Week[week.at(0)] +
-            (week.length > 1 ? " - " + Week[week.at(-1)] : "") +
-            " " +
-            id
-    );
-}
-
-export function PuntoBlue({
-    title,
-    status,
-    schedule,
-    address,
-    checked,
-}: Props): JSX.Element {
-    const props: Omit<PropsCard, "children"> = {
-        bgColor: checked ? "blue" : "grey-up",
-        color: checked ? "white" : "unset",
-    };
-
+export function PuntoBlueList({
+    value,
+    options,
+    labelAlertUnselect = (
+        <>
+            Selecciona la <b>región y comuna</b> para ver los Puntos Blue
+            Express
+        </>
+    ),
+    labelTitle = <>Selecciona el Punto Blue Express</>,
+    labelDescription = <>{options.length} Puntos Blue Express</>,
+}: {
+    value?: string;
+    options: PuntoBlueResponseItem[];
+    labelTitle?: ReactNode;
+    labelDescription?: ReactNode;
+    labelAlertUnselect?: ReactNode;
+}): JSX.Element {
     return (
-        <Card {...props} className="bx-punto-blue" padding="md sm">
-            <div className="bx-punto-blue_left">
-                <div className="bx-punto-blue_title">
-                    <b>{title}</b>
-                </div>
-                <div className="bx-punto-blue_address">
-                    <Icon.Place
-                        size="1.25rem"
-                        color={checked ? "white" : "blue"}
-                    ></Icon.Place>
-                    <span>{address}</span>
-                </div>
-            </div>
-            <div className="bx-punto-blue_right">
-                <div className="bx-punto-blue_status">{status}</div>
-                <div className="bx-punto-blue_schedule">
-                    {getHumanSchedule(schedule).map((value) => (
-                        <div className="bx-punto-blue_date">{value}</div>
-                    ))}
-                </div>
-            </div>
-        </Card>
+        <Grid>
+            <Label
+                title={<h4>{labelTitle}</h4>}
+                detail={<hr className="bx-punto-blue_hr" />}
+            >
+                <div>{labelDescription}</div>
+            </Label>
+            <Grid gap="1rem">
+                {options.length ? (
+                    options.map(
+                        (
+                            { open_hours, agency_name, location, agency_id },
+                            i
+                        ) => (
+                            <PuntoBlueItem
+                                title={agency_name}
+                                schedule={open_hours}
+                                address={`${location.street_name} ${location.street_number}`}
+                                status="Abierto"
+                                checked={agency_id === value}
+                                value={agency_id}
+                            ></PuntoBlueItem>
+                        )
+                    )
+                ) : (
+                    <Card
+                        theme={"warning"}
+                        padding="sm"
+                        className="bx-punto-blue_alert"
+                        radius="xs"
+                    >
+                        <Label
+                            icon={
+                                <Icon.Warning
+                                    size="2rem"
+                                    color="orange"
+                                ></Icon.Warning>
+                            }
+                        >
+                            {labelAlertUnselect}
+                        </Label>
+                    </Card>
+                )}
+            </Grid>
+        </Grid>
     );
 }

@@ -34,6 +34,18 @@ h3 {
     font-size: var(--bx-font-size-title-3);
 }
 
+h4 {
+    font-size: var(--bx-font-size-text-1);
+}
+
+h5 {
+    font-size: var(--bx-font-size-text-2);
+}
+
+h3 {
+    font-size: var(--bx-font-size-text-3);
+}
+
 strong,
 b {
     font-weight: var(--bx-font-bold);

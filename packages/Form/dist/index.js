@@ -83,11 +83,14 @@ function Form({
           ...data,
           [prop]: value2
         });
+        const setAll = (nextData) => onChange({ ...data, ...nextData });
         return /* @__PURE__ */ jsx(InputCase, {
           input,
           data,
           value,
           set,
+          setAll,
+          name: prop,
           required: inputIsRequired(input, data)
         });
       })
@@ -99,11 +102,13 @@ function InputCase({
   required: required2,
   data,
   value,
-  set
+  set,
+  setAll,
+  name
 }) {
   switch (input.type) {
     case "custom":
-      return input?.render(data, value);
+      return input?.render(data, value, name, setAll);
     case "checkbox":
     case "switch":
       return /* @__PURE__ */ jsx(Label, {
@@ -164,7 +169,7 @@ function InputCase({
         status: input.status,
         children: /* @__PURE__ */ jsx(File, {
           required: required2,
-          onChange: ({ target }) => set(target.value)
+          onChange: (files) => set(files)
         })
       });
     case "select":
