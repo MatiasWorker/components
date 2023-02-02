@@ -129,7 +129,12 @@ export interface InputCustom<
     Value extends unknown
 > extends InputGeneric<Data, MetaData, Value> {
     type: "custom";
-    render?: (data: Data & MetaData, value: Value) => any;
+    render?: (
+        data: Data & MetaData,
+        value: Value,
+        name: string,
+        set: (nextData: InputData) => void
+    ) => any;
 }
 
 export type InputTypes<

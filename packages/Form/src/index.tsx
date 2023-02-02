@@ -94,12 +94,17 @@ export function Form<
                                     [prop]: value,
                                 });
 
+                            const setAll = (nextData) =>
+                                onChange({ ...data, ...nextData });
+
                             return (
                                 <InputCase
                                     input={input}
                                     data={data}
                                     value={value}
                                     set={set}
+                                    setAll={setAll}
+                                    name={prop}
                                     required={inputIsRequired(input, data)}
                                 ></InputCase>
                             );
@@ -116,16 +121,20 @@ function InputCase({
     data,
     value,
     set,
+    setAll,
+    name,
 }: {
     input: InputUnknown;
     data: InputData;
     value: any;
     required: boolean;
+    name: string;
     set(nextValue: any): void;
+    setAll(nextData: InputData): void;
 }) {
     switch (input.type) {
         case "custom":
-            return input?.render(data, value);
+            return input?.render(data, value, name, setAll);
         case "checkbox":
         case "switch":
             return (
@@ -208,7 +217,7 @@ function InputCase({
                 >
                     <File
                         required={required}
-                        onChange={({ target }) => set(target.value)}
+                        onChange={(files) => set(files)}
                     ></File>
                 </Label>
             );
