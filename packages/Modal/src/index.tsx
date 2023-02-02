@@ -5,9 +5,11 @@ import {
     CSSProperties,
     createContext,
     useContext,
+    useRef,
 } from "react";
 import { Header } from "@bxreact/header";
 import * as Icon from "@bxreact/icon";
+import useResizeObserver from "use-resize-observer";
 import "./index.css";
 
 export const ModalContext = createContext(() => {});
@@ -19,6 +21,7 @@ export function Modal({
     position = "fixed",
     onClosed,
     maxWidth,
+    enableCloseByBackground,
 }: {
     children: ReactNode;
     show?: boolean;
@@ -26,7 +29,11 @@ export function Modal({
     position?: "absolute" | "fixed";
     maxWidth?: string;
     onClosed?: () => void;
+    enableCloseByBackground?: boolean;
 }): JSX.Element {
+    const ref = useRef<any>();
+    useResizeObserver({ ref });
+
     const cssProps: CSSProperties = {};
 
     const [showFx, setShowFx] = useState(show);
@@ -45,18 +52,27 @@ export function Modal({
         <div
             className={`bx-modal bx-modal--${position} bx-modal--${
                 show ? "show" : "hide"
+            } bx-modal--${
+                ref?.current?.parentElement?.scrollHeight > window?.innerHeight
+                    ? "scroll"
+                    : "unscroll"
             }`}
             style={cssProps}
             onTransitionEnd={() => {
                 if (!show) setShowFx(false);
             }}
             onClick={(event) => {
-                if (event.currentTarget === event.target)
+                if (
+                    enableCloseByBackground &&
+                    event.currentTarget === event.target
+                )
                     onClosed && onClosed();
             }}
         >
             <ModalContext.Provider value={onClosed}>
-                <div className="bx-modal_content">{showFx && children}</div>
+                <div ref={ref} className="bx-modal_content">
+                    {showFx && children}
+                </div>
             </ModalContext.Provider>
         </div>
     );

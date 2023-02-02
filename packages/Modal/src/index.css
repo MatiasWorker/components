@@ -11,6 +11,11 @@
     justify-content: center;
     padding: 1rem;
     box-sizing: border-box;
+    overflow: auto;
+}
+
+.bx-modal.bx-modal--scroll {
+    align-items: start;
 }
 
 .bx-modal--fixed {
@@ -29,6 +34,8 @@
 .bx-modal_content {
     width: 100%;
     max-width: var(--bx-modal-max-width, var(--bx-card-max-width));
+    padding: 5% 0px;
+    box-sizing: border-box;
 }
 
 .bx-modal_content > .bx-modal_content {
