@@ -19,12 +19,14 @@ export function PuntoBlueList({
     ),
     labelTitle = <>Selecciona el Punto Blue Express</>,
     labelDescription = <>{options.length} Puntos Blue Express</>,
+    onChange,
 }: {
     value?: string;
     options: PuntoBlueResponseItem[];
     labelTitle?: ReactNode;
     labelDescription?: ReactNode;
     labelAlertUnselect?: ReactNode;
+    onChange?: (value: string) => any;
 }): JSX.Element {
     return (
         <Grid>
@@ -48,6 +50,7 @@ export function PuntoBlueList({
                                 status="Abierto"
                                 checked={agency_id === value}
                                 value={agency_id}
+                                onChange={onChange}
                             ></PuntoBlueItem>
                         )
                     )

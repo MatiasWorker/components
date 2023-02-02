@@ -12,6 +12,7 @@ export interface ItemProps {
     address: string;
     checked?: boolean;
     value?: string;
+    onChange?: (value: string) => any;
 }
 
 export const Week = {
@@ -52,7 +53,8 @@ export function PuntoBlueItem({
     address,
     checked,
     value,
-}: ItemProps & HTMLAttributes<HTMLDivElement>): JSX.Element {
+    onChange,
+}: ItemProps): JSX.Element {
     const props: Omit<PropsCard, "children"> = {
         bgColor: checked ? "blue" : "grey-up",
         color: checked ? "white" : "unset",
@@ -65,7 +67,9 @@ export function PuntoBlueItem({
                 className="bx-punto-blue-item_checkbox"
                 checked={checked}
                 value={value}
-                onChange={() => {}}
+                onChange={() => {
+                    onChange && onChange(value);
+                }}
             />
             <Card {...props} className="bx-punto-blue-item" padding="md sm">
                 <div className="bx-punto-blue-item_left">
