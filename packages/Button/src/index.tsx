@@ -1,5 +1,5 @@
 import "@bxreact/theme";
-import { MouseEventHandler } from "react";
+import { MouseEvent } from "react";
 import "./index.css";
 
 interface Props {
@@ -16,12 +16,14 @@ interface Props {
     color?: string;
     bgcolor?: string;
     wrap?: boolean;
-    onClick?: (event: MouseEventHandler<HTMLButtonElement>) => void;
+    preventDefault?: boolean;
+    onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
     children: any;
 }
 
 export function Button({
     onClick,
+    preventDefault,
     disabled,
     href,
     open,
@@ -54,7 +56,7 @@ export function Button({
 
     if (wrap) className.push(`bx-button--wrap`);
 
-    if ((onClick || href) && !disabled) className.push(`bx-button--pointer`);
+    if (!disabled) className.push(`bx-button--pointer`);
 
     if (color) {
         style[
@@ -71,7 +73,14 @@ export function Button({
     return (
         <Type
             className={className.join(" ")}
-            onClick={onClick as any}
+            onClick={
+                onClick
+                    ? (event: any) => {
+                          if (preventDefault) event?.preventDefault();
+                          onClick(event);
+                      }
+                    : null
+            }
             href={href}
             target={open ? "_blank" : null}
             disabled={disabled}
@@ -81,5 +90,3 @@ export function Button({
         </Type>
     );
 }
-
-<Button type="reset">s</Button>;
