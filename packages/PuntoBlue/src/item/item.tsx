@@ -1,4 +1,3 @@
-import { HTMLAttributes } from "react";
 import { Card, Props as PropsCard } from "@bxreact/card";
 import * as Icon from "@bxreact/icon";
 import "./item.css";

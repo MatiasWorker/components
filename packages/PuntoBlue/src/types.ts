@@ -7,8 +7,8 @@ export interface PuntoBlueResponseItem {
     };
     location: {
         geolocation: {
-            latitude: string;
-            longitude: string;
+            latitude: number;
+            longitude: number;
         };
         country_name: string;
         state_name: string;
