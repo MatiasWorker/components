@@ -28,6 +28,8 @@ export default {
 
 export const Default = (props) => <Input {...props}></Input>;
 
+export const DefaultLoading = (props) => <Input {...props} loading></Input>;
+
 Default.args = {
     size: "sm",
     disabled: false,

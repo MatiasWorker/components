@@ -25,6 +25,7 @@ type Props = {
     size?: "sm" | "md";
     status?: Status;
     reference?: Ref<HTMLInputElement>;
+    loading?: boolean;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export function Input({
@@ -36,6 +37,7 @@ export function Input({
     size,
     reference,
     status,
+    loading,
     ...props
 }: Props) {
     const [focused, setFocused] = useState(false);
@@ -57,27 +59,35 @@ export function Input({
                 "bx-form-input-container-focus": focused,
                 "bx-form-input-container-md": size === "md",
                 "bx-form-input-container-sm": size === "sm",
+                "bx-form-input--loading": loading,
             })} bx-form-input--status-${status}`}
         >
-            {leftIcon && (
+            {leftIcon && !loading && (
                 <div className="bx-form-icon-container bx-form-icon-left">
                     {leftIcon}
                 </div>
             )}
 
-            <input
-                {...props}
-                className={cs("bx-form-input-text bx-form-input-with-icon", {
-                    "bx-form-input-fullwidth": fullWidth,
-                })}
-                disabled={disabled}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                ref={reference}
-                onChange={(event) => props?.onChange(event)}
-            />
+            {loading ? (
+                <Icon.Loading size="1.5em"></Icon.Loading>
+            ) : (
+                <input
+                    {...props}
+                    className={cs(
+                        "bx-form-input-text bx-form-input-with-icon",
+                        {
+                            "bx-form-input-fullwidth": fullWidth,
+                        }
+                    )}
+                    disabled={disabled}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    ref={reference}
+                    onChange={(event) => props?.onChange(event)}
+                />
+            )}
 
-            {(rightIcon || status) && (
+            {(rightIcon || status) && !loading && (
                 <div className="bx-form-icon-container bx-form-icon-right">
                     {status ? (
                         <Icon.Warning size="1.5em"></Icon.Warning>

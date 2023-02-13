@@ -23,6 +23,10 @@
     font-family: var(--bx-font-secondary);
 }
 
+.bx-form-input--loading {
+    align-items: center;
+}
+
 .bx-form--disabled {
     cursor: not-allowed;
     opacity: 0.75;
