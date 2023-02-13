@@ -34,3 +34,4 @@ export const User = () => <Icon.User />;
 export const Medal = () => <Icon.Medal />;
 export const Invoice = () => <Icon.Invoice />;
 export const Currency = () => <Icon.Currency />;
+export const Loading = () => <Icon.Loading />;
