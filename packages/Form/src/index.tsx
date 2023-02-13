@@ -60,7 +60,7 @@ export function Form<
         >
             {Object.entries(viewForm)
                 .reduce((inputs, [prop, input]) => {
-                    if (types[prop]) {
+                    if (types?.[prop]) {
                         const next = types[prop](
                             input,
                             data,
