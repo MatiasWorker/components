@@ -143,6 +143,7 @@ function InputCase({
         column: ignoreConfig,
         show: ignoreShow,
         disabled: ignoreDisabled,
+        loading,
         //@ts-ignore
         render,
         //@ts-ignore
@@ -151,6 +152,8 @@ function InputCase({
     } = input;
 
     const currentValue = value ?? inputValue;
+
+    if (loading) return <Input loading disabled></Input>;
 
     switch (type) {
         case "custom":

@@ -34,6 +34,7 @@ export interface InputGeneric<
     description?: string;
     name?: string;
     column?: number;
+    loading?: boolean;
     tabIndex?: number;
     value?: Value;
     placeholder?: string;
