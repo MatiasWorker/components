@@ -48,8 +48,8 @@ export const logic = (form: Form, data: Data) => {
     ]) {
         if (isInputs(value)) {
             value.map((value) => filter([prop, value]));
-        } else if (value.logic) {
-            const logic = [value.logic].flat();
+        } else if (value.show) {
+            const logic = [value.show].flat();
             const nextValue = logic.find((value) =>
                 Object.entries(value).every(([prop, value]) => {
                     return Array.isArray(value)

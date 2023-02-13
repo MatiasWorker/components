@@ -32,7 +32,7 @@ export const Default = (props) => {
                     type: "text",
                     label: "RUT",
                     required: true,
-                    logic: {
+                    show: {
                         usuario: "matias",
                     },
                 },
@@ -41,9 +41,7 @@ export const Default = (props) => {
                     label: "Nombre de quien envía ",
                     required: false,
                     placeholder: "Ej: Soledad Casas / LAPSA ltda",
-                    config: {
-                        column: 2,
-                    },
+                    column: 2,
                 },
                 input3: {
                     type: "text",
@@ -54,9 +52,7 @@ export const Default = (props) => {
                     type: "email",
                     label: "Corre electronico",
                     required: true,
-                    config: {
-                        column: 2,
-                    },
+                    column: 2,
                 },
             }}
             onChange={(data) => {

@@ -13,12 +13,12 @@ import "./index.css";
 import {
     InputData,
     InputForm,
-    InputUnknown,
-    InputReplace,
     InputMetaData,
+    InputReplace,
+    InputUnknown,
 } from "./types";
-export { InputTypes, InputForm, InputUnknown } from "./types";
-import { logic, inputIsRequired } from "./utils";
+import { inputIsRequired, logic } from "./utils";
+export { InputForm, InputTypes, InputUnknown } from "./types";
 export { logic, required } from "./utils";
 
 export interface Props<
@@ -76,11 +76,11 @@ export function Form<
                     }
                     return inputs;
                 }, [])
-                .reduce((cols, [prop, input]) => {
-                    const id = input?.config?.column || 1;
+                .reduce((cols, [prop, input], tabIndex) => {
+                    const id = input?.column || 1;
 
                     cols[id] = cols[id] || [];
-                    cols[id].push([prop, input]);
+                    cols[id].push([prop, { ...input, tabIndex: tabIndex + 1 }]);
 
                     return cols;
                 }, [])
@@ -132,31 +132,53 @@ function InputCase({
     set(nextValue: any): void;
     setAll(nextData: InputData): void;
 }) {
-    switch (input.type) {
+    const {
+        type,
+        label,
+        detail,
+        description,
+        status,
+        value: inputValue,
+        required: ignoreRequired,
+        column: ignoreConfig,
+        show: ignoreShow,
+        disabled: ignoreDisabled,
+        //@ts-ignore
+        render,
+        //@ts-ignore
+        options: ignoreOptions,
+        ...unknownProps
+    } = input;
+
+    const currentValue = value ?? inputValue;
+
+    switch (type) {
         case "custom":
-            return input?.render(data, value, name, setAll);
+            return render && render(data, value, name, setAll);
         case "checkbox":
         case "switch":
             return (
                 <Label
                     required={required}
                     icon={
-                        input.type === "checkbox" ? (
+                        type === "checkbox" ? (
                             <Checkbox
+                                {...unknownProps}
                                 checked={!!value}
                                 onChange={({ target }) => set(target.checked)}
                             />
                         ) : (
                             <Switch
+                                {...unknownProps}
                                 checked={!!value}
                                 onChange={(checked) => set(checked)}
                             />
                         )
                     }
-                    title={input.label}
-                    detail={input.detail}
-                    description={input.description}
-                    status={input.status}
+                    title={label}
+                    detail={detail}
+                    description={description}
+                    status={status}
                 ></Label>
             );
         case "text":
@@ -166,22 +188,23 @@ function InputCase({
             return (
                 <Label
                     required={required}
-                    title={input.label}
-                    detail={input.detail}
-                    description={input.description}
-                    status={input.status}
+                    title={label}
+                    detail={detail}
+                    description={description}
+                    status={status}
                 >
                     <Input
+                        {...unknownProps}
                         required={required}
-                        type={input.type}
-                        status={input.status}
+                        type={type}
+                        status={status}
                         placeholder={input.placeholder}
-                        value={value || input.value}
+                        value={currentValue}
                         onChange={({ target }) =>
                             set(
-                                input.type === "number"
+                                type === "number"
                                     ? target.valueAsNumber
-                                    : input.type === "date"
+                                    : type === "date"
                                     ? target.valueAsDate
                                     : target.value
                             )
@@ -193,15 +216,16 @@ function InputCase({
             return (
                 <Label
                     required={required}
-                    title={input.label}
-                    detail={input.detail}
-                    description={input.description}
-                    status={input.status}
+                    title={label}
+                    detail={detail}
+                    description={description}
+                    status={status}
                 >
                     <Textarea
+                        {...unknownProps}
                         required={required}
                         placeholder={input.placeholder}
-                        value={value || input.value}
+                        value={currentValue}
                         onChange={({ target }) => set(target.value)}
                     ></Textarea>
                 </Label>
@@ -210,12 +234,13 @@ function InputCase({
             return (
                 <Label
                     required={required}
-                    title={input.label}
-                    detail={input.detail}
-                    description={input.description}
-                    status={input.status}
+                    title={label}
+                    detail={detail}
+                    description={description}
+                    status={status}
                 >
                     <File
+                        {...unknownProps}
                         required={required}
                         onChange={(files) => set(files)}
                     ></File>
@@ -225,12 +250,13 @@ function InputCase({
             return (
                 <Label
                     required={required}
-                    title={input.label}
-                    detail={input.detail}
-                    description={input.description}
-                    status={input.status}
+                    title={label}
+                    detail={detail}
+                    description={description}
+                    status={status}
                 >
                     <Select
+                        {...unknownProps}
                         required={required}
                         placeholder={input.placeholder}
                         value={value}

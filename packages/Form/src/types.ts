@@ -21,7 +21,7 @@ export type Logic<Data extends InputData> =
 export interface InputLogic<Data extends InputData> {
     disabled?: boolean | Logic<Data>;
     required?: boolean | Logic<Data>;
-    logic?: Logic<Data> | Logic<Data>[];
+    show?: Logic<Data> | Logic<Data>[];
 }
 
 export interface InputGeneric<
@@ -33,9 +33,8 @@ export interface InputGeneric<
     detail?: string;
     description?: string;
     name?: string;
-    config?: {
-        column?: number;
-    };
+    column?: number;
+    tabIndex?: number;
     value?: Value;
     placeholder?: string;
     status?: Status;
