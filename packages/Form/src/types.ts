@@ -121,6 +121,7 @@ export interface InputFile<
     Value extends unknown
 > extends InputGeneric<Data, MetaData, Value> {
     type: "file";
+    accept?: string;
 }
 
 export interface InputCustom<
