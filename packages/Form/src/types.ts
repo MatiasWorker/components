@@ -19,8 +19,8 @@ export type Logic<Data extends InputData> =
       };
 
 export interface InputLogic<Data extends InputData> {
-    disabled?: boolean | Logic<Data>;
-    required?: boolean | Logic<Data>;
+    disabled?: boolean | Logic<Data> | Logic<Data>[];
+    required?: boolean | Logic<Data> | Logic<Data>[];
     show?: Logic<Data> | Logic<Data>[];
 }
 

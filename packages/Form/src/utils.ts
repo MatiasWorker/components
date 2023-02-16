@@ -70,8 +70,13 @@ export const logic = (form: Form, data: Data) => {
 export const inputIsRequired = (input: InputUnknown, data: Data) => {
     if (input.required) {
         if (isBoolean(input.required)) return true;
-        return Object.entries(input.required).some(
-            ([prop, value]) => data[prop] === value
-        );
+
+        return [input.required]
+            .flat()
+            .some((group) =>
+                Object.entries(group).every(([prop, value]) =>
+                    [value].flat().includes(data[prop])
+                )
+            );
     }
 };

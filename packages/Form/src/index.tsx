@@ -84,8 +84,8 @@ export function Form<
 
                     return cols;
                 }, [])
-                .map((col) => (
-                    <div className="bx-form_column">
+                .map((col, i) => (
+                    <div className="bx-form_column" key={i}>
                         {col.map(([prop, input]: [string, InputUnknown]) => {
                             const value = data[prop];
                             const set = (value) =>
@@ -96,7 +96,6 @@ export function Form<
 
                             const setAll = (nextData) =>
                                 onChange({ ...data, ...nextData });
-
                             return (
                                 <InputCase
                                     input={input}
@@ -105,6 +104,7 @@ export function Form<
                                     set={set}
                                     setAll={setAll}
                                     name={prop}
+                                    key={prop}
                                     required={inputIsRequired(input, data)}
                                 ></InputCase>
                             );

@@ -31,7 +31,9 @@ export const Default = (props) => {
                 input2: {
                     type: "text",
                     label: "RUT",
-                    required: true,
+                    required: {
+                        usuario: "matias",
+                    },
                     show: {
                         usuario: "matias",
                     },
