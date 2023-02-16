@@ -5,7 +5,7 @@ import "./item.css";
 export interface ItemProps {
     title: string;
     status: string;
-    schedule: {
+    schedule?: {
         [type: string]: { from: string; to: string }[];
     };
     address: string;
@@ -83,16 +83,20 @@ export function PuntoBlueItem({
                         <span>{address}</span>
                     </div>
                 </div>
-                <div className="bx-punto-blue-item_right">
-                    <div className="bx-punto-blue-item_status">{status}</div>
-                    <div className="bx-punto-blue-item_schedule">
-                        {getHumanSchedule(schedule).map((value) => (
-                            <div className="bx-punto-blue-item_date">
-                                {value}
-                            </div>
-                        ))}
+                {schedule && (
+                    <div className="bx-punto-blue-item_right">
+                        <div className="bx-punto-blue-item_status">
+                            {status}
+                        </div>
+                        <div className="bx-punto-blue-item_schedule">
+                            {getHumanSchedule(schedule).map((value) => (
+                                <div className="bx-punto-blue-item_date">
+                                    {value}
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                </div>
+                )}
             </Card>
         </label>
     );

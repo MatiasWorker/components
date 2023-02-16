@@ -17,8 +17,16 @@ export function PuntoBlueList({
             Express
         </>
     ),
+    labelAlertEmpty = (
+        <>
+            ¡Lo sentimos! Por el momento no tenemos un punto Blue Express
+            disponible en esta zona. Te invitamos a buscar una comuna cercana.
+        </>
+    ),
     labelTitle = <>Selecciona el Punto Blue Express</>,
     labelDescription = <>{options.length} Puntos Blue Express</>,
+    schedule,
+    empty,
     onChange,
 }: {
     value?: string;
@@ -26,6 +34,9 @@ export function PuntoBlueList({
     labelTitle?: ReactNode;
     labelDescription?: ReactNode;
     labelAlertUnselect?: ReactNode;
+    labelAlertEmpty?: ReactNode;
+    schedule?: boolean;
+    empty?: boolean;
     onChange?: (value: string) => any;
 }): JSX.Element {
     return (
@@ -37,7 +48,7 @@ export function PuntoBlueList({
                 <div>{labelDescription}</div>
             </Label>
             <Grid gap="1rem">
-                {options.length ? (
+                {options.length && !empty ? (
                     options.map(
                         (
                             { open_hours, agency_name, location, agency_id },
@@ -45,7 +56,7 @@ export function PuntoBlueList({
                         ) => (
                             <PuntoBlueItem
                                 title={agency_name}
-                                schedule={open_hours}
+                                schedule={schedule ? open_hours : null}
                                 address={`${location.street_name} ${location.street_number}`}
                                 status="Abierto"
                                 checked={agency_id === value}
@@ -69,7 +80,7 @@ export function PuntoBlueList({
                                 ></Icon.Warning>
                             }
                         >
-                            {labelAlertUnselect}
+                            {empty ? labelAlertEmpty : labelAlertUnselect}
                         </Label>
                     </Card>
                 )}

@@ -156,8 +156,11 @@ const data = [
 
 export default {
     title: "Business/Punto blue",
+    args: {
+        empty: false,
+    },
 };
 
-export const Default = () => (
-    <PuntoBlueList value="" options={data as any}></PuntoBlueList>
+export const Default = (props) => (
+    <PuntoBlueList {...props} value="" options={data as any}></PuntoBlueList>
 );
