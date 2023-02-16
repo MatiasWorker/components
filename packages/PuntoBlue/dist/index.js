@@ -2,7 +2,7 @@ import {
   PuntoBlueItem,
   Week,
   getHumanSchedule
-} from "./chunk-T4MSN55S.js";
+} from "./chunk-MSLFUIZH.js";
 
 // src/index.tsx
 import { Card } from "@bxreact/card";
@@ -160,6 +160,9 @@ function PuntoBlueList({
       " para ver los Puntos Blue Express"
     ]
   }),
+  labelAlertEmpty = /* @__PURE__ */ jsx2(Fragment, {
+    children: "\xA1Lo sentimos! Por el momento no tenemos un punto Blue Express disponible en esta zona. Te invitamos a buscar una comuna cercana."
+  }),
   labelTitle = /* @__PURE__ */ jsx2(Fragment, {
     children: "Selecciona el Punto Blue Express"
   }),
@@ -169,6 +172,8 @@ function PuntoBlueList({
       " Puntos Blue Express"
     ]
   }),
+  schedule,
+  empty,
   onChange
 }) {
   return /* @__PURE__ */ jsxs2(Grid, {
@@ -186,10 +191,10 @@ function PuntoBlueList({
       }),
       /* @__PURE__ */ jsx2(Grid, {
         gap: "1rem",
-        children: options.length ? options.map(
+        children: options.length && !empty ? options.map(
           ({ open_hours, agency_name, location, agency_id }, i) => /* @__PURE__ */ jsx2(PuntoBlueItem, {
             title: agency_name,
-            schedule: open_hours,
+            schedule: schedule ? open_hours : null,
             address: `${location.street_name} ${location.street_number}`,
             status: "Abierto",
             checked: agency_id === value,
@@ -206,7 +211,7 @@ function PuntoBlueList({
               size: "2rem",
               color: "orange"
             }),
-            children: labelAlertUnselect
+            children: empty ? labelAlertEmpty : labelAlertUnselect
           })
         })
       })

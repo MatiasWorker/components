@@ -95,7 +95,8 @@ function PuntoBlueItem({
   schedule,
   address,
   checked,
-  value
+  value,
+  onChange
 }) {
   const props = {
     bgColor: checked ? "blue" : "grey-up",
@@ -110,6 +111,7 @@ function PuntoBlueItem({
         checked,
         value,
         onChange: () => {
+          onChange && onChange(value);
         }
       }),
       /* @__PURE__ */ jsxs(Card, {
@@ -140,7 +142,7 @@ function PuntoBlueItem({
               })
             ]
           }),
-          /* @__PURE__ */ jsxs("div", {
+          schedule && /* @__PURE__ */ jsxs("div", {
             className: "bx-punto-blue-item_right",
             children: [
               /* @__PURE__ */ jsx("div", {

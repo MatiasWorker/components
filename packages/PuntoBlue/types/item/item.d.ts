@@ -2,7 +2,7 @@ import "./item.css";
 export interface ItemProps {
     title: string;
     status: string;
-    schedule: {
+    schedule?: {
         [type: string]: {
             from: string;
             to: string;
