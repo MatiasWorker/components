@@ -47,7 +47,7 @@ export function PuntoBlueList({
             >
                 <div>{labelDescription}</div>
             </Label>
-            <Grid gap="1rem">
+            <div className="bx-punto-blue_scroll">
                 {options.length && !empty ? (
                     options.map(
                         (
@@ -84,7 +84,7 @@ export function PuntoBlueList({
                         </Label>
                     </Card>
                 )}
-            </Grid>
+            </div>
         </Grid>
     );
 }

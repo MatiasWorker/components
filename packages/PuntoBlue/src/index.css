@@ -8,3 +8,10 @@
     background: var(--bx-color-orange);
     border: none;
 }
+
+.bx-punto-blue_scroll {
+    overflow: auto;
+    display: grid;
+    gap: 1rem;
+    max-height: 380px;
+}
