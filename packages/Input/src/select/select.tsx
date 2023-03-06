@@ -15,7 +15,7 @@ type Props = {
     rightIcon?: ReactNode;
     size?: "sm" | "md";
     fill?: string;
-    options?: { value: string; label: string }[];
+    options?: { value: string; label: string; disabled?: boolean }[];
 } & SelectHTMLAttributes<HTMLSelectElement>;
 
 export function Select({
@@ -84,7 +84,11 @@ export function Select({
                     </option>
                 )}
                 {options.map((option, i) => (
-                    <option key={i} value={option.value}>
+                    <option
+                        key={i}
+                        value={option.value}
+                        disabled={option.disabled}
+                    >
                         {option.label}
                     </option>
                 ))}
