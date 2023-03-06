@@ -1,4 +1,29 @@
-.bx-form-input {
+import {
+  Checkbox
+} from "./chunk-UYOHTXH7.js";
+import {
+  File
+} from "./chunk-BFCRS4UC.js";
+import {
+  Radio
+} from "./chunk-UC4N6EJY.js";
+import {
+  Select
+} from "./chunk-QATD5B3U.js";
+import {
+  Textarea
+} from "./chunk-7CIPGOPY.js";
+
+// src/index.tsx
+import cs from "classnames";
+import {
+  useCallback,
+  useState
+} from "react";
+
+// src/index.css
+import css from "@bxreact/theme/css";
+var src_default = css`.bx-form-input {
     --color: var(--bx-color-black);
     --color-placeholder: var(--bx-color-grey-play);
     --border-color: var(--bx-color-lblue-well);
@@ -70,12 +95,15 @@
     color: currentColor;
     transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
 .bx-form-input-container-sm {
     height: 38px;
 }
+
 .bx-form-input-container-fill {
     background: white;
 }
+
 .bx-form-input-text {
     border: none;
     appearance: none;
@@ -98,6 +126,7 @@
     height: 100%;
     cursor: pointer;
 }
+
 .bx-form-select-container {
     position: relative;
     display: flex;
@@ -112,12 +141,15 @@
     border-radius: var(--bx-input-sm-radius);
     transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
 .bx-form-select-container-md {
     height: var(--bx-input-sm-height);
 }
+
 .bx-form-select-container-sm {
     height: 40px;
 }
+
 .bx-form-select {
     display: flex;
     z-index: 2;
@@ -137,6 +169,7 @@
     border-radius: var(--bx-input-sm-radius);
     transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
 .bx-form-select-arrow {
     position: absolute;
     z-index: 1;
@@ -151,6 +184,7 @@
     transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     color: var(--bx-color-black);
 }
+
 .bx-form-toggle-container {
     display: inline-flex;
     width: auto;
@@ -160,6 +194,7 @@
     padding: 3px 0;
     position: relative;
 }
+
 .bx-form-toggle-container-sm {
     --toggle-size: 1.25rem;
     --toggle-color: var(--bx-color-orange);
@@ -167,6 +202,7 @@
     --toggle-width: 1.67rem;
     --toggle-height: 0.835rem;
 }
+
 .bx-form-toggle-container-md {
     --toggle-size: 1.25rem;
     --toggle-color: var(--bx-color-orange);
@@ -174,6 +210,7 @@
     --toggle-width: 1.75rem;
     --toggle-height: 0.875rem;
 }
+
 .bx-form-toggle-container-lg {
     --toggle-size: 1.25rem;
     --toggle-color: var(--bx-color-orange);
@@ -181,6 +218,7 @@
     --toggle-width: 2rem;
     --toggle-height: 1rem;
 }
+
 .bx-form-toggle-input {
     opacity: 0;
     outline: none;
@@ -192,6 +230,7 @@
     z-index: -1;
     background-color: transparent;
 }
+
 .bx-form-toggle {
     border-radius: var(--bx-input-sm-radius);
     width: var(--toggle-width);
@@ -205,9 +244,11 @@
     padding: 0;
     position: relative;
 }
+
 .bx-form-toggle-is-checked {
     background-color: var(--toggle-color);
 }
+
 .bx-form-toggle-inner {
     width: calc(var(--toggle-height) - 2px);
     height: calc(var(--toggle-height) - 2px);
@@ -220,10 +261,12 @@
     border-radius: 50%;
     background-color: #ffffff;
 }
+
 .bx-form-toggle-inner-is-checked {
     left: calc(100% - (var(--toggle-height) - 2px));
     box-shadow: none;
 }
+
 .bx-form-textarea-container {
     display: inline-flex;
     width: 100%;
@@ -236,11 +279,13 @@
     transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     user-select: none;
 }
+
 .bx-form-textarea-container-focus {
     border: 1px solid var(--bx-color-blue-cross-2);
     outline: none;
     box-shadow: 0 0 0 0.15rem rgba(56, 22, 98, 0.25);
 }
+
 .bx-form-textarea {
     background-color: transparent;
     box-shadow: none;
@@ -254,9 +299,11 @@
     padding: 8pt;
     font-family: unset;
 }
+
 .bx-form-textarea:focus {
     outline: none;
 }
+
 .bx-form-checkbox-container-disabled,
 .bx-form-toggle-container-disabled,
 .bx-form-textarea-container-disabled {
@@ -264,29 +311,36 @@
     cursor: not-allowed;
     opacity: 0.75;
 }
+
 .bx-form-checkbox:disabled,
 .bx-form-textarea:disabled,
 .bx-form-checkbox[disabled],
 .bx-form-textarea[disabled] {
     cursor: not-allowed;
 }
+
 .bx-form-input:focus {
     border: 1px solid var(--bx-color-blue-cross-2);
     outline: none;
     box-shadow: 0 0 0 0.15rem rgba(56, 22, 98, 0.25);
 }
+
 .bx-form-input-fullwidth {
     width: 100%;
 }
+
 .bx-form-select-fullwidth {
     width: 100%;
 }
+
 .bx-form-input-with-icon:focus {
     outline: none;
 }
+
 .bx-form-select:focus {
     outline: none;
 }
+
 .bx-form-input:disabled,
 .bx-form-input[disabled],
 .bx-form-input[readonly],
@@ -297,42 +351,51 @@
     cursor: not-allowed;
     background-color: var(--bx-form-disabled);
 }
+
 .bx-form-select:disabled,
 .bx-form-select[disabled],
 .bx-form-select[readonly] {
     opacity: 1;
     cursor: not-allowed;
 }
+
 .bx-form-input-invalid {
     border: 1px solid var(--bx-fv-invalid);
 }
+
 .bx-form-input:focus.bx-form-input-invalid {
     border: 1px solid var(--bx-fv-invalid);
     box-shadow: 0 0 0 0.15rem var(--bx-fv-invalid-rgba) !important;
 }
+
 .bx-form-input-invalid svg {
     color: var(--bx-fv-invalid);
 }
+
 .bx-form-input-container-disabled {
     opacity: 1;
     cursor: not-allowed;
     background-color: var(--bx-form-disabled);
 }
+
 .bx-form-select-container-disabled {
     opacity: 1;
     cursor: not-allowed;
     background-color: var(--bx-form-disabled);
 }
+
 .bx-form-input-container-focus {
     border: 1px solid var(--bx-color-blue-cross-2);
     outline: none;
     box-shadow: 0 0 0 0.15rem rgba(56, 22, 98, 0.25);
 }
+
 .bx-form-select-container-focus {
     border: 1px solid var(--bx-color-blue-cross-2);
     outline: none;
     box-shadow: 0 0 0 0.15rem rgba(56, 22, 98, 0.25);
 }
+
 .bx-form-text {
     margin-top: 0.25rem;
     color: var(--bx-form-text);
@@ -344,18 +407,22 @@
     margin-bottom: 0.813rem;
     font-size: 14px;
 }
+
 .bx-form-feedback {
     display: none;
     width: 100%;
     margin-top: 0.25rem;
     font-size: 10px;
 }
+
 .bx-form-feedback-valid {
     color: var(--bx-fv-valid);
 }
+
 .bx-form-feedback-invalid {
     color: var(--bx-fv-invalid);
 }
+
 .bx-form-feedback-is-active {
     display: block;
 }
@@ -387,12 +454,11 @@
     padding: 0 1rem;
     z-index: 2;
     font-family: unset;
-    color: var(--color);
+    color: var(--color-placeholder);
 }
 
-.bx-form-input-select option[disabled] {
-    color: rgba(0, 0, 0, 0.4);
-    cursor: not-allowed;
+.bx-form-input-select--with-value {
+    color: var(--color);
 }
 
 .bx-form-input-select_icon {
@@ -401,3 +467,77 @@
     transform: translateY(-40%);
     position: absolute;
 }
+`;
+
+// src/index.tsx
+import * as Icon from "@bxreact/icon";
+import { FieldSwitch } from "@bxreact/field-switch";
+import { jsx, jsxs } from "react/jsx-runtime";
+function Input({
+  disabled,
+  error,
+  fullWidth,
+  leftIcon,
+  rightIcon,
+  size,
+  reference,
+  status,
+  loading,
+  ...props
+}) {
+  const [focused, setFocused] = useState(false);
+  const handleFocus = useCallback(() => {
+    setFocused(true);
+  }, []);
+  const handleBlur = useCallback(() => {
+    setFocused(false);
+  }, []);
+  return /* @__PURE__ */ jsxs("div", {
+    className: `${cs("bx-form-input", {
+      "bx-form-input-container-disabled": disabled,
+      "bx-form-input-invalid": error,
+      "bx-form-input-fullwidth": fullWidth,
+      "bx-form-input-container-focus": focused,
+      "bx-form-input-container-md": size === "md",
+      "bx-form-input-container-sm": size === "sm",
+      "bx-form-input--loading": loading
+    })} bx-form-input--status-${status}`,
+    children: [
+      leftIcon && !loading && /* @__PURE__ */ jsx("div", {
+        className: "bx-form-icon-container bx-form-icon-left",
+        children: leftIcon
+      }),
+      loading ? /* @__PURE__ */ jsx(Icon.Loading, {
+        size: "1.5em"
+      }) : /* @__PURE__ */ jsx("input", {
+        ...props,
+        className: cs(
+          "bx-form-input-text bx-form-input-with-icon",
+          {
+            "bx-form-input-fullwidth": fullWidth
+          }
+        ),
+        disabled,
+        onFocus: handleFocus,
+        onBlur: handleBlur,
+        ref: reference,
+        onChange: (event) => props?.onChange(event)
+      }),
+      (rightIcon || status) && !loading && /* @__PURE__ */ jsx("div", {
+        className: "bx-form-icon-container bx-form-icon-right",
+        children: status ? /* @__PURE__ */ jsx(Icon.Warning, {
+          size: "1.5em"
+        }) : rightIcon
+      })
+    ]
+  });
+}
+export {
+  Checkbox,
+  File,
+  Input,
+  Radio,
+  Select,
+  FieldSwitch as Switch,
+  Textarea
+};
