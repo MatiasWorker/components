@@ -21,6 +21,7 @@ export const Week = {
     thursday: "jue",
     friday: "vie",
     saturday: "sab",
+    sunday: "dom",
     holidays: "festivos",
 };
 
@@ -39,7 +40,9 @@ export function getHumanSchedule(data: ItemProps["schedule"]) {
     return Object.entries(list).map(
         ([id, week]) =>
             Week[week.at(0)] +
-            (week.length > 1 ? " - " + Week[week.at(-1)] : "") +
+            (week.length > 1 && Week[week.at(-1)]
+                ? " - " + Week[week.at(-1)]
+                : "") +
             " " +
             id
     );
