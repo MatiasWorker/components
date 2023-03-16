@@ -67,26 +67,18 @@ export function Input({
                     {leftIcon}
                 </div>
             )}
-
-            {loading ? (
-                <Icon.Loading size="1.5em"></Icon.Loading>
-            ) : (
-                <input
-                    {...props}
-                    className={cs(
-                        "bx-form-input-text bx-form-input-with-icon",
-                        {
-                            "bx-form-input-fullwidth": fullWidth,
-                        }
-                    )}
-                    disabled={disabled}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
-                    ref={reference}
-                    onChange={(event) => props?.onChange(event)}
-                />
-            )}
-
+            <input
+                {...props}
+                className={cs("bx-form-input-text bx-form-input-with-icon", {
+                    "bx-form-input-fullwidth": fullWidth,
+                    "bx-form-input-hide": loading,
+                })}
+                disabled={disabled}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                ref={reference}
+                onChange={(event) => props?.onChange(event)}
+            />
             {(rightIcon || status) && !loading && (
                 <div className="bx-form-icon-container bx-form-icon-right">
                     {status ? (
@@ -96,6 +88,7 @@ export function Input({
                     )}
                 </div>
             )}
+            {loading && <Icon.Loading size="1.5em"></Icon.Loading>}
         </div>
     );
 }

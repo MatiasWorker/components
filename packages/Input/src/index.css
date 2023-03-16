@@ -401,3 +401,7 @@
     transform: translateY(-40%);
     position: absolute;
 }
+
+.bx-form-input-hide {
+    display: none !important;
+}
