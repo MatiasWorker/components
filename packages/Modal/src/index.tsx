@@ -12,7 +12,9 @@ import * as Icon from "@bxreact/icon";
 import useResizeObserver from "use-resize-observer";
 import "./index.css";
 
-export const ModalContext = createContext(() => {});
+export const ModalContext = createContext(
+    (event: any) => event && event?.preventDefault?.()
+);
 
 export function Modal({
     children,
