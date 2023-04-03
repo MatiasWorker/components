@@ -37,6 +37,7 @@ export function Button({
     color,
     bgcolor,
     outline,
+    type,
 }: Props): JSX.Element {
     const Type = href ? "a" : "button";
     const className: string[] = ["bx-button"];
@@ -72,6 +73,7 @@ export function Button({
 
     return (
         <Type
+            type={type}
             className={className.join(" ")}
             onClick={
                 onClick
