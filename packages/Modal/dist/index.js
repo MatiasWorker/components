@@ -72,8 +72,9 @@ var src_default = css`.bx-modal {
 
 // src/index.tsx
 import { jsx } from "react/jsx-runtime";
-var ModalContext = createContext(() => {
-});
+var ModalContext = createContext(
+  (event) => event?.preventDefault?.()
+);
 function Modal({
   children,
   show,
@@ -126,6 +127,7 @@ function ModalHeader({
     small,
     title: children,
     rightIcon: /* @__PURE__ */ jsx("button", {
+      type: "button",
       className: "bx-modal_closed",
       onClick: onClosed,
       children: /* @__PURE__ */ jsx(Icon.Closed, {})

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import "./index.css";
-export declare const ModalContext: import("react").Context<() => void>;
+export declare const ModalContext: import("react").Context<(event: any) => any>;
 export declare function Modal({ children, show, zIndex, position, onClosed, maxWidth, enableCloseByBackground, }: {
     children: ReactNode;
     show?: boolean;

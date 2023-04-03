@@ -12,8 +12,8 @@ import * as Icon from "@bxreact/icon";
 import useResizeObserver from "use-resize-observer";
 import "./index.css";
 
-export const ModalContext = createContext(
-    (event: any) => event && event?.preventDefault?.()
+export const ModalContext = createContext((event: any) =>
+    event?.preventDefault?.()
 );
 
 export function Modal({
@@ -93,7 +93,11 @@ export function ModalHeader({
             small={small}
             title={children}
             rightIcon={
-                <button className="bx-modal_closed" onClick={onClosed}>
+                <button
+                    type="button"
+                    className="bx-modal_closed"
+                    onClick={onClosed}
+                >
                     <Icon.Closed />
                 </button>
             }
