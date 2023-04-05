@@ -27,7 +27,7 @@ export function TableWrapper<Data extends { [prop: string]: any }[]>({
     labelPaginations = options.labelPaginations,
     ...propsTable
 }: TableWrapperProps<Data>) {
-    const [pagesPerPage, setPagesPerPage] = useState(options.paginations[0]);
+    const [pagesPerPage, setPagesPerPage] = useState(paginations[0]);
 
     const pages = usePages(data, {
         page: 0,
