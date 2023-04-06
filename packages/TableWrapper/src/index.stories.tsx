@@ -39,6 +39,7 @@ export function ExampleTable({ collapse }: typeof ExampleTable.args) {
     return (
         <TableWrapper
             collapse={collapse}
+            paginations={[3, 50]}
             data={data}
             header={{
                 firstName: "Nombre",
