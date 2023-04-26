@@ -51,6 +51,7 @@ export const ExampleWithRightIcon = (props) => (
 
 export const ExampleSelect = (props) => (
     <Select
+        {...props}
         placeholder="Select option"
         value={props.value}
         options={[
