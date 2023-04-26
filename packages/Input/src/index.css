@@ -405,3 +405,14 @@
 .bx-form-input-hide {
     display: none !important;
 }
+
+.bx-form-input-type-select.bx-form-input--loading select {
+    display: none;
+}
+
+.bx-form-input_loading {
+    height: 100%;
+    display: grid;
+    align-items: center;
+    padding: 0px 1rem;
+}

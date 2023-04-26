@@ -11,6 +11,7 @@ export default {
         disabled: { control: "boolean" },
         checked: { control: "boolean" },
         fullWidth: { control: "boolean" },
+        loading: { control: "boolean" },
         name: { control: "text" },
         value: { control: "text" },
         placeholder: { control: "text" },

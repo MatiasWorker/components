@@ -1,4 +1,4 @@
-import { Down } from "@bxreact/icon";
+import { Down, Loading } from "@bxreact/icon";
 import cs from "classnames";
 import {
     SelectHTMLAttributes,
@@ -15,6 +15,7 @@ type Props = {
     rightIcon?: ReactNode;
     size?: "sm" | "md";
     fill?: string;
+    loading?: boolean;
     options?: { value: string; label: string; disabled?: boolean }[];
 } & SelectHTMLAttributes<HTMLSelectElement>;
 
@@ -27,11 +28,14 @@ export function Select({
     size,
     options,
     disabled,
+    loading,
     ...props
 }: Props) {
     const [focused, setFocused] = useState(false);
 
     const [withValue, setWithValue] = useState<boolean>(!!props.value);
+
+    disabled = disabled || loading;
 
     const handleFocus = useCallback(() => {
         setFocused(true);
@@ -57,8 +61,14 @@ export function Select({
                 "bx-form-input-container-focus": focused,
                 "bx-form-input-container-md": size === "md",
                 "bx-form-input-container-sm": size === "sm",
+                "bx-form-input--loading": loading,
             })}
         >
+            {loading && (
+                <div className="bx-form-input_loading">
+                    <Loading size="1.5em"></Loading>
+                </div>
+            )}
             <select
                 {...props}
                 className={`bx-form-input-select ${
@@ -93,9 +103,11 @@ export function Select({
                     </option>
                 ))}
             </select>
-            <div className="bx-form-input-select_icon">
-                <Down size="1em" color="lblue-well"></Down>
-            </div>
+            {!loading && (
+                <div className="bx-form-input-select_icon">
+                    <Down size="1em" color="lblue-well"></Down>
+                </div>
+            )}
         </div>
     );
 }

@@ -1,7 +1,7 @@
 import "@bxreact/theme";
 import { MouseEvent } from "react";
 import "./index.css";
-
+import { Loading } from "@bxreact/icon";
 interface Props {
     size?: "xs" | "sm" | "md" | "lg";
     href?: string;
@@ -16,6 +16,7 @@ interface Props {
     color?: string;
     bgcolor?: string;
     wrap?: boolean;
+    loading?: boolean;
     preventDefault?: boolean;
     onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
     children: any;
@@ -37,11 +38,14 @@ export function Button({
     color,
     bgcolor,
     outline,
+    loading,
     type,
 }: Props): JSX.Element {
     const Type = href ? "a" : "button";
     const className: string[] = ["bx-button"];
     const style = {};
+
+    disabled = disabled || loading;
 
     if (size) className.push(`bx-button--${size}`);
 
@@ -88,6 +92,7 @@ export function Button({
             disabled={disabled}
             style={style}
         >
+            {loading && <Loading></Loading>}
             {children}
         </Type>
     );

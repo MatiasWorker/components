@@ -25,12 +25,13 @@ export default {
         icon: false,
         disabled: false,
         open: false,
+        loading: false,
     },
 };
 
 export const Default = (props) => (
     <Button {...props}>
-        <span>★</span>
+        {!props.loading && <span>★</span>}
         {!props.icon && <span>Button</span>}
     </Button>
 );
