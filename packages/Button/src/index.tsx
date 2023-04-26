@@ -92,7 +92,7 @@ export function Button({
             disabled={disabled}
             style={style}
         >
-            {loading && <Loading></Loading>}
+            {loading && <Loading size="1rem"></Loading>}
             {children}
         </Type>
     );
