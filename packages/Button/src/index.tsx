@@ -6,6 +6,7 @@ interface Props {
     size?: "xs" | "sm" | "md" | "lg";
     href?: string;
     open?: boolean;
+    target?: "_blank" | "_parent";
     type?: "submit" | "reset" | "button";
     disabled?: boolean;
     thead?: boolean;
@@ -40,6 +41,7 @@ export function Button({
     outline,
     loading,
     type,
+    target,
 }: Props): JSX.Element {
     const Type = href ? "a" : "button";
     const className: string[] = ["bx-button"];
@@ -88,7 +90,7 @@ export function Button({
                     : null
             }
             href={href}
-            target={open ? "_blank" : null}
+            target={open ? "_blank" : target}
             disabled={disabled}
             style={style}
         >
