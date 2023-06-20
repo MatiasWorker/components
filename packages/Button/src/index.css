@@ -30,6 +30,10 @@
     white-space: nowrap;
 }
 
+.bx-button--column {
+    flex-flow: column;
+}
+
 .bx-button--wrap {
     white-space: normal;
 }

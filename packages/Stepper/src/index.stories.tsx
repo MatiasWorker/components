@@ -58,3 +58,25 @@ export const DefaultMax = (props) => (
         onChange={(value) => console.log({ value })}
     ></Stepper>
 );
+
+export const AutoSize = (props) => (
+    <Stepper
+        options={[
+            {
+                label: "Text too long for a label",
+                value: 1,
+            },
+            {
+                label: "Text too long for a label (with width limit)",
+                value: 2,
+                width: "120px",
+            },
+            {
+                label: "Normal...",
+                value: 3,
+            },
+        ]}
+        value={3}
+        onChange={(value) => console.log({ value })}
+    ></Stepper>
+);

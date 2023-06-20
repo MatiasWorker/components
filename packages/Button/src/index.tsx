@@ -18,7 +18,9 @@ interface Props {
     bgcolor?: string;
     wrap?: boolean;
     loading?: boolean;
+    column?: boolean;
     preventDefault?: boolean;
+    className?: string;
     onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
     children: any;
 }
@@ -42,6 +44,8 @@ export function Button({
     loading,
     type,
     target,
+    column,
+    className: customClassName,
 }: Props): JSX.Element {
     const Type = href ? "a" : "button";
     const className: string[] = ["bx-button"];
@@ -64,6 +68,10 @@ export function Button({
     if (wrap) className.push(`bx-button--wrap`);
 
     if (!disabled) className.push(`bx-button--pointer`);
+
+    if (column) className.push(`bx-button--column`);
+
+    if (customClassName) className.push(customClassName);
 
     if (color) {
         style[

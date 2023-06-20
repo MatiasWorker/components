@@ -26,6 +26,7 @@ export default {
         disabled: false,
         open: false,
         loading: false,
+        column: false,
     },
 };
 

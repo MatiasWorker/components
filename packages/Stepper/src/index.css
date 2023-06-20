@@ -1,9 +1,10 @@
 .bx-stepper {
-    display: inline-flex;
-    flex-flow: row;
     --border-color: var(--bx-color-grey-time);
     --border-size: 1px;
     --border: var(--border-size) solid var(--border-color);
+    --circle-size: 28px;
+    display: inline-flex;
+    flex-flow: row;
     font-size: var(--bx-input-sm-font-size);
 }
 
@@ -12,16 +13,18 @@
     flex-flow: column;
     align-items: center;
     gap: 4px;
+    position: relative;
 }
 
 .bx-stepper_step {
+    width: var(--width, auto);
     display: flex;
-    flex: 0%;
+    position: relative;
 }
 
 .bx-stepper_button {
-    width: 28px;
-    height: 28px;
+    width: var(--circle-size);
+    height: var(--circle-size);
     border-radius: 100%;
     border: var(--border);
     color: var(--border-color);
@@ -42,13 +45,16 @@
 }
 
 .bx-stepper_line {
+    width: calc((((var(--a) + var(--b)) / 2) * 1px));
     flex: 0%;
     height: var(--border-size);
     background: var(--border-color);
-    min-width: 4rem;
     margin-top: 1em;
+    position: absolute;
+    left: calc(50% + (var(--circle-size) / 2));
 }
 
 .bx-stepper_label {
-    white-space: nowrap;
+    text-align: center;
+    padding: 0px calc(var(--circle-size) / 2);
 }
