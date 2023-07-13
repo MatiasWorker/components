@@ -23,6 +23,7 @@ interface Props {
     className?: string;
     onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
     children: any;
+    download?: boolean;
 }
 
 export function Button({
@@ -45,6 +46,7 @@ export function Button({
     type,
     target,
     column,
+    download,
     className: customClassName,
 }: Props): JSX.Element {
     const Type = href ? "a" : "button";
@@ -101,6 +103,7 @@ export function Button({
             target={open ? "_blank" : target}
             disabled={disabled}
             style={style}
+            download={download}
         >
             {loading && <Loading size="1rem"></Loading>}
             {children}

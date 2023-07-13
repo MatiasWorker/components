@@ -4,7 +4,7 @@ interface Props {
     value: string;
     placeholder?: string;
     onChange?: (value: string) => void;
-    options: { value: string; label?: string }[];
+    options: { value: string; label?: string; disabled?: boolean }[];
     appearance?: "pagination" | "cell";
     status?: "success" | "warning" | "danger" | "";
 }
@@ -48,7 +48,11 @@ export function FieldSelect({
                     </option>
                 )}
                 {options.map((option) => (
-                    <option key={option.value} value={option.value}>
+                    <option
+                        key={option.value}
+                        value={option.value}
+                        disabled={option.disabled}
+                    >
                         {option.label}
                     </option>
                 ))}
