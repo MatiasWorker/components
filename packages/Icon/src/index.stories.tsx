@@ -36,3 +36,7 @@ export const Invoice = () => <Icon.Invoice />;
 export const Currency = () => <Icon.Currency />;
 export const Loading = () => <Icon.Loading />;
 export const Excel = () => <Icon.Excel />;
+export const Cancel = () => <Icon.Cancel />;
+export const Box = () => <Icon.Box />;
+export const Delete = () => <Icon.Delete />;
+export const Update = () => <Icon.Update />;
