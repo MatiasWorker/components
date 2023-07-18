@@ -82,10 +82,6 @@ h5 {
     font-size: var(--bx-font-size-text-2);
 }
 
-h3 {
-    font-size: var(--bx-font-size-text-3);
-}
-
 strong,
 b {
     font-weight: var(--bx-font-bold);
@@ -347,7 +343,7 @@ var button_default = css5`:root {
     --bx-button-thead-disabled-bgcolor: var(--bx-color-white);
     --bx-button-thead-disabled-color: var(--bx-color-grey-time);
 
-    --bx-button-thead-info-bgcolor: var(--bx-color-blue-shine);
+    --bx-button-thead-info-bgcolor: var(--bx-color-blue-clear);
     --bx-button-thead-info-color: var(--bx-color-blue);
 
     --bx-button-thead-success-bgcolor: var(--bx-color-green-game);
