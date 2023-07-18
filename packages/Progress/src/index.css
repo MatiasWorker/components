@@ -9,10 +9,18 @@
     border-radius: var(--radius);
 }
 
+.bx-progress--sm {
+    --height: var(--bx-space-sm);
+}
+
+.bx-progress--md {
+    --height: var(--bx-space-md);
+}
+
 .bx-progress_value {
     width: calc(100% * var(--percent));
     height: 100%;
     border-radius: var(--radius);
     background: var(--value-background);
-    transition: 0.3s ease all;
+    transition: var(--speed, 0.3s) ease all;
 }
