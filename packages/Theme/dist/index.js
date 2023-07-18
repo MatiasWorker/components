@@ -347,11 +347,11 @@ var button_default = css5`:root {
     --bx-button-thead-disabled-bgcolor: var(--bx-color-white);
     --bx-button-thead-disabled-color: var(--bx-color-grey-time);
 
-    --bx-button-thead-info-bgcolor: var(--bx-color-green-game);
-    --bx-button-thead-info-color: var(--bx-color-green-future);
+    --bx-button-thead-info-bgcolor: var(--bx-color-blue-shine);
+    --bx-button-thead-info-color: var(--bx-color-blue);
 
-    --bx-button-thead-success-bgcolor: var(--bx-color-lorange-send);
-    --bx-button-thead-success-color: var(--bx-color-orange-get);
+    --bx-button-thead-success-bgcolor: var(--bx-color-green-game);
+    --bx-button-thead-success-color: var(--bx-color-green-future);
 
     --bx-button-thead-warning-bgcolor: var(--bx-color-lorange-send);
     --bx-button-thead-warning-color: var(--bx-color-orange-get);
