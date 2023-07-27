@@ -21,12 +21,13 @@ interface InternalRange {
 
 export interface Props {
     onChange(range: InternalRange): void;
-    range: InternalRange;
+    range?: InternalRange;
 }
 
 export function DatePickerRange({
     onChange,
     range,
+    date,
     ...dateRangeProps
 }: Props & Omit<CalendarProps, "onChange">) {
     const [currentRange, setCurrentRange] = useState<InternalRange>(range);
@@ -44,7 +45,24 @@ export function DatePickerRange({
                 content={
                     <DateRange
                         locale={es}
-                        ranges={[{ ...currentRange, key: "range" }]}
+                        date={date}
+                        showPreview={!date}
+                        ranges={
+                            date
+                                ? [
+                                      {
+                                          startDate: date,
+                                          endDate: date,
+                                          key: "range",
+                                      },
+                                  ]
+                                : [
+                                      {
+                                          ...currentRange,
+                                          key: "range",
+                                      },
+                                  ]
+                        }
                         maxDate={now}
                         onChange={({ range }) =>
                             setCurrentRange(range as InternalRange)
@@ -57,9 +75,15 @@ export function DatePickerRange({
                 <button className="bx-form-input bx-form-input-button">
                     <Icon.Calendar size="1em" />
                     <strong className="bx-form-input-button_label">
-                        {[range].map(({ startDate, endDate }) => {
-                            return [format(startDate), " - ", format(endDate)];
-                        })}
+                        {date
+                            ? format(date)
+                            : [range].map(({ startDate, endDate }) => {
+                                  return [
+                                      format(startDate),
+                                      " - ",
+                                      format(endDate),
+                                  ];
+                              })}
                     </strong>
                     <Icon.Down size="1em" color="lblue-well" />
                 </button>

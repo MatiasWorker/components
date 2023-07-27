@@ -3,12 +3,26 @@ import { DatePickerRange } from ".";
 
 export default {
     title: "Generic/DatePicker",
-    argTypes: {},
+    argTypes: {
+        date: { control: "date" },
+        startDate: { control: "date" },
+        endDate: { control: "date" },
+    },
 };
 
-export const Default = () => (
+export const Default = (props) => (
     <DatePickerRange
         onChange={console.log}
-        range={{ startDate: new Date(), endDate: new Date() }}
+        range={{
+            startDate: props.startDate || new Date(),
+            endDate: props.endDate || new Date(),
+        }}
+    ></DatePickerRange>
+);
+
+export const DefaultOnlyDate = (props) => (
+    <DatePickerRange
+        onChange={console.log}
+        date={props.date || new Date()}
     ></DatePickerRange>
 );
