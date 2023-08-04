@@ -16,7 +16,8 @@
     "license": "ISC",
     "prettier": {
         "tabWidth": 4,
-        "singleQuote": false
+        "singleQuote": false,
+        "endOfLine": "crlf"
     },
     "devDependencies": {
         "@atomico/exports": "^0.39.1",

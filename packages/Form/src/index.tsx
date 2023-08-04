@@ -20,6 +20,7 @@ import {
 import { inputIsRequired, logic } from "./utils";
 export { InputForm, InputTypes, InputUnknown } from "./types";
 export { logic, required } from "./utils";
+export * from "./hook";
 
 export interface Props<
     FormData extends InputData,
@@ -148,12 +149,17 @@ function InputCase({
         render,
         //@ts-ignore
         options: ignoreOptions,
+        error,
         ...unknownProps
     } = input;
 
     const currentValue = value ?? inputValue;
 
+    const currentStatus = error ? "danger" : status;
+
     if (loading) return <Input loading disabled></Input>;
+
+    unknownProps.name = name;
 
     switch (type) {
         case "custom":
@@ -181,7 +187,7 @@ function InputCase({
                     title={label}
                     detail={detail}
                     description={description}
-                    status={status}
+                    status={currentStatus}
                 ></Label>
             );
         case "text":
@@ -194,13 +200,13 @@ function InputCase({
                     title={label}
                     detail={detail}
                     description={description}
-                    status={status}
+                    status={currentStatus}
                 >
                     <Input
                         {...unknownProps}
                         required={required}
                         type={type}
-                        status={status}
+                        status={currentStatus}
                         placeholder={input.placeholder}
                         value={currentValue}
                         onChange={({ target }) =>
@@ -222,7 +228,7 @@ function InputCase({
                     title={label}
                     detail={detail}
                     description={description}
-                    status={status}
+                    status={currentStatus}
                 >
                     <Textarea
                         {...unknownProps}
@@ -240,7 +246,7 @@ function InputCase({
                     title={label}
                     detail={detail}
                     description={description}
-                    status={status}
+                    status={currentStatus}
                 >
                     <File
                         {...unknownProps}
@@ -256,7 +262,7 @@ function InputCase({
                     title={label}
                     detail={detail}
                     description={description}
-                    status={status}
+                    status={currentStatus}
                 >
                     <Select
                         {...unknownProps}
@@ -275,3 +281,4 @@ function InputCase({
             );
     }
 }
+

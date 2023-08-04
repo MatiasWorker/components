@@ -35,6 +35,7 @@ export interface InputGeneric<
     name?: string;
     column?: number;
     loading?: boolean;
+    error?: boolean;
     tabIndex?: number;
     value?: Value;
     placeholder?: string;
@@ -177,3 +178,4 @@ export type InputReplace<
 };
 
 export type InputUnknown = InputTypes<any, any, any>;
+

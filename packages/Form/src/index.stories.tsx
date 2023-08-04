@@ -1,5 +1,5 @@
 import "@bxreact/theme";
-import { Form } from "./";
+import { Form, useValidateState, ValidityStateProvider } from "./";
 import { useState } from "react";
 
 export default {
@@ -43,7 +43,9 @@ export const Default = (props) => {
                     label: "Nombre de quien envía ",
                     required: false,
                     placeholder: "Ej: Soledad Casas / LAPSA ltda",
+                    detail: "Error!",
                     column: 2,
+                    error: true,
                 },
                 input3: {
                     type: "text",
@@ -63,3 +65,82 @@ export const Default = (props) => {
         ></Form>
     );
 };
+
+function GroupFormWithContext() {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+    });
+
+    const form = useValidateState();
+
+    return (
+        <Form
+            formData={formData}
+            form={{
+                name: {
+                    type: "text",
+                    label: "Name",
+                    error: !form?.name?.valid,
+                    detail: form?.name?.validationMessage,
+                    maxLength: 5,
+                    required: true,
+                },
+                email: {
+                    type: "email",
+                    label: "Password",
+                    error: !form?.email?.valid,
+                    detail: form?.email?.validationMessage,
+                    required: true,
+                },
+            }}
+            onChange={(formData) => {
+                setFormData(formData);
+            }}
+        ></Form>
+    );
+}
+
+export function GroupFormExampleWithContext() {
+    return (
+        <ValidityStateProvider>
+            <GroupFormWithContext></GroupFormWithContext>
+        </ValidityStateProvider>
+    );
+}
+
+export function GroupFormExampleWithCallback() {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+    });
+    return (
+        <ValidityStateProvider>
+            {(form) => (
+                <Form
+                    formData={formData}
+                    form={{
+                        name: {
+                            type: "text",
+                            label: "Name",
+                            error: !form?.name?.valid,
+                            detail: form?.name?.validationMessage,
+                            maxLength: 5,
+                            required: true,
+                        },
+                        email: {
+                            type: "email",
+                            label: "Password",
+                            error: !form?.email?.valid,
+                            detail: form?.email?.validationMessage,
+                            required: true,
+                        },
+                    }}
+                    onChange={(formData) => {
+                        setFormData(formData);
+                    }}
+                ></Form>
+            )}
+        </ValidityStateProvider>
+    );
+}
