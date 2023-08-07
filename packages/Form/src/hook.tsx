@@ -22,43 +22,40 @@ type FieldsWithTry = { [prop: string]: boolean };
 const ValidityStateContext = createContext({} as ObjectValidityState);
 const RevalidityStateContext = createContext<() => void>(() => null);
 
+const MATCHES = "input, select, textarea";
+
 const mapState = (
     target: HTMLFormElement,
     fieldWithTry: FieldsWithTry
 ): Fields => {
     const size = Object.keys(fieldWithTry).length;
-    return [...target.querySelectorAll("input, select, textarea")].reduce(
-        (current, node) => {
-            const { name, validity, validationMessage } = node as any;
+    return [...target.querySelectorAll(MATCHES)].reduce((current, node) => {
+        const { name, validity, validationMessage } = node as any;
 
-            const state = {};
-            const isSelect = node instanceof HTMLSelectElement;
-            for (const prop in validity) {
-                if (prop === "valid") {
-                    if (isSelect) {
-                        state[prop] = size ? !!node.value : true;
-                    } else {
-                        state[prop] = fieldWithTry[name]
-                            ? validity[prop]
-                            : true;
-                    }
+        const state = {};
+        const isSelect = node instanceof HTMLSelectElement;
+        for (const prop in validity) {
+            if (prop === "valid") {
+                if (isSelect) {
+                    state[prop] = size ? !!node.value : true;
                 } else {
-                    state[prop] = validity[prop];
+                    state[prop] = fieldWithTry[name] ? validity[prop] : true;
                 }
+            } else {
+                state[prop] = validity[prop];
             }
+        }
 
-            return name
-                ? {
-                      ...current,
-                      [name]: {
-                          ...state,
-                          validationMessage,
-                      },
-                  }
-                : current;
-        },
-        {}
-    );
+        return name
+            ? {
+                  ...current,
+                  [name]: {
+                      ...state,
+                      validationMessage,
+                  },
+              }
+            : current;
+    }, {});
 };
 
 export function ValidityStateProvider({
@@ -81,6 +78,10 @@ export function ValidityStateProvider({
         tryToSubmit: false,
         fields: {},
     });
+
+    const refState = useRef<Fields>();
+
+    refState.current = state.fields;
 
     const getFields = (isSubmit?: boolean) => {
         const fieldsWithTry = prev.current;
@@ -115,6 +116,28 @@ export function ValidityStateProvider({
 
     useEffect(() => {
         setFields();
+
+        const mutation = new MutationObserver((entries) => {
+            entries.filter(({ addedNodes }) =>
+                [...addedNodes].some(
+                    (target) =>
+                        (target instanceof HTMLInputElement ||
+                            target instanceof HTMLSelectElement ||
+                            target instanceof HTMLTextAreaElement) &&
+                        target.name &&
+                        !refState.current[target.name]
+                )
+            ).length && setFields();
+        });
+
+        mutation.observe(ref.current, {
+            childList: true,
+            subtree: true,
+        });
+
+        return () => {
+            mutation.disconnect();
+        };
     }, []);
 
     return (
