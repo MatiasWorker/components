@@ -8,7 +8,7 @@ import {
 } from "@bxreact/input";
 
 import { Label } from "@bxreact/label";
-import { CSSProperties } from "react";
+import { CSSProperties, ChangeEvent } from "react";
 import "./index.css";
 import {
     InputData,
@@ -161,6 +161,9 @@ function InputCase({
 
     unknownProps.name = name;
 
+    const onChange = (event: ChangeEvent<any>) =>
+        "onChange" in unknownProps && unknownProps.onChange(event);
+
     switch (type) {
         case "custom":
             return render && render(data, value, name, setAll);
@@ -174,13 +177,18 @@ function InputCase({
                             <Checkbox
                                 {...unknownProps}
                                 checked={!!value}
-                                onChange={({ target }) => set(target.checked)}
+                                onChange={(event) => {
+                                    set(event.target.checked);
+                                    onChange(event);
+                                }}
                             />
                         ) : (
                             <Switch
                                 {...unknownProps}
                                 checked={!!value}
-                                onChange={(checked) => set(checked)}
+                                onChange={(checked) => {
+                                    set(checked);
+                                }}
                             />
                         )
                     }
@@ -209,15 +217,16 @@ function InputCase({
                         status={currentStatus}
                         placeholder={input.placeholder}
                         value={currentValue}
-                        onChange={({ target }) =>
+                        onChange={(event) => {
                             set(
                                 type === "number"
-                                    ? target.valueAsNumber
+                                    ? event.target.valueAsNumber
                                     : type === "date"
-                                    ? target.valueAsDate
-                                    : target.value
-                            )
-                        }
+                                    ? event.target.valueAsDate
+                                    : event.target.value
+                            );
+                            onChange(event);
+                        }}
                     ></Input>
                 </Label>
             );
@@ -235,7 +244,10 @@ function InputCase({
                         required={required}
                         placeholder={input.placeholder}
                         value={currentValue}
-                        onChange={({ target }) => set(target.value)}
+                        onChange={(event) => {
+                            set(event.target.value);
+                            onChange(event);
+                        }}
                     ></Textarea>
                 </Label>
             );
@@ -275,7 +287,10 @@ function InputCase({
                                 value: string;
                             }[]
                         }
-                        onChange={({ target }) => set(target.value)}
+                        onChange={(event) => {
+                            set(event.target.value);
+                            onChange(event);
+                        }}
                     ></Select>
                 </Label>
             );

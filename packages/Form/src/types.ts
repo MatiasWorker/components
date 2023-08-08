@@ -1,4 +1,5 @@
 import type { Status } from "@bxreact/theme";
+import { ChangeEvent } from "react";
 export interface InputData {
     [prop: string]: number | boolean | string | File;
 }
@@ -17,6 +18,10 @@ export type Logic<Data extends InputData> =
     | {
           [I in keyof Data]?: Data[I][];
       };
+
+export interface InputReactive<Target extends HTMLElement> {
+    onChange?: (event: ChangeEvent<Target>) => void;
+}
 
 export interface InputLogic<Data extends InputData> {
     disabled?: boolean | Logic<Data> | Logic<Data>[];
@@ -46,7 +51,8 @@ export interface InputSelect<
     Data extends InputData,
     MetaData extends InputMetaData,
     Value extends unknown
-> extends InputGeneric<Data, MetaData, Value> {
+> extends InputGeneric<Data, MetaData, Value>,
+        InputReactive<HTMLSelectElement> {
     type: "select";
     options: InputOptions<Value>[];
 }
@@ -55,7 +61,8 @@ export interface InputText<
     Data extends InputData,
     MetaData extends InputMetaData,
     Value extends unknown
-> extends InputGeneric<Data, MetaData, Value> {
+> extends InputGeneric<Data, MetaData, Value>,
+        InputReactive<HTMLInputElement> {
     type: "text";
     minLength?: number;
     maxLength?: number;
@@ -65,7 +72,8 @@ export interface InputDate<
     Data extends InputData,
     MetaData extends InputMetaData,
     Value extends unknown
-> extends InputGeneric<Data, MetaData, Value> {
+> extends InputGeneric<Data, MetaData, Value>,
+        InputReactive<HTMLInputElement> {
     type: "date";
     min?: number;
     max?: number;
@@ -75,7 +83,8 @@ export interface InputEmail<
     Data extends InputData,
     MetaData extends InputMetaData,
     Value extends unknown
-> extends InputGeneric<Data, MetaData, Value> {
+> extends InputGeneric<Data, MetaData, Value>,
+        InputReactive<HTMLInputElement> {
     type: "email";
 }
 
@@ -83,7 +92,8 @@ export interface InputTextArea<
     Data extends InputData,
     MetaData extends InputMetaData,
     Value extends unknown
-> extends InputGeneric<Data, MetaData, Value> {
+> extends InputGeneric<Data, MetaData, Value>,
+        InputReactive<HTMLTextAreaElement> {
     type: "textarea";
 }
 
@@ -91,7 +101,8 @@ export interface InputNumber<
     Data extends InputData,
     MetaData extends InputMetaData,
     Value extends unknown
-> extends InputGeneric<Data, MetaData, Value> {
+> extends InputGeneric<Data, MetaData, Value>,
+        InputReactive<HTMLInputElement> {
     type: "number";
     min?: number;
     max?: number;
@@ -102,8 +113,18 @@ export interface InputCheckbox<
     Data extends InputData,
     MetaData extends InputMetaData,
     Value extends unknown
+> extends InputGeneric<Data, MetaData, Value>,
+        InputReactive<HTMLInputElement> {
+    type: "checkbox";
+    checked?: boolean;
+}
+
+export interface InputSwitch<
+    Data extends InputData,
+    MetaData extends InputMetaData,
+    Value extends unknown
 > extends InputGeneric<Data, MetaData, Value> {
-    type: "checkbox" | "switch";
+    type: "switch";
     checked?: boolean;
 }
 
@@ -111,7 +132,8 @@ export interface InputRadio<
     Data extends InputData,
     MetaData extends InputMetaData,
     Value extends unknown
-> extends InputGeneric<Data, MetaData, Value> {
+> extends InputGeneric<Data, MetaData, Value>,
+        InputReactive<HTMLInputElement> {
     type: "radio";
     options: InputOptions<Value>;
 }
@@ -149,6 +171,7 @@ export type InputTypes<
     | InputText<Data, MetaData, Value>
     | InputNumber<Data, MetaData, Value>
     | InputCheckbox<Data, MetaData, Value>
+    | InputSwitch<Data, MetaData, Value>
     | InputDate<Data, MetaData, Value>
     | InputFile<Data, MetaData, Value>
     | InputEmail<Data, MetaData, Value>

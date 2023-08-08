@@ -125,8 +125,14 @@ export function GroupFormExampleWithCallback() {
                             label: "Name",
                             error: !form?.name?.valid,
                             detail: form?.name?.validationMessage,
-                            maxLength: 5,
                             required: true,
+                            onChange(event) {
+                                event.currentTarget.setCustomValidity(
+                                    event.target.value.length > 5
+                                        ? ""
+                                        : "Nombre muy corto, debe ser mayor a 5"
+                                );
+                            },
                         },
                         email: {
                             type: "email",
