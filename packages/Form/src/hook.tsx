@@ -62,8 +62,10 @@ export function ValidityStateProvider({
     children,
     onSubmit,
     onClick,
+    revalidate: timeout,
     ...props
 }: Omit<FormHTMLAttributes<HTMLFormElement>, "children"> & {
+    revalidate?: number;
     children:
         | ReactNode
         | ((
@@ -111,11 +113,11 @@ export function ValidityStateProvider({
         setTimeout(() => {
             prev.current = {};
             setFields();
-        }, 100);
-    }, []);
+        }, timeout);
+    }, [timeout]);
 
     useEffect(() => {
-        setFields();
+        revalidate();
 
         const mutation = new MutationObserver((entries) => {
             entries.filter(({ addedNodes }) =>
@@ -161,8 +163,6 @@ export function ValidityStateProvider({
                         .composedPath()
                         .find((element: any) => element.type === "submit")
                 ) {
-                    console.log(getFields());
-
                     setState({
                         ...state,
                         tryToSubmit: true,

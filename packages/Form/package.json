@@ -1,6 +1,6 @@
 {
     "name": "@bxreact/form",
-    "version": "1.10.0",
+    "version": "1.11.0",
     "publishConfig": {
         "access": "public"
     },
@@ -29,7 +29,8 @@
         "./index": "./dist/index.js",
         ".": "./dist/index.js",
         "./types": "./dist/types.js",
-        "./utils": "./dist/utils.js"
+        "./utils": "./dist/utils.js",
+        "./hook": "./dist/hook.js"
     },
     "types": "types/index.d.ts",
     "typesVersions": {
@@ -42,7 +43,11 @@
             ],
             "utils": [
                 "./types/utils.d.ts"
+            ],
+            "hook": [
+                "./types/hook.d.ts"
             ]
         }
     }
 }
+

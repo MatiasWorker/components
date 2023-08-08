@@ -2,6 +2,7 @@ import "./index.css";
 import { InputData, InputForm, InputMetaData, InputReplace } from "./types";
 export { InputForm, InputTypes, InputUnknown } from "./types";
 export { logic, required } from "./utils";
+export * from "./hook";
 export interface Props<FormData extends InputData, MetaData extends InputMetaData> {
     formData: FormData;
     metaData?: MetaData;
