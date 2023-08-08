@@ -183,7 +183,14 @@ export function ValidityStateProvider({
     );
 }
 
-export function useValidateState() {
+export function useValidateState(observer?: { subscribe(...args: any): any }) {
+    const revalidate = useRevalidateState();
+
+    useEffect(() => {
+        if (!observer?.subscribe) return;
+        observer.subscribe(revalidate);
+    }, [observer?.subscribe]);
+
     return useContext(ValidityStateContext).fields;
 }
 
