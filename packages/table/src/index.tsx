@@ -55,7 +55,7 @@ export function TableCell({
                     style={{
                         position: strategy,
                         top: y ?? 0,
-                        left: x ?? 0,
+                        left: 0,
                     }}
                 >
                     {tooltip}
@@ -185,3 +185,4 @@ export function Table<Data extends any[]>({
         </table>
     );
 }
+
