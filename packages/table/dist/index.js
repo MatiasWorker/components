@@ -170,7 +170,7 @@ function TableCell({
         style: {
           position: strategy,
           top: y ?? 0,
-          left: x ?? 0
+          left: 0
         },
         children: tooltip
       })
