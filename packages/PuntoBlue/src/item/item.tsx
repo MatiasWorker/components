@@ -6,7 +6,7 @@ export interface ItemProps {
     title: string;
     status: string;
     schedule?: {
-        [type: string]: { from: string; to: string }[];
+        [type: string]: string | { from: string; to: string }[];
     };
     address: string;
     checked?: boolean;
@@ -29,11 +29,17 @@ export function getHumanSchedule(data: ItemProps["schedule"]) {
     const list = Object.entries(data).reduce<{
         [id: string]: string[];
     }>((groups, [id, config]) => {
-        config.map((item) => {
-            const did = item.from + " - " + item.to;
-            groups[did] = groups[did] || [];
-            groups[did].push(id);
-        });
+        []
+            .concat(config)
+            .filter((item) => item)
+            .map((item) => {
+                const did =
+                    typeof item === "string"
+                        ? item
+                        : item.from + " - " + item.to;
+                groups[did] = groups[did] || [];
+                groups[did].push(id);
+            });
         return groups;
     }, {});
 
