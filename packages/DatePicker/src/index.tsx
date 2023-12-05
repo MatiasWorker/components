@@ -21,11 +21,13 @@ interface InternalRange {
 
 export interface Props {
     onChange(range: InternalRange): void;
+    onChangeRange?: (range: InternalRange) => void;
     range?: InternalRange;
 }
 
 export function DatePickerRange({
     onChange,
+    onChangeRange,
     range,
     date,
     ...dateRangeProps
@@ -64,9 +66,10 @@ export function DatePickerRange({
                                   ]
                         }
                         maxDate={now}
-                        onChange={({ range }) =>
-                            setCurrentRange(range as InternalRange)
-                        }
+                        onChange={({ range }) => {
+                            setCurrentRange(range as InternalRange);
+                            onChangeRange(range as InternalRange);
+                        }}
                         showDateDisplay={false}
                         {...dateRangeProps}
                     />
@@ -91,3 +94,4 @@ export function DatePickerRange({
         </div>
     );
 }
+
