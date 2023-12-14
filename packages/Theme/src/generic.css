@@ -15,9 +15,9 @@
 
     --bx-font-bold: 900;
 
-    --bx-font-primary: "Mont", system-ui, -apple-system, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    --bx-font-primary: "Montserrat", system-ui, -apple-system, "Segoe UI",
+        Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans",
+        sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
     --bx-font-secondary: "Lato", system-ui, -apple-system, "Segoe UI", Roboto,
         "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
@@ -32,3 +32,4 @@
     --bx-space-xs: 0.5rem;
     --bx-space-xxs: 0.25rem;
 }
+
