@@ -26,49 +26,13 @@ const data = [
         package_reception: true,
         pickup_availability: true,
         open_hours: {
-            monday: [
-                {
-                    from: "07:30",
-                    to: "22:30",
-                },
-            ],
-            tuesday: [
-                {
-                    from: "07:30",
-                    to: "22:30",
-                },
-            ],
-            wednesday: [
-                {
-                    from: "07:30",
-                    to: "22:30",
-                },
-            ],
-            thursday: [
-                {
-                    from: "07:30",
-                    to: "22:30",
-                },
-            ],
-            friday: [
-                {
-                    from: "07:30",
-                    to: "22:30",
-                },
-            ],
-            saturday: [
-                {
-                    from: "08:00",
-                    to: "22:30",
-                },
-            ],
-            sunday: [
-                {
-                    from: "08:00",
-                    to: "22:30",
-                },
-            ],
-            holidays: [],
+            monday: "09:00-18:00",
+            tuesday: "09:00-18:00",
+            wednesday: "09:00-18:00",
+            thursday: "09:00-18:00",
+            friday: "09:00-18:00",
+            saturday: "09:00-18:30",
+            sunday: null,
         },
         last_updated: "",
         volumetric_capacity: "0",
@@ -333,3 +297,4 @@ export const Default = (props) => (
         schedule
     ></PuntoBlueList>
 );
+

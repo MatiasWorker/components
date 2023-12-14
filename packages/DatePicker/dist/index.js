@@ -1087,7 +1087,9 @@ var format = new Intl.DateTimeFormat("es", {
 }).format;
 function DatePickerRange({
   onChange,
+  onChangeRange,
   range,
+  date,
   ...dateRangeProps
 }) {
   const [currentRange, setCurrentRange] = useState(range);
@@ -1104,9 +1106,25 @@ function DatePickerRange({
       },
       content: /* @__PURE__ */ jsx(DateRange, {
         locale: es_default,
-        ranges: [{ ...currentRange, key: "range" }],
+        date,
+        showPreview: !date,
+        ranges: date ? [
+          {
+            startDate: date,
+            endDate: date,
+            key: "range"
+          }
+        ] : [
+          {
+            ...currentRange,
+            key: "range"
+          }
+        ],
         maxDate: now,
-        onChange: ({ range: range2 }) => setCurrentRange(range2),
+        onChange: ({ range: range2 }) => {
+          setCurrentRange(range2);
+          onChangeRange(range2);
+        },
         showDateDisplay: false,
         ...dateRangeProps
       }),
@@ -1118,8 +1136,12 @@ function DatePickerRange({
           }),
           /* @__PURE__ */ jsx("strong", {
             className: "bx-form-input-button_label",
-            children: [range].map(({ startDate, endDate }) => {
-              return [format(startDate), " - ", format(endDate)];
+            children: date ? format(date) : [range].map(({ startDate, endDate }) => {
+              return [
+                format(startDate),
+                " - ",
+                format(endDate)
+              ];
             })
           }),
           /* @__PURE__ */ jsx(Icon.Down, {

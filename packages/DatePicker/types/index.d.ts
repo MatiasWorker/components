@@ -7,7 +7,8 @@ interface InternalRange {
 }
 export interface Props {
     onChange(range: InternalRange): void;
-    range: InternalRange;
+    onChangeRange?: (range: InternalRange) => void;
+    range?: InternalRange;
 }
-export declare function DatePickerRange({ onChange, range, ...dateRangeProps }: Props & Omit<CalendarProps, "onChange">): JSX.Element;
+export declare function DatePickerRange({ onChange, onChangeRange, range, date, ...dateRangeProps }: Props & Omit<CalendarProps, "onChange">): JSX.Element;
 export {};
