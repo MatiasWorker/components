@@ -42,16 +42,6 @@ export function Input({
 }: Props) {
     const [focused, setFocused] = useState(false);
 
-    const handleFocus = useCallback((event: any) => {
-        setFocused(true);
-        props.onFocus?.(event);
-    }, []);
-
-    const handleBlur = useCallback((event: any) => {
-        setFocused(false);
-        props.onBlur?.(event);
-    }, []);
-
     return (
         <div
             className={`${cs("bx-form-input", {
@@ -76,8 +66,14 @@ export function Input({
                     "bx-form-input-hide": loading,
                 })}
                 disabled={disabled}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                onFocus={(event) => {
+                    setFocused(true);
+                    props.onFocus?.(event);
+                }}
+                onBlur={(event) => {
+                    setFocused(false);
+                    props.onBlur?.(event);
+                }}
                 ref={reference}
                 onChange={(event) => props.onChange?.(event)}
             />
