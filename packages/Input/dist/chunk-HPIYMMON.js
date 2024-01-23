@@ -1,5 +1,5 @@
 // src/select/select.tsx
-import { Down } from "@bxreact/icon";
+import { Down, Loading } from "@bxreact/icon";
 import cs from "classnames";
 import {
   useCallback,
@@ -16,10 +16,12 @@ function Select({
   size,
   options,
   disabled,
+  loading,
   ...props
 }) {
   const [focused, setFocused] = useState(false);
   const [withValue, setWithValue] = useState(!!props.value);
+  disabled = disabled || loading;
   const handleFocus = useCallback(() => {
     setFocused(true);
   }, []);
@@ -37,9 +39,16 @@ function Select({
       "bx-form-input-fullwidth": fullWidth,
       "bx-form-input-container-focus": focused,
       "bx-form-input-container-md": size === "md",
-      "bx-form-input-container-sm": size === "sm"
+      "bx-form-input-container-sm": size === "sm",
+      "bx-form-input--loading": loading
     }),
     children: [
+      loading && /* @__PURE__ */ jsx("div", {
+        className: "bx-form-input_loading",
+        children: /* @__PURE__ */ jsx(Loading, {
+          size: "1.5em"
+        })
+      }),
       /* @__PURE__ */ jsxs("select", {
         ...props,
         className: `bx-form-input-select ${withValidValue ? "bx-form-input-select--with-value" : ""}`,
@@ -65,7 +74,7 @@ function Select({
           }, i))
         ]
       }),
-      /* @__PURE__ */ jsx("div", {
+      !loading && /* @__PURE__ */ jsx("div", {
         className: "bx-form-input-select_icon",
         children: /* @__PURE__ */ jsx(Down, {
           size: "1em",

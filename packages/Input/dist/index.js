@@ -9,7 +9,7 @@ import {
 } from "./chunk-UC4N6EJY.js";
 import {
   Select
-} from "./chunk-QATD5B3U.js";
+} from "./chunk-HPIYMMON.js";
 import {
   Textarea
 } from "./chunk-7CIPGOPY.js";
@@ -17,7 +17,6 @@ import {
 // src/index.tsx
 import cs from "classnames";
 import {
-  useCallback,
   useState
 } from "react";
 
@@ -472,6 +471,17 @@ var src_default = css`.bx-form-input {
 .bx-form-input-hide {
     display: none !important;
 }
+
+.bx-form-input-type-select.bx-form-input--loading select {
+    display: none;
+}
+
+.bx-form-input_loading {
+    height: 100%;
+    display: grid;
+    align-items: center;
+    padding: 0px 1rem;
+}
 `;
 
 // src/index.tsx
@@ -491,12 +501,6 @@ function Input({
   ...props
 }) {
   const [focused, setFocused] = useState(false);
-  const handleFocus = useCallback(() => {
-    setFocused(true);
-  }, []);
-  const handleBlur = useCallback(() => {
-    setFocused(false);
-  }, []);
   return /* @__PURE__ */ jsxs("div", {
     className: `${cs("bx-form-input", {
       "bx-form-input-container-disabled": disabled,
@@ -519,10 +523,16 @@ function Input({
           "bx-form-input-hide": loading
         }),
         disabled,
-        onFocus: handleFocus,
-        onBlur: handleBlur,
+        onFocus: (event) => {
+          setFocused(true);
+          props.onFocus?.(event);
+        },
+        onBlur: (event) => {
+          setFocused(false);
+          props.onBlur?.(event);
+        },
         ref: reference,
-        onChange: (event) => props?.onChange(event)
+        onChange: (event) => props.onChange?.(event)
       }),
       (rightIcon || status) && !loading && /* @__PURE__ */ jsx("div", {
         className: "bx-form-icon-container bx-form-icon-right",
