@@ -42,12 +42,14 @@ export function Input({
 }: Props) {
     const [focused, setFocused] = useState(false);
 
-    const handleFocus = useCallback(() => {
+    const handleFocus = useCallback((event: any) => {
         setFocused(true);
+        props.onFocus?.(event);
     }, []);
 
-    const handleBlur = useCallback(() => {
+    const handleBlur = useCallback((event: any) => {
         setFocused(false);
+        props.onBlur?.(event);
     }, []);
 
     return (
@@ -77,7 +79,7 @@ export function Input({
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 ref={reference}
-                onChange={(event) => props?.onChange(event)}
+                onChange={(event) => props.onChange?.(event)}
             />
             {(rightIcon || status) && !loading && (
                 <div className="bx-form-icon-container bx-form-icon-right">
